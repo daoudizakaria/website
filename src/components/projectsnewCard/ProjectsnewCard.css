@@ -3,11 +3,48 @@
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
   padding: 2rem;
-  cursor: pointer;
   flex: 1 1 25%;
 }
-.projectsnew-card-div:hover {
+
+.projectsnew-card-div.is-clickable {
+  cursor: pointer;
+}
+
+.projectsnew-card-div.is-static {
+  cursor: default;
+}
+
+.projectsnew-card-div.is-clickable:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
+}
+
+.projectsnew-card-body {
+  display: block;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+}
+
+.projectsnew-card-footer {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.projectsnew-link-hint {
+  font-family: "Google Sans Medium";
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.is-clickable .projectsnew-card-body:hover .projectsnew-link-hint {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.projectsnew-no-link-hint {
+  font-family: "Google Sans Regular";
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 .projectsnew-name-div {
@@ -33,9 +70,10 @@
   text-align: left;
   display: -webkit-box;
   font-family: "Google Sans Regular";
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   margin-top: 0.8rem;
+  line-height: 1.5;
 }
 
 .projectsnew-details {

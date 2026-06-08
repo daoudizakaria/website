@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ArticlesCard from "../../components/articlesCard/ArticlesCard";
-import Button from "../../components/button/Button";
 import TopButton from "../../components/topButton/TopButton";
 import { Fade } from "react-reveal";
 import {
-  greeting,
   articlesHeader,
-  articlesHeader1,
-  articles,
-} from "../../portfolio.js";
+  getResearchArticleList,
+} from "../../content/research/researchContent.js";
 import "./Articles.css";
 import BlogsImg from "./BlogsImg";
 
@@ -43,16 +40,32 @@ class Articles extends Component {
                 >
                   {articlesHeader["description"]}
                 </p>
+                <p
+                  className="articles-list-preface subTitle"
+                  style={{ color: theme.secondaryText }}
+                >
+                  Below is a short abstract for each piece; use{" "}
+                  <span className="articles-preface-emphasis">
+                    Read article
+                  </span>{" "}
+                  to open the full note.
+                </p>
               </div>
             </div>
           </Fade>
         </div>
-        {/* Publications  */}
-
+        <div className="articles-list-section">
+          <h2
+            className="articles-list-section-title"
+            style={{ color: theme.text }}
+          >
+            Articles & notes
+          </h2>
+        </div>
         <div className="repo-cards-div-main">
-          {articles.data.map((pub) => {
-            return <ArticlesCard pub={pub} theme={theme} />;
-          })}
+          {getResearchArticleList().map((pub) => (
+            <ArticlesCard key={pub.id} pub={pub} theme={theme} />
+          ))}
         </div>
 
         <Footer theme={this.props.theme} onToggle={this.props.onToggle} />

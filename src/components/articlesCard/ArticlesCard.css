@@ -10,22 +10,45 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
 }
 
-.articles-name-div {
-  display: flex;
-  align-items: center;
+.articles-card-link {
+  display: block;
+  text-decoration: none;
+  text-align: left;
+  color: inherit;
 }
 
-.articles-name {
+.articles-card-link:hover .articles-read-cta {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.articles-card-date {
+  display: block;
+  font-family: "Google Sans Regular";
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.65rem;
+}
+
+.articles-card-title {
   text-align: left;
   color: rgb(36, 41, 46);
+  font-family: "Google Sans Medium";
+  margin: 0 0 0.65rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.articles-abstract-label {
+  margin: 0 0 0.35rem;
   font-family: "Google Sans Regular";
-  margin-bottom: 0.75rem;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  overflow: hidden;
-  line-height: 1.2;
-  margin: 0px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .articles-description {
@@ -33,22 +56,19 @@
   text-align: left;
   display: -webkit-box;
   font-family: "Google Sans Regular";
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  margin-top: 0.8rem;
+  margin: 0 0 1rem;
+  line-height: 1.55;
+  font-size: 1rem;
 }
 
-.articles-details {
-  display: flex;
-  flex-direction: row;
-}
-
-.articles-creation-date {
-  margin: 0;
-  font-family: "Google Sans Regular";
-  font-weight: 400;
-  margin-left: 0px;
-  margin-right: auto;
+.articles-read-cta {
+  display: inline-block;
+  font-family: "Google Sans Medium";
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 @media (max-width: 1200px) {
@@ -62,19 +82,16 @@
     flex: 1 1 100%;
   }
 
-  .articles-name {
-    font-size: 16px;
+  .articles-card-title {
+    font-size: 1.1rem;
   }
 
   .articles-description {
-    font-size: 14px;
+    font-size: 0.92rem;
+    -webkit-line-clamp: 5;
   }
 
-  .articles-details {
-    flex-direction: column;
-  }
-
-  .articles-creation-date {
-    font-size: 14px;
+  .articles-card-date {
+    font-size: 0.82rem;
   }
 }

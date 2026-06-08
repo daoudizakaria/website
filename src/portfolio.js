@@ -13,7 +13,7 @@ const seo = {
   og: {
     title: "Zakaria Daoudi Portfolio",
     type: "website",
-    url: "http://zakariadaoudi.com/",
+    url: "https://www.zakariadaoudi.com/",
   },
 };
 
@@ -22,10 +22,10 @@ const greeting = {
   title: "Zakaria Daoudi",
   logo_name: "Zakaria Daoudi",
   subTitle:
-   "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing, -helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
+    "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing, -helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
   resumeLink:
     "https://drive.google.com/file/d/19hTmIySzPJ73mrYQ2VlT8Tk2HBAiPBbD/view?usp=sharing",
-  portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
+  portfolio_repository: "https://github.com/daoudizakaria/website",
   githubProfile: "https://github.com/daoudizakaria",
 };
 
@@ -74,11 +74,11 @@ const skills = {
       fileName: "FullStackImg",
       skills: [
         "⚡ Help Organizations tackling challenges in Physics, Mathematics, and Enginnering",
+        "⚡ Subject Matter Expert in Physics and Mathematics",
         "⚡ Design and Develop analytical models and apply rigouros methods to solve industry problems",
         "⚡ Complex quantitative modelling for dynamic forecasting and time series analysis",
       ],
-      softwareSkills: [
-      ],
+      softwareSkills: [],
     },
     {
       title: "Data Science & AI",
@@ -163,19 +163,18 @@ const skills = {
         "⚡ Curriculum Development",
         "⚡ Educational Content Creation",
       ],
-      softwareSkills: [
-      ],
+      softwareSkills: [],
     },
     {
-      title: "Science Proofreading & Translating Services in English, French, and Arabic",
+      title:
+        "Science Proofreading & Translating Services in English, French, and Arabic",
       fileName: "DesignImg",
       skills: [
         "⚡ Proofread Scientific and Technical Content",
         "⚡ Translate content from and into English, French, and Arabic",
         "⚡ Ensure the content aligns with the client needs",
       ],
-      softwareSkills: [
-      ],
+      softwareSkills: [],
     },
   ],
 };
@@ -189,7 +188,7 @@ const competitiveSites = {
       style: {
         color: "#F79F1B",
       },
-      profileLink: "https://leetcode.com/layman_brother/",
+      profileLink: "",
     },
     {
       siteName: "Codechef",
@@ -197,7 +196,7 @@ const competitiveSites = {
       style: {
         color: "#5B4638",
       },
-      profileLink: "https://www.codechef.com/users/ashutosh_1919",
+      profileLink: "",
     },
     {
       siteName: "Kaggle",
@@ -205,7 +204,7 @@ const competitiveSites = {
       style: {
         color: "#20BEFF",
       },
-      profileLink: "https://www.kaggle.com/laymanbrother",
+      profileLink: "",
     },
   ],
 };
@@ -319,7 +318,7 @@ const certifications = {
 const experience = {
   title: "Experience",
   subtitle: "Work, Internship and Volunteership",
-  description:  
+  description:
     "I have worked with many evolving startups and successfull companies as a Physicist, Mathematician, Data Scientist, or Scientific Consultor/Advisor. The contracts were either a freelancing contract or a remote contract.",
   header_image_path: "experience.svg",
   sections: [
@@ -330,7 +329,7 @@ const experience = {
         {
           title: "AI Training and Subject Matter Expert",
           company: "Mercor",
-          company_url: "https://mercor.com//",
+          company_url: "https://mercor.com/",
           logo_path: "mercor_logo.png",
           duration: "May 2023 - Current",
           location: "Remote",
@@ -374,7 +373,7 @@ const experience = {
         {
           title: "AI Training and Subject Matter Expert",
           company: "Outlier AI",
-          company_url: "https://outlier.ai//",
+          company_url: "https://outlier.ai/",
           logo_path: "outlier_logo.png",
           duration: "October 2022 - January 2025",
           location: "Remote",
@@ -407,7 +406,7 @@ const experience = {
       ],
     },
     {
-      title:"Machine Learning Work",
+      title: "Machine Learning Work",
       experiences: [
         {
           title: "Machine Learning Engineer",
@@ -454,8 +453,7 @@ const experience = {
           logo_path: "ccu_logo.png",
           duration: "Jan 2025 - Current",
           location: "Algiers, Algeria",
-          description:
-            "Physics Public Speaker.",
+          description: "Physics Public Speaker.",
           color: "#4285F4",
         },
         {
@@ -487,8 +485,7 @@ const experience = {
           logo_path: "umc_logo.png",
           duration: "Sep 2018 - May 2019",
           location: "Constantine, Algeria",
-          description:
-            "Teacher of Philosophy of Quantum Mechanics for Physics, Mathematics, and Philosophy Students.",
+          description: "Teacher of Philosophy of Quantum Mechanics.",
           color: "#4285F4",
         },
       ],
@@ -517,100 +514,53 @@ const publications = {
       name: "Neuro-Symbolic Sudoku Solver",
       createdAt: "2023-07-02T00:00:00Z",
       description: "Paper published in KDD KiML 2023",
-      url: "https://arxiv.org/abs/2307.00653",
+      url: "",
     },
     {
       id: "mdp-diffusion",
       name: "MDP-Diffusion",
       createdAt: "2023-09-19T00:00:00Z",
       description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
+      url: "",
     },
     {
       id: "consistency-models",
       name: "Consistency Models",
       createdAt: "2023-10-12T00:00:00Z",
       description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
+      url: "",
     },
   ],
 };
-// Projects Page
+// Projects page (grouped listings — see Projectsnew.js)
 const projectsnewHeader = {
   title: "Projects",
-  description: "Here you can find my projects in Physics, Machine Learning, Mathematics.",
+  description:
+    "Work is organized by area: machine learning and data science, physics and engineering, and mathematics. Cards link to external resources when a URL is available.",
 };
 
 const MLHeader = {
   title: "Machine Learning and Data Science",
-  description: "Here you can find my projects in Machine Learning and Data Science",
+  description:
+    "Here you can find my projects in Machine Learning and Data Science",
 };
-
 
 const ML = {
   data: [
     {
-      id: "Breast Cancer Detection",
-      name: "Breast Cancer Detection",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Nuclear Physics Python Code made for my students.",
-      url: "https://github.com/daoudizakaria/Radioactive_Decay",
+      id: "machine-learning-projects",
+      name: "Machine Learning Projects",
+      createdAt: "2024-06-01T00:00:00Z",
+      description:
+        "Collection of Machine Learning projects in Jupyter Notebook",
+      url: "https://github.com/daoudizakaria/Machine-Learning-Projects",
     },
     {
-      id: "Cost Function: a mathematical introduction",
-      name: "Cost Function: a Mathematical Introduction",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
-    },
-    {
-      id: "consistency-models",
-      name: "Heart Attack Detection",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
-    },
-    {
-      id: "Breast Cancer Detection",
-      name: "Crypto Market Detection",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Nuclear Physics Python Code made for my students.",
-      url: "https://github.com/daoudizakaria/Radioactive_Decay",
-    },
-    {
-      id: "Cost Function: a mathematical introduction",
-      name: "Pneumonia Detection",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
-    },
-    {
-      id: "consistency-models",
-      name: "ECG Analysis",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
-    },
-    {
-      id: "Breast Cancer Detection",
-      name: "Climate Change",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Nuclear Physics Python Code made for my students.",
-      url: "https://github.com/daoudizakaria/Radioactive_Decay",
-    },
-    {
-      id: "Cost Function: a mathematical introduction",
-      name: "Earthquakes and Tectonic Plates: Seismic Analysis",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
-    },
-    {
-      id: "consistency-models",
-      name: "Marketing Campain",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
+      id: "youtube-scraper",
+      name: "YouTube Scraper",
+      createdAt: "2024-06-01T00:00:00Z",
+      description: "YouTube scraper for different channel categories",
+      url: "https://github.com/daoudizakaria/YouTube-Scraper",
     },
   ],
 };
@@ -623,46 +573,49 @@ const physicsHeader = {
 const physics = {
   data: [
     {
-      id: "neuro-symbolic-sudoku-solver",
-      name: "Nuclear Physics",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Nuclear Physics Python Code made for my students. The code is available in GitHub.",
+      id: "bfss-model",
+      name: "BFSS Model",
+      createdAt: "2024-06-01T00:00:00Z",
+      description: "Bosonic part of the BFSS Model, written in Fortran 90",
+      url: "https://github.com/daoudizakaria/BFSS_model",
+    },
+    {
+      id: "ising-model",
+      name: "Ising Model",
+      createdAt: "2024-06-01T00:00:00Z",
+      description: "Simulation of the 2D Ising Model",
+      url: "https://github.com/daoudizakaria/Ising-Model",
+    },
+    {
+      id: "radioactive-decay",
+      name: "Radioactive Decay",
+      createdAt: "2024-06-01T00:00:00Z",
+      description: "Simulating Radioactive Decay",
       url: "https://github.com/daoudizakaria/Radioactive_Decay",
     },
     {
-      id: "mdp-diffusion",
-      name: "Ising Model and Monte Carlo Techniques",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
+      id: "theoretical-physics-scraping",
+      name: "Theoretical Physics Scraping",
+      createdAt: "2024-06-01T00:00:00Z",
+      description:
+        "Scraping arXiv to download lecture notes via Python script",
+      url: "https://github.com/daoudizakaria/Theoretical-Physics-Scraping",
     },
     {
-      id: "consistency-models",
-      name: "Bosonic BFSS Model",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
-    },
-    {
-      id: "neuro-symbolic-sudoku-solver",
+      id: "impressed-current-cathodic-protection",
       name: "Impressed Current Cathodic Protection and Pipelines' corrosion",
       createdAt: "2023-07-02T00:00:00Z",
-      description: "Nuclear Physics Python Code made for my students.",
+      description:
+        "Research on impressed current cathodic protection and pipeline corrosion.",
       url: "https://arxiv.org/abs/2307.00653",
     },
     {
-      id: "mdp-diffusion",
+      id: "astronomy-space-magazine",
       name: "Astronomy Section of Space Magazine",
       createdAt: "2023-09-19T00:00:00Z",
       description: "The notes are available in Google Drive.",
-      url: "https://drive.google.com/drive/folders/1M3lyfZqpAA_e-711Qeyv0KJgoqY64TrD?usp=sharing",
-    },
-    {
-      id: "consistency-models",
-      name: "Quantum Information and Quantum Computing",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
+      url:
+        "https://drive.google.com/drive/folders/1M3lyfZqpAA_e-711Qeyv0KJgoqY64TrD?usp=sharing",
     },
   ],
 };
@@ -675,71 +628,87 @@ const mathHeader = {
 const math = {
   data: [
     {
-      id: "neuro-symbolic-sudoku-solver",
+      id: "domi-institute-lecture-notes",
       name: "Lecture Notes in Mathematics for Domi Institute",
       createdAt: "2023-07-02T00:00:00Z",
-      description: "The notes are availble in google drive. The lecture notes are in French.",
-      url: "https://drive.google.com/drive/folders/1Uz3PRJfA5IgBa9RMbYnxo6FB1ayRrM57?usp=sharing",
+      description:
+        "The notes are available in google drive. The lecture notes are in French.",
+      url:
+        "https://drive.google.com/drive/folders/1Uz3PRJfA5IgBa9RMbYnxo6FB1ayRrM57?usp=sharing",
     },
     {
-      id: "mdp-diffusion",
-      name: "Tensor Calculus and Geometry using Mathematica and Matlab",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
-    },
-    {
-      id: "consistency-models",
-      name: "Random Number Generator and Monte Carlo Algorithm",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
-    },
-    {
-      id: "consistency-models",
+      id: "math-worksheets-7-9",
       name: "Math Worksheets for 7-9 grades",
       createdAt: "2023-10-12T00:00:00Z",
-      description: "These workhseets were done for the J.J. Bootcamp.",
-      url: "https://drive.google.com/drive/folders/1r4_8Akmj5j32gnl80Np5MxxqEA5wkpzL?usp=sharing",
+      description: "These worksheets were done for the J.J. Bootcamp.",
+      url:
+        "https://drive.google.com/drive/folders/1r4_8Akmj5j32gnl80Np5MxxqEA5wkpzL?usp=sharing",
     },
     {
-      id: "consistency-models",
+      id: "gre-math-worksheets",
       name: "GRE Math Worksheets",
       createdAt: "2023-10-12T00:00:00Z",
       description: "GRE Math Worksheets",
-      url: "https://drive.google.com/drive/folders/1hchkc0vM3_8ZYB6dylreo8Dfa97A4oD5?usp=sharing",
+      url:
+        "https://drive.google.com/drive/folders/1hchkc0vM3_8ZYB6dylreo8Dfa97A4oD5?usp=sharing",
     },
   ],
 };
 
-// Blog Page
+// Research / articles list page (header copy only; article bodies stay in `articles.data` or `.md`)
 const articlesHeader = {
-  title: "Blog Articles",
-  description: "Here you can find my articles about Physics, Machine Learning, Mathematics.",
+  title: "Research notes",
+  description:
+    "This section gathers longer-form notes, explainers, and technical writing on physics, machine learning, and mathematics. Entries may include informal write-ups as well as more structured articles—each card opens the full text.",
 };
+
+const RESEARCH_DRIVE_FOLDER =
+  "https://drive.google.com/drive/folders/1GniQRAi8pPWagBK4KbeiuCiEyQ16w4II?usp=sharing";
 
 const articles = {
   data: [
     {
-      id: "String Theory and Quantum Gravity",
-      name: "String Theory and Quantum Gravity",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Paper published in Hashnode and Medium",
-      url: "https://arxiv.org/abs/2307.00653",
+      id: "complex-systems",
+      name: "Complex Systems",
+      createdAt: "2024-01-15T00:00:00Z",
+      description: "Research article on Complex Systems",
+      content: `The full paper is available as **Complex_Systems.pdf** in the research folder on Google Drive.
+
+[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
+      resume: RESEARCH_DRIVE_FOLDER,
     },
     {
-      id: "mdp-diffusion",
-      name: "Foundations of Quantum Mechanics",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
+      id: "hawking-radiation-and-universe-expansion",
+      name: "Hawking Radiation and Universe Expansion",
+      createdAt: "2024-02-10T00:00:00Z",
+      description:
+        "Research article on Hawking Radiation and Universe Expansion",
+      content: `The full paper is available as **Hawking_Radiation_and_Universe_Expansion.pdf** in the research folder on Google Drive.
+
+[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
+      resume: RESEARCH_DRIVE_FOLDER,
     },
     {
-      id: "consistency-models",
-      name: "",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
+      id: "literature-review-credit-market-and-statistical-physics",
+      name: "Literature Review: Credit Market and Statistical Physics",
+      createdAt: "2024-03-05T00:00:00Z",
+      description:
+        "Literature review exploring the intersection of credit markets and statistical physics",
+      content: `The full paper is available as **Literature_Review__Credit_Market_and_Statistical_Physics.pdf** in the research folder on Google Drive.
+
+[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
+      resume: RESEARCH_DRIVE_FOLDER,
+    },
+    {
+      id: "quantum-field-theory-general-relativity-and-er-bridge",
+      name: "Quantum Field Theory, General Relativity and ER Bridge",
+      createdAt: "2024-04-20T00:00:00Z",
+      description:
+        "Research article on Quantum Field Theory, General Relativity and the Einstein-Rosen Bridge",
+      content: `The full paper is available as **Quantum_Field_Theory__General_Relativity_and_ER_Bridge.pdf** in the research folder on Google Drive.
+
+[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
+      resume: RESEARCH_DRIVE_FOLDER,
     },
   ],
 };
@@ -761,7 +730,7 @@ const contactPageData = {
     postalCode: "95129",
     streetAddress: "Saratoga Avenue",
     avatar_image_path: "address_image.svg",
-    location_map_link: "https://maps.app.goo.gl/NvYZqa34Wye4tpS17",
+    location_map_link: "",
   },
   phoneSection: {
     title: "",
