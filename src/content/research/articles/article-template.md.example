@@ -1,0 +1,67 @@
+---
+# REQUIRED — must match legacy `articles.data[].id` when migrating (URL: /research/<slug>)
+slug: your-article-slug
+
+# REQUIRED — same as legacy `name`
+title: "Your article title (use quotes if it contains : colons)"
+
+# REQUIRED — publish date; use YYYY-MM-DD or ISO 8601 (maps to `createdAt`)
+date: 2024-01-15
+
+# REQUIRED for cards — same role as legacy `description` (shown on /research list)
+summary: >-
+  One or two sentences for the research index card. Folded YAML (`>-`) strips
+  the single newline; use a blank line in the body for longer abstracts.
+
+# OPTIONAL — YAML list of strings
+tags:
+  - topic-one
+  - topic-two
+
+# OPTIONAL — URL string, or "" (same as legacy `resume`; shown as “View Resume” when non-empty)
+resume: ""
+---
+
+<!--
+  BODY = Markdown + optional KaTeX.
+  Remove this HTML comment block in real articles.
+-->
+
+## Summary / abstract
+
+Short standalone summary for readers (the **summary** in frontmatter is for the card only).
+You can repeat the gist here with **bold**, *italic*, and [external links](https://example.com).
+
+## Section with inline math
+
+The Schrödinger equation often appears as $i\hbar \frac{\partial}{\partial t}\Psi = \hat H \Psi$.
+Use single dollar signs for inline math.
+
+## Display (block) math
+
+Centered mathematics on its own lines:
+
+$$
+\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+$$
+
+## Example table (GitHub-flavored Markdown)
+
+| Symbol | Meaning | Notes |
+| --- | --- | --- |
+| $\hbar$ | reduced Planck constant | inline in cells is OK |
+| $\Psi$ | wavefunction | |
+
+## References
+
+1. Author A. *Title of work.* Journal **Vol**, pages (Year). DOI or URL if allowed.
+2. Author B. *Another reference.* See [arXiv:xxxx.xxxxx](https://arxiv.org/abs/xxxx.xxxxx).
+
+## Notes
+
+> **Note:** Use blockquotes for warnings, conventions, or editorial notes.
+> Keep headings consistent (`##` / `###`) so typography stays uniform.
+
+---
+
+_End of template. Rename to `your-slug.md`, register the import in `researchContent.js`, and remove the matching legacy `articles.data` entry when ready._

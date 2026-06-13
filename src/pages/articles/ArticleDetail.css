@@ -1,0 +1,34 @@
+.article-detail-main {
+  width: 100%;
+}
+
+.article-detail-content {
+  margin: 0 auto 3rem;
+  padding: 0 5%;
+  max-width: 52rem;
+  text-align: left;
+}
+
+.article-detail-content > h1 {
+  font-family: "Google Sans Medium", BlinkMacSystemFont, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-body {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .article-detail-content {
+    padding: 0 16px;
+  }
+
+  .article-detail-content > h1 {
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
+  }
+}

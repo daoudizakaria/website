@@ -1,0 +1,39 @@
+# Alternate Decap config — Netlify Git Gateway (not used on GitHub Pages).
+# See config.yml for the active GitHub backend setup.
+
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+
+media_folder: public/uploads/research
+public_path: /uploads/research
+
+collections:
+  - name: research_articles
+    label: Research Articles
+    label_singular: Research Article
+    folder: src/content/research/articles
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: slug
+    summary: "{{summary}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Title, name: title, widget: string }
+      - {
+          label: Date,
+          name: date,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+        }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Tags, name: tags, widget: list, required: false, default: [] }
+      - { label: Resume URL, name: resume, widget: string, required: false, default: "" }
+      - { label: Body, name: body, widget: markdown }

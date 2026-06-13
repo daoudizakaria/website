@@ -1,0 +1,71 @@
+# Decap CMS — Research articles (GitHub backend for GitHub Pages)
+# Production login: deploy an OAuth proxy and set base_url + auth_endpoint below.
+# Local editing: npm run cms:dev (decap-server) — no GitHub login on localhost.
+
+local_backend: true
+
+backend:
+  name: github
+  repo: daoudizakaria/website
+  branch: main
+  # After deploying an OAuth proxy (see DECAP_CMS_SETUP.md), uncomment and set:
+  # base_url: https://your-oauth-proxy.example.com
+  # auth_endpoint: auth
+
+publish_mode: simple
+
+media_folder: public/uploads/research
+public_path: /uploads/research
+
+collections:
+  - name: research_articles
+    label: Research Articles
+    label_singular: Research Article
+    folder: src/content/research/articles
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: slug
+    summary: "{{summary}}"
+    sortable_fields:
+      fields: [title, date, slug]
+      default: { field: date, direction: descending }
+    editor:
+      preview: true
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+        hint: URL path /research/<slug> — lowercase letters, numbers, hyphens only
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers, and hyphens (e.g. quantum-gravity-notes)"
+      - label: Title
+        name: title
+        widget: string
+      - label: Date
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        default: ""
+      - label: Summary
+        name: summary
+        widget: text
+        hint: Short abstract shown on the Research index card
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        default: []
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Body
+        name: body
+        widget: markdown
+        hint: >-
+          Markdown with optional KaTeX: inline $E=mc^2$, display $$\\int_0^1 x\\,dx$$,
+          GFM tables, and headings.

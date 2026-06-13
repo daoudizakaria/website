@@ -1,0 +1,139 @@
+/* Scoped typography for article bodies (Markdown → HTML). */
+.markdown-content {
+  font-family: inherit;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.markdown-content > *:first-child {
+  margin-top: 0;
+}
+
+.markdown-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content p {
+  margin: 0 0 1em;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  font-family: "Google Sans Medium", BlinkMacSystemFont, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 1.5em 0 0.65em;
+}
+
+.markdown-content h1 {
+  font-size: 1.65rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.4rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.2rem;
+}
+
+.markdown-content h4 {
+  font-size: 1.08rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0 0 1em;
+  padding-left: 1.35em;
+}
+
+.markdown-content li {
+  margin: 0.35em 0;
+}
+
+.markdown-content blockquote {
+  margin: 1em 0;
+  padding: 0.35em 0 0.35em 1em;
+  border-left: 4px solid rgba(0, 0, 0, 0.12);
+  opacity: 0.95;
+}
+
+.markdown-content hr {
+  margin: 2em 0;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.markdown-content a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown-content a:hover {
+  opacity: 0.88;
+}
+
+/* Inline & fenced code */
+.markdown-content code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    monospace;
+  font-size: 0.92em;
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.markdown-content pre {
+  margin: 1.1em 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.06);
+  line-height: 1.45;
+}
+
+.markdown-content pre code {
+  padding: 0;
+  background: none;
+  font-size: 0.88em;
+}
+
+/* GFM tables */
+.markdown-content table {
+  width: 100%;
+  margin: 1.1em 0;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+.markdown-content th {
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* KaTeX: scroll wide equations on small screens */
+.markdown-content .katex-display {
+  margin: 1.1em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.15em;
+}
+
+.markdown-content .katex {
+  font-size: 1.05em;
+}

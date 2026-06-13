@@ -1,0 +1,39 @@
+.research-cms-preview {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.6;
+  padding: 1rem;
+  max-width: 48rem;
+}
+
+.research-cms-preview h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+}
+
+.research-cms-preview .cms-summary {
+  color: #555;
+  margin: 0 0 1.25rem;
+}
+
+.research-cms-preview .cms-body h2,
+.research-cms-preview .cms-body h3 {
+  margin-top: 1.25rem;
+}
+
+.research-cms-preview .cms-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.research-cms-preview .cms-body th,
+.research-cms-preview .cms-body td {
+  border: 1px solid #ccc;
+  padding: 0.35rem 0.5rem;
+}
+
+.research-cms-preview .katex-display {
+  margin: 1rem 0;
+  overflow-x: auto;
+}
