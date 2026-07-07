@@ -29,8 +29,10 @@ collections:
     identifier_field: slug
     summary: "{{summary}}"
     sortable_fields:
-      fields: [title, date, slug]
-      default: { field: date, direction: descending }
+      - title
+      - field: date
+        default_sort: desc
+      - slug
     editor:
       preview: true
     fields:
@@ -59,10 +61,6 @@ collections:
         widget: list
         required: false
         default: []
-        field:
-          label: Tag
-          name: tag
-          widget: string
       - label: Body
         name: body
         widget: markdown
