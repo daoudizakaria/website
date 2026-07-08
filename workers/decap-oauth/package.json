@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "decap-oauth-worker",
+  "version": "1.0.0",
+  "description": "GitHub OAuth gateway for Decap CMS on GitHub Pages (Cloudflare Worker)",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}
