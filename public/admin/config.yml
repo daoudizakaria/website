@@ -2,15 +2,14 @@
 # Production login: deploy an OAuth proxy and set base_url + auth_endpoint below.
 # Local editing: npm run cms:dev (decap-server) — no GitHub login on localhost.
 
-local_backend: true
+# local_backend: true
 
 backend:
   name: github
   repo: daoudizakaria/website
   branch: main
-  # After deploying an OAuth proxy (see DECAP_CMS_SETUP.md), uncomment and set:
-  # base_url: https://your-oauth-proxy.example.com
-  # auth_endpoint: auth
+  base_url: https://decap-oauth.meriemalime.workers.dev
+  auth_endpoint: auth
 
 publish_mode: simple
 

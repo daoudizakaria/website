@@ -6,7 +6,7 @@ main = "index.ts"
 compatibility_date = "2023-11-11"
 
 # Replace with your Cloudflare account ID before deploy (`wrangler whoami`).
-account_id = "REPLACE_WITH_CLOUDFLARE_ACCOUNT_ID"
+account_id = "fa67e8cf12f9afbb60cd731d3bd602f9"
 
 workers_dev = true
 

@@ -13,14 +13,14 @@ Based on [ottmartens/decap-cms-github-oauth-provider-cloudflare](https://github.
 
 ## Secrets (not in repo)
 
-Set on the Worker after deploy — never commit values:
+Credentials are read from the Worker `env` bindings (`env.CLIENT_ID`, `env.CLIENT_SECRET` in `index.ts`). Set them after deploy — never commit values:
 
 ```bash
 wrangler secret put CLIENT_ID      # GitHub OAuth App Client ID
 wrangler secret put CLIENT_SECRET  # GitHub OAuth App Client Secret
 ```
 
-For local development only, you may use a `.dev.vars` file (gitignored):
+For local development only, you may use a `.dev.vars` file (gitignored). Wrangler injects these into `env` automatically:
 
 ```
 CLIENT_ID=...

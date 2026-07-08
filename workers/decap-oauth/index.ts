@@ -11,29 +11,33 @@
 
 import decapCMSLoginScript from './decap-cms-login-script';
 
-addEventListener('fetch', (event: FetchEvent) => {
-  event.respondWith(handle(event.request));
-});
-
 /**
- * GitHub OAuth App credentials.
+ * Runtime bindings for this Worker.
  *
- * These are NOT stored in this repository. After deploying the Worker, set them
- * as encrypted Cloudflare Worker secrets (never commit values):
+ * CLIENT_ID and CLIENT_SECRET are NOT stored in this repository. They are
+ * injected by Cloudflare on each request via the `env` parameter:
  *
- *   wrangler secret put CLIENT_ID
- *   wrangler secret put CLIENT_SECRET
+ *   Production: wrangler secret put CLIENT_ID
+ *               wrangler secret put CLIENT_SECRET
  *
- * CLIENT_ID     — from the GitHub OAuth App settings (public; also used in /auth redirect).
- * CLIENT_SECRET — from the GitHub OAuth App settings; used only server-side in /callback
- *                 when exchanging the authorization code for an access token.
+ *   Local dev:  .dev.vars file (gitignored) with the same variable names.
+ *
+ * CLIENT_ID     — GitHub OAuth App Client ID (used in /auth redirect).
+ * CLIENT_SECRET — GitHub OAuth App Client Secret (used only server-side in
+ *                 /callback when exchanging the authorization code for a token).
  */
-// @ts-expect-error Injected at runtime by Cloudflare from Worker secrets (see above).
-const client_id = CLIENT_ID;
-// @ts-expect-error Injected at runtime by Cloudflare from Worker secrets (see above).
-const client_secret = CLIENT_SECRET;
+export interface Env {
+  CLIENT_ID: string;
+  CLIENT_SECRET: string;
+}
 
-async function handle(request: Request): Promise<Response> {
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    return handle(request, env);
+  },
+};
+
+async function handle(request: Request, env: Env): Promise<Response> {
   const { pathname, searchParams } = new URL(request.url);
 
   switch (pathname) {
@@ -48,7 +52,7 @@ async function handle(request: Request): Promise<Response> {
      * must point at this Worker's /callback route.
      */
     case '/auth':
-      return redirectToAuthFlow();
+      return redirectToAuthFlow(env);
 
     /**
      * GET /callback?code=...
@@ -60,7 +64,7 @@ async function handle(request: Request): Promise<Response> {
      *      to the Decap CMS admin window that opened the popup.
      */
     case '/callback':
-      return fetchAccessToken(searchParams);
+      return fetchAccessToken(searchParams, env);
 
     default:
       return new Response('Not found', { status: 404 });
@@ -73,12 +77,14 @@ async function handle(request: Request): Promise<Response> {
  * Token exchange happens here via POST to GitHub's token endpoint:
  *   https://github.com/login/oauth/access_token
  *
- * The request body includes client_id, client_secret (from Worker secrets), and
- * the one-time `code` from the /callback query string. GitHub returns JSON with
- * access_token, which is passed to the Decap login script (never logged or stored
- * by this Worker).
+ * The request body includes env.CLIENT_ID, env.CLIENT_SECRET, and the one-time
+ * `code` from the /callback query string. GitHub returns JSON with access_token,
+ * which is passed to the Decap login script (never logged or stored by this Worker).
  */
-async function fetchAccessToken(requestParams: URLSearchParams): Promise<Response> {
+async function fetchAccessToken(
+  requestParams: URLSearchParams,
+  env: Env
+): Promise<Response> {
   try {
     const code = requestParams.get('code');
 
@@ -93,7 +99,11 @@ async function fetchAccessToken(requestParams: URLSearchParams): Promise<Respons
         'user-agent': 'decap-cms-github-oauth-api-cloudflare',
         accept: 'application/json',
       },
-      body: JSON.stringify({ client_id, client_secret, code }),
+      body: JSON.stringify({
+        client_id: env.CLIENT_ID,
+        client_secret: env.CLIENT_SECRET,
+        code,
+      }),
     }).then((res) => res.json());
 
     const loginResponse = decapCMSLoginScript(response.access_token);
@@ -112,9 +122,9 @@ async function fetchAccessToken(requestParams: URLSearchParams): Promise<Respons
 }
 
 /** Redirects the popup to GitHub's OAuth authorize URL (scope: repo + user). */
-function redirectToAuthFlow(): Response {
+function redirectToAuthFlow(env: Env): Response {
   return Response.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=repo,user`,
+    `https://github.com/login/oauth/authorize?client_id=${env.CLIENT_ID}&scope=repo,user`,
     302
   );
 }
