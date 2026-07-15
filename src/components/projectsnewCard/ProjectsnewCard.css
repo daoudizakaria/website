@@ -1,9 +1,44 @@
 .projectsnew-card-div {
-  color: rgb(88, 96, 105);
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
-  padding: 2rem;
-  flex: 1 1 25%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--text-secondary);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  background-image: var(--glass-bg) !important;
+  background-color: rgba(18, 44, 73, 0.72) !important;
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem 1.85rem 1.75rem;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.projectsnew-card-div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.12) 0%,
+    transparent 42%,
+    rgba(125, 211, 252, 0.06) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.projectsnew-card-div > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
 }
 
 .projectsnew-card-div.is-clickable {
@@ -15,36 +50,24 @@
 }
 
 .projectsnew-card-div.is-clickable:hover {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
+}
+
+.projectsnew-card-div.is-clickable:focus-within {
+  outline: 2px solid rgba(96, 165, 250, 0.55);
+  outline-offset: 3px;
 }
 
 .projectsnew-card-body {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
   text-align: left;
   text-decoration: none;
   color: inherit;
-}
-
-.projectsnew-card-footer {
-  margin-top: 1rem;
-  text-align: left;
-}
-
-.projectsnew-link-hint {
-  font-family: "Google Sans Medium";
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.is-clickable .projectsnew-card-body:hover .projectsnew-link-hint {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.projectsnew-no-link-hint {
-  font-family: "Google Sans Regular";
-  font-size: 0.9rem;
-  font-style: italic;
 }
 
 .projectsnew-name-div {
@@ -54,15 +77,14 @@
 
 .projectsnew-name {
   text-align: left;
-  color: rgb(36, 41, 46);
-  font-family: "Google Sans Regular";
-  margin-bottom: 0.75rem;
-  font-size: 25px;
+  color: var(--text-primary) !important;
+  font-family: "Google Sans Medium";
+  font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+  margin: 0 0 0.85rem;
   overflow: hidden;
-  line-height: 1.2;
-  margin: 0px;
 }
 
 .projectsnew-description {
@@ -72,47 +94,113 @@
   font-family: "Google Sans Regular";
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  margin-top: 0.8rem;
-  line-height: 1.5;
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  font-size: 0.98rem;
+  max-height: calc(1.6em * 3);
+  flex: 1 1 auto;
+  color: var(--text-secondary) !important;
 }
 
 .projectsnew-details {
   display: flex;
   flex-direction: row;
+  margin-top: 0.25rem;
 }
 
 .projectsnew-creation-date {
   margin: 0;
   font-family: "Google Sans Regular";
   font-weight: 400;
-  margin-left: 0px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted) !important;
+  margin-left: 0;
   margin-right: auto;
 }
 
-@media (max-width: 1200px) {
-  .projectsnew-card-div {
-    flex: 1 1 40%;
-  }
+.projectsnew-card-footer {
+  margin-top: auto;
+  padding-top: 1.15rem;
+  text-align: left;
+}
+
+.projectsnew-link-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.25),
+    rgba(96, 165, 250, 0.12)
+  );
+  font-family: "Google Sans Medium";
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--accent-soft) !important;
+  transition: background 0.22s ease, border-color 0.22s ease,
+    box-shadow 0.22s ease, color 0.22s ease;
+}
+
+.projectsnew-link-hint-arrow {
+  display: inline-block;
+  transition: transform 0.22s ease;
+}
+
+.is-clickable .projectsnew-card-body:hover .projectsnew-link-hint,
+.is-clickable .projectsnew-card-body:focus-visible .projectsnew-link-hint {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.45),
+    rgba(125, 211, 252, 0.2)
+  );
+  border-color: rgba(125, 211, 252, 0.55);
+  color: var(--accent-hover) !important;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+}
+
+.is-clickable .projectsnew-card-body:hover .projectsnew-link-hint-arrow,
+.is-clickable
+  .projectsnew-card-body:focus-visible
+  .projectsnew-link-hint-arrow {
+  transform: translateX(4px);
+}
+
+.projectsnew-no-link-hint {
+  font-family: "Google Sans Regular";
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--text-muted) !important;
 }
 
 @media (max-width: 768px) {
   .projectsnew-card-div {
-    flex: 1 1 100%;
+    padding: 1.55rem 1.35rem 1.4rem;
+    border-radius: 20px;
   }
 
   .projectsnew-name {
-    font-size: 16px;
+    font-size: 1.2rem;
   }
 
   .projectsnew-description {
-    font-size: 14px;
+    font-size: 0.92rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectsnew-card-div,
+  .projectsnew-link-hint,
+  .projectsnew-link-hint-arrow {
+    transition: none;
   }
 
-  .projectsnew-details {
-    flex-direction: column;
-  }
-
-  .projectsnew-creation-date {
-    font-size: 14px;
+  .projectsnew-card-div.is-clickable:hover {
+    transform: none;
   }
 }

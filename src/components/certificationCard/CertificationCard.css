@@ -4,11 +4,21 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px solid #d9dbdf;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #d9dbdf;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  background: rgba(18, 44, 73, 0.55);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
   margin-bottom: 30px;
   flex: 0 0 30%;
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
 }
 
 .cert-header {
@@ -35,7 +45,7 @@
 .cert-body-subtitle {
   font-family: "Google Sans Regular";
   font-size: 18px;
-  color: #808080;
+  color: var(--text-muted);
   margin: 10px;
 }
 

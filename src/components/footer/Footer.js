@@ -1,17 +1,23 @@
 import React from "react";
 import "./Footer.css";
 import { Fade } from "react-reveal";
-import { greeting } from "../../portfolio.js";
-/* eslint-disable jsx-a11y/accessible-emoji */
 
 export default function Footer(props) {
   return (
     <div className="footer-div">
       <Fade>
-        <p className="footer-text" style={{ color: props.theme.secondaryText }}>
-          Made with <span role="img">❤️</span> by {greeting.title}
-        </p>
-        {/* <ToggleSwitch theme={props.theme} onToggle={props.onToggle}/> */}
+        <footer
+          className="site-footer"
+          style={{ color: props.theme.secondaryText }}
+        >
+          <p className="footer-copyright">© 2026 Zakaria Daoudi</p>
+          <p className="footer-domains">
+            Computational Physics • Research • Software
+          </p>
+          <p className="footer-tagline">
+            Designed for research, education, and scientific communication.
+          </p>
+        </footer>
       </Fade>
     </div>
   );

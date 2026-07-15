@@ -41,7 +41,10 @@ export default function ProjectsnewCard({ pub, theme }) {
             className="projectsnew-link-hint"
             style={{ color: theme.imageHighlight }}
           >
-            Open resource →
+            Open resource
+            <span className="projectsnew-link-hint-arrow" aria-hidden="true">
+              →
+            </span>
           </span>
         ) : (
           <span

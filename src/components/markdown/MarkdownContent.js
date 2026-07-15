@@ -23,6 +23,25 @@ function isProbablyExternalHref(href) {
 }
 
 /**
+ * CRA sets PUBLIC_URL from package.json "homepage" (e.g. "/website" on GitHub Pages).
+ * Markdown authored with site-root paths like /uploads/... must be remapped so assets
+ * resolve under that basename locally and in production.
+ */
+function withPublicUrl(path) {
+  if (!path || typeof path !== "string") {
+    return path;
+  }
+  if (!path.startsWith("/uploads")) {
+    return path;
+  }
+  const publicUrl = (process.env.PUBLIC_URL || "").replace(/\/$/, "");
+  if (!publicUrl || path === publicUrl || path.startsWith(`${publicUrl}/`)) {
+    return path;
+  }
+  return `${publicUrl}${path}`;
+}
+
+/**
  * Renders Markdown with GitHub-flavored Markdown (tables, strikethrough, etc.),
  * plus KaTeX for `$inline$` and `$$display$$` math via remark-math + rehype-katex.
  *
@@ -36,6 +55,19 @@ export default function MarkdownContent({ markdown, className = "" }) {
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}
         components={{
+          img: ({ src, alt, title, ...props }) => (
+            <span className="markdown-image">
+              <img
+                {...props}
+                src={withPublicUrl(src)}
+                alt={alt || ""}
+                title={title}
+              />
+              {title ? (
+                <em className="markdown-image-caption">{title}</em>
+              ) : null}
+            </span>
+          ),
           a: ({ children, ...props }) =>
             isProbablyExternalHref(props.href) ? (
               <a {...props} target="_blank" rel="noopener noreferrer">

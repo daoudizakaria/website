@@ -1,16 +1,17 @@
 // theme.js
+/* Active portfolio look: dark academic palette (CERN / NASA / Linear-inspired). */
 export const blueTheme = {
-  body: "#EDF9FE",
-  text: "#001C55",
-  expTxtColor: "#000a12",
-  highlight: "#A6E1FA",
-  dark: "#00072D",
-  secondaryText: "#7F8DAA",
-  imageHighlight: "#0E6BA8",
-  compImgHighlight: "#E6E6E6",
-  jacketColor: "#0A2472",
-  headerColor: "#0E6BA877",
-  splashBg: "#001C55",
+  body: "#07111F",
+  text: "#F8FAFC",
+  expTxtColor: "#E2E8F0",
+  highlight: "#122C49",
+  dark: "#040B14",
+  secondaryText: "#CBD5E1",
+  imageHighlight: "#60A5FA",
+  compImgHighlight: "#1E3A5F",
+  jacketColor: "#3B82F6",
+  headerColor: "rgba(23, 56, 93, 0.72)",
+  splashBg: "#07111F",
 };
 
 export const brownTheme = {

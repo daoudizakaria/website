@@ -16,7 +16,7 @@ const LogoLoader = ({ theme }) => (
       dominantBaseline="middle"
       fontSize="42"
       fontFamily="'Courier New', Courier, monospace"
-      fill={theme?.body || "#000"}
+      fill="#F8FAFC"
     >
       Zakaria Daoudi
     </text>
@@ -28,7 +28,7 @@ const LogoLoader = ({ theme }) => (
       textAnchor="middle"
       fontSize="16"
       fontFamily="Georgia, serif"
-      fill={theme?.body || "#66"}
+      fill="#E0F2FE"
     >
       Powered by Physics, Mathematics, Machine Learning, and a lot of coffee!
     </text>

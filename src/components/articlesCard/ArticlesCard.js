@@ -41,7 +41,10 @@ export default function ArticlesCard({ pub, theme }) {
             className="articles-read-cta"
             style={{ color: theme.imageHighlight }}
           >
-            Read article →
+            Read article
+            <span className="articles-read-cta-arrow" aria-hidden="true">
+              →
+            </span>
           </span>
         </Link>
       </Fade>

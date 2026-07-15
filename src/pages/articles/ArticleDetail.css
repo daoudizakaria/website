@@ -3,32 +3,99 @@
 }
 
 .article-detail-content {
-  margin: 0 auto 3rem;
+  margin: 0 auto 4rem;
   padding: 0 5%;
-  max-width: 52rem;
+  max-width: 60rem;
   text-align: left;
 }
 
 .article-detail-content > h1 {
   font-family: "Google Sans Medium", BlinkMacSystemFont, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   line-height: 1.2;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.article-detail-content > .subTitle {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
 .article-body {
-  margin-top: 1.25rem;
+  margin-top: 1.75rem;
+  padding: 1.75rem 1.85rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 44, 73, 0.55) 0%,
+    rgba(12, 32, 56, 0.4) 100%
+  );
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+}
+
+.article-detail-content a[href$=".pdf"],
+.article-detail-content a[href*="resume"],
+.article-detail-content > p > a[target="_blank"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: "Google Sans Medium";
+  font-weight: 600;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.28),
+    rgba(96, 165, 250, 0.12)
+  );
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.article-detail-content > p > a[target="_blank"]:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125, 211, 252, 0.65);
+  box-shadow: 0 14px 30px rgba(59, 130, 246, 0.28);
+}
+
+@media (max-width: 1100px) {
+  .article-detail-content {
+    max-width: 56rem;
+  }
 }
 
 @media (max-width: 768px) {
   .article-detail-content {
     padding: 0 16px;
+    max-width: 100%;
   }
 
   .article-detail-content > h1 {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     margin-top: 1.25rem;
+  }
+
+  .article-body {
+    padding: 1.25rem 1.1rem;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-detail-content > p > a[target="_blank"] {
+    transition: none;
+  }
+
+  .article-detail-content > p > a[target="_blank"]:hover {
+    transform: none;
   }
 }

@@ -1,43 +1,59 @@
 .main-button {
-  background-color: #55198b;
-  border: solid 1px #55198b;
-  color: white;
-  font-weight: 500;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid rgba(248, 250, 252, 0.85);
+  color: #07111f;
+  font-weight: 600;
   line-height: 1.1;
   width: max-content;
-  padding: 13px 22px;
-  margin-right: 0px;
-  /* text-transform: uppercase; */
-  border-radius: 6px;
+  padding: 14px 24px;
+  margin-right: 0;
+  border-radius: 999px;
   text-align: center;
   text-decoration: none;
-  font-family: "Google Sans Regular";
-  display: block;
+  font-family: "Google Sans Medium";
+  display: inline-block;
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  letter-spacing: 2px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease,
+    border-color 0.22s ease, color 0.22s ease;
 }
-.main-button:hover {
-  /* background-color: #ffffff; */
-  /* color: black; */
-  transition: ease-in 0.3s;
+
+.main-button:hover,
+.main-button:focus-visible {
+  color: #04101a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(59, 130, 246, 0.3);
+  border-color: rgba(125, 211, 252, 0.65);
 }
+
 .project-button {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-/* Media Query */
+
 @media (max-width: 768px) {
   .main-button {
-    font-size: 15px;
+    font-size: 14px;
     padding: 12px 18px;
-    margin-right: 0px;
   }
 }
+
 @media (max-width: 320px) {
   .main-button {
     font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-button {
+    transition: none;
+  }
+
+  .main-button:hover {
+    transform: none;
   }
 }

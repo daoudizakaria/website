@@ -121,13 +121,14 @@
 }
 
 .repo-cards-div-main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
   margin-left: 40px;
   margin-right: 40px;
-  margin-top: 60px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 1380px) {
@@ -139,6 +140,15 @@
   }
   .projectsnew-heading-sub-text {
     font-size: 25px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .repo-cards-div-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-left: 28px;
+    margin-right: 28px;
   }
 }
 
@@ -184,9 +194,10 @@
   }
 
   .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 30px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 1.25rem;
   }
 }
