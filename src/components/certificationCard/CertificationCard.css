@@ -116,8 +116,12 @@
 
 @media (max-width: 768px) {
   .cert-card {
-    width: 100%;
-    margin-bottom: 1rem;
+    /* ~18% narrower than full bleed, centered floating card */
+    width: 82%;
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
     box-sizing: border-box;
   }
 }

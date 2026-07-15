@@ -49,7 +49,13 @@
 }
 
 @media (max-width: 768px) {
+  /* Accordion lives outside .basic-experience — apply own floating gutter */
   .experience-accord {
-    margin: 0.75rem 0;
+    margin: 0.75rem 1rem;
+  }
+
+  .experience-accord button,
+  .experience-accord [role="button"] {
+    margin-bottom: 0.85rem !important;
   }
 }

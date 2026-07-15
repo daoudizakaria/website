@@ -1,22 +1,11 @@
 import React from "react";
 import "./Button.css";
 
-const onMouseEnter = (event, color, bgColor) => {
-  const el = event.target;
-  el.style.color = color;
-  el.style.backgroundColor = bgColor;
-};
-
-const onMouseOut = (event, color, bgColor) => {
-  const el = event.target;
-  el.style.color = color;
-  el.style.backgroundColor = bgColor;
-};
-
-/** High-contrast label on light button surfaces (never white-on-white on hover). */
+/** High-contrast label on soft light-blue button surfaces. */
 const BUTTON_TEXT = "#04101A";
+const BUTTON_BORDER = "rgba(147, 197, 253, 0.55)";
 
-export default function Button({ text, className, href, newTab, theme }) {
+export default function Button({ text, className, href, newTab }) {
   return (
     <div className={className}>
       <a
@@ -25,11 +14,8 @@ export default function Button({ text, className, href, newTab, theme }) {
         target={newTab && "_blank"}
         style={{
           color: BUTTON_TEXT,
-          backgroundColor: theme.text,
-          border: `solid 1px ${theme.text}`,
+          border: `solid 1px ${BUTTON_BORDER}`,
         }}
-        onMouseEnter={(event) => onMouseEnter(event, BUTTON_TEXT, "#FFFFFF")}
-        onMouseOut={(event) => onMouseOut(event, BUTTON_TEXT, theme.text)}
       >
         {text}
       </a>

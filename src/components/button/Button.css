@@ -1,7 +1,7 @@
 .main-button {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border: 1px solid rgba(248, 250, 252, 0.85);
-  color: #07111f;
+  background: linear-gradient(135deg, #eef6ff 0%, #dceeff 48%, #c9e4ff 100%);
+  border: 1px solid rgba(147, 197, 253, 0.55);
+  color: #04101a;
   font-weight: 600;
   line-height: 1.1;
   width: max-content;
@@ -24,9 +24,15 @@
 .main-button:hover,
 .main-button:focus-visible {
   color: #04101a !important;
+  background: linear-gradient(
+    135deg,
+    #f5faff 0%,
+    #e7f3ff 48%,
+    #d4ebff 100%
+  ) !important;
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(59, 130, 246, 0.3);
-  border-color: rgba(125, 211, 252, 0.65);
+  border-color: rgba(125, 211, 252, 0.75);
 }
 
 .project-button {

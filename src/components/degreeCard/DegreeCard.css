@@ -131,7 +131,7 @@
 
   .body-header {
     flex-direction: column;
-    padding: 0.85rem 0.5rem;
+    padding: 0.85rem 0.85rem;
   }
 
   .body-header-title {
@@ -156,25 +156,32 @@
 
   .card-body {
     width: 100% !important;
-    margin: 0 0 1rem;
+    margin: 0 0 1.15rem;
   }
 
   .body-content {
-    /* Modest inner pad so .content-list ≥ ~90vw after .main fix */
-    padding: 0.85rem 0.5rem 1rem;
+    padding: 0.75rem 0.85rem 0.9rem;
   }
 
   .content-list {
     padding-left: 0;
     padding-right: 0;
+    font-size: 0.93rem;
+    line-height: 1.45;
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
   }
 
   .card-title {
-    font-size: 20px;
+    font-size: 1.15rem;
+    line-height: 1.3;
   }
 
   .card-subtitle {
-    font-size: 16px;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    margin-top: 0.35rem;
+    margin-bottom: 0.25rem;
   }
 
   .visit-btn {

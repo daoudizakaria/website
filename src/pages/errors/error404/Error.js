@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 export default class Error extends Component {
   render() {
-    const theme = this.props.theme;
     return (
       <div className="error-main">
         <Header theme={this.props.theme} />
@@ -21,9 +20,8 @@ export default class Error extends Component {
               className="main-button"
               to="/home"
               style={{
-                color: theme.body,
-                backgroundColor: theme.text,
-                border: `solid 1px ${theme.text}`,
+                color: "#04101A",
+                border: "solid 1px rgba(147, 197, 253, 0.55)",
                 display: "inline-flex",
               }}
             >
