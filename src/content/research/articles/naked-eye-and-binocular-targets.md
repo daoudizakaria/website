@@ -7,6 +7,7 @@ summary: An observational guide highlighting astronomical targets visible with
   descriptive notes.
 tags: []
 ---
+
 # Naked Eye and Bimocular Targets
 
 Zackaria Daoudi
@@ -27,17 +28,17 @@ The graphics were built using Stellarium, Skychart, and Canva.
 
 ### 2 The graphic
 
-![The Graphic](/public/uploads/research/astronomy-graphic.png "Figure 1: Alpha Aquilae, Zeta aquilae, Epsilon Delphini, Gamma Delphini, and Gamma Sagittae")
+![The Graphic](/uploads/research/astronomy-graphic.png "Figure 1: Alpha Aquilae, Zeta aquilae, Epsilon Delphini, Gamma Delphini, and Gamma Sagittae")
 
-* Naked eye
-* Binoculars
-* Telescope
+- Naked eye
+- Binoculars
+- Telescope
 
 <https://stellarium.org>
 
 ### 3 The texts
 
-#### 1. Gamma Sagittae 
+#### 1. Gamma Sagittae
 
 Located in the arrow-shaped constellation of Sagitta, Gamma Sagittae is a red giant starshining with a distinct orange hue. Around 260 light years away, it marks the shaft of thecelestial arrow and is easily visible without optical aid.
 
@@ -55,4 +56,4 @@ Part of the Aquila constellation, Zeta Aquilae is a binary star system around 83
 
 #### 5. Alpha Aquilae
 
- (Altair) this brilliant white star is the twelfth brightest in the night sky and forms one corner ofthe Summer Triangle. Altair lies just 17 light years away, making it one of the closestbright stars to Earth. It spins so rapidly that it bulges at its equator.
+(Altair) this brilliant white star is the twelfth brightest in the night sky and forms one corner ofthe Summer Triangle. Altair lies just 17 light years away, making it one of the closestbright stars to Earth. It spins so rapidly that it bulges at its equator.

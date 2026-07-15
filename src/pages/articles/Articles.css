@@ -131,6 +131,11 @@
 }
 
 @media (max-width: 768px) {
+  .basic-articles {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
   .articles-heading-text,
   .publications-heading-text {
     font-size: 30px;
@@ -147,8 +152,9 @@
 
   .articles-header-detail-text {
     font-size: 16px;
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: 0;
+    margin-left: 0;
+    max-width: none;
     line-height: normal;
     text-align: center;
   }
@@ -157,13 +163,14 @@
     font-size: 15px;
     line-height: 1.5;
     margin-top: 0.75rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
   }
 
   .articles-list-section {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 0;
+    margin-right: 0;
     margin-top: 1.75rem;
   }
 
@@ -173,9 +180,9 @@
 
   .repo-cards-div-main {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
-    margin-left: 16px;
-    margin-right: 16px;
+    gap: 1rem;
+    margin-left: 0;
+    margin-right: 0;
     margin-top: 1.25rem;
   }
 }

@@ -16,15 +16,17 @@
   margin-top: 20px;
   font-size: 40px;
   font-weight: 400;
-  color: #868e96;
+  color: var(--text-muted);
   text-decoration: none;
+  transition: color 0.22s ease, text-shadow 0.22s ease;
 }
 
 .contact-detail:hover,
-.contact-detail-email:hover {
-  color: black;
-  text-shadow: 2px 1px 2px #b5b5b5;
-  transition: all 0.3s;
+.contact-detail-email:hover,
+.contact-detail:focus-visible,
+.contact-detail-email:focus-visible {
+  color: var(--accent-hover);
+  text-shadow: none;
 }
 
 .contact-subtitle {
@@ -46,7 +48,6 @@
   margin-top: -4rem;
 }
 
-/* Media Query */
 @media (max-width: 1380px), (max-width: 768px) {
   .contact-title {
     font-size: 56px;

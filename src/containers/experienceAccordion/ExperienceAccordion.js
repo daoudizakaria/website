@@ -26,20 +26,41 @@ class ExperienceAccordion extends Component {
                       fontFamily: "Google Sans Regular",
                       color: `${theme.text}`,
                       ":hover": {
-                        color: `${theme.secondaryText}`,
+                        color: `${theme.imageHighlight}`,
+                      },
+                      ":focus-visible": {
+                        color: `${theme.imageHighlight}`,
                       },
                     }),
                   },
                   Content: {
                     style: () => ({
-                      backgroundColor: `${theme.body}`,
+                      backgroundColor: "transparent",
+                      color: `${theme.secondaryText}`,
+                    }),
+                  },
+                  ToggleIcon: {
+                    style: () => ({
+                      color: `${theme.text}`,
+                      fill: `${theme.text}`,
+                    }),
+                  },
+                  ToggleButton: {
+                    style: () => ({
+                      color: `${theme.text}`,
+                      fill: `${theme.text}`,
                     }),
                   },
                 }}
               >
-{section["experiences"].map((experience,index) => {
+                {section["experiences"].map((experience, index) => {
                   return (
-                    <ExperienceCard index={index} totalCards={section["experiences"].length} experience={experience} theme={theme} />
+                    <ExperienceCard
+                      index={index}
+                      totalCards={section["experiences"].length}
+                      experience={experience}
+                      theme={theme}
+                    />
                   );
                 })}
               </Panel>

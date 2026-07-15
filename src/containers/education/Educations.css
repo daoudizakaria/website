@@ -12,6 +12,21 @@
 }
 
 @media (max-width: 768px) {
+  /*
+   * Bottleneck: Educations uses className="main", which inherits Greeting.css
+   * rules (width: 90% + horizontal padding + auto margins). Nested inside
+   * .basic-education that already insets the page, paragraphs were ~69vw.
+   */
+  #educations.main {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
   .educations-header {
     font-size: 30px;
   }

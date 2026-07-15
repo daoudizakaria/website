@@ -1,13 +1,19 @@
 .articles-card-div {
-  color: rgb(88, 96, 105);
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
+  color: var(--text-secondary);
+  background: linear-gradient(
+    165deg,
+    rgba(23, 56, 93, 0.55),
+    rgba(18, 44, 73, 0.4)
+  ) !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
   padding: 2rem;
   cursor: pointer;
   flex: 1 1 25%;
 }
 .articles-card-div:hover {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
+  box-shadow: var(--shadow-hover);
 }
 
 .articles-name-div {
@@ -17,7 +23,7 @@
 
 .articles-name {
   text-align: left;
-  color: rgb(36, 41, 46);
+  color: var(--text-primary);
   font-family: "Google Sans Regular";
   margin-bottom: 0.75rem;
   font-size: 25px;

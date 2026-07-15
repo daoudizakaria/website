@@ -4,18 +4,20 @@
   line-height: normal;
   margin: 0px;
 }
+
 .achievement-subtitle {
   text-transform: uppercase;
   margin: 0px;
   margin-bottom: 50px;
 }
+
 .card-image {
   height: 250px;
   width: 250px;
 }
 
 .card-title {
-  color: black;
+  color: var(--text-primary);
   font-size: 30px;
   margin: 0px;
   font-weight: 400;
@@ -23,16 +25,21 @@
 }
 
 .card-subtitle {
-  color: #868e96;
+  color: var(--text-muted);
   font-size: 20px;
 }
 
 .certificate-card {
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
+  background: linear-gradient(
+    165deg,
+    rgba(23, 56, 93, 0.55),
+    rgba(18, 44, 73, 0.4)
+  );
+  box-shadow: var(--shadow-soft);
   padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid rgba(211, 211, 211, 0.397);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
 }
 
 .certificate-detail-div {
@@ -40,41 +47,49 @@
 }
 
 .certificate-card:hover {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
+  box-shadow: var(--shadow-hover);
 }
+
 .certificate-image-div {
   text-align: center;
 }
+
 .achievement-cards-div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem 1rem;
 }
+
 .certificate-card-footer {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
 .certificate-card-footer > p {
-  color: #333333;
+  color: var(--accent-soft);
   cursor: pointer;
   margin-right: 10px;
   text-align: center;
 }
-.certificate-card-footer > p:hover {
-  color: #868e96;
+
+.certificate-card-footer > p:hover,
+.certificate-card-footer > p:focus-visible {
+  color: var(--accent-hover);
 }
-/* Media Query */
+
 @media (max-width: 1380px) {
   .achievement-heading {
     font-size: 40px;
   }
 }
+
 @media (max-width: 768px) {
   .achievement-heading {
     font-size: 30px;
     text-align: center;
   }
+
   .achievement-subtitle {
     font-size: 16px;
     line-height: normal;

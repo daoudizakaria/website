@@ -66,6 +66,11 @@
 }
 
 @media (max-width: 768px) {
+  .basic-experience {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
   .experience-heading-text {
     font-size: 30px;
     margin-top: 20px;
@@ -81,7 +86,8 @@
 
   .experience-header-detail-text {
     font-size: 16px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
     line-height: normal;
     text-align: center;
   }

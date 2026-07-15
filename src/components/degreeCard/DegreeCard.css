@@ -125,10 +125,13 @@
 @media (max-width: 768px) {
   .degree-card {
     flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
   }
 
   .body-header {
     flex-direction: column;
+    padding: 0.85rem 0.5rem;
   }
 
   .body-header-title {
@@ -148,11 +151,22 @@
   }
 
   .card-img {
-    width: 160px;
+    width: 140px;
   }
 
   .card-body {
     width: 100% !important;
+    margin: 0 0 1rem;
+  }
+
+  .body-content {
+    /* Modest inner pad so .content-list ≥ ~90vw after .main fix */
+    padding: 0.85rem 0.5rem 1rem;
+  }
+
+  .content-list {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .card-title {
@@ -165,6 +179,7 @@
 
   .visit-btn {
     float: none;
+    margin: 0.5rem 0 0;
   }
 }
 

@@ -158,16 +158,22 @@
 
 @media (max-width: 768px) {
   .articles-card-div {
-    padding: 1.55rem 1.35rem 1.4rem;
-    border-radius: 20px;
+    padding: 1.15rem 1rem 1.1rem;
+    border-radius: 18px;
   }
 
   .articles-card-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .articles-card-date {
+    margin-bottom: 0.65rem;
   }
 
   .articles-description {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
   }
 }
 

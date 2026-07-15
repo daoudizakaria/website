@@ -200,4 +200,33 @@
   .markdown-content h2 {
     font-size: 1.25rem;
   }
+
+  .markdown-content ul,
+  .markdown-content ol {
+    padding-left: 1.15em;
+  }
+
+  .markdown-content blockquote {
+    margin: 1em 0;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .markdown-content pre {
+    padding: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .markdown-content th,
+  .markdown-content td {
+    padding: 0.5em 0.65em;
+  }
+
+  .markdown-content .katex-display {
+    padding: 0.65rem 0.75rem;
+    margin: 1.1em 0;
+  }
+
+  .markdown-content .markdown-image {
+    margin: 1.15em auto;
+  }
 }

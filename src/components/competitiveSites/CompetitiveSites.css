@@ -15,9 +15,10 @@
 }
 
 .competitive-sites-inline > i {
-  color: #868e96;
+  color: var(--text-muted);
 }
 
-.competitive-sites-inline > i:hover {
-  color: #645beb;
+.competitive-sites-inline > i:hover,
+.competitive-sites-inline > i:focus-visible {
+  color: var(--accent-soft);
 }

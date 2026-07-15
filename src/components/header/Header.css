@@ -245,6 +245,14 @@
   }
 }
 
+@media (max-width: 767px) {
+  .header {
+    max-width: 100%;
+    padding: 12px 1rem;
+    border-radius: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .header li a {
     transition: none;

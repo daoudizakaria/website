@@ -74,9 +74,15 @@
 }
 
 @media (max-width: 768px) {
+  /*
+   * Bottleneck: .article-detail-content and .article-body each applied 16px
+   * horizontal padding (double inset → ~83vw text). Keep one outer gutter and
+   * a thin inner pad on the glass panel.
+   */
   .article-detail-content {
-    padding: 0 16px;
+    padding: 0 0.5rem;
     max-width: 100%;
+    margin-bottom: 2.5rem;
   }
 
   .article-detail-content > h1 {
@@ -85,8 +91,15 @@
   }
 
   .article-body {
-    padding: 1.25rem 1.1rem;
-    border-radius: 18px;
+    padding: 1rem 0.5rem;
+    border-radius: 16px;
+    margin-top: 1.25rem;
+  }
+
+  .article-detail-content > p > a[target="_blank"] {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
   }
 }
 

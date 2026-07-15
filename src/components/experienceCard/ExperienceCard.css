@@ -81,7 +81,8 @@
 
   .experience-header-detail-text {
     font-size: 16px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
     line-height: normal;
     text-align: center;
   }
@@ -96,6 +97,7 @@
   padding: 1.15rem 1.25rem;
   margin-left: 10px;
   border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
   background: linear-gradient(
     165deg,
     rgba(23, 56, 93, 0.55),
@@ -163,12 +165,14 @@
   margin-left: 0px;
   margin-right: 7px;
   text-align: left;
+  color: var(--text-primary);
 }
 
 .experience-card-company {
   font-family: "Google Sans Regular";
   margin: 0;
   text-align: left;
+  color: var(--text-primary);
 }
 
 .experience-card-duration {
@@ -202,20 +206,30 @@
 
 .experience-card-description {
   margin-top: 5px;
-  margin-left: 10px;
-  text-align: justify;
-  margin-right: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
   font-family: "Google Sans Regular";
+  color: var(--text-secondary);
+  line-height: 1.55;
+  width: 100%;
 }
 
 .experience-card-company > a {
   position: relative;
-  color: var(--accent-soft);
+  color: var(--accent-soft) !important;
   text-decoration: none;
 }
 
-.experience-card-company > a:hover {
-  color: var(--accent-hover);
+.experience-card-company > a:hover,
+.experience-card-company > a:focus-visible {
+  color: var(--accent-hover) !important;
+}
+
+.experience-card-company > a:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.55);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .experience-card-company > a:hover:before {
@@ -302,10 +316,26 @@
 }
 
 @media (max-width: 768px) {
+  /* Page-shell rules duplicated from page CSS also appear here — keep mobile overrides local. */
+  .basic-experience {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .experience-header-detail-text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .experience-card {
     flex-direction: column;
     text-align: center;
     min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem;
   }
 
   .arrow-left {
@@ -321,37 +351,26 @@
   }
 
   .experience-card-logo {
-    width: 100px;
+    width: 88px;
+    height: 88px;
+  }
+
+  .experience-card-logo-div {
+    margin: 0.35rem auto;
   }
 
   .experience-card-heading-left {
-    float: center;
-    margin-left: auto;
-    margin-right: auto;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
 
   .experience-card-heading-right {
-    float: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .experience-card-title {
-    /* text-align: center; */
-  }
-
-  .experience-card-company {
-    /* text-align: center; */
-  }
-
-  .experience-card-duration {
-    /* margin-top: 2px; */
-    /* text-align: center; */
-  }
-
-  .experience-card-location {
-    /* text-align: left; */
-    /* text-align: center; */
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
 
   .experience-card-header-div {
@@ -359,8 +378,13 @@
   }
 
   .experience-card-description {
-    margin-left: 14px;
-    margin-right: 14px;
-    text-align: justify;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .experience-card-duration,
+  .experience-card-location {
+    text-align: left;
   }
 }

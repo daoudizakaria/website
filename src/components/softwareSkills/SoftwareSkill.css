@@ -15,11 +15,12 @@
 }
 
 .software-skill-inline > i {
-  color: #868e96;
+  color: var(--text-muted);
 }
 
-.software-skill-inline > i:hover {
-  color: #645beb;
+.software-skill-inline > i:hover,
+.software-skill-inline > i:focus-visible {
+  color: var(--accent-soft);
 }
 
 .skill-image {

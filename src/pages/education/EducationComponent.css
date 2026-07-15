@@ -56,6 +56,12 @@
 }
 
 @media (max-width: 768px) {
+  .basic-education {
+    /* Single page inset — ~96% shell; card text is tuned further below */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
   .heading-text {
     font-size: 30px;
     margin-top: 20px;
