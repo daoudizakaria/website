@@ -32,6 +32,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^5.0.1",
     "rehype-katex": "6.0.3",
+    "rehype-raw": "^6.1.1",
+    "rehype-sanitize": "^5.0.1",
     "remark-gfm": "3.0.1",
     "remark-math": "5.1.1",
     "styled-components": "^5.1.1",
