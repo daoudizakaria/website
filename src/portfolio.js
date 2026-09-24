@@ -9,7 +9,7 @@ const settings = {
 const seo = {
   title: "Zakaria's Portfolio",
   description:
-    "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing, -helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
+    "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing — helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
   og: {
     title: "Zakaria Daoudi Portfolio",
     type: "website",
@@ -22,7 +22,7 @@ const greeting = {
   title: "Zakaria Daoudi",
   logo_name: "Zakaria Daoudi",
   subTitle:
-    "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing, -helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
+    "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing — helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
   resumeLink:
     "https://drive.google.com/file/d/19hTmIySzPJ73mrYQ2VlT8Tk2HBAiPBbD/view?usp=sharing",
   portfolio_repository: "https://github.com/daoudizakaria/website",
@@ -58,8 +58,8 @@ const socialMediaLinks = [
 const reviews = {
   data: [
     {
-      id: "Breast Cancer Detection",
-      name: "Breast Cancer Detection",
+      id: "Radioactive Decay",
+      name: "Radioactive Decay",
       createdAt: "2023-07-02T00:00:00Z",
       description: "Nuclear Physics Python Code made for my students.",
       url: "https://github.com/daoudizakaria/Radioactive_Decay",
@@ -73,9 +73,9 @@ const skills = {
       title: "Physics & Applied Mathematics",
       fileName: "FullStackImg",
       skills: [
-        "⚡ Help Organizations tackling challenges in Physics, Mathematics, and Enginnering",
+        "⚡ Help organizations tackle challenges in Physics, Mathematics, and Engineering",
         "⚡ Subject Matter Expert in Physics and Mathematics",
-        "⚡ Design and Develop analytical models and apply rigouros methods to solve industry problems",
+        "⚡ Design and Develop analytical models and apply rigorous methods to solve industry problems",
         "⚡ Complex quantitative modelling for dynamic forecasting and time series analysis",
       ],
       softwareSkills: [],
@@ -232,9 +232,9 @@ const degrees = {
       alt_name: "UMC",
       duration: "2018 - 2020",
       descriptions: [
-        "⚡ I followed several advances courses in Physics and Applied Mathematics including: Quantum Field Theory, Cosomology, Particle Physics, String Theory, Topology and Geometry, Group Theory, Condensed Matter Physics, and Monte Carlo Techniques.",
+        "⚡ I followed several advanced courses in Physics and Applied Mathematics including: Quantum Field Theory, Cosmology, Particle Physics, String Theory, Topology and Geometry, Group Theory, Condensed Matter Physics, and Monte Carlo Techniques.",
         "⚡ My MSc. thesis was about the recent development in Loop Quantum Gravity and the observations that can be used to validate this theory.",
-        "⚡ I was responsible of several pedagogical activities including: Introduction to the Philosophy of Quantum Mechanics, Lab Work in Numerical Physics, mentoring 2 BSc. students in Physics and Mathematics.",
+        "⚡ I was responsible for several pedagogical activities including: Introduction to the Philosophy of Quantum Mechanics, Lab Work in Numerical Physics, mentoring 2 BSc. students in Physics and Mathematics.",
         "⚡ I followed an internship in Quantum Information",
       ],
       website_link: "https://www.umc.edu.dz/index.php/fr/",
@@ -246,9 +246,8 @@ const degrees = {
       alt_name: "UBMA",
       duration: "2022 - Current",
       descriptions: [
-        "⚡ I successfully completed 3 internships in String Theory and AdS/CFT correspondence, Astroparticle Physics, and Condensend Matter Physics.",
-        "⚡ I am responsible of multiple courses: Quantum Field Theory, Quantum Mechanics, Classical Mechanics, Thermodynamics, Fluid Dynamics, and Numerical Techniques in Physics.",
-        "⚡ ",
+        "⚡ I successfully completed 3 internships in String Theory and AdS/CFT correspondence, Astroparticle Physics, and Condensed Matter Physics.",
+        "⚡ I am responsible for multiple courses: Quantum Field Theory, Quantum Mechanics, Classical Mechanics, Thermodynamics, Fluid Dynamics, and Numerical Techniques in Physics.",
       ],
       website_link: "https://www.univ-annaba.dz/en/home-2/",
     },
@@ -308,7 +307,7 @@ const certifications = {
       logo_path: "google_logo.png",
       certificate_link:
         "https://www.coursera.org/account/accomplishments/verify/BH2T9BRU87BH",
-      alt_name: "IBM",
+      alt_name: "Google",
       color_code: "#1F70C199",
     },
   ],
@@ -319,7 +318,7 @@ const experience = {
   title: "Experience",
   subtitle: "Work, Internship and Volunteership",
   description:
-    "I have worked with many evolving startups and successfull companies as a Physicist, Mathematician, Data Scientist, or Scientific Consultor/Advisor. The contracts were either a freelancing contract or a remote contract.",
+    "I have worked with many evolving startups and successful companies as a Physicist, Mathematician, Data Scientist, or Scientific Consultant/Advisor. The contracts were either a freelancing contract or a remote contract.",
   header_image_path: "experience.svg",
   sections: [
     {
@@ -338,14 +337,14 @@ const experience = {
           color: "#000000",
         },
         {
-          title: "Scientific Writor and Editor",
-          company: "Space Magzine",
+          title: "Scientific Writer and Editor",
+          company: "Space Magazine",
           company_url: "https://space-magazin.com/",
           logo_path: "spacemagazin_logo.png",
           duration: "April 2025 - Current",
           location: "Remote",
           description:
-            "I was responsible of designing the astronomy section's charts using advanced scientific data and softwares and writing the relevant texts for each subsection.",
+            "I was responsible for designing the astronomy section's charts using advanced scientific data and software, and writing the relevant texts for each subsection.",
           color: "#000000",
         },
         {
@@ -356,7 +355,7 @@ const experience = {
           duration: "Feb 2024 - Apr 2025",
           location: "Remote",
           description:
-            "I was responsible of proofreading and reviewing the Mathematical Content.",
+            "I was responsible for proofreading and reviewing the Mathematical Content.",
           color: "#000000",
         },
         {
@@ -400,7 +399,7 @@ const experience = {
           duration: "May 2023 - Sep 2023",
           location: "Remote",
           description:
-            "Engineering Director Inc. is a company that combine advanced software, autonomous agents, and global environmental data to forecast and prevent corrosion—maximizing asset longevity and minimizing environmental impact. My work was about building a mathematical model the corrosion in the soil to simulate the Impressed Current Cathodic Protection for pipelines.",
+            "Engineering Director Inc. is a company that combines advanced software, autonomous agents, and global environmental data to forecast and prevent corrosion—maximizing asset longevity and minimizing environmental impact. My work was about building a mathematical model of soil corrosion to simulate the Impressed Current Cathodic Protection for pipelines.",
           color: "#fc1f20",
         },
       ],
@@ -427,7 +426,7 @@ const experience = {
           duration: "Mar 2024 - May 2025",
           location: "Algiers, Algeria",
           description:
-            "Develop an AI-based sytem capable of analyzing chest X-ray images and automatically detecting diseases such tuberculosis, pneumonia, and other lung abnormalities.",
+            "Develop an AI-based system capable of analyzing chest X-ray images and automatically detecting diseases such as tuberculosis, pneumonia, and other lung abnormalities.",
           color: "#4285F4",
         },
         {
@@ -464,7 +463,7 @@ const experience = {
           duration: "Feb 2023 - June 2024",
           location: "Annaba, Algeria",
           description:
-            "I was in charge of fine-tunning and developping a ML model to analyze Biochemistry and Genetics Data.",
+            "I was in charge of fine-tuning and developing a ML model to analyze Biochemistry and Genetics Data.",
           color: "#4285F4",
         },
         {
@@ -508,29 +507,7 @@ const publicationsHeader = {
 };
 
 const publications = {
-  data: [
-    {
-      id: "neuro-symbolic-sudoku-solver",
-      name: "Neuro-Symbolic Sudoku Solver",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Paper published in KDD KiML 2023",
-      url: "",
-    },
-    {
-      id: "mdp-diffusion",
-      name: "MDP-Diffusion",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "",
-    },
-    {
-      id: "consistency-models",
-      name: "Consistency Models",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "",
-    },
-  ],
+  data: [],
 };
 // Projects page (grouped listings — see Projectsnew.js)
 const projectsnewHeader = {
@@ -717,7 +694,7 @@ const articles = {
 const contactPageData = {
   contactSection: {
     title: "Contact Me",
-    profile_image_path: "animated_ashutosh.png",
+    profile_image_path: "animated_logo.svg",
     description:
       "If you're interested with any of my services, or you just want to chat about a potential project or idea, you're most welcome to send me an email.",
   },
