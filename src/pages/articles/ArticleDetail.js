@@ -24,7 +24,7 @@ function ArticleDetail(props) {
   if (!article) {
     return (
       <div className="article-detail-main">
-        <Header theme={theme} />
+        <Header theme={theme} pageTitle="Article not found" />
         <div className="article-detail-content">
           <h1 style={{ color: theme.text }}>Article not found</h1>
         </div>
@@ -36,7 +36,7 @@ function ArticleDetail(props) {
 
   return (
     <div className="article-detail-main">
-      <Header theme={theme} />
+      <Header theme={theme} pageTitle={article.name} />
       <div className="article-detail-content">
         <h1 style={{ color: theme.text }}>{article.name}</h1>
         <p className="subTitle" style={{ color: theme.secondaryText }}>

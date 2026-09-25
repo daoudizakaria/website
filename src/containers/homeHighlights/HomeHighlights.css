@@ -1,0 +1,57 @@
+.home-highlights-main {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0 40px;
+}
+
+.home-highlights-section {
+  margin-bottom: 48px;
+}
+
+.home-highlights-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.home-highlights-title {
+  font-family: "Google Sans Medium";
+  font-size: 40px;
+  margin: 0;
+}
+
+.home-highlights-view-all {
+  font-family: "Google Sans Regular";
+  font-size: 18px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-highlights-view-all:hover {
+  text-decoration: underline;
+}
+
+.home-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+  .home-highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .home-highlights-title {
+    font-size: 30px;
+  }
+  .home-highlights-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -22,7 +22,7 @@ class Header extends Component {
     const link = settings.isSplash ? "/splash" : "/home";
     return (
       <>
-        <SeoHeader />
+        <SeoHeader pageTitle={this.props.pageTitle} />
         <div className="header-sticky">
           <Fade top duration={1000} distance="20px">
             <header className="header">

@@ -16,7 +16,7 @@ class Articles extends Component {
     const theme = this.props.theme;
     return (
       <div className="articles-main">
-        <Header theme={theme} />
+        <Header theme={theme} pageTitle="Research" />
         <div className="basic-articles">
           <Fade bottom duration={2000} distance="40px">
             <div className="articles-heading-div">

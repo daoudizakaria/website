@@ -23,7 +23,7 @@ class Projectsnew extends Component {
     const theme = this.props.theme;
     return (
       <div className="projectsnew-main">
-        <Header theme={theme} />
+        <Header theme={theme} pageTitle="Projects" />
         <div className="basic-projectsnew">
           <Fade bottom duration={2000} distance="40px">
             <div className="projectsnew-heading-div">

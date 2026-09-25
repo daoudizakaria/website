@@ -10,7 +10,7 @@ export default class Error extends Component {
   render() {
     return (
       <div className="error-main">
-        <Header theme={this.props.theme} />
+        <Header theme={this.props.theme} pageTitle="Page not found" />
         <div className="error-class">
           <Fade bottom duration={2000} distance="40px">
             <h1>Woops</h1>

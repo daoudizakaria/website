@@ -153,7 +153,16 @@ const reviews = {
   ],
 };
 
+// Shown in the "Featured work" strip on the home page — edit ids to taste.
+// Must match ids from the ML / physics / math lists above.
+const featuredProjectIds = [
+  "impressed-current-cathodic-protection",
+  "machine-learning-projects",
+  "bfss-model",
+];
+
 export {
+  featuredProjectIds,
   projectsHeader,
   publicationsHeader,
   publications,
