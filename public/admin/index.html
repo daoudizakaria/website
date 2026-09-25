@@ -23,6 +23,32 @@
     <!-- Optional: window.CMS_LOGIN_AVATAR = "./avatar.jpg"; -->
     <script src="./cms-ui.js"></script>
     <script>
+      // On localhost, layer `local_backend: true` over config.yml (kept as
+      // the single source of truth) so the admin edits the working tree via
+      // decap-server (`npm run cms:dev`) with no GitHub login. The deployed
+      // admin is unaffected: this branch never runs off-localhost.
+      (function () {
+        var isLocal =
+          ["localhost", "127.0.0.1"].indexOf(window.location.hostname) !== -1;
+        if (!isLocal) return;
+        try {
+          var req = new XMLHttpRequest();
+          req.open("GET", "./config.yml", false);
+          req.send();
+          if (req.status < 200 || req.status >= 300) return;
+          var link = document.createElement("link");
+          link.rel = "cms-config-url";
+          link.type = "text/yaml";
+          link.href = URL.createObjectURL(
+            new Blob(["local_backend: true\n" + req.responseText], {
+              type: "text/yaml",
+            })
+          );
+          document.head.appendChild(link);
+        } catch (e) {
+          console.warn("[admin] local backend setup failed:", e);
+        }
+      })();
       if (window.CMS && typeof window.CMS.init === "function") {
         window.CMS.init();
       }

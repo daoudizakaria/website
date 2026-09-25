@@ -4,16 +4,11 @@ import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import BlogsImg from "./BlogsImg";
-import AddressImg from "./AddressImg";
 import { Fade } from "../../components/reveal/Reveal";
 import "./ContactComponent.css";
 import { greeting, contactPageData } from "../../portfolio.js";
 
 const ContactData = contactPageData.contactSection;
-const blogSection = contactPageData.blogSection;
-const addressSection = contactPageData.addressSection;
-const phoneSection = contactPageData.phoneSection;
 
 class Contact extends Component {
   render() {
