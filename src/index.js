@@ -1,24 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BaseProvider, LightTheme } from "baseui";
 import { Provider as StyletronProvider } from "styletron-react";
 import { Client as Styletron } from "styletron-engine-atomic";
+import { HelmetProvider } from "react-helmet-async";
 
 import "./index.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./assets/font-awesome/css/all.css";
 
 const engine = new Styletron();
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+root.render(
   <StyletronProvider value={engine}>
     <BaseProvider theme={LightTheme}>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </BaseProvider>
-  </StyletronProvider>,
-  document.getElementById("root")
+  </StyletronProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
