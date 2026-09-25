@@ -12,6 +12,7 @@ import { settings } from "../portfolio.js";
 import {
   RESEARCH_BASE_PATH,
   researchArticleUrl,
+  LEGACY_ARTICLE_REDIRECTS,
 } from "../content/research/researchContent.js";
 import Error404 from "../pages/errors/error404/Error";
 
@@ -55,21 +56,18 @@ export default class Main extends Component {
               <Education {...props} theme={this.props.theme} />
             )}
           />
-          <Route
-            exact
-            path={`${RESEARCH_BASE_PATH}/string-theory-quantum-gravity`}
-            render={() => <Redirect to={RESEARCH_BASE_PATH} />}
-          />
-          <Route
-            exact
-            path={`${RESEARCH_BASE_PATH}/quantum-computing-cryptography`}
-            render={() => <Redirect to={RESEARCH_BASE_PATH} />}
-          />
-          <Route
-            exact
-            path={`${RESEARCH_BASE_PATH}/neural-networks-physics`}
-            render={() => <Redirect to={RESEARCH_BASE_PATH} />}
-          />
+          {Object.entries(LEGACY_ARTICLE_REDIRECTS).map(([from, to]) => (
+            <Route
+              key={from}
+              exact
+              path={`${RESEARCH_BASE_PATH}/${from}`}
+              render={() => (
+                <Redirect
+                  to={to ? researchArticleUrl(to) : RESEARCH_BASE_PATH}
+                />
+              )}
+            />
+          ))}
           <Route
             path={`${RESEARCH_BASE_PATH}/:slug`}
             render={(props) => (

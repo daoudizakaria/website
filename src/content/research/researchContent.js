@@ -1,19 +1,14 @@
 /**
  * Research article content façade.
  *
- * Sources (merged):
- * 1. Markdown files in `articles/*.md` — parsed with `gray-matter` (`slug`, `title`,
- *    `date`, `summary`, `tags`, `resume` + body). Imported as raw strings via CRACO +
- *    Webpack `asset/source`.
- * 2. Legacy `articles.data` in `src/portfolio.js` — used when no Markdown article
- *    claims the same `slug` / `id`.
- *
- * Resolution order for `getResearchArticleBySlug`: Markdown **first**, then portfolio.
- * List order: Markdown articles first, then legacy entries whose `id` is not shadowed.
+ * Single source of truth: Markdown files in `articles/*.md` — parsed with
+ * `gray-matter` (`slug`, `title`, `date`, `summary`, `tags`, `resume` + body).
+ * Imported as raw strings via CRACO + Webpack `asset/source`. Add or edit
+ * articles by editing those files (by hand or through the Decap CMS admin).
  */
 
 import matter from "gray-matter";
-import { articles, articlesHeader } from "../../portfolio.js";
+import { articlesHeader } from "../../portfolio.js";
 
 /** Auto-import published research `.md` files (excludes docs/templates). */
 const articleModules = require.context("./articles", false, /\.md$/);
@@ -39,6 +34,20 @@ export function researchArticleUrl(slug) {
 }
 
 export { articlesHeader };
+
+/**
+ * Old article URLs that must keep working (linked/indexed before the slug
+ * changed or the article moved). Maps legacy slug → current slug, or `null`
+ * to send visitors to the research index. Consumed by the router.
+ */
+export const LEGACY_ARTICLE_REDIRECTS = {
+  "string-theory-quantum-gravity": null,
+  "quantum-computing-cryptography": null,
+  "neural-networks-physics": null,
+  // slug shortened when the article moved from portfolio.js to Markdown
+  "literature-review-credit-market-and-statistical-physics":
+    "literature-review-credit-market-statistical-physics",
+};
 
 /**
  * Normalize frontmatter `date` to an ISO string (ArticleDetail uses `.split("T")[0]`).
@@ -82,29 +91,17 @@ function parseMarkdownArticle(raw, label) {
 
 const markdownArticles = MARKDOWN_RAW_FILES.map(({ label, raw }) =>
   parseMarkdownArticle(raw, label)
-).filter(Boolean);
+)
+  .filter(Boolean)
+  .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 
 /** @type {Map<string, object>} */
 const markdownBySlug = new Map(
   markdownArticles.map((article) => [article.id, article])
 );
 
-/**
- * @param {typeof articles['data'][number]} item
- */
-function withLegacyMeta(item) {
-  return {
-    ...item,
-    tags: Array.isArray(item.tags) ? item.tags : [],
-    contentSource: "portfolio",
-  };
-}
-
 export function getResearchArticleList() {
-  const legacyVisible = articles.data
-    .filter((item) => !markdownBySlug.has(item.id))
-    .map(withLegacyMeta);
-  return [...markdownArticles, ...legacyVisible];
+  return [...markdownArticles];
 }
 
 /**
@@ -112,9 +109,5 @@ export function getResearchArticleList() {
  */
 export function getResearchArticleBySlug(slug) {
   if (slug == null || slug === "") return undefined;
-  if (markdownBySlug.has(slug)) {
-    return markdownBySlug.get(slug);
-  }
-  const legacy = articles.data.find((item) => item.id === slug);
-  return legacy ? withLegacyMeta(legacy) : undefined;
+  return markdownBySlug.get(slug);
 }

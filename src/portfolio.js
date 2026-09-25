@@ -574,8 +574,7 @@ const physics = {
       id: "theoretical-physics-scraping",
       name: "Theoretical Physics Scraping",
       createdAt: "2024-06-01T00:00:00Z",
-      description:
-        "Scraping arXiv to download lecture notes via Python script",
+      description: "Scraping arXiv to download lecture notes via Python script",
       url: "https://github.com/daoudizakaria/Theoretical-Physics-Scraping",
     },
     {
@@ -632,62 +631,11 @@ const math = {
   ],
 };
 
-// Research / articles list page (header copy only; article bodies stay in `articles.data` or `.md`)
+// Research / articles list page (header copy only; article bodies live in src/content/research/articles/*.md)
 const articlesHeader = {
   title: "Research notes",
   description:
     "This section gathers longer-form notes, explainers, and technical writing on physics, machine learning, and mathematics. Entries may include informal write-ups as well as more structured articles—each card opens the full text.",
-};
-
-const RESEARCH_DRIVE_FOLDER =
-  "https://drive.google.com/drive/folders/1GniQRAi8pPWagBK4KbeiuCiEyQ16w4II?usp=sharing";
-
-const articles = {
-  data: [
-    {
-      id: "complex-systems",
-      name: "Complex Systems",
-      createdAt: "2024-01-15T00:00:00Z",
-      description: "Research article on Complex Systems",
-      content: `The full paper is available as **Complex_Systems.pdf** in the research folder on Google Drive.
-
-[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
-      resume: RESEARCH_DRIVE_FOLDER,
-    },
-    {
-      id: "hawking-radiation-and-universe-expansion",
-      name: "Hawking Radiation and Universe Expansion",
-      createdAt: "2024-02-10T00:00:00Z",
-      description:
-        "Research article on Hawking Radiation and Universe Expansion",
-      content: `The full paper is available as **Hawking_Radiation_and_Universe_Expansion.pdf** in the research folder on Google Drive.
-
-[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
-      resume: RESEARCH_DRIVE_FOLDER,
-    },
-    {
-      id: "literature-review-credit-market-and-statistical-physics",
-      name: "Literature Review: Credit Market and Statistical Physics",
-      createdAt: "2024-03-05T00:00:00Z",
-      description:
-        "Literature review exploring the intersection of credit markets and statistical physics",
-      content: `The full paper is available as **Literature_Review__Credit_Market_and_Statistical_Physics.pdf** in the research folder on Google Drive.
-
-[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
-      resume: RESEARCH_DRIVE_FOLDER,
-    },
-    {
-      id: "quantum-field-theory-general-relativity-and-er-bridge",
-      name: "Quantum Field Theory, General Relativity and ER Bridge",
-      createdAt: "2024-04-20T00:00:00Z",
-      description:
-        "Research article on Quantum Field Theory, General Relativity and the Einstein-Rosen Bridge",
-      content: `The full paper is available as **Quantum_Field_Theory__General_Relativity_and_ER_Bridge.pdf** in the research folder on Google Drive.
-
-[Open research papers on Google Drive](${RESEARCH_DRIVE_FOLDER})`,
-      resume: RESEARCH_DRIVE_FOLDER,
-    },
-  ],
 };
 
 // Contact Page
@@ -737,6 +685,5 @@ export {
   mathHeader,
   math,
   articlesHeader,
-  articles,
   contactPageData,
 };
