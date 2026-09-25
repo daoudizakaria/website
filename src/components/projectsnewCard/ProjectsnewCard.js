@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProjectsnewCard.css";
-import { Fade } from "react-reveal";
+import { Fade } from "../reveal/Reveal";
 
 /** Only treat absolute http(s) URLs as openable (avoids blank tabs / bogus hrefs). */
 function getOpenableProjectUrl(raw) {

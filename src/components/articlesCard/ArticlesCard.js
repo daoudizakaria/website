@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ArticlesCard.css";
-import { Fade } from "react-reveal";
+import { Fade } from "../reveal/Reveal";
 import { researchArticleUrl } from "../../content/research/researchContent.js";
 
 export default function ArticlesCard({ pub, theme }) {

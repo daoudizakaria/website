@@ -4,7 +4,7 @@ import Footer from "../../components/footer/Footer";
 import ProjectsnewCard from "../../components/projectsnewCard/ProjectsnewCard";
 import Button from "../../components/button/Button";
 import TopButton from "../../components/topButton/TopButton";
-import { Fade } from "react-reveal";
+import { Fade } from "../../components/reveal/Reveal";
 import {
   greeting,
   projectsnewHeader,

@@ -3,7 +3,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ArticlesCard from "../../components/articlesCard/ArticlesCard";
 import TopButton from "../../components/topButton/TopButton";
-import { Fade } from "react-reveal";
+import { Fade } from "../../components/reveal/Reveal";
 import {
   articlesHeader,
   getResearchArticleList,
