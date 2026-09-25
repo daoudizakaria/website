@@ -6,9 +6,17 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import { Fade } from "../../components/reveal/Reveal";
 import "./ContactComponent.css";
-import { greeting, contactPageData } from "../../portfolio.js";
+import {
+  greeting,
+  contactPageData,
+  socialMediaLinks,
+} from "../../portfolio.js";
 
 const ContactData = contactPageData.contactSection;
+// Visible, copyable address — mailto buttons silently fail on machines
+// without a configured mail client.
+const gmailLink = socialMediaLinks.find((s) => s.link.startsWith("mailto:"));
+const contactEmail = gmailLink ? gmailLink.link.replace("mailto:", "") : null;
 
 class Contact extends Component {
   render() {
@@ -38,6 +46,20 @@ class Contact extends Component {
                 >
                   {ContactData["description"]}
                 </p>
+                {contactEmail && (
+                  <p
+                    className="contact-header-detail-text subTitle"
+                    style={{ color: theme.secondaryText }}
+                  >
+                    Email:{" "}
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      style={{ color: theme.imageHighlight }}
+                    >
+                      {contactEmail}
+                    </a>
+                  </p>
+                )}
                 <SocialMedia theme={theme} />
                 <div className="resume-btn-div">
                   <Button

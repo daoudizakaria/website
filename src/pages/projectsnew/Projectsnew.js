@@ -43,14 +43,6 @@ class Projectsnew extends Component {
                 >
                   {projectsnewHeader["description"]}
                 </p>
-                <p
-                  className="projects-page-preface subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
-                  Scroll to each thematic block below. Only cards with{" "}
-                  <strong>Open resource →</strong> open an external page; others
-                  are listed for reference until a link is added.
-                </p>
               </div>
             </div>
           </Fade>

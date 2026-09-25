@@ -8,7 +8,14 @@ class ExperienceAccordion extends Component {
     const theme = this.props.theme;
     return (
       <div className="experience-accord">
-        <Accordion>
+        {/* First section open by default so the page never looks empty. */}
+        <Accordion
+          initialState={{
+            expanded: this.props.sections.length
+              ? [this.props.sections[0]["title"]]
+              : [],
+          }}
+        >
           {this.props.sections.map((section) => {
             return (
               <Panel
