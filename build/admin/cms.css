@@ -1,0 +1,1100 @@
+/**
+ * Decap CMS admin theme — portfolio-aligned dark academic UI.
+ * Targets Decap Emotion class labels (…-FieldLabel, …-GridCard, etc.)
+ * rather than fragile global element rules that fight Decap layout.
+ */
+
+:root {
+  --cms-bg-deep: #07111f;
+  --cms-bg-mid: #0d2240;
+  --cms-glass: linear-gradient(
+    165deg,
+    rgba(23, 56, 93, 0.62) 0%,
+    rgba(18, 44, 73, 0.38) 100%
+  );
+  --cms-border: rgba(255, 255, 255, 0.1);
+  --cms-border-strong: rgba(255, 255, 255, 0.16);
+  --cms-text: #f8fafc;
+  --cms-text-secondary: #cbd5e1;
+  --cms-muted: #94a3b8;
+  --cms-accent: #3b82f6;
+  --cms-accent-soft: #93c5fd;
+  --cms-focus: #60a5fa;
+  --cms-radius: 16px;
+  --cms-radius-sm: 10px;
+  --cms-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --cms-btn-grad: linear-gradient(
+    135deg,
+    #eef6ff 0%,
+    #dceeff 48%,
+    #c9e4ff 100%
+  );
+  --cms-input-bg: rgba(7, 17, 31, 0.55);
+  --cms-font: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--cms-font);
+  color: var(--cms-text);
+  background-color: var(--cms-bg-deep);
+  background-image: radial-gradient(
+      ellipse 90% 70% at 15% -10%,
+      rgba(59, 130, 246, 0.18),
+      transparent 55%
+    ),
+    linear-gradient(165deg, var(--cms-bg-deep), var(--cms-bg-mid) 55%, #07111f);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+/* ========== App chrome ========== */
+body header {
+  background: rgba(7, 17, 31, 0.88) !important;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--cms-border) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+  color: var(--cms-text) !important;
+}
+
+/* Prefer soft accents over Decap’s gray chrome */
+body header a,
+body header button {
+  color: var(--cms-text-secondary) !important;
+}
+
+body header a:hover,
+body header button:hover,
+body header a.header-link-active,
+body header a:focus-visible,
+body header button:focus-visible {
+  color: var(--cms-accent-soft) !important;
+  background: rgba(59, 130, 246, 0.12) !important;
+  background-color: rgba(59, 130, 246, 0.12) !important;
+}
+
+/* ========== Sidebar ========== */
+[class*="SidebarContainer"] {
+  background-color: #0f2744 !important;
+  background-image: linear-gradient(
+    165deg,
+    rgba(23, 56, 93, 0.95) 0%,
+    rgba(12, 32, 56, 0.92) 100%
+  ) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: var(--cms-radius) !important;
+  box-shadow: var(--cms-shadow) !important;
+  color: var(--cms-text) !important;
+  backdrop-filter: blur(12px);
+}
+
+[class*="SidebarHeading"] {
+  display: none !important;
+}
+
+/* Search becomes the first interactive element in the sidebar */
+/* Height belongs on the input row only — SearchContainer must stay open
+   so the suggestions dropdown is not clipped. */
+[class*="SearchContainer"] {
+  height: auto !important;
+  min-height: 42px !important;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 40 !important;
+  margin: 1rem 0.85rem 0.85rem !important;
+  width: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+[class*="InputContainer"] {
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+[class*="SearchInput"],
+[class*="InputContainer"] input,
+[class*="SearchContainer"] input,
+[data-cms-search-input] {
+  height: 42px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 1rem 0 3.25rem !important;
+  line-height: 42px !important;
+  font-size: 0.9rem !important;
+  font-family: var(--cms-font) !important;
+  color: var(--cms-text) !important;
+  background: var(--cms-input-bg) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+}
+
+[class*="SearchInput"]::placeholder,
+[class*="InputContainer"] input::placeholder,
+[class*="SearchContainer"] input::placeholder {
+  color: var(--cms-muted) !important;
+  opacity: 1 !important;
+  line-height: normal !important;
+}
+
+[class*="SearchIcon"] {
+  position: absolute !important;
+  top: 50% !important;
+  left: 1.05rem !important;
+  transform: translateY(-50%) !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--cms-muted) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+[class*="SearchIcon"] svg {
+  width: 1rem !important;
+  height: 1rem !important;
+  display: block !important;
+}
+
+[class*="SearchInput"]:focus,
+[class*="InputContainer"] input:focus,
+[class*="SearchContainer"] input:focus {
+  outline: none !important;
+  border-color: rgba(96, 165, 250, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.28) !important;
+}
+
+/* Search scope dropdown — wide enough for "Research Articles" */
+[class*="SuggestionsContainer"] {
+  position: relative !important;
+  width: 100% !important;
+  overflow: visible !important;
+  z-index: 50 !important;
+}
+
+[class*="Suggestions"] {
+  position: absolute !important;
+  top: 6px !important;
+  left: 0 !important;
+  right: auto !important;
+  width: max(100%, 15.75rem) !important;
+  min-width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  padding: 0.5rem 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  list-style: none !important;
+  background: #122c49 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+  z-index: 60 !important;
+}
+
+[class*="SuggestionHeader"],
+[class*="SuggestionItem"] {
+  box-sizing: border-box !important;
+  padding: 0.55rem 1.15rem !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  font-size: 0.9rem !important;
+  line-height: 1.35 !important;
+  color: #e2e8f0 !important;
+  background: transparent !important;
+}
+
+[class*="SuggestionHeader"] {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #93c5fd !important;
+  font-weight: 650 !important;
+}
+
+[class*="SuggestionItem"]:hover,
+[class*="SuggestionItem"]:focus-visible {
+  color: #04101a !important;
+  background: linear-gradient(135deg, #eef6ff 0%, #c9e4ff 100%) !important;
+}
+
+[class*="SuggestionDivider"] {
+  height: 1px !important;
+  margin: 0.35rem 0.85rem !important;
+  width: auto !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+}
+
+[class*="SidebarNavLink"] {
+  color: #f1f5f9 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-left: 2px solid transparent !important;
+  border-radius: 10px !important;
+  margin: 0.15rem 0.55rem !important;
+}
+
+[class*="SidebarNavLink"]:hover {
+  color: #dbeafe !important;
+  background: rgba(59, 130, 246, 0.18) !important;
+  background-color: rgba(59, 130, 246, 0.18) !important;
+  border-left-color: #60a5fa !important;
+}
+
+/* Active collection — soft blue chip + dark text for contrast */
+[class*="SidebarNavLink"].sidebar-active,
+[class*="SidebarNavLink"].sidebar-active:hover,
+[class*="SidebarNavLink"].sidebar-active:active,
+[class*="SidebarNavLink"][aria-current="page"] {
+  color: #04101a !important;
+  background: linear-gradient(135deg, #eef6ff 0%, #c9e4ff 100%) !important;
+  background-color: #dceeff !important;
+  border-left-color: #3b82f6 !important;
+  font-weight: 650 !important;
+}
+
+/* ========== Collection header ========== */
+[class*="CollectionTopContainer"],
+[class*="cardTop"] {
+  background: var(--cms-glass) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: var(--cms-radius) !important;
+  box-shadow: var(--cms-shadow) !important;
+  padding: 1.25rem 1.35rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+[class*="CollectionTopHeading"],
+[class*="cardTopHeading"] {
+  font-size: 1.35rem !important;
+  line-height: 1.3 !important;
+  font-weight: 650 !important;
+  color: var(--cms-text) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* No nested description card */
+[class*="CollectionTopDescription"] {
+  display: none !important;
+}
+
+/* Soft CTA */
+[class*="CollectionTopContainer"] a[class*="button"],
+a[href*="/entries/new"] {
+  background: var(--cms-btn-grad) !important;
+  color: #04101a !important;
+  border: 1px solid rgba(147, 197, 253, 0.55) !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* ========== Entry cards — one glass surface (list + grid) ========== */
+[class*="GridCard"],
+[class*="ListCard"],
+li[data-cms-entry-card] {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  background: var(--cms-glass) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: var(--cms-radius) !important;
+  box-shadow: var(--cms-shadow) !important;
+  flex: 0 1 320px !important;
+  width: auto !important;
+  max-width: 340px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+[class*="ListCard"],
+li[data-cms-entry-card][class*="ListCard"] {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+[class*="GridCard"]:hover,
+[class*="ListCard"]:hover,
+li[data-cms-entry-card]:hover {
+  border-color: var(--cms-border-strong) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42) !important;
+}
+
+[class*="GridCard"] > a,
+[class*="ListCard"] > a,
+li[data-cms-entry-card] > a {
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  background: transparent !important;
+  color: var(--cms-text) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Grid: padding lives on CardBody only (flat surface) */
+[class*="GridCard"] > a {
+  padding: 0 !important;
+}
+
+/* List: padding on the link itself */
+[class*="ListCard"] > a {
+  padding: 1.15rem 1.25rem 1.3rem !important;
+}
+
+[class*="CardBody"],
+li[data-cms-entry-card] [class*="CardBody"] {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 1.15rem 1.25rem 1.3rem !important;
+  margin: 0 !important;
+  position: relative !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Kill Decap white fade that masks text */
+[class*="CardBody"]::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+}
+
+[class*="CardHeading"],
+[class*="ListCardTitle"],
+[class*="GridCard"] h2,
+[class*="ListCard"] h2 {
+  margin: 0 !important;
+  color: var(--cms-text) !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  max-height: none !important;
+  -webkit-line-clamp: unset !important;
+  display: block !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cms-entry-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cms-entry-card-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--cms-text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.cms-entry-card-date {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cms-accent-soft);
+}
+
+.cms-entry-card-summary {
+  margin: 0;
+  padding-bottom: 0.1rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cms-text-secondary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.cms-entry-card-summary.is-empty {
+  color: var(--cms-muted);
+  font-style: italic;
+}
+
+/* ========== Editor ========== */
+[class*="EditorContainer"],
+[class*="EditorInterface"],
+[class*="ControlPaneContainer"] {
+  color: var(--cms-text);
+}
+
+/* Top editor strip — Decap hardcodes #fff; keep dark theme on hover too */
+[class*="EditorContainer"] > [class*="ToolbarContainer"],
+[class*="ToolbarContainer"][class*="e1d2l9mo22"] {
+  background: rgba(7, 17, 31, 0.96) !important;
+  background-color: rgba(7, 17, 31, 0.96) !important;
+  border-bottom: 1px solid var(--cms-border) !important;
+  color: var(--cms-text) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+}
+
+[class*="BackCollection"],
+[class*="BackArrow"],
+[class*="BackStatus"],
+[class*="ToolbarSectionMain"],
+[class*="ToolbarSectionMeta"],
+[class*="ToolbarSection"] {
+  color: var(--cms-text-secondary) !important;
+  background: transparent !important;
+  /* Remove Decap section divider between collection title and actions */
+  border: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+}
+
+[class*="EditorContainer"] > [class*="ToolbarContainer"] a,
+[class*="EditorContainer"] > [class*="ToolbarContainer"] button,
+[class*="ToolbarSectionMain"] a,
+[class*="ToolbarSectionMain"] button {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--cms-text-secondary) !important;
+}
+
+[class*="EditorContainer"] > [class*="ToolbarContainer"] a:hover,
+[class*="EditorContainer"] > [class*="ToolbarContainer"] a:focus-visible,
+[class*="EditorContainer"] > [class*="ToolbarContainer"] button:hover,
+[class*="EditorContainer"] > [class*="ToolbarContainer"] button:focus-visible,
+[class*="ToolbarSectionMain"] a:hover,
+[class*="ToolbarSectionMain"] button:hover,
+[class*="BackCollection"]:hover,
+[class*="BackArrow"]:hover {
+  background: rgba(59, 130, 246, 0.12) !important;
+  background-color: rgba(59, 130, 246, 0.12) !important;
+  color: var(--cms-accent-soft) !important;
+}
+
+/* Field labels */
+[class*="FieldLabel"] {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  float: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  max-width: 100%;
+  margin: 0 0 0.55rem !important;
+  padding: 0.35rem 0.65rem !important;
+  font-size: 0.72rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  color: var(--cms-accent-soft) !important;
+  background: rgba(59, 130, 246, 0.16) !important;
+  border: 1px solid rgba(96, 165, 250, 0.28) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  z-index: auto !important;
+  transform: none !important;
+}
+
+[class*="ControlContainer"] {
+  margin-top: 1.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+[class*="ControlContainer"]:first-of-type {
+  margin-top: 0.5rem !important;
+}
+
+/* Hide default hints except Tags (config still supplies Tags hint) */
+[class*="ControlHints"] {
+  color: var(--cms-muted) !important;
+  font-size: 0.86rem !important;
+  line-height: 1.55 !important;
+  margin-top: 0.55rem !important;
+  max-width: 40rem;
+}
+
+/* Section chrome removed — keep no leftover styling */
+.cms-section {
+  display: none !important;
+}
+[class*="ControlContainer"] input,
+[class*="ControlContainer"] textarea,
+[class*="ControlContainer"] select,
+.cms-textarea {
+  font-family: var(--cms-font) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: var(--cms-text) !important;
+  background: var(--cms-input-bg) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: var(--cms-radius-sm) !important;
+  padding: 0.7rem 0.85rem !important;
+  box-sizing: border-box !important;
+}
+
+[class*="ControlContainer"] input:focus,
+[class*="ControlContainer"] textarea:focus,
+[class*="ControlContainer"] select:focus,
+.cms-textarea:focus {
+  outline: none !important;
+  border-color: rgba(96, 165, 250, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.28) !important;
+}
+
+.cms-textarea {
+  min-height: 7.5rem !important;
+  resize: vertical;
+}
+
+/* DateTime widget — Decap leaves a stark white control strip */
+[class*="DateTimeControl"] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  color: var(--cms-text) !important;
+}
+
+[class*="DateTimeControl"] input,
+[class*="DateTimeControl"] select,
+[class*="DateTimeControl"] .rdt input {
+  flex: 1 1 12rem;
+  min-height: 2.6rem !important;
+  background: var(--cms-input-bg) !important;
+  color: var(--cms-text) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: var(--cms-radius-sm) !important;
+  color-scheme: dark;
+}
+
+[class*="DateTimeControl"] button {
+  background: rgba(23, 56, 93, 0.85) !important;
+  color: var(--cms-text-secondary) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: 999px !important;
+  padding: 0.45rem 0.9rem !important;
+  font-weight: 600 !important;
+}
+
+[class*="DateTimeControl"] button:hover {
+  color: var(--cms-accent-soft) !important;
+  border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+/* react-datetime popup if present */
+.rdtPicker {
+  background: #122c49 !important;
+  color: var(--cms-text) !important;
+  border: 1px solid var(--cms-border) !important;
+  border-radius: var(--cms-radius-sm) !important;
+  box-shadow: var(--cms-shadow) !important;
+}
+
+.rdtPicker td,
+.rdtPicker th {
+  color: var(--cms-text-secondary) !important;
+}
+
+.rdtPicker td.rdtDay:hover,
+.rdtPicker td.rdtDay.rdtActive {
+  background: rgba(59, 130, 246, 0.35) !important;
+  color: var(--cms-text) !important;
+}
+
+/*
+ * Markdown editor surface — visual only.
+ * Toolbar lives INSIDE MarkdownControl (EditorControlBar). Do not use
+ * overflow:hidden here (clips menus / can confuse hit-testing). Do not set
+ * pointer-events, user-select, or disabled-looking opacity on toolbar buttons.
+ */
+[class*="MarkdownControl"] {
+  border-radius: var(--cms-radius) !important;
+  border: 1px solid var(--cms-border) !important;
+  background: rgba(7, 17, 31, 0.45) !important;
+  box-shadow: var(--cms-shadow) !important;
+  overflow: visible;
+}
+
+/* Rich Text formatting bar (Decap EditorControlBar) — dark chrome only */
+[class*="MarkdownControl"] [class*="EditorControlBar"],
+[class*="MarkdownControl"] [class*="ToolbarContainer"] {
+  background: rgba(7, 17, 31, 0.96) !important;
+  background-color: rgba(7, 17, 31, 0.96) !important;
+  color: var(--cms-text-secondary) !important;
+  border-bottom: 1px solid var(--cms-border) !important;
+}
+
+/*
+ * Decap inactive toolbar icons use color:inherit (reads as “disabled” grey).
+ * Active icons hardcode #1e2532 — invisible on a dark bar.
+ * Override colors only; never touch pointer-events / disabled / user-select.
+ */
+[class*="MarkdownControl"] [class*="EditorControlBar"] button,
+[class*="MarkdownControl"]
+  [class*="ToolbarContainer"]
+  button[class*="StyledToolbarButton"] {
+  color: var(--cms-text-secondary) !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+}
+
+[class*="MarkdownControl"] [class*="EditorControlBar"] button:hover,
+[class*="MarkdownControl"]
+  [class*="ToolbarContainer"]
+  button[class*="StyledToolbarButton"]:hover {
+  color: var(--cms-accent-soft) !important;
+  background: rgba(59, 130, 246, 0.12) !important;
+}
+
+/* Outer chrome around the Editable — not the toolbar row */
+[class*="MarkdownControl"]
+  .cms-editor-visual
+  > div:not([class*="ToolbarContainer"]):not([class*="EditorControlBar"]),
+[class*="MarkdownControl"] .cms-editor-raw,
+[class*="RawEditorContainer"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Writing surface only (not toolbar) */
+[class*="MarkdownControl"] [contenteditable="true"],
+[class*="MarkdownControl"] [data-slate-editor="true"],
+[class*="RawEditorContainer"] [data-slate-editor="true"],
+[class*="MarkdownControl"] textarea,
+.CodeMirror,
+.CodeMirror-scroll,
+.CodeMirror-sizer,
+.CodeMirror-gutters {
+  min-height: 30rem !important;
+  font-family: var(--cms-font) !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  color: var(--cms-text) !important;
+  caret-color: var(--cms-accent-soft);
+  background: rgba(7, 17, 31, 0.92) !important;
+  background-color: rgba(7, 17, 31, 0.92) !important;
+}
+
+/* Slate leaves inherit; keep strings readable on the dark surface */
+[class*="MarkdownControl"] [data-slate-editor="true"] [data-slate-node],
+[class*="MarkdownControl"] [data-slate-editor="true"] [data-slate-leaf],
+[class*="MarkdownControl"] [data-slate-editor="true"] [data-slate-string],
+[class*="RawEditorContainer"] [data-slate-editor="true"] [data-slate-node],
+[class*="RawEditorContainer"] [data-slate-editor="true"] [data-slate-leaf],
+[class*="RawEditorContainer"] [data-slate-editor="true"] [data-slate-string] {
+  color: inherit;
+}
+
+/* Selection highlight — visual only (does not alter Slate selection APIs) */
+[class*="MarkdownControl"] [contenteditable="true"]::selection,
+[class*="MarkdownControl"] [data-slate-editor="true"]::selection,
+[class*="MarkdownControl"] [data-slate-editor="true"] *::selection,
+[class*="RawEditorContainer"] [data-slate-editor="true"]::selection,
+[class*="RawEditorContainer"] [data-slate-editor="true"] *::selection,
+[class*="MarkdownControl"] textarea::selection {
+  background: rgba(59, 130, 246, 0.35);
+  color: var(--cms-text);
+}
+
+/* Preview pane */
+[class*="PreviewPane"],
+[class*="FramePreview"] {
+  background: var(--cms-bg-deep) !important;
+}
+
+/*
+ * Editor ↔ preview “white line” (DevTools):
+ * The span.Resizer.vertical is already transparent (2px hit area).
+ * The visible line is the parent StyledSplitPane card background
+ * (Decap default #fff) showing through that 2px gap.
+ * Match SplitPane to the pane background; keep Resizer transparent + functional.
+ */
+[class*="StyledSplitPane"] {
+  background: var(--cms-bg-deep) !important;
+  background-color: var(--cms-bg-deep) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.Resizer,
+.Resizer.vertical,
+.Resizer.horizontal,
+[class*="StyledSplitPane"] .Resizer,
+[class*="StyledSplitPane"] .Resizer.vertical {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.Resizer:before,
+.Resizer.vertical:before,
+.Resizer.horizontal:before,
+[class*="StyledSplitPane"] .Resizer:before,
+[class*="StyledSplitPane"] .Resizer.vertical:before,
+.Resizer:after,
+.Resizer.vertical:after {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 0 !important;
+  content: none !important;
+}
+
+.Resizer:hover:before,
+.Resizer:active:before,
+.Resizer.vertical:hover:before,
+.Resizer.vertical:active:before {
+  background: transparent !important;
+  background-color: transparent !important;
+  width: 0 !important;
+}
+
+[class*="ViewControls"] {
+  top: 12px !important;
+  right: 12px !important;
+  gap: 6px;
+}
+
+[class*="ViewControls"] button {
+  background: rgba(7, 17, 31, 0.75) !important;
+  border: 1px solid var(--cms-border) !important;
+  color: var(--cms-text-secondary) !important;
+}
+
+/* List widget spacing */
+[class*="ListControl"] [class*="ListItem"],
+[class*="listControl"] {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Focus a11y */
+body button:focus-visible,
+body a:focus-visible,
+body [role="button"]:focus-visible,
+body input:focus-visible,
+body textarea:focus-visible {
+  outline: 2px solid var(--cms-focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* Leave room at end of scrollable editor pane */
+[class*="ControlPaneContainer"] {
+  padding-bottom: 3rem !important;
+}
+
+@media (max-width: 800px) {
+  [class*="GridCard"],
+  [class*="ListCard"] {
+    max-width: 100%;
+    flex: 1 1 100% !important;
+  }
+
+  [class*="SearchContainer"],
+  [class*="InputContainer"] {
+    margin-left: 0.65rem !important;
+    margin-right: 0.65rem !important;
+  }
+
+  [class*="EditorContainer"] {
+    min-width: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="GridCard"],
+  [class*="ListCard"] {
+    transition: none !important;
+  }
+}
+
+/* ========== Login / authentication page ========== */
+[class*="StyledAuthenticationPage"] {
+  display: flex !important;
+  flex-flow: column nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  padding: 2rem 1.25rem !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+}
+
+[class*="StyledAuthenticationPage"] [class*="DecapLogoIcon"],
+[class*="StyledAuthenticationPage"] [class*="CustomIconWrapper"],
+[class*="StyledAuthenticationPage"] [class*="NetlifyCreditIcon"] {
+  display: none !important;
+}
+
+.cms-login-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(100%, 22.5rem);
+  padding: 2.35rem 2rem 2.1rem;
+  background: var(--cms-glass);
+  border: 1px solid var(--cms-border);
+  border-radius: var(--cms-radius);
+  box-shadow: var(--cms-shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-sizing: border-box;
+}
+
+.cms-login-panel--animate {
+  animation: cms-login-enter 300ms ease-out both;
+}
+
+@keyframes cms-login-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cms-login-avatar {
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 0 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(
+    165deg,
+    rgba(59, 130, 246, 0.28) 0%,
+    rgba(15, 39, 68, 0.9) 100%
+  );
+  border: 1px solid rgba(147, 197, 253, 0.35);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
+}
+
+.cms-login-avatar__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cms-login-avatar__img[hidden] {
+  display: none !important;
+}
+
+.cms-login-avatar__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cms-accent-soft);
+}
+
+.cms-login-avatar__fallback svg {
+  width: 2.15rem;
+  height: 2.15rem;
+  display: block;
+}
+
+.cms-login-avatar--has-image .cms-login-avatar__fallback {
+  display: none;
+}
+
+.cms-login-greeting {
+  margin: 0 0 0.4rem;
+  font-family: var(--cms-font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--cms-accent-soft);
+}
+
+.cms-login-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--cms-font);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.cms-login-subtitle {
+  margin: 0 0 1.5rem;
+  max-width: none;
+  width: 100%;
+  font-family: var(--cms-font);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cms-muted);
+}
+
+[class*="StyledAuthenticationPage"] > p {
+  max-width: 22.5rem;
+  margin: 0 !important;
+  padding: 0.75rem 1rem !important;
+  color: #fecaca !important;
+  background: rgba(127, 29, 29, 0.28) !important;
+  border: 1px solid rgba(248, 113, 113, 0.35) !important;
+  border-radius: var(--cms-radius-sm) !important;
+  text-align: center;
+  font-size: 0.9rem !important;
+}
+
+/*
+ * Style ONLY the native <button class*="LoginButton">.
+ * Do NOT use [class*="LoginButton"] alone — that also matches
+ * LoginButtonIcon and turns the GitHub glyph into a second pill.
+ */
+.cms-login-panel > button[class*="LoginButton"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: stretch;
+  gap: 0.65rem;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  padding: 0 1.25rem !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  font-family: var(--cms-font) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  line-height: 1 !important;
+  color: #04101a !important;
+  background: var(--cms-btn-grad) !important;
+  background-color: #dceeff !important;
+  border: 1px solid rgba(147, 197, 253, 0.55) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28) !important;
+  cursor: pointer !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  scale: none !important;
+  transition: filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cms-login-panel > button[class*="LoginButton"]:hover:not([disabled]),
+.cms-login-panel > button[class*="LoginButton"]:focus-visible {
+  filter: brightness(1.04);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34) !important;
+}
+
+.cms-login-panel > button[class*="LoginButton"][disabled] {
+  opacity: 0.72 !important;
+  cursor: wait !important;
+  filter: none;
+}
+
+.cms-login-panel > button[class*="LoginButton"] [class*="LoginButtonIcon"],
+.cms-login-panel > button[class*="LoginButton"] [class*="IconWrapper"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.15rem !important;
+  height: 1.15rem !important;
+  min-width: 1.15rem !important;
+  min-height: 1.15rem !important;
+  max-width: 1.15rem !important;
+  max-height: 1.15rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  flex-shrink: 0;
+  color: #04101a !important;
+  position: static !important;
+  transform: none !important;
+}
+
+.cms-login-panel > button[class*="LoginButton"] svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  color: #04101a !important;
+  fill: currentColor !important;
+}
+
+[class*="StyledAuthenticationPage"] [class*="TextButton"] {
+  color: var(--cms-accent-soft) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 0.25rem !important;
+}
+
+@media (max-width: 480px) {
+  .cms-login-panel {
+    padding: 2rem 1.35rem 1.75rem;
+  }
+
+  .cms-login-title {
+    font-size: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cms-login-panel--animate {
+    animation: none !important;
+  }
+}

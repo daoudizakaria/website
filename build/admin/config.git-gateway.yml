@@ -1,0 +1,111 @@
+# Alternate Decap config — Netlify Git Gateway (not used on GitHub Pages).
+# Field UX kept in sync with config.yml.
+
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+
+media_folder: public/uploads/research
+public_path: /uploads/research
+
+collections:
+  - name: research_articles
+    label: Research Articles
+    label_singular: Research Article
+    folder: src/content/research/articles
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: slug
+    summary: "{{title}} ··· {{date | date('MMMM YYYY')}} ··· {{summary | truncate(160, '…') | default('No summary yet.')}}"
+    sortable_fields:
+      - title
+      - field: date
+        default_sort: desc
+      - slug
+    editor:
+      preview: true
+    fields:
+      - label: Title
+        name: title
+        widget: cms-string
+        placeholder: Literature Review on Quantum Computing
+
+      - label: URL
+        name: slug
+        widget: cms-string
+        placeholder: literature-review-quantum-computing
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers, and hyphens (e.g. literature-review-quantum-computing)"
+
+      - label: Publish date
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        default: "{{now}}"
+
+      - label: Short summary
+        name: summary
+        widget: cms-text
+        placeholder: Write a short abstract shown on the Research page (1–3 sentences).
+
+      - label: Article
+        name: body
+        widget: markdown
+        default: ""
+        buttons:
+          - bold
+          - italic
+          - strikethrough
+          - code
+          - link
+          - heading-one
+          - heading-two
+          - heading-three
+          - heading-four
+          - heading-five
+          - heading-six
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - code-block
+          - math-display
+          - math-inline
+          - horizontal-rule
+          - simple-table
+
+      - label: Paper PDF
+        name: resume
+        widget: file
+        required: false
+        default: ""
+        choose_url: true
+        allow_multiple: false
+        media_library:
+          config:
+            max_file_size: 20000000
+
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        default: []
+        label_singular: tag
+        hint: >-
+          Optional topics for organization (e.g. astronomy, methodology).
+          Not shown on the live Research cards yet.
+        allow_add: true
+        field:
+          label: Tag
+          name: tag
+          widget: string
+          default: ""

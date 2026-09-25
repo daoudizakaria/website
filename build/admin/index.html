@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Research CMS — Zakaria Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+    <link rel="stylesheet" href="./cms.css" />
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.8.0/dist/decap-cms.js"></script>
+    <script src="./cms-widgets.js"></script>
+    <script src="./preview.js"></script>
+    <!-- Optional: window.CMS_LOGIN_AVATAR = "./avatar.jpg"; -->
+    <script src="./cms-ui.js"></script>
+    <script>
+      if (window.CMS && typeof window.CMS.init === "function") {
+        window.CMS.init();
+      }
+    </script>
+  </body>
+</html>
