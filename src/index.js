@@ -8,7 +8,9 @@ import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import "./assets/font-awesome/css/all.css";
+// Font Awesome subset: only brand icons are used (social links).
+import "./assets/font-awesome/css/fontawesome.css";
+import "./assets/font-awesome/css/brands.css";
 
 const engine = new Styletron();
 

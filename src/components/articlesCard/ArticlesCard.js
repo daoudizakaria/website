@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ArticlesCard.css";
 import { Fade } from "../reveal/Reveal";
-import { researchArticleUrl } from "../../content/research/researchContent.js";
+import { researchArticleUrl } from "../../content/research/researchRoutes.js";
 
 export default function ArticlesCard({ pub, theme }) {
   const dateLabel = pub.createdAt.split("T")[0];
