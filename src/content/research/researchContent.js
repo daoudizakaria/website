@@ -1,17 +1,22 @@
 /**
  * Research article content façade.
  *
- * Single source of truth: Markdown files in `articles/*.md` — parsed with
- * `gray-matter` (`slug`, `title`, `date`, `summary`, `tags`, `resume` + body).
- * Imported as raw strings via CRACO + Webpack `asset/source`. Add or edit
- * articles by editing those files (by hand or through the Decap CMS admin).
+ * Single source of truth: Markdown files in `articles/*.md` (`slug`, `title`,
+ * `date`, `summary`, `tags`, `resume` + body). Front matter is parsed at build
+ * time (scripts/markdown-frontmatter-loader.js), so each import is already a
+ * `{ data, content }` object. Add or edit articles by editing those files (by
+ * hand or through the Decap CMS admin).
  */
 
-import matter from "gray-matter";
 import { articlesHeader } from "../../portfolio.js";
 
-/** Auto-import published research `.md` files (excludes docs/templates). */
-const articleModules = require.context("./articles", false, /\.md$/);
+/** Auto-import published research `.md` files. The KaTeX sample is a test
+ *  fixture, excluded here so it is not even bundled. */
+const articleModules = require.context(
+  "./articles",
+  false,
+  /^\.\/(?!markdown-katex-sample)[^/]+\.md$/
+);
 const MARKDOWN_EXCLUDED = /^(MIGRATION_CHECKLIST|article-template|markdown-katex-sample)/i;
 
 const MARKDOWN_RAW_FILES = articleModules
@@ -46,12 +51,12 @@ function toIsoDate(value) {
 }
 
 /**
- * @param {string} raw — full file text including `---` frontmatter
+ * @param {{data: object, content: string}} parsed — build-time parsed file
  * @param {string} label — filename for warnings
  * @returns {object | null}
  */
-function parseMarkdownArticle(raw, label) {
-  const { data, content } = matter(raw);
+function parseMarkdownArticle(parsed, label) {
+  const { data, content } = parsed;
   const slug = data.slug;
   if (!slug || String(slug).trim() === "") {
     console.warn(`[research] Skipping Markdown (missing slug): ${label}`);

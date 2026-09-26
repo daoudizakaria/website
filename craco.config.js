@@ -1,24 +1,23 @@
-const webpack = require("webpack");
-
-/** Lets Create React App import `.md` files as UTF-8 strings (Webpack 5 `asset/source`). */
+/**
+ * Markdown articles and projects are imported as pre-parsed `{ data, content }`
+ * objects: front matter is read at build time by
+ * scripts/markdown-frontmatter-loader.js rather than in the browser.
+ */
 module.exports = {
   webpack: {
     configure: (webpackConfig) => {
-      // gray-matter uses Node's Buffer; Webpack 5 no longer polyfills it in the browser.
-      webpackConfig.resolve.fallback = {
-        ...webpackConfig.resolve.fallback,
-        buffer: require.resolve("buffer/"),
-      };
-      webpackConfig.plugins.push(
-        new webpack.ProvidePlugin({
-          Buffer: ["buffer", "Buffer"],
-        })
-      );
-
-      webpackConfig.module.rules.push({
+      const mdRule = {
         test: /\.md$/i,
-        type: "asset/source",
-      });
+        type: "javascript/auto",
+        use: [require.resolve("./scripts/markdown-frontmatter-loader.js")],
+      };
+      // Put it inside CRA's `oneOf` so the catch-all asset rule at the end of
+      // that list never claims .md files.
+      const oneOf = webpackConfig.module.rules.find((r) =>
+        Array.isArray(r.oneOf)
+      );
+      if (oneOf) oneOf.oneOf.unshift(mdRule);
+      else webpackConfig.module.rules.push(mdRule);
       return webpackConfig;
     },
   },

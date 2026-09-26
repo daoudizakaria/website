@@ -1,13 +1,11 @@
 /**
  * Project content façade — mirrors researchContent.js.
  *
- * Single source of truth: Markdown files in this folder, parsed with
- * `gray-matter` (`slug`, `title`, `date`, `summary`, `category`, `repo`,
+ * Single source of truth: Markdown files in this folder, parsed at build time
+ * by scripts/markdown-frontmatter-loader.js (`slug`, `title`, `date`, `summary`, `category`, `repo`,
  * `featured`, `tags` + body). Edit or add projects by editing those files
  * (by hand or through the Decap CMS admin).
  */
-
-import matter from "gray-matter";
 
 const projectModules = require.context("./", false, /\.md$/);
 
@@ -22,8 +20,8 @@ function toIsoDate(value) {
 /** The stub note counts as "no real content" so pages can adapt. */
 const STUB_RE = /^\*A full case study for this project is in preparation\.\*$/;
 
-function parseProject(raw, label) {
-  const { data, content } = matter(raw);
+function parseProject(parsed, label) {
+  const { data, content } = parsed;
   const slug = data.slug;
   if (!slug || String(slug).trim() === "") {
     console.warn(`[projects] Skipping Markdown (missing slug): ${label}`);

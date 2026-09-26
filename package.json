@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "baseui": "^18.2.0",
-    "buffer": "^6.0.3",
     "gh-pages": "^6.3.0",
     "gray-matter": "^4.0.3",
     "katex": "0.16.11",
