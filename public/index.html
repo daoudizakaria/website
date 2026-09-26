@@ -32,11 +32,12 @@
     <meta name="msapplication-TileImage" content="%PUBLIC_URL%/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#000000">
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+    <!-- Iconify renders the skill and Upwork icons. Deferred so it no longer
+         blocks first paint; its MutationObserver still catches icons React
+         mounts later. (A Font Awesome 6 CDN stylesheet used to load here too;
+         nothing used it — the three icons on the site come from the bundled
+         Font Awesome 5 brands subset.) -->
+    <script defer src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
     
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
