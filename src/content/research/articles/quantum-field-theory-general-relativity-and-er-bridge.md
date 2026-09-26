@@ -5,9 +5,9 @@ date: 2024-04-20
 summary: >-
   Research article on Quantum Field Theory, General Relativity and the Einstein-Rosen Bridge
 tags: []
-resume: "https://drive.google.com/drive/folders/1GniQRAi8pPWagBK4KbeiuCiEyQ16w4II?usp=sharing"
+resume: ""
 ---
 
-The full paper is available as **Quantum_Field_Theory\_\_General_Relativity_and_ER_Bridge.pdf** in the research folder on Google Drive.
-
-[Open research papers on Google Drive](https://drive.google.com/drive/folders/1GniQRAi8pPWagBK4KbeiuCiEyQ16w4II?usp=sharing)
+*The full text of this paper is being prepared for the web edition. In the
+meantime, you are welcome to request a copy of the
+manuscript through the contact page.*
