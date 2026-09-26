@@ -10,7 +10,7 @@ scientific writer. React single-page app deployed to GitHub Pages.
 
 ## Stack
 
-Create React App 5 (via CRACO) · React 16 · React Router 5 ·
+Create React App 5 (via CRACO) · React 18 · React Router 5 ·
 styled-components (theming) · Decap CMS (research articles) ·
 KaTeX + react-markdown (article rendering).
 
@@ -20,11 +20,22 @@ KaTeX + react-markdown (article rendering).
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `src/data/`                                          | **All site content**, one file per section (seo, greeting, skills, education, experience, projects, contact…). Edit these to change what the site says. |
 | `src/portfolio.js`                                   | Barrel that re-exports `src/data/*` — kept so old imports keep working. Don't add content here.                                                         |
+| `src/content/projects/*.md`                          | Projects — one Markdown file per project page (same front-matter pattern as articles, plus `category`, `repo`, `paper`, `featured`).                    |
 | `src/content/research/articles/*.md`                 | Research articles — **single source of truth**. One markdown file per article (frontmatter: `slug`, `title`, `date`, `summary`, `resume`, `tags`).      |
 | `src/content/research/researchContent.js`            | Article façade: parses the markdown, exposes list/lookup + legacy URL redirects.                                                                        |
 | `src/pages/` · `src/containers/` · `src/components/` | Routed pages, their section blocks, and shared UI.                                                                                                      |
 | `src/theme.js`                                       | Color themes; `chosenTheme` picks the active one.                                                                                                       |
 | `public/admin/`                                      | Decap CMS admin (see below).                                                                                                                            |
+
+## Build notes
+
+- Markdown front matter is parsed at **build time** by
+  `scripts/markdown-frontmatter-loader.js`; the browser never ships a YAML
+  parser. Edit the `.md` files and rebuild.
+- The splash scene is chosen in `src/data/settings.js` (`splashScene`).
+- Light/dark palettes: tokens in `src/index.css` (`:root` and
+  `:root[data-theme="light"]`) plus `blueTheme` / `lightTheme` in
+  `src/theme.js`.
 
 ## Develop
 
