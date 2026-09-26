@@ -110,6 +110,15 @@
   line-height: 1.75;
 }
 
+/* Justified prose with hyphenation, like the LaTeX PDF. Scoped to body
+   paragraphs — headings, lists (references/footnotes), and captions stay
+   left-aligned, as journals set them. */
+.article-body .markdown-content > p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
 .article-body .markdown-content h2,
 .article-body .markdown-content h3,
 .article-body .markdown-content h4 {
