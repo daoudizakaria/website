@@ -252,3 +252,78 @@
   background: rgba(var(--tint-sunken), 0.9);
   border: 1px solid var(--border-strong);
 }
+
+/* --- Short viewports ----------------------------------------------------
+   Height, not width, is the binding constraint on phones: a small Android
+   in portrait leaves little room under the figure, and a phone in
+   landscape has almost none. Tighten the rhythm, then fall back to the
+   two-column row (which trades scarce height for plentiful width). */
+
+@media (max-height: 700px) {
+  .splash-stage {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .splash-figure {
+    width: clamp(190px, min(36vh, 68vw), 330px);
+  }
+
+  .splash-name {
+    font-size: clamp(1.5rem, 4.6vh, 2.4rem);
+  }
+
+  .splash-tagline {
+    font-size: 0.78rem;
+  }
+
+  .splash-figure-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .splash-note {
+    margin-top: 0.5rem;
+  }
+
+  .splash-legend {
+    margin-top: 0.55rem;
+  }
+}
+
+@media (max-height: 520px) {
+  /* Landscape: side by side, and drop the legend rather than clip it. */
+  .splash-top {
+    flex-direction: row;
+    gap: 1.25rem;
+  }
+
+  .splash-figure {
+    width: clamp(140px, min(62vh, 32vw), 260px);
+  }
+
+  .splash-description {
+    text-align: left;
+    max-width: 26rem;
+  }
+
+  .splash-legend {
+    display: none;
+  }
+
+  .splash-name {
+    font-size: clamp(1.3rem, 6vh, 2rem);
+  }
+
+  .splash-note {
+    font-size: 0.72rem;
+  }
+
+  .splash-skip {
+    bottom: 0.5rem;
+  }
+}
+
+/* Last-resort safety: never let content become unreachable. */
+.splash-screen {
+  overflow-y: auto;
+}
