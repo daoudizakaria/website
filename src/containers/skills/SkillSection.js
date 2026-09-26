@@ -1,21 +1,45 @@
-import React, { Component } from "react";
+import React, { Component, Suspense, lazy } from "react";
 import "./Skills.css";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
 import { skills } from "../../portfolio";
 import { Fade } from "../../components/reveal/Reveal";
-import DataScienceImg from "./DataScienceImg";
-import FullStackImg from "./FullStackImg";
-import CloudInfraImg from "./CloudInfraImg";
-import DesignImg from "./DesignImg";
+
+/*
+ * The illustrations are large inline SVGs (~180 KB together, a third of the
+ * entry bundle), so each is split into its own chunk. webpackPrefetch lets
+ * the browser fetch them at idle — during the splash — so they are normally
+ * cached before this section ever renders. Each placeholder reserves the
+ * illustration's exact box (from its viewBox) so nothing shifts on arrival.
+ */
+const ILLUSTRATIONS = {
+  DataScienceImg: {
+    Img: lazy(() => import(/* webpackPrefetch: true */ "./DataScienceImg")),
+    ratio: "1120 / 829.80067",
+  },
+  FullStackImg: {
+    Img: lazy(() => import(/* webpackPrefetch: true */ "./FullStackImg")),
+    ratio: "864.81 / 658.45",
+  },
+  CloudInfraImg: {
+    Img: lazy(() => import(/* webpackPrefetch: true */ "./CloudInfraImg")),
+    ratio: "1144 / 617.32",
+  },
+  DesignImg: {
+    Img: lazy(() => import(/* webpackPrefetch: true */ "./DesignImg")),
+    ratio: "996.46 / 828.18",
+  },
+};
 
 function GetSkillSvg(props) {
-  if (props.fileName === "DataScienceImg")
-    return <DataScienceImg theme={props.theme} />;
-  else if (props.fileName === "FullStackImg")
-    return <FullStackImg theme={props.theme} />;
-  else if (props.fileName === "CloudInfraImg")
-    return <CloudInfraImg theme={props.theme} />;
-  return <DesignImg theme={props.theme} />;
+  const { Img, ratio } =
+    ILLUSTRATIONS[props.fileName] || ILLUSTRATIONS.DesignImg;
+  return (
+    <Suspense
+      fallback={<div style={{ aspectRatio: ratio }} aria-hidden="true" />}
+    >
+      <Img theme={props.theme} />
+    </Suspense>
+  );
 }
 
 class SkillSection extends Component {
