@@ -3,12 +3,10 @@ slug: complex-systems
 title: "Advanced Topics in Complex Systems: Neural Computation and High-Dimensional Random Landscapes"
 date: 2025-01-15
 summary: >-
-  An essay in two parts. The first follows the evolution of neural
-  computation, from the reptile-to-mammal transition in the cortex to
-  autoassociative memory in the hippocampus and latching dynamics in Potts
-  networks. The second introduces high-dimensional random landscapes: spiked
-  matrix and tensor inference, the BBP transition, and the Kac–Rice and
-  replica methods used to count stationary points in rugged landscapes.
+  Two parts: how neural computation evolved in the mammalian brain, from
+  hippocampal memory to latching dynamics; and how high-dimensional random
+  landscapes turn signal recovery from easy (spiked matrices) to glassy
+  (spiked tensors).
 tags:
   - complex-systems
   - neural-computation
