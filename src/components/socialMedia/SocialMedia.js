@@ -24,6 +24,8 @@ export default function socialMedia(props) {
             className={`icon-button`}
             target="_blank"
             rel="noopener noreferrer"
+            // Icon-only link: without this a screen reader announces just "link".
+            aria-label={media.name}
           >
             <IconWrapper {...media} {...props}>
               {media.iconifyClassname ? (
