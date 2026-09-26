@@ -28,6 +28,8 @@ class CertificationCard extends Component {
                 style={{ backgroundColor: certificate.color_code }}
               >
                 <img
+                  loading="lazy"
+                  decoding="async"
                   className="logo_img"
                   src={require(`../../assets/images/${certificate.logo_path}`)}
                   alt={certificate.alt_name}

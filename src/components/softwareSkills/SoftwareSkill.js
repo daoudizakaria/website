@@ -37,6 +37,8 @@ class SoftwareSkill extends React.Component {
                     )}
                     {!logo.fontAwesomeClassname && logo.imageSrc && (
                       <img
+                        loading="lazy"
+                        decoding="async"
                         className="skill-image"
                         style={logo.style}
                         src={`${process.env.PUBLIC_URL}/skills/${logo.imageSrc}`}

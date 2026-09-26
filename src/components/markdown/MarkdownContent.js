@@ -102,6 +102,8 @@ export default function MarkdownContent({ markdown, className = "" }) {
           img: ({ src, alt, title, ...props }) => (
             <span className="markdown-image">
               <img
+                loading="lazy"
+                decoding="async"
                 {...props}
                 src={withPublicUrl(src)}
                 alt={alt || ""}
