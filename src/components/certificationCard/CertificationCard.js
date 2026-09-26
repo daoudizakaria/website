@@ -7,8 +7,15 @@ class CertificationCard extends Component {
     const certificate = this.props.certificate;
     const theme = this.props.theme;
     return (
-      <Fade bottom duration={2000} distance="20px">
-        <div className="cert-card">
+      /* The card must be the grid item itself — a reveal wrapper around it
+         would swallow the grid sizing and collapse the card. */
+      <div className="cert-card">
+        <Fade
+          bottom
+          duration={2000}
+          distance="20px"
+          className="cert-card-inner"
+        >
           <div className="content">
             <a
               href={certificate.certificate_link}
@@ -44,8 +51,8 @@ class CertificationCard extends Component {
               {certificate.subtitle}
             </h3>
           </div>
-        </div>
-      </Fade>
+        </Fade>
+      </div>
     );
   }
 }

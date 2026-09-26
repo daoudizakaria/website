@@ -58,6 +58,7 @@ export function Fade({
   top,
   left,
   right,
+  className,
 }) {
   const [ref, inView] = useInView();
   const direction =
@@ -68,13 +69,21 @@ export function Fade({
     null;
   let hiddenTransform = "none";
   if (direction) {
-    const [x, y] = DIRECTION_OFFSETS[direction];
+    let [x, y] = DIRECTION_OFFSETS[direction];
     const px = parseFloat(distance) || 20;
+    // A horizontal start offset sticks out past the viewport edge until the
+    // element reveals, which shows up as a horizontal scrollbar on phones.
+    // Slide such elements up instead on narrow screens.
+    if (x !== 0 && typeof window !== "undefined" && window.innerWidth <= 768) {
+      x = 0;
+      y = 1;
+    }
     hiddenTransform = `translate3d(${x * px}px, ${y * px}px, 0)`;
   }
   return (
     <div
       ref={ref}
+      className={className}
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "none" : hiddenTransform,

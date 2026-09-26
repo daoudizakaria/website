@@ -23,7 +23,12 @@ class DegreeCard extends Component {
             </div>
           </Flip>
         )}
-        <Fade right duration={2000} distance="40px">
+        <Fade
+          right
+          duration={2000}
+          distance="40px"
+          className="card-body-reveal"
+        >
           <div
             className="card-body"
             style={{ width: degree.logo_path ? "90%" : "100%" }}

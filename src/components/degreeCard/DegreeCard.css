@@ -19,6 +19,15 @@
   color: var(--text-secondary);
 }
 
+/* The reveal wrapper is the real flex child of .degree-card, so it must
+   carry the sizing — otherwise .card-body's percentage width resolves
+   against a content-sized box and overflows on narrow screens. */
+.card-body-reveal {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
 .card-img {
   width: 200px;
   height: auto;
