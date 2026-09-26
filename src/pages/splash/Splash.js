@@ -75,8 +75,30 @@ export default function Splash(props) {
       aria-label="Skip intro"
     >
       <div className="splash-stage">
-        <div className={`splash-figure splash-figure--${settings.splashScene}`}>
-          <Scene theme={theme} durationMs={SIM_MS} still={still} />
+        <div className="splash-top">
+          <div
+            className={`splash-figure splash-figure--${settings.splashScene}`}
+          >
+            <Scene theme={theme} durationMs={SIM_MS} still={still} />
+          </div>
+          <div className="splash-description">
+            <p className="splash-figure-title" style={{ color: theme.text }}>
+              {scene.title}
+            </p>
+            <p className="splash-note" style={{ color: theme.secondaryText }}>
+              {scene.caption}
+            </p>
+            <ul className="splash-legend" aria-hidden="true">
+              {scene.legend.map((item) => (
+                <li key={item.kind} style={{ color: theme.secondaryText }}>
+                  <span
+                    className={`legend-swatch legend-swatch--${item.kind}`}
+                  />
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="splash-content">
           <h1 className="splash-name" style={{ color: theme.text }}>
@@ -85,20 +107,6 @@ export default function Splash(props) {
           <p className="splash-tagline" style={{ color: theme.secondaryText }}>
             Physicist · Data Scientist · Scientific Writer
           </p>
-          <p className="splash-figure-title" style={{ color: theme.text }}>
-            {scene.title}
-          </p>
-          <p className="splash-note" style={{ color: theme.secondaryText }}>
-            {scene.caption}
-          </p>
-          <ul className="splash-legend" aria-hidden="true">
-            {scene.legend.map((item) => (
-              <li key={item.kind} style={{ color: theme.secondaryText }}>
-                <span className={`legend-swatch legend-swatch--${item.kind}`} />
-                {item.label}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
       <span className="splash-skip" style={{ color: theme.secondaryText }}>
