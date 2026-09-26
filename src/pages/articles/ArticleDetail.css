@@ -5,11 +5,75 @@
 .article-detail-content {
   margin: 0 auto 4rem;
   padding: 0 5%;
-  max-width: 60rem;
+  max-width: 100rem;
   text-align: left;
 }
 
-.article-detail-content > h1 {
+/* Wide page, two zones: sticky TOC rail + measured reading column. */
+.article-detail-grid {
+  display: grid;
+  grid-template-columns: 17.5rem minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.article-main-col {
+  max-width: 58rem;
+  min-width: 0;
+}
+
+/* --- Table of contents (sticky, scroll-spied) --- */
+
+.article-toc {
+  position: sticky;
+  top: 7rem;
+  max-height: calc(100vh - 9rem);
+  overflow-y: auto;
+  padding: 1.5rem 0 1.5rem 0.25rem;
+}
+
+.article-toc-title {
+  font-family: "Google Sans Medium";
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+}
+
+.article-toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.article-toc-link {
+  display: block;
+  font-family: "Google Sans Regular";
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-decoration: none;
+  padding: 0.3rem 0 0.3rem 0.85rem;
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.article-toc-link:hover {
+  text-decoration: underline;
+}
+
+.article-toc-level-3 {
+  padding-left: 1.75rem;
+  font-size: 0.86rem;
+}
+
+.article-toc-level-4 {
+  padding-left: 2.6rem;
+  font-size: 0.82rem;
+}
+
+/* --- Article column --- */
+
+.article-main-col > h1 {
   font-family: "Google Sans Medium", BlinkMacSystemFont, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 2.25rem;
@@ -19,14 +83,14 @@
   margin-bottom: 0.65rem;
 }
 
-.article-detail-content > .subTitle {
+.article-main-col > .subTitle {
   font-size: 0.95rem;
   letter-spacing: 0.02em;
 }
 
 .article-body {
   margin-top: 1.75rem;
-  padding: 1.75rem 1.85rem;
+  padding: 2.25rem 2.5rem;
   border-radius: 24px;
   border: 1px solid var(--border-subtle);
   background: linear-gradient(
@@ -38,9 +102,38 @@
   box-shadow: var(--shadow-soft);
 }
 
-.article-detail-content a[href$=".pdf"],
-.article-detail-content a[href*="resume"],
-.article-detail-content > p > a[target="_blank"] {
+/* Publication-style body: serif prose, generous leading; headings stay sans. */
+.article-body .markdown-content {
+  font-family: "Charter", "Bitstream Charter", "Cambria", "Georgia",
+    "Times New Roman", serif;
+  font-size: 1.16rem;
+  line-height: 1.75;
+}
+
+.article-body .markdown-content h2,
+.article-body .markdown-content h3,
+.article-body .markdown-content h4 {
+  font-family: "Google Sans Medium", BlinkMacSystemFont, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.25;
+}
+
+/* Anchored headings land below the sticky site header. */
+.article-body h2[id],
+.article-body h3[id],
+.article-body h4[id] {
+  scroll-margin-top: 6.5rem;
+}
+
+.article-detail-content {
+  scroll-behavior: smooth;
+}
+
+/* --- Resume / PDF pill --- */
+
+.article-main-col a[href$=".pdf"],
+.article-main-col a[href*="resume"],
+.article-main-col > p > a[target="_blank"] {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -61,42 +154,103 @@
     border-color 0.22s ease;
 }
 
-.article-detail-content > p > a[target="_blank"]:hover {
+.article-main-col > p > a[target="_blank"]:hover {
   transform: translateY(-2px);
   border-color: rgba(125, 211, 252, 0.65);
   box-shadow: 0 14px 30px rgba(59, 130, 246, 0.28);
 }
 
+/* --- Previous / next article navigation --- */
+
+.article-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+
+.article-pager-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.article-pager-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.article-pager-next {
+  text-align: right;
+}
+
+.article-pager-label {
+  font-family: "Google Sans Regular";
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-pager-title {
+  font-family: "Google Sans Medium";
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+/* --- Responsive --- */
+
 @media (max-width: 1100px) {
-  .article-detail-content {
+  .article-detail-grid {
+    display: block;
+  }
+
+  .article-toc {
+    display: none;
+  }
+
+  .article-main-col {
     max-width: 56rem;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 768px) {
-  /*
-   * Bottleneck: .article-detail-content and .article-body each applied 16px
-   * horizontal padding (double inset → ~83vw text). Keep one outer gutter and
-   * a thin inner pad on the glass panel.
-   */
   .article-detail-content {
     padding: 0 0.5rem;
     max-width: 100%;
     margin-bottom: 2.5rem;
   }
 
-  .article-detail-content > h1 {
+  .article-main-col > h1 {
     font-size: 1.65rem;
     margin-top: 1.25rem;
   }
 
   .article-body {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.75rem;
     border-radius: 16px;
     margin-top: 1.25rem;
   }
 
-  .article-detail-content > p > a[target="_blank"] {
+  .article-body .markdown-content {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .article-pager {
+    grid-template-columns: 1fr;
+  }
+
+  .article-pager-next {
+    text-align: left;
+  }
+
+  .article-main-col > p > a[target="_blank"] {
     width: 100%;
     box-sizing: border-box;
     justify-content: center;
@@ -104,11 +258,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .article-detail-content > p > a[target="_blank"] {
+  .article-main-col > p > a[target="_blank"],
+  .article-pager-card {
     transition: none;
   }
 
-  .article-detail-content > p > a[target="_blank"]:hover {
+  .article-main-col > p > a[target="_blank"]:hover,
+  .article-pager-card:hover {
     transform: none;
   }
 }

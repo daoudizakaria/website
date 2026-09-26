@@ -7,6 +7,19 @@ import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import "./MarkdownContent.css";
+import { slugifyHeading, childrenToText } from "./markdownToc.js";
+
+/** Heading renderer that adds a stable anchor id (matches the TOC sidebar). */
+function anchoredHeading(Tag) {
+  return function AnchoredHeading({ children, ...props }) {
+    const id = slugifyHeading(childrenToText(children));
+    return (
+      <Tag {...props} id={id || undefined}>
+        {children}
+      </Tag>
+    );
+  };
+}
 
 /**
  * Allow trusted raw HTML from CMS-authored Markdown while still blocking
@@ -83,6 +96,9 @@ export default function MarkdownContent({ markdown, className = "" }) {
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}
         components={{
+          h2: anchoredHeading("h2"),
+          h3: anchoredHeading("h3"),
+          h4: anchoredHeading("h4"),
           img: ({ src, alt, title, ...props }) => (
             <span className="markdown-image">
               <img
