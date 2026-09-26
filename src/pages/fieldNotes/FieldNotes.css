@@ -107,6 +107,11 @@
   align-items: start;
 }
 
+.fn-row--solo {
+  width: min(520px, 100%);
+  margin: 0 auto;
+}
+
 /* ---- Lightbox ----------------------------------------------------------- */
 .fn-lightbox {
   position: fixed;

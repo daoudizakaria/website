@@ -133,6 +133,13 @@ function Lightbox({ items, index, onClose, onStep }) {
   );
 }
 
+// Rendered width of one photo in each row layout (for the srcset choice).
+const ROW_SIZES = {
+  full: "(max-width: 1180px) 92vw, 1100px",
+  pair: "(max-width: 700px) 92vw, 45vw",
+  solo: "(max-width: 700px) 92vw, 520px",
+};
+
 /** Group consecutive "pair" photos into side-by-side rows. */
 function toRows(photos) {
   const rows = [];
@@ -147,7 +154,7 @@ function toRows(photos) {
       last.items.push({ photo: p, index: i });
     } else {
       rows.push({
-        layout: p.layout === "pair" ? "pair" : "full",
+        layout: ROW_SIZES[p.layout] ? p.layout : "full",
         items: [{ photo: p, index: i }],
       });
     }
@@ -200,11 +207,7 @@ export default function FieldNotes({ theme }) {
                 <figure className="fn-figure">
                   <Photo
                     photo={photo}
-                    sizes={
-                      row.layout === "pair"
-                        ? "(max-width: 700px) 92vw, 45vw"
-                        : "(max-width: 1180px) 92vw, 1100px"
-                    }
+                    sizes={ROW_SIZES[row.layout]}
                     eager={index === 0}
                     onOpen={() => setOpen(index + 1)}
                   />

@@ -5,8 +5,9 @@
 // sizes each (long edge 1200px and 2400px), metadata stripped.
 //
 // layout: "full"  — spans the page width
-//         "pair"  — consecutive "pair" photos sit side by side (use for
-//                   two portrait frames)
+//         "pair"  — consecutive "pair" photos sit side by side (two frames
+//                   of the same shape)
+//         "solo"  — a single portrait frame, centred at a narrower width
 
 const fieldNotesHeader = {
   title: "Field notes",
@@ -40,6 +41,39 @@ const fieldNotes = {
         "He walked straight toward us for a full minute. You don't reframe a moment like this — you hold still.",
     },
     {
+      file: "zebras-buffalo",
+      layout: "full",
+      w: 1200,
+      h: 800,
+      large: { w: 2400, h: 1600 },
+      alt:
+        "Two zebras standing in dry grass looking toward the camera, with buffalo grazing out of focus behind them",
+      caption:
+        "No two zebras share the same stripes — every one of them carries its own barcode.",
+    },
+    {
+      file: "lion-pride-mound",
+      layout: "pair",
+      w: 800,
+      h: 1200,
+      large: { w: 1600, h: 2400 },
+      alt:
+        "A pride of lions on and around a termite mound under a blue sky: three lionesses on top looking out, several young lions asleep in the grass below",
+      caption:
+        "A whole pride at rest. Most of them asleep — but someone is always on watch.",
+    },
+    {
+      file: "lilac-breasted-roller",
+      layout: "pair",
+      w: 800,
+      h: 1200,
+      large: { w: 1600, h: 2400 },
+      alt:
+        "A lilac-breasted roller perched on a bare branch, its lilac, turquoise and deep blue plumage bright against soft green",
+      caption:
+        "The lilac-breasted roller — nature has no problem with a bold colour palette.",
+    },
+    {
       file: "leopard-resting",
       layout: "full",
       w: 1200,
@@ -61,19 +95,39 @@ const fieldNotes = {
         "Leopards haul their prey up into trees, out of reach of lions and hyenas. This one was keeping watch over its meal.",
     },
     {
-      file: "lilac-breasted-roller",
+      file: "hyena-hiding",
       layout: "pair",
-      w: 800,
-      h: 1200,
-      large: { w: 1600, h: 2400 },
+      w: 1200,
+      h: 800,
+      large: { w: 2400, h: 1600 },
       alt:
-        "A lilac-breasted roller perched on a bare branch, its lilac, turquoise and deep blue plumage bright against soft green",
+        "A spotted hyena lying low in tall dry grass, looking straight at the camera",
+      caption: "The reason the leopard keeps its meal up a tree.",
+    },
+    {
+      file: "jackal-grass",
+      layout: "pair",
+      w: 1200,
+      h: 800,
+      large: { w: 2400, h: 1600 },
+      alt:
+        "A jackal pausing in dry grass, looking back at the camera with its mouth open",
+      caption: "A jackal glances back on its way through the grass.",
+    },
+    {
+      file: "crocodiles-gaping",
+      layout: "full",
+      w: 1200,
+      h: 675,
+      large: { w: 2400, h: 1350 },
+      alt:
+        "Two Nile crocodiles basking on rocks at the water's edge, the one behind with its jaws wide open, both reflected in the rippled water",
       caption:
-        "The lilac-breasted roller — nature has no problem with a bold colour palette.",
+        "The open jaws aren't a threat: crocodiles gape to shed heat. A radiator, with teeth.",
     },
     {
       file: "lake-sunset",
-      layout: "pair",
+      layout: "solo",
       w: 800,
       h: 1200,
       large: { w: 1600, h: 2400 },
