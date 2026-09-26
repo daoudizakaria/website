@@ -63,15 +63,15 @@ const fieldNotes = {
         "A whole pride at rest. Most of them asleep — but someone is always on watch.",
     },
     {
-      file: "lilac-breasted-roller",
+      file: "giraffe-profile",
       layout: "pair",
       w: 800,
       h: 1200,
       large: { w: 1600, h: 2400 },
       alt:
-        "A lilac-breasted roller perched on a bare branch, its lilac, turquoise and deep blue plumage bright against soft green",
+        "A giraffe standing in profile in dry grass among acacia shrubs, under a pale blue sky",
       caption:
-        "The lilac-breasted roller — nature has no problem with a bold colour palette.",
+        "A giraffe's neck has seven vertebrae — exactly as many as ours. Each one is just a lot longer.",
     },
     {
       file: "leopard-resting",
@@ -115,6 +115,17 @@ const fieldNotes = {
       caption: "A jackal glances back on its way through the grass.",
     },
     {
+      file: "lilac-breasted-roller",
+      layout: "solo",
+      w: 800,
+      h: 1200,
+      large: { w: 1600, h: 2400 },
+      alt:
+        "A lilac-breasted roller perched on a bare branch, its lilac, turquoise and deep blue plumage bright against soft green",
+      caption:
+        "The lilac-breasted roller — nature has no problem with a bold colour palette.",
+    },
+    {
       file: "crocodiles-gaping",
       layout: "full",
       w: 1200,
@@ -127,13 +138,23 @@ const fieldNotes = {
     },
     {
       file: "lake-sunset",
-      layout: "solo",
+      layout: "pair",
       w: 800,
       h: 1200,
       large: { w: 1600, h: 2400 },
       alt:
         "The sun setting over a lake, framed by the silhouettes of acacia branches, its light reflected in the water",
       caption: "End of the day, end of the drive.",
+    },
+    {
+      file: "camp-sunset",
+      layout: "pair",
+      w: 800,
+      h: 1200,
+      large: { w: 1600, h: 2400 },
+      alt:
+        "The sun setting behind the silhouette of a safari tent and acacia trees, the sky glowing orange above the dark grassland",
+      caption: "Home for the night.",
     },
   ],
 };
