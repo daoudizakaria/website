@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  animation: splash-out 3.2s forwards;
+  animation: splash-out 4s forwards;
 }
 
 /* The lattice is 1px per spin, scaled up with hard edges so the spins stay
@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(1.1rem, 3.5vh, 2.2rem);
+  gap: clamp(0.9rem, 2.6vh, 1.6rem);
   padding: 1.5rem;
 }
 
@@ -24,7 +24,7 @@
    never sit on top of moving pixels. */
 .splash-figure {
   position: relative;
-  width: clamp(200px, min(46vh, 60vw), 400px);
+  width: clamp(240px, min(54vh, 78vw), 520px);
   aspect-ratio: 1;
   flex: none;
 }
@@ -145,4 +145,74 @@
   .splash-skip {
     animation: none;
   }
+}
+
+/* --- Figure explanation ------------------------------------------------- */
+
+.splash-figure-title {
+  margin: 1.1rem 0 0.35rem;
+  font-family: "Google Sans Medium", sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+}
+
+.splash-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.2rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  font-family: "Google Sans Regular", sans-serif;
+  font-size: clamp(0.66rem, 1.5vw, 0.76rem);
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.splash-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 1.6rem;
+  height: 0.42rem;
+  border-radius: 999px;
+}
+
+/* Same momentum ramp the tracks are drawn with. */
+.legend-swatch--scale {
+  width: 3.2rem;
+  background: linear-gradient(
+    90deg,
+    #a78bfa 0%,
+    #60a5fa 22%,
+    #22d3ee 44%,
+    #34d399 64%,
+    #fbbf24 84%,
+    #fb7185 100%
+  );
+}
+
+.legend-swatch--photon {
+  height: 0;
+  border-top: 2px dashed #fde68a;
+  border-radius: 0;
+}
+
+.legend-swatch--calo {
+  width: 0.42rem;
+  height: 1rem;
+  background: #34d399;
+}
+
+.legend-swatch--up {
+  background: var(--accent-bright);
+}
+
+.legend-swatch--down {
+  background: rgba(var(--tint-sunken), 0.9);
+  border: 1px solid var(--border-strong);
 }
