@@ -603,7 +603,7 @@ could provide usable, validated models for financial analysis — ultimately
 leading to better economic growth through accurate, decision-driving results
 [14, 15].
 
-## References
+## 6 References
 
 1. S. Viaggiu et al., "Statistical ensembles for money and debt," _Physica A_
    **504**, 123 (2018).
@@ -659,51 +659,16 @@ leading to better economic growth through accurate, decision-driving results
 23. M. Coppola and S. Gualdi, "Negative correlations in credit risk,"
     arXiv:2502.21199 (2025).
 
-[^1]: A portfolio is a compilation of financial assets, including stocks,
+[^1]: A portfolio is a compilation of financial assets, including stocks, bonds, cash, and other investments, owned by an individual or institution. Portfolios are structured to balance risk and return in accordance with the investor's objectives, risk appetite, and investment horizon [5].
 
-bonds, cash, and other investments, owned by an individual or institution.
-Portfolios are structured to balance risk and return in accordance with the
-investor's objectives, risk appetite, and investment horizon [5].
+[^2]: A credit market is a financial arena for borrowing and lending activities. In these markets, diverse participants — including banks, firms, governments, and individuals — engage in credit transactions, wherein funds are provided immediately in exchange for future repayment with interest [5].
 
-[^2]: A credit market is a financial arena for borrowing and lending
+[^3]: In economics, an "agent" refers to any individual, firm, or entity that engages in decision-making and action-taking within the economic framework. Agents interact with one another, react to incentives, and affect market results by making decisions regarding consumption, production, investment, and other economic activities [5].
 
-activities. In these markets, diverse participants — including banks, firms,
-governments, and individuals — engage in credit transactions, wherein funds
-are provided immediately in exchange for future repayment with interest [5].
+[^4]: In economics, an asset is a valuable economic resource that can yield future advantages for its owner. Assets take several forms, encompassing tangible goods such as real estate, machinery, or inventory, as well as intangible items including stocks, bonds, intellectual property, or goodwill [5].
 
-[^3]: In economics, an "agent" refers to any individual, firm, or entity that
+[^5]: The obligor's equity is the remaining worth of a firm's assets after the deduction of all liabilities. In credit risk and financial modeling, it denotes the net value or the equity stake of the firm's shareholders. In the Merton model — a structural framework for credit risk — equity is perceived as a call option on the firm's assets, retaining value only if the assets surpass the debt obligations at maturity. When a firm's asset value declines beneath its liabilities, the obligor's equity becomes zero or negative, frequently signifying default or bankruptcy [5].
 
-engages in decision-making and action-taking within the economic framework.
-Agents interact with one another, react to incentives, and affect market
-results by making decisions regarding consumption, production, investment,
-and other economic activities [5].
+[^6]: Maturity time refers to the duration from the present until a financial instrument — such as a bond, loan, or derivative contract — reaches its expiration date. Upon maturity, the principal or face value is to be repaid, and any outstanding contractual obligations, such as final interest payments, must be satisfied. This parameter is essential in finance since it affects present value computations, risk evaluations, and the pricing of financial products [5].
 
-[^4]: In economics, an asset is a valuable economic resource that can yield
-
-future advantages for its owner. Assets take several forms, encompassing
-tangible goods such as real estate, machinery, or inventory, as well as
-intangible items including stocks, bonds, intellectual property, or goodwill
-[5].
-
-[^5]: The obligor's equity is the remaining worth of a firm's assets after
-
-the deduction of all liabilities. In credit risk and financial modeling, it
-denotes the net value or the equity stake of the firm's shareholders. In the
-Merton model — a structural framework for credit risk — equity is perceived
-as a call option on the firm's assets, retaining value only if the assets
-surpass the debt obligations at maturity. When a firm's asset value declines
-beneath its liabilities, the obligor's equity becomes zero or negative,
-frequently signifying default or bankruptcy [5].
-
-[^6]: Maturity time refers to the duration from the present until a financial
-
-instrument — such as a bond, loan, or derivative contract — reaches its
-expiration date. Upon maturity, the principal or face value is to be repaid,
-and any outstanding contractual obligations, such as final interest payments,
-must be satisfied. This parameter is essential in finance since it affects
-present value computations, risk evaluations, and the pricing of financial
-products [5].
-
-[^7]: In economic and financial models, "drift" refers to the average or
-
-expected change of a variable over time [5].
+[^7]: In economic and financial models, "drift" refers to the average or expected change of a variable over time [5].
