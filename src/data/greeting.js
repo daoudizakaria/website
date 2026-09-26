@@ -33,7 +33,7 @@ const socialMediaLinks = [
     name: "Upwork",
     link: "https://www.upwork.com/freelancers/~01676c59130490a282",
     iconifyClassname: "simple-icons:upwork",
-    backgroundColor: "#6FDA44",
+    backgroundColor: "#14A800", // Upwork brand green; white glyph 3.2:1
   },
   {
     name: "Gmail",

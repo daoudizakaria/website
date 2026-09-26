@@ -27,11 +27,15 @@ export default function socialMedia(props) {
           >
             <IconWrapper {...media} {...props}>
               {media.iconifyClassname ? (
-                <span
-                  className="iconify social-iconify"
-                  data-icon={media.iconifyClassname}
-                  data-inline="false"
-                />
+                /* Nested inside <i> so it inherits the circular badge
+                   styling, which is keyed on the <i> element. */
+                <i className="social-icon-iconify">
+                  <span
+                    className="iconify"
+                    data-icon={media.iconifyClassname}
+                    data-inline="false"
+                  />
+                </i>
               ) : (
                 <i className={`fab ${media.fontAwesomeIcon}`}></i>
               )}

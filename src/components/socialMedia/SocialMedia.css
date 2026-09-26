@@ -69,8 +69,19 @@
   }
 }
 
-/* Iconify-rendered brand marks (e.g. Upwork — absent from Font Awesome 5). */
-.social-iconify {
-  font-size: 1em;
-  display: inline-flex;
+/* Iconify brand marks (e.g. Upwork — absent from Font Awesome 5): centre the
+   generated SVG inside the same circular badge the Font Awesome icons use. */
+.icon-button i.social-icon-iconify {
+  /* Keep the inline-block/line-height model of the Font Awesome badges so
+     all icons share one baseline. */
+  display: inline-block;
+}
+
+.icon-button i.social-icon-iconify svg,
+.icon-button i.social-icon-iconify .iconify {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: inherit;
+  fill: currentColor;
+  vertical-align: middle;
 }
