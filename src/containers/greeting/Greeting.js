@@ -1,10 +1,34 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 import { Fade } from "../../components/reveal/Reveal";
-import FeelingProud from "./FeelingProud";
+
+// Only downloaded when no hero photo is configured.
+const FeelingProud = lazy(() => import("./FeelingProud"));
+
+const photoUrl = (file, w) =>
+  `${process.env.PUBLIC_URL || ""}/uploads/profile/${file}-${w}.webp`;
+
+function HeroPhoto({ photo }) {
+  const largest = photo.widths[photo.widths.length - 1];
+  return (
+    <img
+      className="greeting-photo"
+      src={photoUrl(photo.file, largest)}
+      srcSet={photo.widths
+        .map((w) => `${photoUrl(photo.file, w)} ${w}w`)
+        .join(", ")}
+      sizes="(max-width: 768px) 80vw, 440px"
+      width={photo.width}
+      height={photo.height}
+      alt={photo.alt}
+      decoding="async"
+      fetchpriority="high"
+    />
+  );
+}
 
 export default function Greeting(props) {
   const theme = props.theme;
@@ -54,11 +78,13 @@ export default function Greeting(props) {
             </div>
           </div>
           <div className="greeting-image-div">
-            {/* <img
-							alt="saad sitting on table"
-							src={require("../../assets/images/feelingProud.svg")}
-						></img> */}
-            <FeelingProud theme={theme} />
+            {greeting.heroPhoto ? (
+              <HeroPhoto photo={greeting.heroPhoto} />
+            ) : (
+              <Suspense fallback={null}>
+                <FeelingProud theme={theme} />
+              </Suspense>
+            )}
           </div>
         </div>
       </div>
