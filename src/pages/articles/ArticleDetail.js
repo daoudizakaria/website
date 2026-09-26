@@ -64,7 +64,7 @@ function ArticleDetail(props) {
       title={article.name}
       subtitle={`Published on ${article.createdAt.split("T")[0]}`}
       markdown={article.content}
-      action={action}
+      actions={action ? [action] : []}
       pager={pager}
     />
   );

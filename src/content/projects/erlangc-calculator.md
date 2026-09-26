@@ -10,6 +10,7 @@ summary: >-
   staffing plans respond to uncertain demand.
 category: math
 repo: "https://github.com/daoudizakaria/ErlangC_calculator"
+paper: "/uploads/projects/erlangc-calculator-paper.pdf"
 featured: false
 tags:
   - queueing-theory

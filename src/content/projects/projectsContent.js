@@ -41,6 +41,7 @@ function parseProject(raw, label) {
       ? data.category
       : "physics",
     repo: data.repo != null ? String(data.repo) : "",
+    paper: data.paper != null ? String(data.paper) : "",
     featured: data.featured === true,
     tags: Array.isArray(data.tags) ? data.tags.map((t) => String(t)) : [],
   };

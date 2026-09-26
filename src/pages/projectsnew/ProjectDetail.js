@@ -59,6 +59,18 @@ function ProjectDetail(props) {
   }
 
   const repo = (project.repo || "").trim();
+  const paper = (project.paper || "").trim();
+  const actions = [];
+  if (repo) actions.push({ href: repo, label: actionLabel(repo) });
+  if (paper) {
+    actions.push({
+      href: paper.startsWith("/")
+        ? `${process.env.PUBLIC_URL || ""}${paper}`
+        : paper,
+      label: "📄 Read the companion paper (PDF)",
+    });
+  }
+
   return (
     <ContentDetail
       theme={theme}
@@ -67,7 +79,7 @@ function ProjectDetail(props) {
       subtitle={`Last updated ${project.createdAt.split("T")[0]}`}
       badge={CATEGORY_LABELS[project.category]}
       markdown={project.content}
-      action={repo ? { href: repo, label: actionLabel(repo) } : null}
+      actions={actions}
       pager={pager}
     />
   );

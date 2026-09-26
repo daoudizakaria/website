@@ -51,7 +51,7 @@ function useActiveHeading(contentKey, headingCount) {
  * @param {string} [props.badge] — small label chip next to the subtitle
  * @param {string} props.markdown — body content ("" allowed)
  * @param {React.ReactNode} [props.emptyNote] — shown when markdown is empty
- * @param {{href: string, label: string}} [props.action] — external button
+ * @param {Array<{href: string, label: string}>} [props.actions] — link buttons
  * @param {{prev: ?{to: string, title: string}, next: ?{to: string, title: string}, prevLabel: string, nextLabel: string, ariaLabel: string}} [props.pager]
  */
 export default function ContentDetail({
@@ -62,9 +62,10 @@ export default function ContentDetail({
   badge,
   markdown,
   emptyNote,
-  action,
+  actions,
   pager,
 }) {
+  const links = (actions || []).filter((a) => a && a.href);
   const hasBody = markdown && String(markdown).trim().length > 0;
   const toc = useMemo(() => (hasBody ? extractToc(markdown) : []), [
     hasBody,
@@ -133,16 +134,19 @@ export default function ContentDetail({
           <div className="article-body" style={{ color: theme.text }}>
             {hasBody ? <MarkdownContent markdown={markdown} /> : emptyNote}
           </div>
-          {action && action.href && (
-            <p>
-              <a
-                href={action.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: theme.imageHighlight }}
-              >
-                {action.label}
-              </a>
+          {links.length > 0 && (
+            <p className="content-detail-actions">
+              {links.map((a) => (
+                <a
+                  key={a.href}
+                  href={a.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: theme.imageHighlight }}
+                >
+                  {a.label}
+                </a>
+              ))}
             </p>
           )}
           {(prev || next) && (

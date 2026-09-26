@@ -64,6 +64,12 @@ collections:
         widget: cms-string
         required: false
         default: ""
+      - label: Companion paper (PDF)
+        name: paper
+        widget: file
+        required: false
+        default: ""
+        choose_url: true
       - label: Featured on home page
         name: featured
         widget: boolean
