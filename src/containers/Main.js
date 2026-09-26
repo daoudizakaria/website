@@ -19,6 +19,7 @@ const ArticleDetail = lazy(() => import("../pages/articles/ArticleDetail"));
 const Contact = lazy(() => import("../pages/contact/ContactComponent"));
 const Projectsnew = lazy(() => import("../pages/projectsnew/Projectsnew"));
 const ProjectDetail = lazy(() => import("../pages/projectsnew/ProjectDetail"));
+const FieldNotes = lazy(() => import("../pages/fieldNotes/FieldNotes"));
 const Error404 = lazy(() => import("../pages/errors/error404/Error"));
 
 /** Full-page redirect into Decap CMS (static admin under public/admin/). */
@@ -98,6 +99,13 @@ export default class Main extends Component {
               exact
               path="/blog"
               render={() => <Redirect to={RESEARCH_BASE_PATH} />}
+            />
+            <Route
+              exact
+              path="/field-notes"
+              render={(props) => (
+                <FieldNotes {...props} theme={this.props.theme} />
+              )}
             />
             <Route
               path="/contact"

@@ -15,3 +15,4 @@ export * from "./data/projects";
 export * from "./data/articles";
 export * from "./data/contact";
 export * from "./data/testimonials";
+export * from "./data/fieldNotes";

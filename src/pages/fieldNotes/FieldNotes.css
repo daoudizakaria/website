@@ -1,0 +1,263 @@
+/* Field notes — personal photography page. Colours come from the theme
+   tokens in index.css so both light and dark modes work unchanged. */
+
+.field-notes-main {
+  width: 100%;
+}
+
+.fn-intro,
+.fn-gallery {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+/* ---- Intro: text beside the "observer" photo ---------------------------- */
+.fn-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
+}
+
+.fn-kicker {
+  margin: 0 0 0.5rem;
+  font-family: "Google Sans Medium", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.fn-title {
+  margin: 0 0 1.25rem;
+  font-family: "Google Sans Bold", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.fn-lede {
+  margin: 0;
+  font-family: "Charter", "Bitstream Charter", "Cambria", "Georgia",
+    "Times New Roman", serif;
+  font-size: 1.18rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ---- Figures ------------------------------------------------------------ */
+.fn-figure {
+  margin: 0;
+}
+
+.fn-photo-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(var(--tint-sunken), 0.6);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.fn-photo-button:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.fn-photo-button:focus-visible {
+  outline: 3px solid var(--accent-bright);
+  outline-offset: 3px;
+}
+
+/* width/height attributes give the aspect ratio before the file arrives,
+   so nothing below jumps while photos load. */
+.fn-photo-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fn-figure figcaption {
+  margin-top: 0.75rem;
+  font-family: "Charter", "Bitstream Charter", "Cambria", "Georgia",
+    "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---- Gallery ------------------------------------------------------------ */
+.fn-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.fn-row--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+/* ---- Lightbox ----------------------------------------------------------- */
+.fn-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 4.5rem 1.5rem;
+  background: rgba(3, 8, 15, 0.94);
+  animation: fn-fade-in 0.2s ease;
+}
+
+@keyframes fn-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.fn-lightbox-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.fn-lightbox-figure img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  max-height: calc(100dvh - 9rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.fn-lightbox-figure figcaption {
+  margin-top: 0.9rem;
+  max-width: 60ch;
+  text-align: center;
+  font-family: "Charter", "Bitstream Charter", "Cambria", "Georgia",
+    "Times New Roman", serif;
+  font-style: italic;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.fn-lightbox-count {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: "Google Sans Regular", sans-serif;
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.fn-lb-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.fn-lb-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.fn-lb-button:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.fn-lb-close {
+  top: 0.9rem;
+  right: 0.9rem;
+}
+
+.fn-lb-prev,
+.fn-lb-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fn-lb-prev {
+  left: 0.9rem;
+}
+
+.fn-lb-next {
+  right: 0.9rem;
+}
+
+/* ---- Small screens ------------------------------------------------------ */
+@media (max-width: 900px) {
+  .fn-intro {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .fn-row--pair {
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .fn-photo-button {
+    border-radius: 10px;
+  }
+
+  /* Swipe to navigate on phones; keep arrows small and out of the photo. */
+  .fn-lightbox {
+    padding: 3.75rem 0.5rem 4.25rem;
+  }
+
+  .fn-lightbox-figure img {
+    max-height: calc(100vh - 13rem);
+    max-height: calc(100dvh - 13rem);
+  }
+
+  .fn-lb-prev,
+  .fn-lb-next {
+    top: auto;
+    bottom: 0.9rem;
+    transform: none;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fn-photo-button,
+  .fn-lightbox {
+    transition: none;
+    animation: none;
+  }
+
+  .fn-photo-button:hover {
+    transform: none;
+  }
+}
