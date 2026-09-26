@@ -69,47 +69,58 @@
   --bg-glow-2: rgba(37, 99, 235, 0.04);
 }
 
+/* WOFF2 first (~60% smaller than the TTF originals, which remain as
+   fallbacks). The originals were previously all labelled format("woff"),
+   which is wrong for .ttf files. */
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;
   font-weight: normal;
   src: local("Agustina Regular"),
+    url("./assets/fonts/Agustina.woff2") format("woff2"),
     url("./assets/fonts/Agustina.woff") format("woff");
 }
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
+    url("./assets/fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Bold";
   src: local("Google Sans Bold"),
-    url("./assets/fonts/GoogleSans-Bold.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Bold.woff2") format("woff2"),
+    url("./assets/fonts/GoogleSans-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Bold Italic";
   src: local("Google Sans Bold Italic"),
-    url("./assets/fonts/GoogleSans-BoldItalic.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-BoldItalic.woff2") format("woff2"),
+    url("./assets/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Italic";
   src: local("Google Sans Italic"),
-    url("./assets/fonts/GoogleSans-Italic.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Italic.woff2") format("woff2"),
+    url("./assets/fonts/GoogleSans-Italic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Medium";
   src: local("Google Sans Medium"),
-    url("./assets/fonts/GoogleSans-Medium.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Medium.woff2") format("woff2"),
+    url("./assets/fonts/GoogleSans-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Medium Italic";
   src: local("Google Sans Medium Italic"),
-    url("./assets/fonts/GoogleSans-MediumItalic.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-MediumItalic.woff2") format("woff2"),
+    url("./assets/fonts/GoogleSans-MediumItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Regular";
   src: local("Google Sans Regular"),
-    url("./assets/fonts/GoogleSans-Regular.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Regular.woff2") format("woff2"),
+    url("./assets/fonts/GoogleSans-Regular.ttf") format("truetype");
 }
 
 code {
