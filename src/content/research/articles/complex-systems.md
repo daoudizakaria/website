@@ -1,7 +1,7 @@
 ---
 slug: complex-systems
 title: "Advanced Topics in Complex Systems: Neural Computation and High-Dimensional Random Landscapes"
-date: 2025-01-01
+date: 2025-01-15
 summary: >-
   An essay in two parts. The first follows the evolution of neural
   computation, from the reptile-to-mammal transition in the cortex to
