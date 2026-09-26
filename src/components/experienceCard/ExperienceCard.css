@@ -100,8 +100,8 @@
   color: var(--text-secondary);
   background: linear-gradient(
     165deg,
-    rgba(23, 56, 93, 0.55),
-    rgba(18, 44, 73, 0.4)
+    rgba(42, 98, 148, 0.55),
+    rgba(34, 83, 127, 0.4)
   ) !important;
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-soft);

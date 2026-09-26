@@ -10,16 +10,19 @@
   --accent-hover: #7dd3fc;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
+  --text-muted: #b2bfd0;
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.22);
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
   --shadow-hover: 0 22px 48px rgba(0, 0, 0, 0.45);
   --radius-card: 24px;
+  /* Card surface. Single source of truth: these cards set no background-color
+     underneath, so the composite over the page is exactly this gradient —
+     ~1.66:1 against the page, which keeps every text token above AA. */
   --glass-bg: linear-gradient(
     165deg,
-    rgba(23, 56, 93, 0.55) 0%,
-    rgba(18, 44, 73, 0.35) 100%
+    rgba(34, 83, 127, 0.65) 0%,
+    rgba(34, 83, 127, 0.5) 100%
   );
   --header-blur: rgba(7, 17, 31, 0.72);
 }

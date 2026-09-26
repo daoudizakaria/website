@@ -142,7 +142,6 @@ export default function ContentDetail({
                   href={a.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: theme.imageHighlight }}
                 >
                   {a.label}
                 </a>

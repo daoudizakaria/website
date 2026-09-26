@@ -34,9 +34,9 @@ class CertificationCard extends Component {
                 />
               </div>
               <div className="content-details fadeIn-top">
-                <h3 className="content-title" style={{ color: theme.body }}>
-                  Certificate
-                </h3>
+                {/* Sits on a 70%-black hover overlay, so it must stay
+                    light — the stylesheet sets #fff. */}
+                <h3 className="content-title">Certificate</h3>
               </div>
             </a>
           </div>
