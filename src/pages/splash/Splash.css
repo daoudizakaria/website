@@ -1,69 +1,124 @@
-.logo_wrapper {
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-}
-
-.screen {
-  height: 100%;
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-radius: 100%;
-  animation: grow 2.8s forwards;
-  background-image: radial-gradient(
-      ellipse at center,
-      rgba(59, 130, 246, 0.22),
-      transparent 60%
-    ),
-    linear-gradient(180deg, #07111f 0%, #0d2240 100%);
+  cursor: pointer;
+  animation: splash-out 3.2s forwards;
 }
 
-body {
-  padding: 0;
+/* The lattice is 1px per spin, scaled up with hard edges so the spins stay
+   crisp squares rather than a blur. */
+.ising-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Keeps the name readable over the flickering spins. */
+.splash-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 50%,
+    rgba(var(--tint-sunken), 0.82) 0%,
+    rgba(var(--tint-sunken), 0.45) 55%,
+    transparent 100%
+  );
+}
+
+.splash-content {
+  position: relative;
+  text-align: center;
+  padding: 0 1.5rem;
+  animation: splash-settle 1.5s 0.9s both;
+}
+
+.splash-name {
   margin: 0;
+  font-family: "Google Sans Medium", sans-serif;
+  font-size: clamp(2rem, 7vw, 4.25rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-@keyframes grow {
-  0% {
-    transform: scale(0.92);
+.splash-tagline {
+  margin: 0.6rem 0 0;
+  font-family: "Google Sans Regular", sans-serif;
+  font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+  letter-spacing: 0.06em;
+}
+
+.splash-note {
+  margin: 1.6rem 0 0;
+  font-family: "Charter", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+  opacity: 0.75;
+}
+
+.splash-skip {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Google Sans Regular", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  animation: splash-fade-in 0.6s 1.8s both;
+}
+
+@keyframes splash-settle {
+  from {
     opacity: 0;
-    border-radius: 24px;
+    transform: translateY(10px);
+    filter: blur(6px);
   }
-  35% {
-    transform: scale(1);
+  to {
     opacity: 1;
-    border-radius: 0;
-    height: 100%;
-    width: 100%;
+    transform: none;
+    filter: none;
   }
-  75% {
-    transform: scale(1);
+}
+
+@keyframes splash-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+
+@keyframes splash-out {
+  0%,
+  88% {
     opacity: 1;
-    border-radius: 0;
-    height: 100%;
-    width: 100%;
   }
   100% {
-    transform: scale(1.02);
     opacity: 0;
-    border-radius: 0;
   }
 }
 
-#logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Reduced motion: one settled lattice, text already in place, no fades. */
+.splash-screen.is-still,
+.splash-screen.is-still .splash-content,
+.splash-screen.is-still .splash-skip {
+  animation: none;
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .screen {
+  .splash-screen,
+  .splash-content,
+  .splash-skip {
     animation: none;
-    border-radius: 0;
-    opacity: 1;
   }
 }
