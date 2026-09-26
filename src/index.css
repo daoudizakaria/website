@@ -21,10 +21,52 @@
      ~1.66:1 against the page, which keeps every text token above AA. */
   --glass-bg: linear-gradient(
     165deg,
-    rgba(34, 83, 127, 0.65) 0%,
-    rgba(34, 83, 127, 0.5) 100%
+    rgba(var(--tint-surface), 0.65) 0%,
+    rgba(var(--tint-surface), 0.5) 100%
   );
-  --header-blur: rgba(7, 17, 31, 0.72);
+  --header-blur: rgba(var(--tint-sunken), 0.72);
+
+  /* Surface tints as raw RGB triplets so each use keeps its own alpha while
+     the hue flips with the theme. */
+  --tint-surface: 34, 83, 127;
+  --tint-raised: 42, 98, 148;
+  --tint-sunken: 7, 17, 31;
+  --bg-glow-1: rgba(59, 130, 246, 0.18);
+  --bg-glow-2: rgba(125, 211, 252, 0.08);
+}
+
+/* ---- Light theme -------------------------------------------------------
+   Inverted rather than replaced: the navy becomes the ink, the blue stays
+   the accent. Separation on a light canvas comes from white cards plus
+   dark-alpha borders and shadows, the mirror of the dark theme. */
+:root[data-theme="light"] {
+  --bg-deep: #eef3f9;
+  --bg-mid: #e4ecf5;
+  --bg-lift: #ffffff;
+  --surface: #ffffff;
+  --surface-lift: #ffffff;
+  --accent: #1d4ed8;
+  --accent-bright: #1e40af;
+  --accent-soft: #1e3a8a;
+  --accent-hover: #1e40af;
+  --text-primary: #0b1b2e;
+  --text-secondary: #334155;
+  --text-muted: #51617a;
+  --border-subtle: rgba(15, 23, 42, 0.12);
+  --border-strong: rgba(15, 23, 42, 0.24);
+  --shadow-soft: 0 6px 20px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 14px 34px rgba(15, 23, 42, 0.14);
+  --glass-bg: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  --header-blur: rgba(238, 243, 249, 0.85);
+  --tint-surface: 255, 255, 255;
+  --tint-raised: 255, 255, 255;
+  --tint-sunken: 214, 224, 237;
+  --bg-glow-1: rgba(59, 130, 246, 0.07);
+  --bg-glow-2: rgba(37, 99, 235, 0.04);
 }
 
 @font-face {

@@ -196,4 +196,20 @@ export const materialTealTheme = {
   splashBg: "#05505E",
 };
 
+/* Light counterpart of blueTheme: navy becomes the ink, white the paper,
+   blue stays the accent. Paired with :root[data-theme="light"] in index.css. */
+export const lightTheme = {
+  body: "#EEF3F9",
+  text: "#0B1B2E",
+  expTxtColor: "#1E293B",
+  highlight: "#FFFFFF",
+  dark: "#0B1B2E",
+  secondaryText: "#334155",
+  imageHighlight: "#1D4ED8",
+  compImgHighlight: "#DBEAFE",
+  jacketColor: "#2563EB",
+  headerColor: "rgba(148, 173, 205, 0.55)",
+  splashBg: "#EEF3F9",
+};
+
 export const chosenTheme = blueTheme;

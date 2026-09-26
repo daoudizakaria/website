@@ -95,8 +95,8 @@
   border: 1px solid var(--border-subtle);
   background: linear-gradient(
     180deg,
-    rgba(34, 83, 127, 0.55) 0%,
-    rgba(24, 62, 100, 0.4) 100%
+    rgba(var(--tint-surface), 0.55) 0%,
+    rgba(var(--tint-surface), 0.4) 100%
   );
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-soft);

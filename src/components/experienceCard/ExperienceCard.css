@@ -100,8 +100,8 @@
   color: var(--text-secondary);
   background: linear-gradient(
     165deg,
-    rgba(42, 98, 148, 0.55),
-    rgba(34, 83, 127, 0.4)
+    rgba(var(--tint-raised), 0.55),
+    rgba(var(--tint-surface), 0.4)
   ) !important;
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-soft);
@@ -155,7 +155,7 @@
   box-shadow: var(--shadow-soft);
   border: 1px solid var(--border-subtle);
   border-radius: 50px;
-  background: rgba(7, 17, 31, 0.45);
+  background: rgba(var(--tint-sunken), 0.45);
 }
 
 .experience-card-title {

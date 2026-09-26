@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { RESEARCH_BASE_PATH } from "../../content/research/researchContent.js";
 import SeoHeader from "../seoHeader/SeoHeader";
+import ThemeToggle from "../themeToggle/ThemeToggle";
 
 const onMouseEnter = (event, color) => {
   const el = event.target;
@@ -115,6 +116,9 @@ class Header extends Component {
                   >
                     Contact Me
                   </NavLink>
+                </li>
+                <li className="header-theme-toggle-item">
+                  <ThemeToggle theme={theme} />
                 </li>
               </ul>
             </header>
