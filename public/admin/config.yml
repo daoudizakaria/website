@@ -17,6 +17,67 @@ media_folder: public/uploads/research
 public_path: /uploads/research
 
 collections:
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: slug
+    summary: "{{title}} ··· {{category}} ··· {{date | date('MMMM YYYY')}}"
+    sortable_fields:
+      - title
+      - field: date
+        default_sort: desc
+    editor:
+      preview: true
+    fields:
+      - label: Title
+        name: title
+        widget: cms-string
+      - label: URL
+        name: slug
+        widget: cms-string
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers, and hyphens"
+      - label: Date
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        default: "{{now}}"
+      - label: Short summary
+        name: summary
+        widget: cms-text
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: "Machine Learning & Data Science", value: ml }
+          - { label: "Physics & Engineering", value: physics }
+          - { label: "Mathematics", value: math }
+      - label: Repository / resource URL
+        name: repo
+        widget: cms-string
+        required: false
+        default: ""
+      - label: Featured on home page
+        name: featured
+        widget: boolean
+        default: false
+      - label: Case study
+        name: body
+        widget: markdown
+        default: ""
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        default: []
+
   - name: research_articles
     label: Research Articles
     label_singular: Research Article

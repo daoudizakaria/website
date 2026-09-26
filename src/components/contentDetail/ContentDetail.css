@@ -313,3 +313,17 @@
     transform: none;
   }
 }
+
+/* Category badge chip next to the subtitle (project pages). */
+.content-detail-badge {
+  display: inline-block;
+  margin-left: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-family: "Google Sans Medium";
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}

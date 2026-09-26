@@ -4,21 +4,11 @@ import "./HomeHighlights.css";
 import { Fade } from "../../components/reveal/Reveal";
 import ProjectsnewCard from "../../components/projectsnewCard/ProjectsnewCard";
 import ArticlesCard from "../../components/articlesCard/ArticlesCard";
-import { ML, physics, math, featuredProjectIds } from "../../portfolio";
-import {
-  getResearchArticleList,
-  RESEARCH_BASE_PATH,
-} from "../../content/research/researchContent.js";
+import { getResearchArticleList } from "../../content/research/researchContent.js";
+import { RESEARCH_BASE_PATH } from "../../content/research/researchRoutes.js";
+import { getFeaturedProjects } from "../../content/projects/projectsContent.js";
 
 const LATEST_ARTICLE_COUNT = 3;
-
-/** Featured projects resolved from ids; falls back to the newest entries. */
-function getFeaturedProjects() {
-  const all = [...ML.data, ...physics.data, ...math.data];
-  const byId = new Map(all.map((p) => [p.id, p]));
-  const featured = featuredProjectIds.map((id) => byId.get(id)).filter(Boolean);
-  return featured.length > 0 ? featured : all.slice(0, 3);
-}
 
 function SectionHeading({ title, linkTo, linkLabel, theme }) {
   return (

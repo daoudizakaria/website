@@ -1,4 +1,5 @@
 # Article markdown is content, not code — prettier 2.0.5 mangles GFM footnotes,
 # and Decap CMS writes these files directly.
 src/content/research/articles/
+src/content/projects/
 build/

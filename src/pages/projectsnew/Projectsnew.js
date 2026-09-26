@@ -9,14 +9,16 @@ import {
   greeting,
   projectsnewHeader,
   MLHeader,
-  ML,
   physicsHeader,
-  physics,
   mathHeader,
-  math,
 } from "../../portfolio.js";
+import { getProjectsByCategory } from "../../content/projects/projectsContent.js";
 import "./Projectsnew.css";
 import ProjectsImg from "./ProjectsImg";
+
+const ML = { data: getProjectsByCategory("ml") };
+const physics = { data: getProjectsByCategory("physics") };
+const math = { data: getProjectsByCategory("math") };
 
 class Projectsnew extends Component {
   render() {

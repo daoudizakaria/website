@@ -1,84 +1,62 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ProjectsnewCard.css";
 import { Fade } from "../reveal/Reveal";
+import { projectUrl } from "../../content/projects/projectsRoutes.js";
 
-/** Only treat absolute http(s) URLs as openable (avoids blank tabs / bogus hrefs). */
-function getOpenableProjectUrl(raw) {
-  const s = (raw || "").trim();
-  if (!s) return null;
-  return /^https?:\/\//i.test(s) ? s : null;
-}
-
+/**
+ * Project card. Always navigates to the project's own page on this site
+ * (`/projects/:slug`); any external repository/resource link is offered
+ * there, not from the card.
+ */
 export default function ProjectsnewCard({ pub, theme }) {
-  const openableUrl = getOpenableProjectUrl(pub.url);
-  const hasLink = Boolean(openableUrl);
   const dateLabel = pub.createdAt.split("T")[0];
-
-  const body = (
-    <>
-      <div className="projectsnew-name-div">
-        <p className="projectsnew-name" style={{ color: theme.text }}>
-          {pub.name}
-        </p>
-      </div>
-      {pub.description ? (
-        <p className="projectsnew-description" style={{ color: theme.text }}>
-          {pub.description}
-        </p>
-      ) : null}
-      <div className="projectsnew-details">
-        <time
-          className="projectsnew-creation-date subTitle"
-          dateTime={pub.createdAt}
-          style={{ color: theme.secondaryText }}
-        >
-          Last updated {dateLabel}
-        </time>
-      </div>
-      <div className="projectsnew-card-footer">
-        {hasLink ? (
-          <span
-            className="projectsnew-link-hint"
-            style={{ color: theme.imageHighlight }}
-          >
-            Open resource
-            <span className="projectsnew-link-hint-arrow" aria-hidden="true">
-              →
-            </span>
-          </span>
-        ) : (
-          <span
-            className="projectsnew-no-link-hint subTitle"
-            style={{ color: theme.secondaryText }}
-          >
-            No public link
-          </span>
-        )}
-      </div>
-    </>
-  );
 
   return (
     <div
-      className={`projectsnew-card-div ${
-        hasLink ? "is-clickable" : "is-static"
-      }`}
+      className="projectsnew-card-div is-clickable"
       style={{ backgroundColor: theme.highlight }}
     >
       <Fade bottom duration={2000} distance="40px">
-        {hasLink ? (
-          <a
-            className="projectsnew-card-body"
-            href={openableUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open project: ${pub.name}`}
-          >
-            {body}
-          </a>
-        ) : (
-          <div className="projectsnew-card-body">{body}</div>
-        )}
+        <Link
+          className="projectsnew-card-body"
+          to={projectUrl(pub.id)}
+          aria-label={`Open project page: ${pub.name}`}
+        >
+          <div className="projectsnew-name-div">
+            <p className="projectsnew-name" style={{ color: theme.text }}>
+              {pub.name}
+            </p>
+          </div>
+          {pub.description ? (
+            <p
+              className="projectsnew-description"
+              style={{ color: theme.text }}
+            >
+              {pub.description}
+            </p>
+          ) : null}
+          <div className="projectsnew-details">
+            <time
+              className="projectsnew-creation-date subTitle"
+              dateTime={pub.createdAt}
+              style={{ color: theme.secondaryText }}
+            >
+              Last updated {dateLabel}
+            </time>
+          </div>
+          <div className="projectsnew-card-footer">
+            <span
+              className="projectsnew-link-hint"
+              style={{ color: theme.imageHighlight }}
+            >
+              Read more
+              <span className="projectsnew-link-hint-arrow" aria-hidden="true">
+                →
+              </span>
+            </span>
+          </div>
+        </Link>
       </Fade>
     </div>
   );
