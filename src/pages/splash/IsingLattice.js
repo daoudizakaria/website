@@ -99,5 +99,11 @@ export default function IsingLattice({ theme, durationMs = 2600, still }) {
     return () => cancelAnimationFrame(raf);
   }, [theme, durationMs, still]);
 
-  return <canvas ref={canvasRef} className="ising-canvas" aria-hidden="true" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="splash-canvas ising-canvas"
+      aria-hidden="true"
+    />
+  );
 }

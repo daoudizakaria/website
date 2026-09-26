@@ -11,31 +11,55 @@
 
 /* The lattice is 1px per spin, scaled up with hard edges so the spins stay
    crisp squares rather than a blur. */
-.ising-canvas {
+.splash-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.1rem, 3.5vh, 2.2rem);
+  padding: 1.5rem;
+}
+
+/* The animation lives in its own bounded figure, so the name and tagline
+   never sit on top of moving pixels. */
+.splash-figure {
+  position: relative;
+  width: clamp(200px, min(46vh, 60vw), 400px);
+  aspect-ratio: 1;
+  flex: none;
+}
+
+.splash-figure--collision {
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.splash-figure--ising {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.splash-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
-/* Keeps the name readable over the flickering spins. */
-.splash-veil {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 55% 45% at 50% 50%,
-    rgba(var(--tint-sunken), 0.82) 0%,
-    rgba(var(--tint-sunken), 0.45) 55%,
-    transparent 100%
-  );
+/* Ising only: 1px per spin scaled up, kept as hard squares not a blur. */
+.ising-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .splash-content {
   position: relative;
   text-align: center;
-  padding: 0 1.5rem;
+  max-width: 40rem;
+  padding: 0 1rem;
   animation: splash-settle 1.5s 0.9s both;
 }
 
