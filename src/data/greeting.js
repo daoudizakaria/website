@@ -30,6 +30,12 @@ const socialMediaLinks = [
     backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
   },
   {
+    name: "Upwork",
+    link: "https://www.upwork.com/freelancers/~01676c59130490a282",
+    iconifyClassname: "simple-icons:upwork",
+    backgroundColor: "#6FDA44",
+  },
+  {
     name: "Gmail",
     link: "mailto:zackaria.daoudi@gmail.com",
     fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands

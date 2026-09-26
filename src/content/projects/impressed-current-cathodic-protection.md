@@ -10,4 +10,10 @@ featured: true
 tags: []
 ---
 
+> "Zakaria is a brilliant dude! We had a challenging technical problem where
+> we had to make a simulation for an extensive cathodic protection system and
+> he just helped us CRUSH the math."
+>
+> — Client feedback, cathodic-protection simulation engagement (2023)
+
 *A full case study for this project is in preparation.*

@@ -68,3 +68,9 @@
     text-align: center;
   }
 }
+
+/* Iconify-rendered brand marks (e.g. Upwork — absent from Font Awesome 5). */
+.social-iconify {
+  font-size: 1em;
+  display: inline-flex;
+}

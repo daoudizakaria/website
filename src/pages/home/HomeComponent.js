@@ -3,6 +3,7 @@ import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
 import Skills from "../../containers/skills/Skills";
 import HomeHighlights from "../../containers/homeHighlights/HomeHighlights";
+import Testimonials from "../../containers/testimonials/Testimonials";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 
@@ -14,6 +15,7 @@ class Home extends Component {
         <Greeting theme={this.props.theme} />
         <Skills theme={this.props.theme} />
         <HomeHighlights theme={this.props.theme} />
+        <Testimonials theme={this.props.theme} />
         <Footer theme={this.props.theme} />
         <TopButton theme={this.props.theme} />
       </div>
