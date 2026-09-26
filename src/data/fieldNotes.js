@@ -11,10 +11,9 @@
 
 const fieldNotesHeader = {
   title: "Field notes",
-  // TODO(Zakaria): add the park / country, e.g. "Serengeti, Tanzania".
-  location: "On safari",
+  location: "Tanzania",
   intro:
-    "Physics is, at heart, the discipline of careful observation — and so is wildlife photography. Both reward patience: you wait, you watch, and every so often the moment arrives. I recently spent time on safari with a camera and a long lens. These are a few of the moments I was patient enough to catch.",
+    "Physics is, at heart, the discipline of careful observation — and so is wildlife photography. Both reward patience: you wait, you watch, and every so often the moment arrives. I recently spent time on safari in Tanzania — the Serengeti, Ngorongoro, Tarangire and Lake Manyara — with a camera and a long lens. These are a few of the moments I was patient enough to catch.",
 };
 
 const fieldNotes = {
@@ -143,8 +142,8 @@ const fieldNotes = {
       h: 1200,
       large: { w: 1600, h: 2400 },
       alt:
-        "The sun setting over a lake, framed by the silhouettes of acacia branches, its light reflected in the water",
-      caption: "End of the day, end of the drive.",
+        "The sun setting over Lake Manyara, framed by the silhouettes of acacia branches, its light reflected in the water",
+      caption: "End of the day, over Lake Manyara.",
     },
     {
       file: "camp-sunset",
@@ -153,8 +152,8 @@ const fieldNotes = {
       h: 1200,
       large: { w: 1600, h: 2400 },
       alt:
-        "The sun setting behind the silhouette of a safari tent and acacia trees, the sky glowing orange above the dark grassland",
-      caption: "Home for the night.",
+        "The sun setting behind a tent at a bush camp in the Serengeti, framed by acacia trees, the sky glowing orange above the dark grassland",
+      caption: "Home for the night — our bush camp in the Serengeti.",
     },
   ],
 };
