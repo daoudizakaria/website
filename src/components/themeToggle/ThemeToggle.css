@@ -1,21 +1,27 @@
+/* Sits in the header bar (not the collapsible menu) and floats to the right,
+   so it is visible at every width — on phones it lands beside the hamburger. */
 .theme-toggle {
+  float: right;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
-  padding: 0;
-  font-size: 1rem;
+  gap: 0.4rem;
+  margin: 1.35rem 0.5rem 0 0;
+  padding: 0.45rem 0.85rem;
+  min-height: 2.5rem;
+  font-family: "Google Sans Medium", sans-serif;
+  font-size: 0.85rem;
   line-height: 1;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  border: 1px solid;
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
-  background: rgba(var(--tint-raised), 0.25);
-  transition: background 0.2s ease, transform 0.2s ease;
+  background: rgba(96, 165, 250, 0.18);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .theme-toggle:hover {
-  background: rgba(var(--tint-raised), 0.45);
+  background: rgba(96, 165, 250, 0.32);
+  border-color: var(--accent-bright);
   transform: translateY(-1px);
 }
 
@@ -24,10 +30,41 @@
   outline-offset: 2px;
 }
 
+.theme-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Tight phone widths: keep the button (and its tap target) but drop the word. */
+@media (max-width: 420px) {
+  .theme-toggle-label {
+    display: none;
+  }
+
+  .theme-toggle {
+    padding: 0.45rem;
+    min-width: 2.5rem;
+    justify-content: center;
+    margin-right: 0.25rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle,
   .theme-toggle:hover {
     transition: none;
     transform: none;
   }
+}
+
+/* Explicit per-theme chrome: the button must read as a control against
+   either header, so these are set outright rather than inherited. */
+:root[data-theme="light"] .theme-toggle {
+  border-color: rgba(15, 23, 42, 0.3);
+  background: rgba(29, 78, 216, 0.1);
+}
+
+:root[data-theme="light"] .theme-toggle:hover {
+  background: rgba(29, 78, 216, 0.18);
+  border-color: var(--accent);
 }

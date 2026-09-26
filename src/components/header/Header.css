@@ -163,10 +163,23 @@
     padding: 0 0.35em;
   }
 
+  /* Column 3 exists to keep the nav optically centred; the toggle now
+     occupies it, balancing the logo on the left. */
+  .header .theme-toggle {
+    grid-column: 3;
+    /* Explicit row: the toggle precedes the nav in the DOM, and grid's
+       sparse auto-placement would otherwise push the nav to a second row. */
+    grid-row: 1;
+    justify-self: end;
+    float: none;
+    margin: 0;
+  }
+
   .header .menu {
     clear: none;
     float: none;
     grid-column: 2;
+    grid-row: 1;
     justify-self: center;
     display: flex;
     flex-wrap: nowrap;

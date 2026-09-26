@@ -38,6 +38,9 @@ class Header extends Component {
               <label className="menu-icon" htmlFor="menu-btn">
                 <span className="navicon"></span>
               </label>
+              {/* Outside the collapsible menu so it stays visible on phones,
+                  where the nav itself hides behind the hamburger. */}
+              <ThemeToggle theme={theme} />
               <ul className="menu" style={{ backgroundColor: theme.body }}>
                 <li>
                   <NavLink
@@ -116,9 +119,6 @@ class Header extends Component {
                   >
                     Contact Me
                   </NavLink>
-                </li>
-                <li className="header-theme-toggle-item">
-                  <ThemeToggle theme={theme} />
                 </li>
               </ul>
             </header>
