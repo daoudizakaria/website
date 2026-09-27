@@ -9,6 +9,7 @@ summary: >-
   coating attenuation as a leaky transmission line. Applied to a 1 km,
   914 mm line, with every worked example recomputed.
 category: physics
+paper: "/uploads/projects/iccp-technical-report.pdf"
 featured: true
 tags:
   - cathodic-protection
@@ -29,7 +30,7 @@ glance:
 
 ## About this project
 
-Between May and September 2023, a client asked me to build the mathematical core of a simulation tool for designing impressed current cathodic protection (ICCP) systems: the rectifiers, anodes and cables that keep a buried steel pipeline from corroding. The requirement was a model that engineers could evaluate in a spreadsheet, which ruled out finite element software and called for closed-form, cell-by-cell formulas. The technical report below documents that framework. It was written up in September 2026, when I recomputed every worked example from my original working notes and corrected the errors I found (Appendix A).
+Between May and September 2023, a client asked me to build the mathematical core of a simulation tool for designing impressed current cathodic protection (ICCP) systems: the rectifiers, anodes and cables that keep a buried steel pipeline from corroding. The requirement was a model that engineers could evaluate in a spreadsheet, which ruled out finite element software and called for closed-form, cell-by-cell formulas. The technical report below documents that framework. It was written up in September 2026, when I recomputed every worked example from my original working notes and corrected the errors I found (Appendix A). The full report can also be [downloaded as a PDF](/uploads/projects/iccp-technical-report.pdf).
 
 > "Zakaria is a brilliant dude! We had a challenging technical problem where we had to make a simulation for an extensive cathodic protection system and he just helped us CRUSH the math."
 >
