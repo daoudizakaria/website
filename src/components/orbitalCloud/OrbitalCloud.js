@@ -81,6 +81,7 @@ const SHIMMER = 0.05; // fraction of points re-measured per second
 const SPIN = 0.2; // auto-rotation, rad/s about the z axis
 const TILT = 0.38; // default camera elevation (rad)
 const CAMERA = 3.4; // camera distance for the perspective (cloud radius ~ 1)
+const PRESAMPLE_PER_FRAME = 300; // next orbital's points prepared per frame
 
 /** Precompute an inverse-CDF sampler for r²R(r)² and the angular maximum. */
 function prepare(orb) {
@@ -194,7 +195,7 @@ export default function OrbitalCloud({ className = "" }) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const orbitals = ORBITALS.map(prepare);
-    const N = window.innerWidth < 768 ? 3000 : 4800;
+    const N = window.innerWidth < 768 ? 2400 : 3600;
     // current position, glide start and glide target of every point
     const x = new Float32Array(N);
     const y = new Float32Array(N);
@@ -222,7 +223,38 @@ export default function OrbitalCloud({ className = "" }) {
     let dpr = 1;
     let glow = true;
     let sprites = [];
+    // Draw every point, or every other one on machines where a frame costs
+    // too much (e.g. no GPU canvas); decided from measured draw times.
+    let stride = 1;
+    let drawCost = 0;
+    let drawnFrames = 0;
     let spritePx = 16;
+
+    // The next orbital's points are sampled a few hundred per frame during
+    // the hold, so switching orbital does not stall a frame on 4800 samples.
+    const pre = {
+      j: -1,
+      n: 0,
+      x: new Float32Array(N),
+      y: new Float32Array(N),
+      z: new Float32Array(N),
+      s: new Int8Array(N),
+    };
+    const presample = (j) => {
+      if (pre.j !== j) {
+        pre.j = j;
+        pre.n = 0;
+      }
+      const end = Math.min(N, pre.n + PRESAMPLE_PER_FRAME);
+      for (let i = pre.n; i < end; i++) {
+        const [sx, sy, sz, sg] = sample(orbitals[j]);
+        pre.x[i] = sx;
+        pre.y[i] = sy;
+        pre.z[i] = sz;
+        pre.s[i] = sg;
+      }
+      pre.n = end;
+    };
 
     const target = (i, o) => {
       const [sx, sy, sz, s] = sample(o);
@@ -236,11 +268,19 @@ export default function OrbitalCloud({ className = "" }) {
     const morphTo = (j, instant) => {
       idx = j;
       tHold = 0;
+      const ready = pre.j === j ? pre.n : 0;
       for (let i = 0; i < N; i++) {
         ax[i] = x[i];
         ay[i] = y[i];
         az[i] = z[i];
-        target(i, orbitals[j]);
+        if (i < ready) {
+          bx[i] = pre.x[i];
+          by[i] = pre.y[i];
+          bz[i] = pre.z[i];
+          nsgn[i] = pre.s[i];
+        } else {
+          target(i, orbitals[j]);
+        }
         if (instant) {
           x[i] = bx[i];
           y[i] = by[i];
@@ -252,6 +292,7 @@ export default function OrbitalCloud({ className = "" }) {
           prog[i] = -Math.random() * (STAGGER_S / MORPH_S);
         }
       }
+      pre.j = -1;
     };
 
     const readTheme = () => {
@@ -264,7 +305,7 @@ export default function OrbitalCloud({ className = "" }) {
     };
 
     const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       size = wrap.clientWidth;
       canvas.width = Math.round(size * dpr);
       canvas.height = Math.round(size * dpr);
@@ -284,8 +325,8 @@ export default function OrbitalCloud({ className = "" }) {
       const cp = Math.cos(pitch);
       const sp = Math.sin(pitch);
       const base = (glow ? 5.2 : 4.6) * dpr;
-      const alphaBase = glow ? 0.55 : 0.7;
-      for (let i = 0; i < N; i++) {
+      const alphaBase = (glow ? 0.62 : 0.78) * (stride > 1 ? 1.35 : 1);
+      for (let i = 0; i < N; i += stride) {
         let a = fade[i];
         if (bloom) a *= Math.min(1, Math.max(0, prog[i]) * 2.5);
         if (a <= 0.01) continue;
@@ -376,6 +417,9 @@ export default function OrbitalCloud({ className = "" }) {
           sgn[i] = nsgn[i];
           fade[i] = 0;
         }
+        if (pre.n < N || pre.j !== (idx + 1) % orbitals.length) {
+          presample((idx + 1) % orbitals.length);
+        }
         if (tHold > HOLD_S) {
           const next = (idx + 1) % orbitals.length;
           setCurrent(next);
@@ -465,7 +509,11 @@ export default function OrbitalCloud({ className = "" }) {
       const dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
       last = t;
       step(dt);
+      const t0 = performance.now();
       draw();
+      drawCost = 0.9 * drawCost + 0.1 * (performance.now() - t0);
+      // Judge after the opening bloom, when every point is drawn.
+      if (++drawnFrames > 180 && stride === 1 && drawCost > 9) stride = 2;
       raf = requestAnimationFrame(frame);
     };
     const start = () => {

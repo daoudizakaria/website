@@ -112,7 +112,6 @@
   border-radius: 16px;
   border: 1px solid var(--border-subtle);
   background: rgba(var(--tint-sunken), 0.92) !important;
-  backdrop-filter: blur(12px);
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -192,7 +191,6 @@
     border-radius: 999px;
     border: 1px solid var(--border-subtle);
     background: rgba(var(--tint-surface), 0.45) !important;
-    backdrop-filter: blur(10px);
   }
 
   .header li {

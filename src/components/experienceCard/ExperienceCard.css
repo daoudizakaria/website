@@ -103,7 +103,6 @@
     rgba(var(--tint-raised), 0.55),
     rgba(var(--tint-surface), 0.4)
   ) !important;
-  backdrop-filter: blur(12px);
   box-shadow: var(--shadow-soft);
   transition: transform 0.28s ease, box-shadow 0.28s ease,
     border-color 0.28s ease;

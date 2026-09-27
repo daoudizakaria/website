@@ -18,7 +18,6 @@
   border-radius: 16px !important;
   border: 1px solid var(--border-subtle) !important;
   background: rgba(var(--tint-surface), 0.55) !important;
-  backdrop-filter: blur(10px);
   margin-bottom: 0.65rem !important;
   box-shadow: var(--shadow-soft);
   color: var(--text-primary) !important;

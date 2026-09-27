@@ -268,7 +268,7 @@ export default function NeuralPlayground({ className = "" }) {
       if (phase === "train") {
         due += rate(last.epoch) * dt;
         const t0 = performance.now();
-        while (due >= 1 && performance.now() - t0 < 6) {
+        while (due >= 1 && performance.now() - t0 < 4) {
           due -= 1;
           if (trainOne()) {
             phase = "hold";

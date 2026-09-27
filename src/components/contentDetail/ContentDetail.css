@@ -98,7 +98,6 @@
     rgba(var(--tint-surface), 0.55) 0%,
     rgba(var(--tint-surface), 0.4) 100%
   );
-  backdrop-filter: blur(10px);
   box-shadow: var(--shadow-soft);
 }
 

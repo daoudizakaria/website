@@ -89,7 +89,7 @@ function withPublicUrl(path) {
  * @param {string} markdown — raw Markdown string (e.g. from portfolio or future .md files)
  * @param {string} [className] — optional extra class on the wrapper
  */
-export default function MarkdownContent({ markdown, className = "" }) {
+function MarkdownContent({ markdown, className = "" }) {
   return (
     <div className={`markdown-content ${className}`.trim()}>
       <ReactMarkdown
@@ -129,3 +129,8 @@ export default function MarkdownContent({ markdown, className = "" }) {
     </div>
   );
 }
+
+// Parsing a long article (Markdown + KaTeX) is expensive; re-render only when
+// the text changes, not when the page around it updates (e.g. the TOC's
+// active heading while scrolling).
+export default React.memo(MarkdownContent);

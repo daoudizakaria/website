@@ -15,7 +15,7 @@ tags:
   - gre
   - science-writing
   - astronomy
-year: "2023"
+year: "2023–2025"
 type: teaching
 rank: 9
 aliases:
@@ -64,6 +64,6 @@ A series of 35 "mission" worksheets in school mathematics, written for the J.J. 
 
 ## Astronomy section of Space Magazine
 
-I wrote the astronomy section of Space Magazine for four monthly issues, from May to August. The folder contains the material for each issue, and the complete June and July issues as PDFs.
+I wrote the astronomy section of Space Magazine for four monthly issues, from May to August 2025, preparing the charts from scientific data and writing the text for each subsection. The folder contains the material for each issue, and the complete June and July issues as PDFs.
 
 [Open the magazine issues (Google Drive)](https://drive.google.com/drive/folders/1M3lyfZqpAA_e-711Qeyv0KJgoqY64TrD?usp=sharing)

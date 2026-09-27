@@ -10,7 +10,6 @@
   font-size: 1.35rem;
   border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(10px);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 

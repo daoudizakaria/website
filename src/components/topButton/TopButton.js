@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./TopButton.css";
 
 export default function TopButton({ theme }) {
+  const buttonRef = useRef(null);
+
   function GoUpEvent() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
 
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 30 ||
-      document.documentElement.scrollTop > 30
-    ) {
-      document.getElementById("topButton").style.visibility = "visible";
-    } else {
-      document.getElementById("topButton").style.visibility = "hidden";
-    }
-  }
-
-  window.onscroll = function () {
-    scrollFunction();
-  };
+  // Show the button once the page is scrolled. A passive listener that
+  // checks at most once per frame and touches the DOM only on a change.
+  useEffect(() => {
+    let shown = null;
+    let queued = false;
+    const update = () => {
+      queued = false;
+      const show = window.scrollY > 30;
+      if (show !== shown && buttonRef.current) {
+        shown = show;
+        buttonRef.current.style.visibility = show ? "visible" : "hidden";
+      }
+    };
+    const onScroll = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const onMouseEnter = (color, bgColor) => {
     /* For the button */
@@ -48,6 +59,7 @@ export default function TopButton({ theme }) {
 
   return (
     <div
+      ref={buttonRef}
       onClick={GoUpEvent}
       id="topButton"
       style={{
