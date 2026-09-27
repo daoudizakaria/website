@@ -2,7 +2,7 @@
   "private": true,
   "name": "masterPortfolio",
   "version": "0.1.0",
-  "homepage": "https://daoudizakaria.github.io/website",
+  "homepage": "https://zakariadaoudi.com",
   "scripts": {
     "build": "craco build",
     "cms:dev": "decap-server",

@@ -20,7 +20,7 @@ New articles start with today’s date and a short Markdown outline in **Article
 
 ```bash
 npm run cms:dev    # Terminal 1 — local Git proxy on :8081
-npm start          # Terminal 2 — open http://localhost:3000/website/admin
+npm start          # Terminal 2 — open http://localhost:3000/admin
 ```
 
 Uncomment `local_backend: true` in `config.yml` while using `decap-server` on localhost.

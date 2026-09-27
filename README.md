@@ -3,7 +3,7 @@
 Personal portfolio of **Zakaria Daoudi** — physicist, data scientist, and
 scientific writer. React single-page app deployed to GitHub Pages.
 
-- **Live site:** https://daoudizakaria.github.io/website/
+- **Live site:** https://zakariadaoudi.com (the old address, daoudizakaria.github.io/website, redirects here)
 - **Sandbox repo:** [`website-test`](https://github.com/daoudizakaria/website-test) —
   all restructuring/experiments land there first; the live repo only receives
   reviewed changes.
@@ -43,7 +43,7 @@ Requires Node 20 (`nvm use 20`).
 
 ```bash
 npm ci        # install
-npm start     # dev server → http://localhost:3000/website/
+npm start     # dev server → http://localhost:3000/
 npm run build # production build into build/ (not committed)
 ```
 
@@ -59,7 +59,7 @@ npm run cms:dev   # terminal 1 — local git proxy on :8081
 npm start         # terminal 2
 ```
 
-then open http://localhost:3000/website/admin/ — on localhost the admin
+then open http://localhost:3000/admin/ — on localhost the admin
 automatically uses the local backend and saves straight to your working
 tree. Review with `git diff`, then commit.
 
