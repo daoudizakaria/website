@@ -10,6 +10,8 @@
 
 .articles-heading-div {
   display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
 }
 
 .articles-heading-div > * {
@@ -37,7 +39,7 @@
   font-family: "Google Sans Medium";
   line-height: 1.1;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 .articles-heading-sub-text {
@@ -114,7 +116,6 @@
 @media (max-width: 1380px) {
   .articles-heading-text {
     font-size: 50px;
-    margin-top: 80px;
   }
   .articles-heading-sub-text {
     font-size: 25px;
@@ -148,6 +149,12 @@
 
   .articles-heading-div {
     flex-direction: column;
+  }
+
+  /* Title first on phones; the animation follows. */
+  .articles-heading-img-div {
+    order: 2;
+    margin-top: 1rem;
   }
 
   .articles-header-detail-text {

@@ -9,7 +9,7 @@ import {
   getResearchArticleList,
 } from "../../content/research/researchContent.js";
 import "./Articles.css";
-import BlogsImg from "./BlogsImg";
+import HopfieldMemory from "../../components/hopfieldMemory/HopfieldMemory";
 
 class Articles extends Component {
   render() {
@@ -21,11 +21,7 @@ class Articles extends Component {
           <Fade bottom duration={2000} distance="40px">
             <div className="articles-heading-div">
               <div className="articles-heading-img-div">
-                {/* <img
-											src={require(`../../assets/images/${articlesHeader["avatar_image_path"]}`)}
-											alt=""
-										/> */}
-                <BlogsImg theme={theme} />
+                <HopfieldMemory />
               </div>
               <div className="articles-heading-text-div">
                 <h1

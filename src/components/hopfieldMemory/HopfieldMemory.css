@@ -1,0 +1,28 @@
+/* Colours of the Hopfield grid, per theme. Layout, caption and chips:
+   ../simFigure/SimFigure.css. */
+.hopfield-memory {
+  --hop-on: #60a5fa;
+  --hop-off: rgba(148, 163, 184, 0.13);
+  --hop-flash: #fbbf24;
+  --sim-accent: var(--hop-on);
+}
+
+:root[data-theme="light"] .hopfield-memory {
+  --hop-on: #1d4ed8;
+  --hop-off: rgba(15, 23, 42, 0.08);
+  --hop-flash: #d97706;
+}
+
+.hopfield-canvas-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+/* Fixed-width digits so the caption does not jitter as m changes. */
+.hopfield-overlap {
+  display: inline-block;
+  min-width: 2.6em;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+  font-family: "Charter", "Bitstream Charter", "Cambria", "Georgia", serif;
+}
