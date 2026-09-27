@@ -1,0 +1,39 @@
+/* Colours of the neural-network playground, per theme. Layout, caption and
+   chips: ../simFigure/SimFigure.css. */
+.neural-playground {
+  --nn-a: #60a5fa;
+  --nn-b: #fbbf24;
+  --nn-edge: #ffffff;
+  --nn-ring: #ffffff;
+  --nn-dot-stroke: rgba(7, 17, 31, 0.85);
+  --nn-frame: rgba(148, 163, 184, 0.25);
+  --sim-accent: var(--nn-a);
+}
+
+:root[data-theme="light"] .neural-playground {
+  --nn-a: #2563eb;
+  --nn-b: #d97706;
+  --nn-edge: #0b1b2e;
+  --nn-ring: #0b1b2e;
+  --nn-dot-stroke: rgba(255, 255, 255, 0.95);
+  --nn-frame: rgba(15, 23, 42, 0.18);
+}
+
+.neural-canvas-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+/* Live training numbers; fixed-width digits so the line does not jitter. */
+.neural-stats {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.neural-stats b {
+  font-weight: 500;
+  color: var(--text-primary);
+}

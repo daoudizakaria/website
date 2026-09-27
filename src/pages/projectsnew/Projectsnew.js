@@ -14,7 +14,7 @@ import {
 } from "../../portfolio.js";
 import { getProjectsByCategory } from "../../content/projects/projectsContent.js";
 import "./Projectsnew.css";
-import ProjectsImg from "./ProjectsImg";
+import NeuralPlayground from "../../components/neuralPlayground/NeuralPlayground";
 
 const ML = { data: getProjectsByCategory("ml") };
 const physics = { data: getProjectsByCategory("physics") };
@@ -30,7 +30,7 @@ class Projectsnew extends Component {
           <Fade bottom duration={2000} distance="40px">
             <div className="projectsnew-heading-div">
               <div className="projectsnew-heading-img-div">
-                <ProjectsImg theme={theme} />
+                <NeuralPlayground />
               </div>
               <div className="projectsnew-heading-text-div">
                 <h1

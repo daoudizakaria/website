@@ -10,6 +10,8 @@
 
 .projectsnew-heading-div {
   display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
 }
 
 .projectsnew-heading-div > * {
@@ -41,7 +43,7 @@
 }
 
 .projectsnew-hero-title {
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 .projectsnew-heading-sub-text {
@@ -135,9 +137,7 @@
   .projectsnew-heading-text {
     font-size: 50px;
   }
-  .projectsnew-hero-title {
-    margin-top: 80px;
-  }
+
   .projectsnew-heading-sub-text {
     font-size: 25px;
   }
@@ -183,6 +183,12 @@
 
   .projectsnew-heading-div {
     flex-direction: column;
+  }
+
+  /* Title first on phones; the animation follows. */
+  .projectsnew-heading-img-div {
+    order: 2;
+    margin-top: 1rem;
   }
 
   .projectsnew-header-detail-text {
