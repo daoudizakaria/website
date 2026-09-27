@@ -1,96 +1,115 @@
-import React, { Component, Suspense, lazy } from "react";
+import React from "react";
 import "./Skills.css";
-import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
 import { skills } from "../../portfolio";
 import { Fade } from "../../components/reveal/Reveal";
 
-/*
- * The illustrations are large inline SVGs (~180 KB together, a third of the
- * entry bundle), so each is split into its own chunk. webpackPrefetch lets
- * the browser fetch them at idle — during the splash — so they are normally
- * cached before this section ever renders. Each placeholder reserves the
- * illustration's exact box (from its viewBox) so nothing shifts on arrival.
- */
-const ILLUSTRATIONS = {
-  DataScienceImg: {
-    Img: lazy(() => import(/* webpackPrefetch: true */ "./DataScienceImg")),
-    ratio: "1120 / 829.80067",
-  },
-  FullStackImg: {
-    Img: lazy(() => import(/* webpackPrefetch: true */ "./FullStackImg")),
-    ratio: "864.81 / 658.45",
-  },
-  CloudInfraImg: {
-    Img: lazy(() => import(/* webpackPrefetch: true */ "./CloudInfraImg")),
-    ratio: "1144 / 617.32",
-  },
-  DesignImg: {
-    Img: lazy(() => import(/* webpackPrefetch: true */ "./DesignImg")),
-    ratio: "996.46 / 828.18",
-  },
+/* Small line icons (24×24, stroke = currentColor) for the service cards. */
+const ICONS = {
+  atom: (
+    <>
+      <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+    </>
+  ),
+  chart: (
+    <>
+      <path d="M3 3v18h18" />
+      <path d="M7 15l4-5 3 3 6-7" />
+      <circle cx="7" cy="15" r="1" fill="currentColor" />
+      <circle cx="11" cy="10" r="1" fill="currentColor" />
+      <circle cx="14" cy="13" r="1" fill="currentColor" />
+      <circle cx="20" cy="6" r="1" fill="currentColor" />
+    </>
+  ),
+  pen: (
+    <>
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </>
+  ),
 };
 
-function GetSkillSvg(props) {
-  const { Img, ratio } =
-    ILLUSTRATIONS[props.fileName] || ILLUSTRATIONS.DesignImg;
+function ServiceIcon({ name }) {
   return (
-    <Suspense
-      fallback={<div style={{ aspectRatio: ratio }} aria-hidden="true" />}
+    <svg
+      className="skill-card-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
     >
-      <Img theme={props.theme} />
-    </Suspense>
+      {ICONS[name] || ICONS.atom}
+    </svg>
   );
 }
 
-class SkillSection extends Component {
-  render() {
-    const theme = this.props.theme;
-    return (
-      <div>
-        {skills.data.map((skill, i) => {
-          return (
-            <div key={i} className="skills-main-div">
-              <Fade left duration={2000}>
-                <div className="skills-image-div">
-                  {/* <img
-                    alt="Ashutosh is Analysing Data"
-                    src={require(`../../assets/images/${skill.imagePath}`)}
-                  ></img> */}
-                  <GetSkillSvg fileName={skill.fileName} theme={theme} />
-                </div>
-              </Fade>
-
-              <div className="skills-text-div">
-                <Fade right duration={1000}>
-                  <h1 className="skills-heading" style={{ color: theme.text }}>
-                    {skill.title}
-                  </h1>
-                </Fade>
-                <Fade right duration={1500}>
-                  <SoftwareSkill logos={skill.softwareSkills} />
-                </Fade>
-                <Fade right duration={2000}>
-                  <div>
-                    {skill.skills.map((skillSentence, i) => {
-                      return (
-                        <p
-                          key={i}
-                          className="subTitle skills-text"
-                          style={{ color: theme.secondaryText }}
-                        >
-                          {skillSentence}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </Fade>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+function ChipRow({ label, items }) {
+  return (
+    <div className="skill-chip-row">
+      <span className="skill-chip-label">{label}</span>
+      <ul className="skill-chips">
+        {items.map((item) => (
+          <li key={item.name} className="skill-chip">
+            {item.icon && (
+              <span
+                className="iconify skill-chip-icon"
+                data-icon={item.icon}
+                data-inline="false"
+                aria-hidden="true"
+              />
+            )}
+            {item.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default SkillSection;
+export default function SkillSection() {
+  return (
+    <div className="skills-grid">
+      {skills.data.map((service, i) => (
+        <Fade
+          key={service.title}
+          bottom
+          duration={900}
+          distance="24px"
+          className="skill-card-wrap"
+        >
+          <article className="skill-card">
+            <div className="skill-card-top">
+              <ServiceIcon name={service.icon} />
+              <span className="skill-card-number" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <h2 className="skill-card-title">{service.title}</h2>
+            <p className="skill-card-tagline">{service.tagline}</p>
+            <ul className="skill-card-list">
+              {service.skills.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <div className="skill-card-footer">
+              {service.tools && service.tools.length > 0 && (
+                <ChipRow label="Tools" items={service.tools} />
+              )}
+              {service.languages && (
+                <ChipRow
+                  label="Languages"
+                  items={service.languages.map((name) => ({ name }))}
+                />
+              )}
+            </div>
+          </article>
+        </Fade>
+      ))}
+    </div>
+  );
+}

@@ -1,113 +1,62 @@
-// What-I-do skill sections + competitive sites
+// "What I Do" — one card per service (src/containers/skills/SkillSection.js).
+//
+// icon:  "atom" | "chart" | "pen" (small line icons drawn in the component)
+// tools: shown as labelled chips; `icon` is an Iconify name (optional)
 
 const skills = {
   data: [
     {
-      title: "Physics & Applied Mathematics",
-      fileName: "FullStackImg",
+      title: "Physics & Mathematical Modelling",
+      icon: "atom",
+      tagline: "Turning hard technical problems into models you can trust.",
       skills: [
-        "⚡ Help organizations tackle challenges in Physics, Mathematics, and Engineering",
-        "⚡ Subject Matter Expert in Physics and Mathematics",
-        "⚡ Design and Develop analytical models and apply rigorous methods to solve industry problems",
-        "⚡ Complex quantitative modelling for dynamic forecasting and time series analysis",
+        "Analytical and numerical models, from first principles to working code",
+        "Monte Carlo simulation and uncertainty analysis",
+        "Forecasting and time-series models for decisions under uncertainty",
+        "Expert input on physics, mathematics and engineering problems",
       ],
-      softwareSkills: [],
-    },
-    {
-      title: "Data Science & AI",
-      fileName: "DataScienceImg",
-      skills: [
-        "⚡ Developing highly scalable production ready models for various deeplearning and statistical use cases",
-        "⚡ Build and Refine predictive models that guide decision making",
-        "⚡ Cleaning, Analyzing, and Visualizing Data to uncover meaningful trends",
-      ],
-      softwareSkills: [
-        {
-          skillName: "Tensorflow",
-          fontAwesomeClassname: "logos-tensorflow",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Keras",
-          fontAwesomeClassname: "simple-icons:keras",
-          style: {
-            backgroundColor: "white",
-            color: "#D00000",
-          },
-        },
-        {
-          skillName: "PyTorch",
-          fontAwesomeClassname: "logos-pytorch",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Python",
-          fontAwesomeClassname: "ion-logo-python",
-          style: {
-            backgroundColor: "transparent",
-            color: "#3776AB",
-          },
-        },
-        {
-          skillName: "Deeplearning",
-          imageSrc: "deeplearning_ai_logo.png",
-        },
-        {
-          skillName: "AWS",
-          fontAwesomeClassname: "simple-icons:amazonaws",
-          style: {
-            color: "#FF9900",
-          },
-        },
-        {
-          skillName: "Azure",
-          fontAwesomeClassname: "simple-icons:microsoftazure",
-          style: {
-            color: "#0089D6",
-          },
-        },
-        {
-          skillName: "Firebase",
-          fontAwesomeClassname: "simple-icons:firebase",
-          style: {
-            color: "#FFCA28",
-          },
-        },
-        {
-          skillName: "PostgreSQL",
-          fontAwesomeClassname: "simple-icons:postgresql",
-          style: {
-            color: "#336791",
-          },
-        },
+      tools: [
+        { name: "Python", icon: "simple-icons:python" },
+        { name: "NumPy", icon: "simple-icons:numpy" },
+        { name: "Fortran", icon: "simple-icons:fortran" },
+        { name: "Mathematica", icon: "simple-icons:wolframmathematica" },
+        { name: "Matplotlib" },
       ],
     },
     {
-      title: "Scientific Consulting, Content Creating, & Technical Writing",
-      fileName: "CloudInfraImg",
+      title: "Data Science & Machine Learning",
+      icon: "chart",
+      tagline:
+        "Models that turn data into decisions and hold up in production.",
       skills: [
-        "⚡ Developing clear and precise scientific content tailored to the specific needs of companies",
-        "⚡ Create well-researched materials including: technical reports, white papers, and product documentation",
-        "⚡ Produce professional LaTeX documents",
-        "⚡ Curriculum Development",
-        "⚡ Educational Content Creation",
+        "Predictive and statistical models that guide decision-making",
+        "Deep-learning models, from prototype to production",
+        "Data cleaning, analysis and visualization that surface meaningful trends",
       ],
-      softwareSkills: [],
+      tools: [
+        { name: "Python", icon: "simple-icons:python" },
+        { name: "pandas", icon: "simple-icons:pandas" },
+        { name: "TensorFlow", icon: "simple-icons:tensorflow" },
+        { name: "Keras", icon: "simple-icons:keras" },
+        { name: "PyTorch", icon: "simple-icons:pytorch" },
+        { name: "Jupyter", icon: "simple-icons:jupyter" },
+        { name: "PostgreSQL", icon: "simple-icons:postgresql" },
+        { name: "AWS", icon: "simple-icons:amazonaws" },
+      ],
     },
     {
-      title:
-        "Science Proofreading & Translating Services in English, French, and Arabic",
-      fileName: "DesignImg",
+      title: "Scientific Writing, Editing & Translation",
+      icon: "pen",
+      tagline:
+        "Clear, accurate technical content for specialists and non-specialists alike.",
       skills: [
-        "⚡ Proofread Scientific and Technical Content",
-        "⚡ Translate content from and into English, French, and Arabic",
-        "⚡ Ensure the content aligns with the client needs",
+        "Technical reports, white papers and product documentation",
+        "Publication-quality LaTeX documents and figures",
+        "Curricula and educational content",
+        "Scientific proofreading, and translation between English, French and Arabic",
       ],
-      softwareSkills: [],
+      tools: [{ name: "LaTeX", icon: "simple-icons:latex" }, { name: "TikZ" }],
+      languages: ["English", "French", "Arabic"],
     },
   ],
 };
