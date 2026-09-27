@@ -176,8 +176,8 @@
 
 /* --- Resume / PDF pill --- */
 
-.article-main-col a[href$=".pdf"],
-.article-main-col a[href*="resume"],
+.article-main-col a[href$=".pdf"]:not(.markdown-content a),
+.article-main-col a[href*="resume"]:not(.markdown-content a),
 .article-main-col > p > a[target="_blank"] {
   display: inline-flex;
   align-items: center;

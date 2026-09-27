@@ -22,7 +22,7 @@ tags:
 
 ## About this project
 
-This project started in the classroom, with a simple goal: let students *see* radioactivity happen. It pairs Python programs that simulate radioactive decay and compute nuclear energies from real data with the complete set of notes below, which explain the physics behind them, from what a nucleus is made of to why the Sun shines. The notes are written for the last years of high school and the first year of university; the code is on GitHub, and the notes can also be downloaded as a PDF (both linked above).
+This project started in the classroom, with a simple goal: let students *see* radioactivity happen. It pairs Python programs that simulate radioactive decay and compute nuclear energies from real data with the complete set of notes below, which explain the physics behind them, from what a nucleus is made of to why the Sun shines. The notes are written for the last years of high school and the first year of university; the code is [on GitHub](https://github.com/daoudizakaria/Radioactive_Decay), and the notes can also be [downloaded as a PDF](/uploads/projects/nuclear-physics-notes.pdf).
 
 ## Abstract
 
