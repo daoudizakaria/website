@@ -651,15 +651,15 @@ One kilogram of uranium 235 releases as much energy as about 3000 tonnes of coal
 
 ## 8 Simulating with Python
 
-The programs that come with these notes are in the repository [https://github.com/daoudizakaria/Radioactive_Decay](https://github.com/daoudizakaria/Radioactive_Decay) They require Python 3 with the `numpy`, `pandas` and `matplotlib` libraries (`pip install -r requirements.txt`).
+The programs that come with these notes are in the repository [daoudizakaria/Radioactive_Decay](https://github.com/daoudizakaria/Radioactive_Decay). They require Python 3 with the `numpy`, `pandas` and `matplotlib` libraries (`pip install -r requirements.txt`).
 
-- **`radioactivity.py`** The simplest program. It solves the decay law with Euler's method for a nuclide of your choice and compares it with the exact solution.
+- **`radioactivity.py`**: The simplest program. It solves the decay law with Euler's method for a nuclide of your choice and compares it with the exact solution.
 
-- **`nuclear.py`** The complete program, with four simulations: (1) decay of a nuclide and its activity, (2) a parent–daughter chain, (3) a chain with branching, (4) Monte Carlo decay. The results can be exported to a CSV file, for example to be analysed in a spreadsheet.
+- **`nuclear.py`**: The complete program, with four simulations: (1) decay of a nuclide and its activity, (2) a parent–daughter chain, (3) a chain with branching, (4) Monte Carlo decay. The results can be exported to a CSV file, for example to be analysed in a spreadsheet.
 
-- **`nuclear_energy.py`** Binding energies, the liquid drop model and $Q$-values, computed from the AME2020 masses.
+- **`nuclear_energy.py`**: Binding energies, the liquid drop model and $Q$-values, computed from the AME2020 masses.
 
-- **`make_figures.py`** Produces all the figures of these notes.
+- **`make_figures.py`**: Produces all the figures of these notes.
 
 The half-lives are in `nuclides_data.py` and `nuclides.csv`; the masses and decay modes of all known nuclides are in the folder `data`. The tests in `tests/` check the code against exact results (`python3 -m unittest discover tests`).
 

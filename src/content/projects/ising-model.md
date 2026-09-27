@@ -669,17 +669,17 @@ For more, see the textbooks of Yeomans [18] and Kardar [19] on phase transitions
 
 ## 10 Using the code
 
-The programs are in the repository [https://github.com/daoudizakaria/Ising-Model](https://github.com/daoudizakaria/Ising-Model). They require Python 3 with `numpy`, `scipy` and `matplotlib`; installing `numba` compiles the Metropolis and Wolff algorithms and makes them much faster.
+The programs are in the repository [daoudizakaria/Ising-Model](https://github.com/daoudizakaria/Ising-Model). They require Python 3 with `numpy`, `scipy` and `matplotlib`; installing `numba` compiles the Metropolis and Wolff algorithms and makes them much faster.
 
-- **`ising_1D.py`** Interactive program for the chain: thermodynamics, magnetization in a field, correlation function, space–time picture.
+- **`ising_1D.py`**: Interactive program for the chain: thermodynamics, magnetization in a field, correlation function, space–time picture.
 
-- **`ising_2D.py`** Interactive program for the square lattice: snapshots, animation, thermodynamics compared with Onsager and Kaufman, hysteresis, Binder cumulant, critical slowing down.
+- **`ising_2D.py`**: Interactive program for the square lattice: snapshots, animation, thermodynamics compared with Onsager and Kaufman, hysteresis, Binder cumulant, critical slowing down.
 
-- **`ising/`** The package: the lattices and algorithms (`lattice.py`), exact results (`exact.py`), statistical analysis (`analysis.py`) and simulation drivers (`simulate.py`).
+- **`ising/`**: The package: the lattices and algorithms (`lattice.py`), exact results (`exact.py`), statistical analysis (`analysis.py`) and simulation drivers (`simulate.py`).
 
-- **`make_figures.py`** Produces all the figures of these notes.
+- **`make_figures.py`**: Produces all the figures of these notes.
 
-- **`tests/`** Tests of the code against exact results (`python3 -m unittest discover tests`).
+- **`tests/`**: Tests of the code against exact results (`python3 -m unittest discover tests`).
 
 For example, a simulation of a $32 \times 32$ lattice at $T = 2$ takes three lines:
 
