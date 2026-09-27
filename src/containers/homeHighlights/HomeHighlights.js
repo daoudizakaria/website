@@ -46,7 +46,13 @@ export default function HomeHighlights({ theme }) {
               theme={theme}
             />
           </Fade>
-          <div className="home-highlights-grid">
+          <div
+            className={`home-highlights-grid${
+              featuredProjects.length % 2 === 0
+                ? " home-highlights-grid-pairs"
+                : ""
+            }`}
+          >
             {featuredProjects.map((pub) => (
               <ProjectsnewCard key={pub.id} pub={pub} theme={theme} />
             ))}

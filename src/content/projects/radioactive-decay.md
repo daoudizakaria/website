@@ -18,6 +18,15 @@ tags:
   - numerical-methods
   - physics-education
   - python
+year: "2023–2026"
+type: notes
+rank: 5
+image: "/uploads/projects/thumbs/radioactive-decay.webp"
+glance:
+  problem: "Help high-school and first-year university students see radioactivity happen, and understand the physics of the nucleus."
+  approach: "Twenty pages of notes paired with Python programs: Monte Carlo and Euler simulations of decay, Bateman decay chains, and nuclear energies from the AME2020 and NUBASE2020 data."
+  result: "13 unit tests check the programs against exact results, and every number in the notes is reproduced by the code."
+  tools: "Python, NumPy, Matplotlib"
 ---
 
 ## About this project

@@ -11,25 +11,10 @@
   backdrop-filter: blur(14px) saturate(130%);
   -webkit-backdrop-filter: blur(14px) saturate(130%);
   box-shadow: var(--shadow-soft);
-  padding: 2rem 1.85rem 1.75rem;
   overflow: hidden;
+  text-align: left;
   transition: transform 0.28s ease, box-shadow 0.28s ease,
     border-color 0.28s ease;
-}
-
-.projectsnew-card-div::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    rgba(96, 165, 250, 0.06) 0%,
-    transparent 42%,
-    rgba(125, 211, 252, 0.06) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
 }
 
 .projectsnew-card-div > div {
@@ -45,12 +30,8 @@
   cursor: pointer;
 }
 
-.projectsnew-card-div.is-static {
-  cursor: default;
-}
-
 .projectsnew-card-div.is-clickable:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
   border-color: var(--border-strong);
 }
@@ -65,86 +46,204 @@
   flex-direction: column;
   flex: 1 1 auto;
   height: 100%;
-  text-align: left;
   text-decoration: none;
   color: inherit;
 }
 
-.projectsnew-name-div {
+/* --- Thumbnail ----------------------------------------------------------- */
+
+.projectsnew-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.projectsnew-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.is-clickable .projectsnew-card-body:hover .projectsnew-thumb img {
+  transform: scale(1.03);
+}
+
+/* Projects without a figure: a quiet gradient with the area's glyph. */
+.projectsnew-thumb-ml,
+.projectsnew-thumb-physics,
+.projectsnew-thumb-math {
+  --thumb-a: 45, 212, 191;
+  --thumb-b: 59, 130, 246;
+}
+
+.projectsnew-thumb-physics {
+  --thumb-a: 96, 165, 250;
+  --thumb-b: 129, 140, 248;
+}
+
+.projectsnew-thumb-math {
+  --thumb-a: 167, 139, 250;
+  --thumb-b: 236, 72, 153;
+}
+
+.projectsnew-thumb.is-empty {
+  background: radial-gradient(
+      120% 90% at 20% 15%,
+      rgba(var(--thumb-a), 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      110% 90% at 85% 90%,
+      rgba(var(--thumb-b), 0.3),
+      transparent 60%
+    ),
+    rgba(var(--tint-sunken), 0.85);
+}
+
+.projectsnew-thumb-glyph {
+  font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia,
+    serif;
+  font-style: italic;
+  font-size: 4.2rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 6px 30px rgba(var(--thumb-b), 0.55);
+  user-select: none;
+}
+
+:root[data-theme="light"] .projectsnew-thumb-glyph {
+  color: rgba(15, 23, 42, 0.72);
+}
+
+/* --- Text ---------------------------------------------------------------- */
+
+.projectsnew-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 1.3rem 1.5rem 1.35rem;
+}
+
+.projectsnew-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.7rem;
+  margin: 0 0 0.7rem;
+  font-family: "Google Sans Medium";
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.projectsnew-type {
+  color: var(--accent-soft);
+}
+
+.projectsnew-type-client {
+  color: #fbbf24;
+}
+
+:root[data-theme="light"] .projectsnew-type-client {
+  color: #b45309;
+}
+
+.projectsnew-year {
+  color: var(--text-muted);
+}
+
+.projectsnew-year::before {
+  content: "·";
+  margin-right: 0.7rem;
+  color: var(--text-muted);
 }
 
 .projectsnew-name {
-  text-align: left;
   color: var(--text-primary) !important;
   font-family: "Google Sans Medium";
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.28;
-  margin: 0 0 0.85rem;
-  overflow: hidden;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 0.6rem;
 }
 
 .projectsnew-description {
   overflow: hidden;
-  text-align: left;
   display: -webkit-box;
-  font-family: "Google Sans Regular";
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  margin: 0 0 1rem;
-  line-height: 1.6;
-  font-size: 0.98rem;
-  max-height: calc(1.6em * 3);
-  flex: 1 1 auto;
+  margin: 0 0 0.9rem;
+  font-family: "Google Sans Regular";
+  font-size: 0.93rem;
+  line-height: 1.55;
   color: var(--text-secondary) !important;
 }
 
-.projectsnew-details {
+.projectsnew-tags {
   display: flex;
-  flex-direction: row;
-  margin-top: 0.25rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
 }
 
-.projectsnew-creation-date {
-  margin: 0;
+.projectsnew-tags li {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(var(--tint-sunken), 0.35);
   font-family: "Google Sans Regular";
-  font-weight: 400;
   font-size: 0.75rem;
-  letter-spacing: 0.03em;
-  color: var(--text-muted) !important;
-  margin-left: 0;
-  margin-right: auto;
+  color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 .projectsnew-card-footer {
   margin-top: auto;
-  padding-top: 1.15rem;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.projectsnew-facts {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: "Google Sans Regular";
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.projectsnew-fact-chip {
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  font-family: "Google Sans Medium";
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
 }
 
 .projectsnew-link-hint {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(96, 165, 250, 0.35);
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.14),
-    rgba(96, 165, 250, 0.06)
-  );
+  gap: 0.35rem;
   font-family: "Google Sans Medium";
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1;
   color: var(--accent-soft) !important;
-  transition: background 0.22s ease, border-color 0.22s ease,
-    box-shadow 0.22s ease, color 0.22s ease;
+  transition: color 0.22s ease;
 }
 
 .projectsnew-link-hint-arrow {
@@ -154,14 +253,7 @@
 
 .is-clickable .projectsnew-card-body:hover .projectsnew-link-hint,
 .is-clickable .projectsnew-card-body:focus-visible .projectsnew-link-hint {
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.45),
-    rgba(125, 211, 252, 0.2)
-  );
-  border-color: rgba(125, 211, 252, 0.55);
   color: var(--accent-hover) !important;
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
 }
 
 .is-clickable .projectsnew-card-body:hover .projectsnew-link-hint-arrow,
@@ -171,36 +263,53 @@
   transform: translateX(4px);
 }
 
-.projectsnew-no-link-hint {
-  font-family: "Google Sans Regular";
-  font-size: 0.86rem;
-  font-style: italic;
-  color: var(--text-muted) !important;
+/* --- Large cards (selected work) ------------------------------------------ */
+
+.projectsnew-card-large .projectsnew-card-content {
+  padding: 1.5rem 1.75rem 1.6rem;
+}
+
+.projectsnew-card-large .projectsnew-name {
+  font-size: 1.45rem;
+}
+
+.projectsnew-card-large .projectsnew-description {
+  font-size: 0.98rem;
 }
 
 @media (max-width: 768px) {
   .projectsnew-card-div {
-    padding: 1.55rem 1.35rem 1.4rem;
     border-radius: 20px;
   }
 
-  .projectsnew-name {
-    font-size: 1.2rem;
+  .projectsnew-card-content,
+  .projectsnew-card-large .projectsnew-card-content {
+    padding: 1.1rem 1.2rem 1.2rem;
   }
 
-  .projectsnew-description {
-    font-size: 0.92rem;
+  .projectsnew-name,
+  .projectsnew-card-large .projectsnew-name {
+    font-size: 1.12rem;
+  }
+
+  .projectsnew-description,
+  .projectsnew-card-large .projectsnew-description {
+    font-size: 0.9rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .projectsnew-card-div,
-  .projectsnew-link-hint,
+  .projectsnew-thumb img,
   .projectsnew-link-hint-arrow {
     transition: none;
   }
 
   .projectsnew-card-div.is-clickable:hover {
+    transform: none;
+  }
+
+  .is-clickable .projectsnew-card-body:hover .projectsnew-thumb img {
     transform: none;
   }
 }

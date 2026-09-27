@@ -16,28 +16,24 @@ const publicationsHeader = {
 const publications = {
   data: [],
 };
-// Projects page (grouped listings — see Projectsnew.js)
+// Projects page (filterable listing — see Projectsnew.js)
 
 const projectsnewHeader = {
   title: "Projects",
   description:
-    "Work is organized by area: machine learning and data science, physics and engineering, and mathematics. Cards link to external resources when a URL is available.",
+    "Research, client work, open-source tools and teaching material in physics, machine learning and mathematics, each written up in full on its own page. Filter by area, or start with the selected work.",
+  selectedBlurb:
+    "Four projects that show the range of the work: engineering design for a client, a clinical prediction model, and two physics simulations.",
 };
 
-const MLHeader = {
-  title: "Machine Learning and Data Science",
-  description:
-    "Here you can find my projects in Machine Learning and Data Science",
-};
-
-const physicsHeader = {
-  title: "Physics & Engineering",
-  description: "Here you can find my projects in Physics and Engineering.",
-};
-
-const mathHeader = {
-  title: "Mathematics",
-  description: "Here you can find my projects in Mathematics.",
+/** One line under the heading when the list is filtered to an area. */
+const projectAreas = {
+  ml:
+    "Predictive models validated the way their results will be used, and pipelines that collect the data.",
+  physics:
+    "Simulations, analytical models and research tools, from lattice Monte Carlo to engineering design.",
+  math:
+    "Queueing models for operations planning, and teaching material from school maths to the GRE.",
 };
 
 // Research / articles list page (header copy only; article bodies live in src/content/research/articles/*.md)
@@ -59,8 +55,6 @@ export {
   publicationsHeader,
   publications,
   projectsnewHeader,
-  MLHeader,
-  physicsHeader,
-  mathHeader,
+  projectAreas,
   reviews,
 };

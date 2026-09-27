@@ -18,6 +18,15 @@ tags:
   - hybrid-monte-carlo
   - string-theory
   - fortran
+year: "2025–2026"
+type: notes
+rank: 4
+image: "/uploads/projects/thumbs/bfss-model.webp"
+glance:
+  problem: "Simulate the bosonic BFSS matrix model at finite temperature, the first step towards a candidate non-perturbative description of M-theory."
+  approach: "Lattice Hybrid Monte Carlo in Fortran 90, validated against exact identities: forces, reversibility, integrator order and ⟨e^−ΔH⟩ = 1."
+  result: "A temperature scan reproduces the confinement/deconfinement transition near T ≈ 0.89, and the confined-phase benchmarks within 2–3%."
+  tools: "Fortran 90, Python for analysis"
 ---
 
 ## 1 The Question

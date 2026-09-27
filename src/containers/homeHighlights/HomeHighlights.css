@@ -41,6 +41,11 @@
   align-items: stretch;
 }
 
+/* An even number of featured projects reads better as pairs. */
+.home-highlights-grid-pairs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 @media (max-width: 1200px) {
   .home-highlights-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

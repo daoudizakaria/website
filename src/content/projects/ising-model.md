@@ -11,13 +11,22 @@ summary: >-
 category: physics
 repo: "https://github.com/daoudizakaria/Ising-Model"
 paper: "/uploads/projects/ising-model-notes.pdf"
-featured: false
+featured: true
 tags:
   - statistical-physics
   - phase-transitions
   - monte-carlo
   - critical-phenomena
   - python
+year: "2025–2026"
+type: notes
+rank: 3
+image: "/uploads/projects/thumbs/ising-model.webp"
+glance:
+  problem: "Understand the phase transition of the Ising model in one and two dimensions, and simulate it reliably."
+  approach: "Exact solutions (transfer matrix, Onsager, Kaufman) alongside Metropolis, heat-bath and Wolff Monte Carlo, with jackknife errors and finite-size scaling."
+  result: "Every simulated result agrees with an exact solution. Finite-size scaling gives β/ν = 0.125 and γ/ν = 1.770 (exact: 0.125 and 1.75), and Wolff is about 316 times more efficient than Metropolis at the critical point."
+  tools: "Python, NumPy, SciPy, Numba; 28 unit tests"
 ---
 
 ## About this project

@@ -15,6 +15,14 @@ tags:
   - selenium
   - data-collection
   - python
+year: "2023"
+type: tool
+rank: 8
+glance:
+  problem: "Map the creators working in a YouTube category, such as gaming."
+  approach: "A two-stage pipeline: headless Chrome driven by Selenium discovers channels through infinite scroll, then visits each channel's About page."
+  result: "A UTF-8 CSV dataset of channel names, URLs and descriptions; a sample gaming harvest ships with the code."
+  tools: "Python, Selenium, pandas"
 ---
 
 ## 1 The Idea

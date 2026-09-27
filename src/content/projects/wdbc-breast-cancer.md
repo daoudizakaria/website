@@ -9,7 +9,7 @@ summary: >-
   threshold, sample size, stability analysis, and an honest comparison with
   the original 1990s work.
 category: ml
-featured: false
+featured: true
 tags:
   - machine-learning
   - clinical-prediction
@@ -17,6 +17,15 @@ tags:
   - calibration
   - decision-curve-analysis
   - python
+year: "2026"
+type: case-study
+rank: 2
+image: "/uploads/projects/thumbs/wdbc-breast-cancer.webp"
+glance:
+  problem: "What can honestly be claimed about a malignancy model built on the 569-case Wisconsin breast cancer dataset?"
+  approach: "Penalised logistic regression validated like a clinical prediction model: 500 bootstrap resamples, calibration, decision curves at a 2% biopsy threshold, sample size and stability."
+  result: "Corrected AUC 0.996 and 98.0% accuracy. At the 2% threshold it flags 99.3% of cancers and avoids 36 unnecessary biopsies per 100 patients. It matches the original 1990s study rather than beating it."
+  tools: "Python, scikit-learn, pandas, TRIPOD+AI reporting"
 ---
 
 ## About this project

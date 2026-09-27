@@ -1,0 +1,84 @@
+/* "At a glance" summary at the top of a project page. */
+.project-glance {
+  margin: 1.5rem 0 2rem;
+  padding: 1.35rem 1.6rem 1.25rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-strong);
+  background: var(--glass-bg);
+  box-shadow: var(--shadow-soft);
+}
+
+.project-glance-title {
+  margin: 0 0 0.9rem;
+  font-family: "Google Sans Medium";
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.project-glance-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.project-glance-row {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.project-glance-row dt {
+  font-family: "Google Sans Medium";
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.project-glance-row dd {
+  margin: 0;
+  font-family: "Google Sans Regular";
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.project-glance-result dd {
+  color: var(--text-primary);
+}
+
+.project-glance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.1rem 0 0;
+}
+
+.project-glance-actions a {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  font-family: "Google Sans Medium";
+  font-size: 0.88rem;
+  color: var(--accent-soft);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-glance-actions a:hover {
+  border-color: var(--accent-bright);
+  color: var(--accent-hover);
+}
+
+@media (max-width: 640px) {
+  .project-glance {
+    padding: 1.1rem 1.1rem 1rem;
+  }
+
+  .project-glance-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+}

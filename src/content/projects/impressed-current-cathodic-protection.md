@@ -16,6 +16,15 @@ tags:
   - pipelines
   - electrical-engineering
   - applied-physics
+year: "2023"
+type: client
+rank: 1
+image: "/uploads/projects/thumbs/impressed-current-cathodic-protection.webp"
+glance:
+  problem: "Size the rectifiers, anodes and cables that protect a buried steel pipeline from corrosion, with a model simple enough to run in a spreadsheet."
+  approach: "Cell-wise current distribution, superposition of rectifiers, circuit sizing with Dwight's and Sunde's formulas, and coating attenuation treated as a leaky transmission line."
+  result: "Ten stations instead of one cut the max/min current-density ratio from 51 to 3.7, and a ten-anode groundbed cuts the rectifier voltage from about 120 V to 20 V."
+  tools: "Analytical modelling, electrochemistry, spreadsheet implementation"
 ---
 
 ## About this project

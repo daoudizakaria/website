@@ -17,6 +17,15 @@ tags:
   - monte-carlo
   - operations-research
   - python
+year: "2025"
+type: tool
+rank: 6
+image: "/uploads/projects/thumbs/erlangc-calculator.webp"
+glance:
+  problem: "How many agents does a contact centre need to answer 80% of calls within 20 seconds?"
+  approach: "The Erlang C queueing model evaluated in log-space, with shrinkage and occupancy constraints, plus a Monte Carlo layer for uncertain demand."
+  result: "For 400 calls per half hour at 257 s handle time, the service-level target needs 64 agents on the phones; shrinkage and the occupancy cap then set the headcount to schedule."
+  tools: "Python, NumPy, Matplotlib"
 ---
 
 ## 1 The Problem

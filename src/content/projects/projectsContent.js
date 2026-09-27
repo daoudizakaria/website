@@ -3,13 +3,44 @@
  *
  * Single source of truth: Markdown files in this folder, parsed at build time
  * by scripts/markdown-frontmatter-loader.js (`slug`, `title`, `date`, `summary`, `category`, `repo`,
- * `featured`, `tags` + body). Edit or add projects by editing those files
- * (by hand or through the Decap CMS admin).
+ * `paper`, `featured`, `tags`, `year`, `type`, `rank`, `image`, `glance`,
+ * `aliases` + body). Edit or add projects by editing those files (by hand or
+ * through the Decap CMS admin).
  */
 
 const projectModules = require.context("./", false, /\.md$/);
 
 export const PROJECT_CATEGORIES = ["ml", "physics", "math"];
+
+/** Areas, in the order of the filter chips on the Projects page. */
+export const CATEGORY_LABELS = {
+  ml: "Machine Learning & Data Science",
+  physics: "Physics & Engineering",
+  math: "Mathematics & Teaching",
+};
+
+/** Short chip labels for the filter bar. */
+export const CATEGORY_SHORT_LABELS = {
+  ml: "Machine Learning & Data",
+  physics: "Physics & Engineering",
+  math: "Maths & Teaching",
+};
+
+/** What kind of work a project is; shown as a label on cards and pages. */
+export const TYPE_LABELS = {
+  client: "Client work",
+  "case-study": "Data science case study",
+  notes: "Notes & simulations",
+  tool: "Open-source tool",
+  teaching: "Teaching materials",
+};
+
+/** Old project URLs that no longer have their own page. */
+const REMOVED_PROJECT_REDIRECTS = {
+  "machine-learning-projects": "/projects?area=ml",
+};
+
+const WORDS_PER_MINUTE = 200;
 
 function toIsoDate(value) {
   if (value == null || value === "") return new Date(0).toISOString();
@@ -20,6 +51,28 @@ function toIsoDate(value) {
 /** The stub note counts as "no real content" so pages can adapt. */
 const STUB_RE = /^\*A full case study for this project is in preparation\.\*$/;
 
+/** Reading time of the prose, ignoring display maths, code and image syntax. */
+function readingMinutes(markdown) {
+  const text = markdown
+    .replace(/\$\$[\s\S]*?\$\$/g, " ")
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
+}
+
+function parseGlance(glance) {
+  if (!glance || typeof glance !== "object") return null;
+  const pick = (k) => (glance[k] != null ? String(glance[k]) : "");
+  const g = {
+    problem: pick("problem"),
+    approach: pick("approach"),
+    result: pick("result"),
+    tools: pick("tools"),
+  };
+  return Object.values(g).some(Boolean) ? g : null;
+}
+
 function parseProject(parsed, label) {
   const { data, content } = parsed;
   const slug = data.slug;
@@ -28,6 +81,7 @@ function parseProject(parsed, label) {
     return null;
   }
   const body = typeof content === "string" ? content.trim() : "";
+  const rank = Number(data.rank);
   return {
     id: String(slug),
     name: data.title != null ? String(data.title) : String(slug),
@@ -42,7 +96,22 @@ function parseProject(parsed, label) {
     paper: data.paper != null ? String(data.paper) : "",
     featured: data.featured === true,
     tags: Array.isArray(data.tags) ? data.tags.map((t) => String(t)) : [],
+    year: data.year != null ? String(data.year) : "",
+    type: TYPE_LABELS[data.type] ? String(data.type) : "",
+    rank: Number.isFinite(rank) ? rank : Infinity,
+    image: data.image != null ? String(data.image) : "",
+    glance: parseGlance(data.glance),
+    aliases: Array.isArray(data.aliases)
+      ? data.aliases.map((a) => String(a))
+      : [],
+    readingMinutes: readingMinutes(body),
   };
+}
+
+/** Curated order: `rank` first, then the most recent. */
+function byRankThenDate(a, b) {
+  if (a.rank !== b.rank) return a.rank - b.rank;
+  return a.createdAt < b.createdAt ? 1 : -1;
 }
 
 const projects = projectModules
@@ -50,9 +119,12 @@ const projects = projectModules
   .filter((key) => !/projectsContent|projectsRoutes/.test(key))
   .map((key) => parseProject(projectModules(key), key))
   .filter(Boolean)
-  .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+  .sort(byRankThenDate);
 
 const projectBySlug = new Map(projects.map((p) => [p.id, p]));
+
+const aliasTarget = new Map();
+projects.forEach((p) => p.aliases.forEach((a) => aliasTarget.set(a, p.id)));
 
 export function getProjectList() {
   return [...projects];
@@ -70,4 +142,17 @@ export function getFeaturedProjects() {
 export function getProjectBySlug(slug) {
   if (slug == null || slug === "") return undefined;
   return projectBySlug.get(slug);
+}
+
+/**
+ * Where an old project URL should now point: the slug of the project that
+ * absorbed it (`aliases`), or a site path for a project that was removed.
+ * Returns `{ slug }`, `{ path }` or null.
+ */
+export function getProjectRedirect(slug) {
+  if (aliasTarget.has(slug)) return { slug: aliasTarget.get(slug) };
+  if (REMOVED_PROJECT_REDIRECTS[slug]) {
+    return { path: REMOVED_PROJECT_REDIRECTS[slug] };
+  }
+  return null;
 }

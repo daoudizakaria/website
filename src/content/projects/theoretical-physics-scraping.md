@@ -16,6 +16,14 @@ tags:
   - python
   - arxiv
   - open-science
+year: "2023–2024"
+type: tool
+rank: 7
+glance:
+  problem: "Turn thousands of scattered arXiv lecture notes into an organised library for a chosen field."
+  approach: "Scrape the arXiv search results in pages of 200, filter by the real arXiv category taxonomy, clean the metadata in pandas, then download the PDFs into a subject/category tree."
+  result: "A browsable, category-sorted PDF library with a CSV catalogue of titles, authors, categories and identifiers."
+  tools: "Python, requests, BeautifulSoup, pandas"
 ---
 
 ## 1 The Problem

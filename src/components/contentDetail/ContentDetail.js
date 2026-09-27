@@ -51,6 +51,7 @@ function useActiveHeading(contentKey, headingCount) {
  * @param {string} [props.badge] — small label chip next to the subtitle
  * @param {string} props.markdown — body content ("" allowed)
  * @param {React.ReactNode} [props.emptyNote] — shown when markdown is empty
+ * @param {React.ReactNode} [props.lead] — block shown between the heading and the body
  * @param {Array<{href: string, label: string}>} [props.actions] — link buttons
  * @param {{prev: ?{to: string, title: string}, next: ?{to: string, title: string}, prevLabel: string, nextLabel: string, ariaLabel: string}} [props.pager]
  */
@@ -62,6 +63,7 @@ export default function ContentDetail({
   badge,
   markdown,
   emptyNote,
+  lead,
   actions,
   pager,
 }) {
@@ -131,6 +133,7 @@ export default function ContentDetail({
               )}
             </p>
           )}
+          {lead}
           <div className="article-body" style={{ color: theme.text }}>
             {hasBody ? <MarkdownContent markdown={markdown} /> : emptyNote}
           </div>

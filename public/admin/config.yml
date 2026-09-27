@@ -58,7 +58,7 @@ collections:
         options:
           - { label: "Machine Learning & Data Science", value: ml }
           - { label: "Physics & Engineering", value: physics }
-          - { label: "Mathematics", value: math }
+          - { label: "Mathematics & Teaching", value: math }
       - label: Repository / resource URL
         name: repo
         widget: cms-string
@@ -70,10 +70,50 @@ collections:
         required: false
         default: ""
         choose_url: true
-      - label: Featured on home page
+      - label: Featured (home page and "Selected work")
         name: featured
         widget: boolean
         default: false
+      - label: Kind of work
+        name: type
+        widget: select
+        required: false
+        options:
+          - { label: "Client work", value: client }
+          - { label: "Data science case study", value: case-study }
+          - { label: "Notes & simulations", value: notes }
+          - { label: "Open-source tool", value: tool }
+          - { label: "Teaching materials", value: teaching }
+      - label: Year(s) of the work
+        name: year
+        widget: cms-string
+        required: false
+        hint: 'For example "2023" or "2025–2026".'
+      - label: Order on the Projects page (1 = first)
+        name: rank
+        widget: number
+        value_type: int
+        required: false
+      - label: Card thumbnail (16:9)
+        name: image
+        widget: image
+        required: false
+        choose_url: true
+      - label: At a glance
+        name: glance
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Problem, name: problem, widget: text, required: false }
+          - { label: Approach, name: approach, widget: text, required: false }
+          - { label: Result, name: result, widget: text, required: false }
+          - { label: Tools, name: tools, widget: string, required: false }
+      - label: Old URLs that should open this project
+        name: aliases
+        widget: list
+        required: false
+        default: []
       - label: Case study
         name: body
         widget: markdown
