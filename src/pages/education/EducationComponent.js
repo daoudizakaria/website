@@ -4,9 +4,7 @@ import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 import Educations from "../../containers/education/Educations";
 import Certifications from "../../containers/certifications/Certifications";
-import CompetitiveSites from "../../components/competitiveSites/CompetitiveSites";
 import OrbitalCloud from "../../components/orbitalCloud/OrbitalCloud";
-import { competitiveSites } from "../../portfolio";
 import { certifications } from "../../portfolio";
 import "./EducationComponent.css";
 import { Fade } from "../../components/reveal/Reveal";
@@ -27,10 +25,11 @@ class Education extends Component {
                 <h1 className="heading-text" style={{ color: theme.text }}>
                   Education
                 </h1>
-                <h3 className="heading-sub-text" style={{ color: theme.text }}>
-                  Basic Qualification and Certifications
-                </h3>
-                <CompetitiveSites logos={competitiveSites.competitiveSites} />
+                <p className="heading-sub-text">
+                  Theoretical physics and applied mathematics, from a BSc to a
+                  PhD in progress, alongside certifications in machine learning
+                  and data science.
+                </p>
               </div>
             </div>
           </Fade>
