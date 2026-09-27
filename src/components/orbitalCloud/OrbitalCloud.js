@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import "../simFigure/SimFigure.css";
 import "./OrbitalCloud.css";
 
 /*
@@ -518,38 +519,34 @@ export default function OrbitalCloud({ className = "" }) {
 
   const o = ORBITALS[current];
   return (
-    <figure className={`orbital-cloud ${className}`.trim()}>
-      <div ref={wrapRef} className="orbital-cloud-canvas-wrap">
+    <figure className={`sim-figure orbital-cloud ${className}`.trim()}>
+      <div ref={wrapRef} className="sim-canvas-wrap orbital-cloud-canvas-wrap">
         <canvas
           ref={canvasRef}
           role="img"
           aria-label="Animated electron cloud of a hydrogen atom, built from random samples of the wavefunction and cycling through several orbitals"
         />
       </div>
-      <figcaption className="orbital-cloud-caption">
+      <figcaption className="sim-caption">
         Hydrogen{" "}
-        <span className="orbital-cloud-name">
+        <span className="sim-name">
           {o.name}
           <sub>{o.sub}</sub>
         </span>{" "}
         orbital{" "}
-        <span className="orbital-cloud-qn">
+        <span className="sim-nowrap">
           · <i>n</i> = {o.n}, <i>l</i> = {o.l}, <i>m</i> = {o.m}
         </span>
-        <span className="orbital-cloud-note">
+        <span className="sim-note">
           Monte Carlo samples of |ψ|², coloured by the sign of ψ
         </span>
       </figcaption>
-      <div
-        className="orbital-cloud-picker"
-        role="group"
-        aria-label="Choose an orbital"
-      >
+      <div className="sim-picker" role="group" aria-label="Choose an orbital">
         {ORBITALS.map((orb, i) => (
           <button
             key={orb.name + orb.sub}
             type="button"
-            className="orbital-cloud-chip"
+            className="sim-chip"
             aria-pressed={i === current}
             aria-label={`Show the ${orb.name}${orb.sub} orbital`}
             onClick={() => selectRef.current(i)}

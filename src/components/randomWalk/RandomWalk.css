@@ -1,0 +1,30 @@
+/* Colours of the random-walk figure, per theme (paths use the three
+   "What I Do" accents). Layout, caption and chips: ../simFigure. */
+.random-walk {
+  --walk-1: #60a5fa;
+  --walk-2: #2dd4bf;
+  --walk-3: #a78bfa;
+  --walk-mean: #f1f5f9;
+  --walk-halo: #07111f;
+  --walk-band: #93c5fd;
+  --walk-axis: rgba(148, 163, 184, 0.35);
+  --walk-label: #94a3b8;
+  --sim-accent: var(--walk-1);
+  width: min(500px, 100%);
+}
+
+:root[data-theme="light"] .random-walk {
+  --walk-1: #1d4ed8;
+  --walk-2: #0f766e;
+  --walk-3: #6d28d9;
+  --walk-mean: #0b1b2e;
+  --walk-halo: #eef3f9;
+  --walk-band: #1d4ed8;
+  --walk-axis: rgba(15, 23, 42, 0.25);
+  --walk-label: #51617a;
+}
+
+.random-walk-canvas-wrap {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+}
