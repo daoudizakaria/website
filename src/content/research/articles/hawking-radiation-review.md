@@ -1,7 +1,7 @@
 ---
 slug: hawking-radiation-review
 title: "Hawking Radiation: A Pedagogical Review"
-date: 2024-02-10
+date: 2024-12-01
 summary: >-
   A self-contained introduction to Hawking radiation and a guide to the
   literature around it: black hole thermodynamics and quantum fields in curved
