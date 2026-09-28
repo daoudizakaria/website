@@ -49,30 +49,24 @@ const researchInterests = {
       glyph: "∇",
       title: "Machine learning and science",
       text:
-        "Machine learning as a scientific instrument, held to the standards of physics: models that are calibrated, validated and stress-tested rather than merely accurate, and the statistical physics that explains how learning systems store and recover information.",
+        "Machine learning as a scientific instrument, held to the standards of physics: models that are calibrated, validated and stress-tested rather than merely accurate, and trusted only where the evidence supports them, from particle physics to medicine.",
       links: [
         {
           kind: "project",
           slug: "wdbc-breast-cancer",
           label: "Breast cancer model",
         },
-        { kind: "article", slug: "complex-systems", label: "Complex systems" },
       ],
     },
     {
-      key: "statphys",
-      glyph: "σ",
-      title: "Statistical physics and complex systems",
+      key: "networks",
+      glyph: "θ",
+      title: "Neural networks and complex systems",
       text:
-        "How collective behaviour emerges from many interacting parts: phase transitions, spin glasses and neural memory, and the same tools applied to financial markets and credit risk.",
+        "Learning systems seen as complex systems: how loss landscapes shape what gradient-based optimisation can find, how neural networks store and retrieve memories, and the point at which a signal becomes learnable from noisy, high-dimensional data.",
       links: [
-        { kind: "project", slug: "ising-model", label: "Ising model" },
         { kind: "article", slug: "complex-systems", label: "Complex systems" },
-        {
-          kind: "article",
-          slug: "literature-review-credit-market-statistical-physics",
-          label: "Credit market review",
-        },
+        { kind: "project", slug: "ising-model", label: "Ising model" },
       ],
     },
   ],
