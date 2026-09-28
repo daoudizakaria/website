@@ -131,13 +131,29 @@
   margin-top: -10px;
 }
 
+/* Timeline column: stretches over the whole list item (the negative top
+   margin set inline also covers the item's top padding), so the connector
+   joins successive dots whatever the height of each card. */
 .experience-card-stepper {
-  display: flex;
-  flex-direction: row;
   position: relative;
-  align-items: center;
-  flex-direction: column;
-  margin-top: -40px;
+  align-self: stretch;
+  flex: 0 0 20px;
+  width: 20px;
+}
+
+.experience-card-connector {
+  position: absolute;
+  left: 9px;
+  width: 2px;
+}
+
+.experience-card-dot {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .experience-card-body-div {
