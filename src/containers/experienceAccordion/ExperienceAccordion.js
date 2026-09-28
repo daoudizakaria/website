@@ -11,6 +11,43 @@ import { Client as Styletron } from "styletron-engine-atomic";
 // instead of in the entry bundle every visitor downloads.
 const engine = new Styletron();
 
+const MONTHS = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+
+// "May 2023" -> 202304 (sortable); "Present" -> Infinity.
+function monthIndex(text) {
+  const t = (text || "").trim().toLowerCase();
+  if (!t || t === "present" || t === "current") return Infinity;
+  const [month, year] = t.split(/\s+/);
+  const m = MONTHS.indexOf(month.slice(0, 3));
+  return Number(year) * 12 + (m < 0 ? 0 : m);
+}
+
+// Newest first: ongoing roles on top, then by end date, then by start date.
+function newestFirst(experiences) {
+  const range = (e) => (e.duration || "").split(/\s*[–-]\s*/);
+  return [...experiences].sort((a, b) => {
+    const [aStart, aEnd] = range(a);
+    const [bStart, bEnd] = range(b);
+    return (
+      monthIndex(bEnd) - monthIndex(aEnd) ||
+      monthIndex(bStart) - monthIndex(aStart)
+    );
+  });
+}
+
 class ExperienceAccordion extends Component {
   render() {
     const theme = this.props.theme;
@@ -18,12 +55,13 @@ class ExperienceAccordion extends Component {
       <StyletronProvider value={engine}>
         <BaseProvider theme={LightTheme}>
           <div className="experience-accord">
-            {/* First section open by default so the page never looks empty. */}
+            {/* Every section open by default, so no role is hidden behind a click. */}
             <Accordion
+              accordion={false}
               initialState={{
-                expanded: this.props.sections.length
-                  ? [this.props.sections[0]["title"]]
-                  : [],
+                expanded: this.props.sections.map(
+                  (section) => section["title"]
+                ),
               }}
             >
               {this.props.sections.map((section) => {
@@ -70,17 +108,19 @@ class ExperienceAccordion extends Component {
                       },
                     }}
                   >
-                    {section["experiences"].map((experience, index) => {
-                      return (
-                        <ExperienceCard
-                          key={`${experience.company}-${experience.title}`}
-                          index={index}
-                          totalCards={section["experiences"].length}
-                          experience={experience}
-                          theme={theme}
-                        />
-                      );
-                    })}
+                    {newestFirst(section["experiences"]).map(
+                      (experience, index) => {
+                        return (
+                          <ExperienceCard
+                            key={`${experience.company}-${experience.title}`}
+                            index={index}
+                            totalCards={section["experiences"].length}
+                            experience={experience}
+                            theme={theme}
+                          />
+                        );
+                      }
+                    )}
                   </Panel>
                 );
               })}

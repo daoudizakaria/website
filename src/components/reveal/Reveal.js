@@ -43,6 +43,16 @@ function useInView() {
   return [ref, inView];
 }
 
+// Visitors who ask the OS for reduced motion get the content without the
+// slide/fade (read on each render, so a change of setting applies at once).
+function prefersReducedMotion() {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
 const DIRECTION_OFFSETS = {
   bottom: [0, 1],
   top: [0, -1],
@@ -84,12 +94,16 @@ export function Fade({
     <div
       ref={ref}
       className={className}
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "none" : hiddenTransform,
-        transition: `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`,
-        willChange: "opacity, transform",
-      }}
+      style={
+        prefersReducedMotion()
+          ? undefined
+          : {
+              opacity: inView ? 1 : 0,
+              transform: inView ? "none" : hiddenTransform,
+              transition: `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`,
+              willChange: "opacity, transform",
+            }
+      }
     >
       {children}
     </div>
@@ -98,6 +112,9 @@ export function Fade({
 
 export function Flip({ children, duration = 1000 }) {
   const [ref, inView] = useInView();
+  if (prefersReducedMotion()) {
+    return <div ref={ref}>{children}</div>;
+  }
   return (
     <div style={{ perspective: "1000px" }}>
       <div
