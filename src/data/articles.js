@@ -19,9 +19,9 @@ const researchInterests = {
     {
       key: "physics",
       glyph: "ħ",
-      title: "Particle and fundamental physics",
+      title: "Physics and engineering",
       text:
-        "From the foundations to the data: quantum fields in curved spacetime, black holes and Hawking radiation, and matrix models of M-theory such as BFSS, together with the phenomenology that confronts theory with experiment, at colliders and in the search for dark matter.",
+        "From fundamental questions to engineering practice: quantum fields in curved spacetime, black holes and matrix models of M-theory, particle phenomenology at colliders and in dark-matter searches, and analytical models for real engineering problems, such as pipeline corrosion.",
       links: [
         { kind: "project", slug: "bfss-model", label: "BFSS matrix model" },
         {
@@ -33,6 +33,11 @@ const researchInterests = {
           kind: "article",
           slug: "quantum-field-theory-general-relativity-and-er-bridge",
           label: "QFT, GR and ER bridges",
+        },
+        {
+          kind: "project",
+          slug: "impressed-current-cathodic-protection",
+          label: "Cathodic protection design",
         },
       ],
     },
