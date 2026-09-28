@@ -44,12 +44,12 @@
   box-shadow: var(--shadow-soft);
 }
 
-.research-interest-fundamental {
+.research-interest-physics {
   --ri-accent: 167, 139, 250;
 }
 
-.research-interest-particle {
-  --ri-accent: 251, 191, 36;
+.research-interest-earth {
+  --ri-accent: 74, 222, 128;
 }
 
 .research-interest-ml {

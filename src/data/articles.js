@@ -17,19 +17,11 @@ const researchInterests = {
     "The questions I keep coming back to, and where to read about them on this site.",
   themes: [
     {
-      key: "particle",
-      glyph: "γ",
-      title: "Particle physics and phenomenology",
-      text:
-        "Where theory meets experiment: working out what the Standard Model and its extensions predict at colliders and in detectors, simulating events with Monte Carlo generators, and testing those simulations against data in the search for new physics such as dark matter.",
-      links: [],
-    },
-    {
-      key: "fundamental",
+      key: "physics",
       glyph: "ħ",
-      title: "Fundamental physics",
+      title: "Particle and fundamental physics",
       text:
-        "The foundations: quantum fields in curved spacetime, black holes and Hawking radiation, Einstein–Rosen bridges, and matrix models such as BFSS, a candidate non-perturbative formulation of M-theory.",
+        "From the foundations to the data: quantum fields in curved spacetime, black holes and Hawking radiation, and matrix models of M-theory such as BFSS, together with the phenomenology that confronts theory with experiment, at colliders and in the search for dark matter.",
       links: [
         { kind: "project", slug: "bfss-model", label: "BFSS matrix model" },
         {
@@ -49,7 +41,7 @@ const researchInterests = {
       glyph: "∇",
       title: "Machine learning and science",
       text:
-        "Machine learning as a scientific instrument, held to the standards of physics: models that are calibrated, validated and stress-tested rather than merely accurate, and trusted only where the evidence supports them, from particle physics to medicine.",
+        "Machine learning as a scientific instrument, in any field where data has to become evidence, from physics to medicine: models that are calibrated, validated and stress-tested rather than merely accurate, with their limits stated as clearly as their results.",
       links: [
         {
           kind: "project",
@@ -68,6 +60,14 @@ const researchInterests = {
         { kind: "article", slug: "complex-systems", label: "Complex systems" },
         { kind: "project", slug: "ising-model", label: "Ising model" },
       ],
+    },
+    {
+      key: "earth",
+      glyph: "⊕",
+      title: "Earth observation and geospatial AI",
+      text:
+        "Turning satellite and geospatial data into decisions: mapping land cover and urban growth, monitoring crops, water and ecosystems over time, and measuring how far the maps can be trusted before anyone acts on them.",
+      links: [],
     },
   ],
 };
