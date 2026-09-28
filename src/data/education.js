@@ -24,7 +24,7 @@ const degrees = {
       duration: "2018 - 2020",
       descriptions: [
         "⚡ I followed several advanced courses in Physics and Applied Mathematics including: Quantum Field Theory, Cosmology, Particle Physics, String Theory, Topology and Geometry, Group Theory, Condensed Matter Physics, and Monte Carlo Techniques.",
-        "⚡ My MSc. thesis was about the recent development in Loop Quantum Gravity and the observations that can be used to validate this theory.",
+        "⚡ My MSc. thesis, “Loop Quantum Gravity: From Theory to Applications”, builds the theory from the Ashtekar–Barbero formulation of general relativity to spin networks and the discrete spectra of area and volume, with two applications: black-hole entropy and spin foams. The full text is on the Research page.",
         "⚡ I was responsible for several pedagogical activities including: Introduction to the Philosophy of Quantum Mechanics, Lab Work in Numerical Physics, mentoring 2 BSc. students in Physics and Mathematics.",
         "⚡ I followed an internship in Quantum Information",
       ],
