@@ -27,4 +27,6 @@ export const LEGACY_ARTICLE_REDIRECTS = {
   // slug shortened when the article moved from portfolio.js to Markdown
   "literature-review-credit-market-and-statistical-physics":
     "literature-review-credit-market-statistical-physics",
+  // placeholder page replaced by the full review (2024)
+  "hawking-radiation-and-universe-expansion": "hawking-radiation-review",
 };

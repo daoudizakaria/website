@@ -26,7 +26,7 @@ const researchInterests = {
         { kind: "project", slug: "bfss-model", label: "BFSS matrix model" },
         {
           kind: "article",
-          slug: "hawking-radiation-and-universe-expansion",
+          slug: "hawking-radiation-review",
           label: "Hawking radiation",
         },
         {
