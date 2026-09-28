@@ -23,6 +23,11 @@ const researchInterests = {
       text:
         "From fundamental questions to engineering practice: quantum fields in curved spacetime, black holes and matrix models of M-theory, particle phenomenology at colliders and in dark-matter searches, and analytical models for real engineering problems, such as pipeline corrosion.",
       links: [
+        {
+          kind: "article",
+          slug: "loop-quantum-gravity-masters-thesis",
+          label: "Master's thesis: loop quantum gravity",
+        },
         { kind: "project", slug: "bfss-model", label: "BFSS matrix model" },
         {
           kind: "article",
