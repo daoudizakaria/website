@@ -4,7 +4,6 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import TopButton from "../topButton/TopButton";
 import MarkdownContent from "../markdown/MarkdownContent";
-import { extractToc } from "../markdown/markdownToc.js";
 import "./ContentDetail.css";
 
 /*
@@ -96,8 +95,9 @@ function ReadingProgress({ active }) {
  * @param {string} props.title — page heading
  * @param {string} [props.subtitle] — line under the title (date etc.)
  * @param {string} [props.badge] — small label chip next to the subtitle
- * @param {string} props.markdown — body content ("" allowed)
- * @param {React.ReactNode} [props.emptyNote] — shown when markdown is empty
+ * @param {string} props.html — pre-rendered body ("" allowed)
+ * @param {Array<{level: number, text: string, id: string}>} [props.toc] — headings of the body
+ * @param {React.ReactNode} [props.emptyNote] — shown when there is no body
  * @param {React.ReactNode} [props.lead] — block shown between the heading and the body
  * @param {Array<{href: string, label: string}>} [props.actions] — link buttons
  * @param {{prev: ?{to: string, title: string}, next: ?{to: string, title: string}, prevLabel: string, nextLabel: string, ariaLabel: string}} [props.pager]
@@ -108,20 +108,21 @@ export default function ContentDetail({
   title,
   subtitle,
   badge,
-  markdown,
+  html,
+  toc: tocProp,
   emptyNote,
   lead,
   actions,
   pager,
 }) {
   const links = (actions || []).filter((a) => a && a.href);
-  const hasBody = markdown && String(markdown).trim().length > 0;
-  const toc = useMemo(() => (hasBody ? extractToc(markdown) : []), [
+  const hasBody = Boolean(html && html.length > 0);
+  const toc = useMemo(() => (hasBody && tocProp ? tocProp : []), [
     hasBody,
-    markdown,
+    tocProp,
   ]);
   const activeId = useActiveHeading(
-    `${title}\n${markdown ? markdown.length : 0}`,
+    `${title}\n${html ? html.length : 0}`,
     toc.length
   );
   const showToc = toc.length >= 2;
@@ -137,7 +138,8 @@ export default function ContentDetail({
   const collapseToc = toc.length > TOC_COLLAPSE_AT;
   const activeIndex = toc.findIndex((h) => h.id === activeId);
   const activeGroup = activeIndex >= 0 ? tocGroups[activeIndex] : -1;
-  const longText = hasBody && markdown.length > 12000;
+  // About 2,000 words of prose or more (equations make the HTML longer).
+  const longText = hasBody && html.length > 60000;
   const prev = pager && pager.prev;
   const next = pager && pager.next;
 
@@ -205,7 +207,7 @@ export default function ContentDetail({
           )}
           {lead}
           <div className="article-body" style={{ color: theme.text }}>
-            {hasBody ? <MarkdownContent markdown={markdown} /> : emptyNote}
+            {hasBody ? <MarkdownContent html={html} /> : emptyNote}
           </div>
           {links.length > 0 && (
             <p className="content-detail-actions">

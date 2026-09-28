@@ -18,6 +18,13 @@ import {
   researchPartUrl,
 } from "../../content/research/researchRoutes.js";
 
+/** "Chapter 3: Quantization…", but just "Bibliography" or "Introduction". */
+function partLabel(p) {
+  return /^(Chapter|Appendix)\b/.test(p.kicker)
+    ? `${p.kicker}: ${p.name}`
+    : p.name;
+}
+
 function pdfAction(resume) {
   const r = (resume || "").trim();
   if (!r) return null;
@@ -40,7 +47,7 @@ function ArticleDetail(props) {
   const parent = getResearchArticleBySlug(slug);
   const parts = useMemo(() => getSeriesParts(slug), [slug]);
   const article = part ? getSeriesPart(slug, part) : parent;
-  const { body, loading } = useMarkdownBody(article);
+  const { html, toc, loading } = useMarkdownBody(article);
 
   const pager = useMemo(() => {
     if (!article) return null;
@@ -50,7 +57,7 @@ function ArticleDetail(props) {
         p
           ? {
               to: researchPartUrl(slug, p.part),
-              title: `${p.kicker}: ${p.name}`,
+              title: partLabel(p),
             }
           : null;
       return {
@@ -69,7 +76,7 @@ function ArticleDetail(props) {
         prev: null,
         next: {
           to: researchPartUrl(slug, parts[0].part),
-          title: `${parts[0].kicker}: ${parts[0].name}`,
+          title: partLabel(parts[0]),
         },
         prevLabel: "",
         nextLabel: "Start reading →",
@@ -95,7 +102,7 @@ function ArticleDetail(props) {
         theme={theme}
         pageTitle="Article not found"
         title="Article not found"
-        markdown=""
+        html=""
         emptyNote={
           <p>
             This article does not exist. Add a Markdown file under{" "}
@@ -116,7 +123,7 @@ function ArticleDetail(props) {
     return (
       <ContentDetail
         theme={theme}
-        pageTitle={`${article.kicker}: ${article.name} · ${parent.name}`}
+        pageTitle={`${partLabel(article)} · ${parent.name}`}
         title={article.name}
         lead={
           <SeriesBreadcrumb
@@ -127,7 +134,8 @@ function ArticleDetail(props) {
             total={parts.length}
           />
         }
-        markdown={body}
+        html={html}
+        toc={toc}
         emptyNote={loadingNote}
         actions={action ? [action] : []}
         pager={pager}
@@ -155,7 +163,8 @@ function ArticleDetail(props) {
         parts.length === 0 ? ` · ${article.readingMinutes} min read` : ""
       }`}
       lead={lead}
-      markdown={body}
+      html={html}
+      toc={toc}
       emptyNote={loadingNote}
       actions={action ? [action] : []}
       pager={pager}

@@ -325,7 +325,7 @@ export default function OrbitalCloud({ className = "" }) {
       const cp = Math.cos(pitch);
       const sp = Math.sin(pitch);
       const base = (glow ? 5.2 : 4.6) * dpr;
-      const alphaBase = (glow ? 0.62 : 0.78) * (stride > 1 ? 1.35 : 1);
+      const alphaBase = (glow ? 0.62 : 0.78) * (1 + 0.35 * (stride - 1));
       for (let i = 0; i < N; i += stride) {
         let a = fade[i];
         if (bloom) a *= Math.min(1, Math.max(0, prog[i]) * 2.5);
@@ -512,8 +512,14 @@ export default function OrbitalCloud({ className = "" }) {
       const t0 = performance.now();
       draw();
       drawCost = 0.9 * drawCost + 0.1 * (performance.now() - t0);
-      // Judge after the opening bloom, when every point is drawn.
-      if (++drawnFrames > 180 && stride === 1 && drawCost > 9) stride = 2;
+      // Judged continuously from the first frames: a slow phone should not
+      // stutter for long before thinning out. (Bloom frames draw fewer
+      // points, so they can only under-estimate the cost.)
+      if (++drawnFrames > 12 && drawCost > 9 && stride < 3) {
+        stride += 1;
+        drawnFrames = 0;
+        drawCost = 0;
+      }
       raf = requestAnimationFrame(frame);
     };
     const start = () => {

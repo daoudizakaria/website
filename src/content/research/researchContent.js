@@ -51,9 +51,11 @@ function toIsoDate(value) {
 }
 
 /** Overview block: a short summary, key results and an optional figure. */
-function parseOverview(o) {
+function parseOverview(o, meta) {
   if (!o || typeof o !== "object") return null;
   return {
+    // key results pre-rendered to HTML at build time (maths included)
+    resultsHtml: (meta && meta.overviewResultsHtml) || "",
     summary: o.summary != null ? String(o.summary) : "",
     results: Array.isArray(o.results) ? o.results.map((r) => String(r)) : [],
     figure: o.figure != null ? String(o.figure) : "",
@@ -84,7 +86,7 @@ function parseMarkdownArticle(parsed, label) {
     resume: data.resume != null ? String(data.resume) : "",
     tags: Array.isArray(data.tags) ? data.tags.map((t) => String(t)) : [],
     contentSource: "markdown",
-    overview: parseOverview(data.overview),
+    overview: parseOverview(data.overview, meta),
     // Long works split into pages: a part names its `series` (the slug of
     // the overview page), its URL segment `part`, and its `order`.
     series: data.series != null ? String(data.series) : "",

@@ -95,6 +95,7 @@ export default function HopfieldMemory({ className = "" }) {
         off: v("--hop-off", "rgba(148,163,184,0.14)"),
         flash: v("--hop-flash", "#fbbf24"),
       };
+      drawGrid();
     };
 
     const resize = () => {
@@ -108,56 +109,60 @@ export default function HopfieldMemory({ className = "" }) {
       readTheme();
     };
 
-    const cell = (x, y, size, r) => {
-      if (ctx.roundRect) {
+    // Cell geometry, the resting grid (drawn once per size or theme) and
+    // brightness levels: the active cells of one level are filled together,
+    // ~12 fills per frame instead of ~900 (≈100 ms a frame on a slow phone).
+    const LEVELS = 12;
+    const grid = document.createElement("canvas");
+    const gctx = grid.getContext("2d");
+    let geo = null;
+    const addCell = (c, i) => {
+      const x = geo.pad + (i % G) * geo.pitch + geo.off;
+      const y = geo.pad + ((i / G) | 0) * geo.pitch + geo.off;
+      if (c.roundRect) {
+        c.moveTo(x + geo.size, y);
+        c.roundRect(x, y, geo.size, geo.size, geo.r);
+      } else c.rect(x, y, geo.size, geo.size);
+    };
+    const drawGrid = () => {
+      const pad = W * 0.04;
+      const pitch = (W - 2 * pad) / G;
+      const size = pitch * 0.8;
+      geo = { pad, pitch, size, off: (pitch - size) / 2, r: size * 0.22 };
+      grid.width = W;
+      grid.height = W;
+      gctx.fillStyle = col.off;
+      gctx.beginPath();
+      for (let i = 0; i < N; i++) addCell(gctx, i);
+      gctx.fill();
+    };
+    const fillLevels = (values, color, scale) => {
+      ctx.fillStyle = color;
+      for (let lv = 1; lv <= LEVELS; lv++) {
+        const lo = (lv - 0.5) / LEVELS;
+        const hi = (lv + 0.5) / LEVELS;
+        let any = false;
         ctx.beginPath();
-        ctx.roundRect(x, y, size, size, r);
-        ctx.fill();
-      } else ctx.fillRect(x, y, size, size);
+        for (let i = 0; i < N; i++) {
+          const v = values[i];
+          if (v >= 0.02 && v >= lo && (v < hi || lv === LEVELS)) {
+            addCell(ctx, i);
+            any = true;
+          }
+        }
+        if (any) {
+          ctx.globalAlpha = (lv / LEVELS) * scale;
+          ctx.fill();
+        }
+      }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, W, W);
-      const pad = W * 0.04;
-      const pitch = (W - 2 * pad) / G;
-      const size = pitch * 0.8;
-      const off = (pitch - size) / 2;
-      const r = size * 0.22;
-      // resting grid
       ctx.globalAlpha = 1;
-      ctx.fillStyle = col.off;
-      for (let i = 0; i < N; i++) {
-        cell(
-          pad + (i % G) * pitch + off,
-          pad + ((i / G) | 0) * pitch + off,
-          size,
-          r
-        );
-      }
-      // active neurons
-      ctx.fillStyle = col.on;
-      for (let i = 0; i < N; i++) {
-        if (shown[i] < 0.02) continue;
-        ctx.globalAlpha = shown[i];
-        cell(
-          pad + (i % G) * pitch + off,
-          pad + ((i / G) | 0) * pitch + off,
-          size,
-          r
-        );
-      }
-      // neurons that just flipped
-      ctx.fillStyle = col.flash;
-      for (let i = 0; i < N; i++) {
-        if (flash[i] < 0.02) continue;
-        ctx.globalAlpha = flash[i] * 0.9;
-        cell(
-          pad + (i % G) * pitch + off,
-          pad + ((i / G) | 0) * pitch + off,
-          size,
-          r
-        );
-      }
+      ctx.drawImage(grid, 0, 0); // resting grid
+      fillLevels(shown, col.on, 1); // active neurons
+      fillLevels(flash, col.flash, 0.9); // neurons that just flipped
       ctx.globalAlpha = 1;
     };
 

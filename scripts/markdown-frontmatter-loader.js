@@ -1,14 +1,18 @@
 /**
- * Webpack loader: parse a Markdown file's YAML front matter at *build* time.
+ * Webpack loader: parse a Markdown file at *build* time.
  *
  * A plain import of `file.md` gives the front matter and a few numbers
  * derived from the body:
  *
  *   { data, meta: { words, readingMinutes, hasBody }, load }
  *
- * The body itself is not in that module. `load()` fetches it on demand from
- * `file.md?body` (a separate chunk that only contains the text), so the long
- * articles are downloaded when someone opens them, not with every page.
+ * The body itself is not in that module. `load()` fetches `file.md?body`, a
+ * separate chunk, only when a page opens it. That chunk holds the body
+ * already rendered to HTML ({ html, toc }): Markdown parsing and KaTeX
+ * typesetting happen here, once, instead of on every visitor's phone. The
+ * rendering mirrors src/components/markdown/MarkdownContent.js (same
+ * plugins, sanitize schema, heading ids, image captions and link targets),
+ * so the output is the markup the browser used to build itself.
  *
  * gray-matter runs here, never in the browser (it drags in js-yaml, esprima
  * and a Buffer polyfill). Dates serialise to ISO strings, which the content
@@ -29,12 +33,171 @@ function countWords(markdown) {
   return text.split(/\s+/).filter(Boolean).length;
 }
 
+// ---- heading ids and table of contents (the page reads both) --------------
+function slugifyHeading(text) {
+  return String(text)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function childrenToText(node) {
+  if (node == null) return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(childrenToText).join("");
+  if (typeof node === "object" && node.props && node.props.children) {
+    return childrenToText(node.props.children);
+  }
+  return "";
+}
+
+function extractToc(markdown) {
+  const toc = [];
+  let inFence = false;
+  for (const line of String(markdown).split("\n")) {
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    const m = line.match(/^\s{0,3}(#{2,4})\s+(.+?)\s*#*\s*$/);
+    if (!m) continue;
+    const text = m[2]
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .trim();
+    if (!text) continue;
+    toc.push({ level: m[1].length, text, id: slugifyHeading(text) });
+  }
+  return toc;
+}
+
+function withPublicUrl(path) {
+  if (!path || typeof path !== "string" || !path.startsWith("/uploads"))
+    return path;
+  const publicUrl = (process.env.PUBLIC_URL || "").replace(/\/$/, "");
+  if (!publicUrl || path === publicUrl || path.startsWith(`${publicUrl}/`))
+    return path;
+  return `${publicUrl}${path}`;
+}
+
+let rendererPromise = null;
+
+/** Build the renderer once (the unified ecosystem is ESM-only). */
+function getRenderer() {
+  if (!rendererPromise) {
+    rendererPromise = (async () => {
+      const React = require("react");
+      const { renderToStaticMarkup } = require("react-dom/server");
+      const [
+        { default: ReactMarkdown },
+        { default: remarkGfm },
+        { default: remarkMath },
+        { default: rehypeRaw },
+        sanitize,
+        { default: rehypeKatex },
+      ] = await Promise.all([
+        import("react-markdown"),
+        import("remark-gfm"),
+        import("remark-math"),
+        import("rehype-raw"),
+        import("rehype-sanitize"),
+        import("rehype-katex"),
+      ]);
+      const { default: rehypeSanitize, defaultSchema } = sanitize;
+      const schema = {
+        ...defaultSchema,
+        attributes: {
+          ...defaultSchema.attributes,
+          div: [
+            ...(defaultSchema.attributes.div || []),
+            ["className", "math", "math-display"],
+          ],
+          span: [
+            ...(defaultSchema.attributes.span || []),
+            ["className", "math", "math-inline", "math-display"],
+          ],
+          code: [...(defaultSchema.attributes.code || []), "className"],
+        },
+      };
+      const h = React.createElement;
+      const heading = (Tag) =>
+        function AnchoredHeading({ children, node, level, ...props }) {
+          const id = slugifyHeading(childrenToText(children));
+          return h(Tag, { ...props, id: id || undefined }, children);
+        };
+      const components = {
+        h2: heading("h2"),
+        h3: heading("h3"),
+        h4: heading("h4"),
+        img: ({ src, alt, title, node, ...props }) =>
+          h(
+            "span",
+            { className: "markdown-image" },
+            h("img", {
+              loading: "lazy",
+              decoding: "async",
+              ...props,
+              src: withPublicUrl(src),
+              alt: alt || "",
+              title,
+            }),
+            title
+              ? h("em", { className: "markdown-image-caption" }, title)
+              : null
+          ),
+        a: ({ children, node, ...props }) =>
+          /^https?:\/\//i.test(props.href || "")
+            ? h(
+                "a",
+                { ...props, target: "_blank", rel: "noopener noreferrer" },
+                children
+              )
+            : h("a", props, children),
+      };
+      const options = {
+        remarkPlugins: [remarkGfm, remarkMath],
+        rehypePlugins: [
+          rehypeRaw,
+          [rehypeSanitize, schema],
+          [
+            rehypeKatex,
+            { errorColor: "#cc0000", strict: false, throwOnError: false },
+          ],
+        ],
+        components,
+      };
+      return (markdown) =>
+        renderToStaticMarkup(h(ReactMarkdown, options, markdown));
+    })();
+  }
+  return rendererPromise;
+}
+
 module.exports = function markdownFrontmatterLoader(source) {
   if (this.cacheable) this.cacheable();
   const { data, content } = matter(source);
 
   if (/(^|[?&])body(&|$)/.test((this.resourceQuery || "").replace(/^\?/, ""))) {
-    return `module.exports = ${JSON.stringify(content)};`;
+    const callback = this.async();
+    getRenderer()
+      .then((render) => {
+        const html = render(content);
+        callback(
+          null,
+          `module.exports = ${JSON.stringify({
+            html,
+            toc: extractToc(content),
+          })};`
+        );
+      })
+      .catch(callback);
+    return undefined;
   }
 
   const body = content.trim();
@@ -45,13 +208,30 @@ module.exports = function markdownFrontmatterLoader(source) {
     hasBody: body !== "" && !STUB_RE.test(body),
   };
   const request = JSON.stringify(this.resourcePath + "?body");
-  return (
+  const emit = () =>
     `module.exports = ${JSON.stringify({ data, meta })};\n` +
     `module.exports.load = function () {\n` +
     // No chunk name: each file's text becomes its own chunk.
     `  return import(${request}).then(function (m) {\n` +
     `    return m && m.default !== undefined ? m.default : m;\n` +
     `  });\n` +
-    `};\n`
-  );
+    `};\n`;
+
+  // Key results of a research overview are Markdown with inline maths:
+  // render them here too, so the page needs no Markdown code at all.
+  const results =
+    data.overview && Array.isArray(data.overview.results)
+      ? data.overview.results
+      : [];
+  if (results.length === 0) return emit();
+  const callback = this.async();
+  getRenderer()
+    .then((render) => {
+      meta.overviewResultsHtml = render(
+        results.map((r) => `- ${r}`).join("\n")
+      );
+      callback(null, emit());
+    })
+    .catch(callback);
+  return undefined;
 };

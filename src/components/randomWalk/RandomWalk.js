@@ -53,8 +53,17 @@ export default function RandomWalk({ className = "" }) {
     let W = 0;
     let H = 0;
     let col = {};
+    // Paths drawn so far (steps 0..layerK), kept between frames.
+    const layer = document.createElement("canvas");
+    const lctx = layer.getContext("2d");
+    let layerK = 0;
+    const clearLayer = () => {
+      lctx.clearRect(0, 0, layer.width, layer.height);
+      layerK = 0;
+    };
 
     const generate = () => {
+      clearLayer();
       const { mu, sigma } = MODES[m];
       const dt = 1 / STEPS;
       const sdt = sigma * Math.sqrt(dt);
@@ -84,6 +93,7 @@ export default function RandomWalk({ className = "" }) {
         label: v("--walk-label", "#94a3b8"),
         glow: document.documentElement.dataset.theme !== "light",
       };
+      clearLayer(); // colours or blend mode changed
     };
 
     const resize = () => {
@@ -94,6 +104,8 @@ export default function RandomWalk({ className = "" }) {
       H = Math.round(h * dpr);
       canvas.width = W;
       canvas.height = H;
+      layer.width = W;
+      layer.height = H;
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
       readTheme();
@@ -163,19 +175,30 @@ export default function RandomWalk({ className = "" }) {
       }
       ctx.setLineDash([]);
 
-      // paths
+      // paths: only the newly reached steps are drawn, into a layer that
+      // keeps the rest (redrawing every path from t = 0 each frame cost
+      // ~100 ms per frame on a slow phone by the end of a sweep). Both
+      // blend modes are associative, so this matches drawing them here.
       ctx.globalCompositeOperation = col.glow ? "lighter" : "source-over";
-      ctx.lineWidth = 1.2 * dpr;
-      ctx.lineJoin = "round";
-      for (let p = 0; p < N; p++) {
-        const o = p * (STEPS + 1);
-        ctx.strokeStyle = col.walkers[p % 3];
-        ctx.globalAlpha = (col.glow ? 0.2 : 0.32) * fade;
-        ctx.beginPath();
-        ctx.moveTo(X(0), Y(0));
-        for (let j = 1; j <= k; j++) ctx.lineTo(X(j / STEPS), Y(paths[o + j]));
-        ctx.stroke();
+      if (k < layerK) clearLayer();
+      if (k > layerK) {
+        lctx.globalCompositeOperation = ctx.globalCompositeOperation;
+        lctx.lineWidth = 1.2 * dpr;
+        lctx.lineJoin = "round";
+        lctx.globalAlpha = col.glow ? 0.2 : 0.32;
+        for (let p = 0; p < N; p++) {
+          const o = p * (STEPS + 1);
+          lctx.strokeStyle = col.walkers[p % 3];
+          lctx.beginPath();
+          lctx.moveTo(X(layerK / STEPS), Y(paths[o + layerK]));
+          for (let j = layerK + 1; j <= k; j++)
+            lctx.lineTo(X(j / STEPS), Y(paths[o + j]));
+          lctx.stroke();
+        }
+        layerK = k;
       }
+      ctx.globalAlpha = fade;
+      ctx.drawImage(layer, 0, 0);
       // path heads
       for (let p = 0; p < N; p++) {
         ctx.fillStyle = col.walkers[p % 3];

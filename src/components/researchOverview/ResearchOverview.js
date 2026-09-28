@@ -15,7 +15,7 @@ function withPublicUrl(path) {
  */
 export function Overview({ overview, children }) {
   if (!overview) return null;
-  const results = overview.results.map((r) => `- ${r}`).join("\n");
+  const results = overview.resultsHtml;
   return (
     <section
       className="research-overview"
@@ -33,7 +33,7 @@ export function Overview({ overview, children }) {
             <>
               <h3 className="research-overview-subtitle">Key results</h3>
               <MarkdownContent
-                markdown={results}
+                html={results}
                 className="research-overview-results"
               />
             </>

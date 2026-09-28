@@ -66,7 +66,7 @@ function ProjectDetail(props) {
   const { slug } = useParams();
   const theme = props.theme;
   const project = getProjectBySlug(slug);
-  const { body, loading } = useMarkdownBody(project);
+  const { html, toc, loading } = useMarkdownBody(project);
 
   const pager = useMemo(() => {
     if (!project) return null;
@@ -96,7 +96,7 @@ function ProjectDetail(props) {
         theme={theme}
         pageTitle="Project not found"
         title="Project not found"
-        markdown=""
+        html=""
         emptyNote={
           <p>
             This project does not exist. Add a Markdown file under{" "}
@@ -143,7 +143,8 @@ function ProjectDetail(props) {
       subtitle={subtitle || `Last updated ${project.createdAt.split("T")[0]}`}
       badge={CATEGORY_LABELS[project.category]}
       lead={<AtAGlance glance={project.glance} actions={actions} />}
-      markdown={body}
+      html={html}
+      toc={toc}
       emptyNote={
         loading ? <p className="content-detail-loading">Loading…</p> : null
       }
