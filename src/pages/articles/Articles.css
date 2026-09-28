@@ -151,10 +151,12 @@
     flex-direction: column;
   }
 
-  /* Title first on phones; the animation follows. */
+  /* Title first on phones; the animation follows. Full width, so the
+     figure's min(460px, 100%) resolves against the screen, not its content. */
   .articles-heading-img-div {
     order: 2;
     margin-top: 1rem;
+    width: 100%;
   }
 
   .articles-header-detail-text {

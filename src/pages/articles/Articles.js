@@ -10,6 +10,7 @@ import {
 } from "../../content/research/researchContent.js";
 import "./Articles.css";
 import HopfieldMemory from "../../components/hopfieldMemory/HopfieldMemory";
+import ResearchInterests from "../../containers/researchInterests/ResearchInterests";
 
 class Articles extends Component {
   render() {
@@ -50,6 +51,7 @@ class Articles extends Component {
             </div>
           </Fade>
         </div>
+        <ResearchInterests theme={theme} />
         <div className="articles-list-section">
           <h2
             className="articles-list-section-title"
