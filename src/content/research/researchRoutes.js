@@ -15,6 +15,11 @@ export function researchArticleUrl(slug) {
   return `${RESEARCH_BASE_PATH}/${encodeURIComponent(slug)}`;
 }
 
+/** URL of one page of a series, e.g. a thesis chapter. */
+export function researchPartUrl(seriesSlug, part) {
+  return `${researchArticleUrl(seriesSlug)}/${encodeURIComponent(part)}`;
+}
+
 /**
  * Old article URLs that must keep working (linked/indexed before the slug
  * changed or the article moved). Maps legacy slug → current slug, or `null`

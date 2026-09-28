@@ -76,6 +76,12 @@ export default class Main extends Component {
               />
             ))}
             <Route
+              path={`${RESEARCH_BASE_PATH}/:slug/:part`}
+              render={(props) => (
+                <ArticleDetail {...props} theme={this.props.theme} />
+              )}
+            />
+            <Route
               path={`${RESEARCH_BASE_PATH}/:slug`}
               render={(props) => (
                 <ArticleDetail {...props} theme={this.props.theme} />

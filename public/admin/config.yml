@@ -194,6 +194,20 @@ collections:
           - horizontal-rule
           - simple-table
 
+      - label: Overview (summary, key results, figure)
+        name: overview
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Summary, name: summary, widget: text, required: false }
+          - label: Key results (Markdown, inline $maths$ allowed)
+            name: results
+            widget: list
+            required: false
+            field: { label: Result, name: result, widget: text }
+          - { label: Figure, name: figure, widget: image, required: false, choose_url: true }
+          - { label: Figure caption, name: figureCaption, widget: string, required: false }
       - label: Paper PDF
         name: resume
         widget: file

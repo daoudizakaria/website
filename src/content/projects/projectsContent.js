@@ -4,7 +4,7 @@
  * Single source of truth: Markdown files in this folder, parsed at build time
  * by scripts/markdown-frontmatter-loader.js (`slug`, `title`, `date`, `summary`, `category`, `repo`,
  * `paper`, `featured`, `tags`, `year`, `type`, `rank`, `image`, `glance`,
- * `aliases` + body). Edit or add projects by editing those files (by hand or
+ * `aliases`; the body loads on demand). Edit or add projects by editing those files (by hand or
  * through the Decap CMS admin).
  */
 
@@ -40,25 +40,10 @@ const REMOVED_PROJECT_REDIRECTS = {
   "machine-learning-projects": "/projects?area=ml",
 };
 
-const WORDS_PER_MINUTE = 200;
-
 function toIsoDate(value) {
   if (value == null || value === "") return new Date(0).toISOString();
   const d = value instanceof Date ? value : new Date(value);
   return Number.isNaN(d.getTime()) ? new Date(0).toISOString() : d.toISOString();
-}
-
-/** The stub note counts as "no real content" so pages can adapt. */
-const STUB_RE = /^\*A full case study for this project is in preparation\.\*$/;
-
-/** Reading time of the prose, ignoring display maths, code and image syntax. */
-function readingMinutes(markdown) {
-  const text = markdown
-    .replace(/\$\$[\s\S]*?\$\$/g, " ")
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ");
-  const words = text.split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 
 function parseGlance(glance) {
@@ -74,21 +59,21 @@ function parseGlance(glance) {
 }
 
 function parseProject(parsed, label) {
-  const { data, content } = parsed;
+  const { data, meta } = parsed;
   const slug = data.slug;
   if (!slug || String(slug).trim() === "") {
     console.warn(`[projects] Skipping Markdown (missing slug): ${label}`);
     return null;
   }
-  const body = typeof content === "string" ? content.trim() : "";
   const rank = Number(data.rank);
   return {
     id: String(slug),
     name: data.title != null ? String(data.title) : String(slug),
     description: data.summary != null ? String(data.summary) : "",
     createdAt: toIsoDate(data.date),
-    content: body,
-    hasCaseStudy: body !== "" && !STUB_RE.test(body),
+    // The body is loaded on demand (see scripts/markdown-frontmatter-loader.js).
+    loadBody: parsed.load,
+    hasCaseStudy: Boolean(meta && meta.hasBody),
     category: PROJECT_CATEGORIES.includes(data.category)
       ? data.category
       : "physics",
@@ -104,7 +89,7 @@ function parseProject(parsed, label) {
     aliases: Array.isArray(data.aliases)
       ? data.aliases.map((a) => String(a))
       : [],
-    readingMinutes: readingMinutes(body),
+    readingMinutes: meta ? meta.readingMinutes : 1,
   };
 }
 

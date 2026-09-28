@@ -15,6 +15,19 @@ tags:
   - general-relativity
   - information-paradox
 resume: "/uploads/research/hawking-radiation-review.pdf"
+overview:
+  summary: >-
+    How quantum fields make black holes radiate, what the effect rests on, and
+    what remains open, from Hawking's calculation to the information paradox
+    and the search for evidence in the laboratory and in the sky.
+  results:
+    - 'Black holes radiate thermally at $T_{\mathrm H} = \hbar\kappa/2\pi c k_{\mathrm B}$, about $6\times10^{-8}$ K for a solar-mass black hole. With the first law of black-hole mechanics, this fixes the entropy $S_{\mathrm{BH}} = A/4\ell_{\mathrm P}^2$.'
+    - 'The effect rests on a single geometric fact, the exponential redshift of outgoing rays near a forming horizon. The Bogoliubov, detector, Euclidean and anomaly derivations all give the same temperature.'
+    - 'Evaporation runs away: the lifetime grows as $M^3$, about $10^{67}$ years for a solar mass, while a black hole of $5\times10^{14}$ g evaporates within the age of the Universe.'
+    - 'Unitarity requires the entropy of the radiation to follow the Page curve, which turns over at $t_{\mathrm{Page}} \approx 0.54\,\tau$. The firewall argument sharpens the paradox, and islands and replica wormholes reproduce the Page curve in the models studied.'
+    - 'Spontaneous emission with a thermal spectrum has been reported in Bose–Einstein condensate analogues. Astrophysical searches constrain primordial black holes from $10^{9}$ to $10^{17}$ g, and the asteroid-mass window above remains open.'
+  figure: /uploads/research/hawking-page-curve.png
+  figureCaption: "The Page curve: Hawking's calculation (dashed) against unitary evaporation (solid), which turns over at the Page time (Section 7)."
 ---
 
 ## Abstract

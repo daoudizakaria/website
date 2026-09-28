@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import ContentDetail from "../../components/contentDetail/ContentDetail";
+import useMarkdownBody from "../../components/markdown/useMarkdownBody";
 import {
   CATEGORY_LABELS,
   TYPE_LABELS,
@@ -65,6 +66,7 @@ function ProjectDetail(props) {
   const { slug } = useParams();
   const theme = props.theme;
   const project = getProjectBySlug(slug);
+  const { body, loading } = useMarkdownBody(project);
 
   const pager = useMemo(() => {
     if (!project) return null;
@@ -141,7 +143,10 @@ function ProjectDetail(props) {
       subtitle={subtitle || `Last updated ${project.createdAt.split("T")[0]}`}
       badge={CATEGORY_LABELS[project.category]}
       lead={<AtAGlance glance={project.glance} actions={actions} />}
-      markdown={project.content}
+      markdown={body}
+      emptyNote={
+        loading ? <p className="content-detail-loading">Loading…</p> : null
+      }
       actions={actions}
       pager={pager}
     />

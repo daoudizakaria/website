@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
@@ -42,6 +42,53 @@ function useActiveHeading(contentKey, headingCount) {
   return activeId;
 }
 
+/** Contents longer than this show subsections only for the current section. */
+const TOC_COLLAPSE_AT = 24;
+
+/**
+ * Thin bar at the top of the screen showing how far the reader is through
+ * the text. Updated directly on scroll (once per frame), not through React.
+ */
+function ReadingProgress({ active }) {
+  const barRef = useRef(null);
+  useEffect(() => {
+    if (!active) return undefined;
+    let queued = false;
+    const update = () => {
+      queued = false;
+      const body = document.querySelector(".article-body");
+      const bar = barRef.current;
+      if (!body || !bar) return;
+      const rect = body.getBoundingClientRect();
+      const total = rect.height - window.innerHeight * 0.6;
+      const done = Math.min(
+        1,
+        Math.max(0, (window.innerHeight * 0.4 - rect.top) / Math.max(total, 1))
+      );
+      bar.style.transform = `scaleX(${done})`;
+    };
+    const onScroll = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [active]);
+  if (!active) return null;
+  return (
+    <div className="reading-progress" aria-hidden="true">
+      <div ref={barRef} className="reading-progress-bar" />
+    </div>
+  );
+}
+
 /**
  * @param {object} props
  * @param {object} props.theme
@@ -73,14 +120,31 @@ export default function ContentDetail({
     hasBody,
     markdown,
   ]);
-  const activeId = useActiveHeading(title, toc.length);
+  const activeId = useActiveHeading(
+    `${title}\n${markdown ? markdown.length : 0}`,
+    toc.length
+  );
   const showToc = toc.length >= 2;
+  // Long contents: always show the top-level entries, and the subsections of
+  // the section being read.
+  const tocGroups = useMemo(() => {
+    let group = -1;
+    return toc.map((h, i) => {
+      if (h.level === 2) group = i;
+      return group;
+    });
+  }, [toc]);
+  const collapseToc = toc.length > TOC_COLLAPSE_AT;
+  const activeIndex = toc.findIndex((h) => h.id === activeId);
+  const activeGroup = activeIndex >= 0 ? tocGroups[activeIndex] : -1;
+  const longText = hasBody && markdown.length > 12000;
   const prev = pager && pager.prev;
   const next = pager && pager.next;
 
   return (
     <div className="article-detail-main">
       <Header theme={theme} pageTitle={pageTitle} />
+      <ReadingProgress active={longText} />
       <div
         className={`article-detail-content ${
           showToc ? "article-detail-grid" : ""
@@ -95,23 +159,29 @@ export default function ContentDetail({
               Contents
             </p>
             <nav className="article-toc-nav">
-              {toc.map((h) => (
-                <a
-                  key={h.id}
-                  href={`#${h.id}`}
-                  className={`article-toc-link article-toc-level-${h.level}`}
-                  style={{
-                    color:
-                      activeId === h.id
-                        ? theme.imageHighlight
-                        : theme.secondaryText,
-                    borderLeftColor:
-                      activeId === h.id ? theme.imageHighlight : "transparent",
-                  }}
-                >
-                  {h.text}
-                </a>
-              ))}
+              {toc.map((h, i) =>
+                collapseToc &&
+                h.level !== 2 &&
+                tocGroups[i] !== activeGroup ? null : (
+                  <a
+                    key={h.id}
+                    href={`#${h.id}`}
+                    className={`article-toc-link article-toc-level-${h.level}`}
+                    style={{
+                      color:
+                        activeId === h.id
+                          ? theme.imageHighlight
+                          : theme.secondaryText,
+                      borderLeftColor:
+                        activeId === h.id
+                          ? theme.imageHighlight
+                          : "transparent",
+                    }}
+                  >
+                    {h.text}
+                  </a>
+                )
+              )}
             </nav>
           </aside>
         )}

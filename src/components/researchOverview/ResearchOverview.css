@@ -1,0 +1,189 @@
+/* Overview of a long research text (summary, key results, figure). */
+.research-overview {
+  margin: 1.5rem 0 2rem;
+  padding: 1.4rem 1.6rem 1.3rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-strong);
+  background: var(--glass-bg);
+  box-shadow: var(--shadow-soft);
+}
+
+.research-overview-title,
+.series-guide-title {
+  margin: 0 0 0.9rem;
+  font-family: "Google Sans Medium";
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.research-overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.research-overview-summary {
+  margin: 0 0 1rem;
+  font-family: "Google Sans Regular";
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.research-overview-subtitle {
+  margin: 0 0 0.4rem;
+  font-family: "Google Sans Medium";
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.research-overview-results ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.research-overview-results li {
+  margin: 0.35rem 0;
+  font-family: "Google Sans Regular";
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.research-overview-figure {
+  margin: 0;
+}
+
+.research-overview-figure img {
+  width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+}
+
+.research-overview-figure figcaption {
+  margin-top: 0.45rem;
+  font-family: "Google Sans Regular";
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* Chapter guide */
+.series-guide {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.series-guide-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.series-guide-item {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    "kicker name time"
+    "kicker desc time";
+  column-gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.series-guide-item:hover,
+.series-guide-item:focus-visible {
+  border-color: var(--accent-bright);
+  background: rgba(var(--tint-surface), 0.35);
+}
+
+.series-guide-kicker {
+  grid-area: kicker;
+  font-family: "Google Sans Medium";
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  padding-top: 0.15rem;
+}
+
+.series-guide-name {
+  grid-area: name;
+  font-family: "Google Sans Medium";
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.series-guide-desc {
+  grid-area: desc;
+  font-family: "Google Sans Regular";
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.series-guide-time {
+  grid-area: time;
+  font-family: "Google Sans Regular";
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+
+/* Breadcrumb on a chapter page */
+.series-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  margin: 1rem 0 1.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(var(--tint-surface), 0.3);
+  font-family: "Google Sans Regular";
+  font-size: 0.9rem;
+}
+
+.series-breadcrumb a {
+  color: var(--accent-soft);
+  text-decoration: none;
+}
+
+.series-breadcrumb a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.series-breadcrumb-pos {
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .research-overview {
+    padding: 1.1rem 1.1rem 1rem;
+  }
+
+  .research-overview-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .series-guide-item {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "kicker" "name" "desc" "time";
+    row-gap: 0.15rem;
+  }
+}
