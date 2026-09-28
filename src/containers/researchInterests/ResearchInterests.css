@@ -44,15 +44,15 @@
   box-shadow: var(--shadow-soft);
 }
 
-.research-interest-gravity {
+.research-interest-fundamental {
   --ri-accent: 167, 139, 250;
 }
 
-.research-interest-finance {
+.research-interest-particle {
   --ri-accent: 251, 191, 36;
 }
 
-.research-interest-monte-carlo {
+.research-interest-ml {
   --ri-accent: 45, 212, 191;
 }
 
