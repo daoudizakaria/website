@@ -37,7 +37,7 @@ const GLANCE_ROWS = [
   ["tools", "Tools"],
 ];
 
-/** Short summary block for readers who decide in a few seconds. */
+/** "At a glance": headline numbers and summary rows. */
 function AtAGlance({ glance, metrics, actions }) {
   if (!glance) return null;
   return (
@@ -152,8 +152,7 @@ function ProjectDetail(props) {
         html=""
         emptyNote={
           <p>
-            This project does not exist. Add a Markdown file under{" "}
-            <code>src/content/projects/</code>.
+            This page could not be found. It may have been moved or renamed.
           </p>
         }
       />
@@ -176,8 +175,8 @@ function ProjectDetail(props) {
         ? `${process.env.PUBLIC_URL || ""}${paper}`
         : paper,
       label: /report/i.test(paper)
-        ? "📄 Read the technical report (PDF)"
-        : "📄 Read the companion paper (PDF)",
+        ? "Technical report (PDF)"
+        : "Companion paper (PDF)",
       shortLabel: /report/i.test(paper) ? "Technical report (PDF)" : "PDF",
     });
   }

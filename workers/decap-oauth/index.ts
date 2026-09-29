@@ -11,21 +11,7 @@
 
 import decapCMSLoginScript from './decap-cms-login-script';
 
-/**
- * Runtime bindings for this Worker.
- *
- * CLIENT_ID and CLIENT_SECRET are NOT stored in this repository. They are
- * injected by Cloudflare on each request via the `env` parameter:
- *
- *   Production: wrangler secret put CLIENT_ID
- *               wrangler secret put CLIENT_SECRET
- *
- *   Local dev:  .dev.vars file (gitignored) with the same variable names.
- *
- * CLIENT_ID     — GitHub OAuth App Client ID (used in /auth redirect).
- * CLIENT_SECRET — GitHub OAuth App Client Secret (used only server-side in
- *                 /callback when exchanging the authorization code for a token).
- */
+/** OAuth App credentials, set with `wrangler secret put` (.dev.vars locally). */
 export interface Env {
   CLIENT_ID: string;
   CLIENT_SECRET: string;
@@ -41,28 +27,12 @@ async function handle(request: Request, env: Env): Promise<Response> {
   const { pathname, searchParams } = new URL(request.url);
 
   switch (pathname) {
-    /**
-     * GET /auth
-     *
-     * Entry point for Decap CMS "Login with GitHub". Decap opens a popup to:
-     *   {base_url}/auth   (auth_endpoint defaults to "auth" in config.yml)
-     *
-     * This route redirects the browser to GitHub's authorization page. After the
-     * user approves, GitHub redirects back to the OAuth App callback URL, which
-     * must point at this Worker's /callback route.
-     */
+    // Decap's login popup opens /auth; redirect to GitHub.
     case '/auth':
       return redirectToAuthFlow(env);
 
-    /**
-     * GET /callback?code=...
-     *
-     * GitHub redirects here after the user authorizes the OAuth App. This route:
-     *   1. Reads the short-lived `code` query parameter from GitHub.
-     *   2. Exchanges it for an access token (see fetchAccessToken below).
-     *   3. Returns a small HTML page whose script postMessage's the token back
-     *      to the Decap CMS admin window that opened the popup.
-     */
+    // GitHub returns here with ?code; exchange it and post the token back
+    // to the admin window.
     case '/callback':
       return fetchAccessToken(searchParams, env);
 
@@ -71,16 +41,7 @@ async function handle(request: Request, env: Env): Promise<Response> {
   }
 }
 
-/**
- * Exchanges the GitHub authorization code for an OAuth access token.
- *
- * Token exchange happens here via POST to GitHub's token endpoint:
- *   https://github.com/login/oauth/access_token
- *
- * The request body includes env.CLIENT_ID, env.CLIENT_SECRET, and the one-time
- * `code` from the /callback query string. GitHub returns JSON with access_token,
- * which is passed to the Decap login script (never logged or stored by this Worker).
- */
+/** Exchange the OAuth code for a token and hand it to Decap's login script. */
 async function fetchAccessToken(
   requestParams: URLSearchParams,
   env: Env

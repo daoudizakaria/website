@@ -1,5 +1,4 @@
-// theme.js
-/* Active portfolio look: dark academic palette (CERN / NASA / Linear-inspired). */
+/* Default dark palette. */
 export const blueTheme = {
   body: "#07111F",
   text: "#F8FAFC",

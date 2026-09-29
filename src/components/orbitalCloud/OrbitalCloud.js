@@ -592,7 +592,7 @@ export default function OrbitalCloud({ className = "" }) {
           · <i>n</i> = {o.n}, <i>l</i> = {o.l}, <i>m</i> = {o.m}
         </span>
         <span className="sim-note">
-          Monte Carlo samples of |ψ|², coloured by the sign of ψ
+          Monte Carlo samples of |ψ|², coloured by the sign of ψ.
         </span>
       </figcaption>
       <div className="sim-picker" role="group" aria-label="Choose an orbital">

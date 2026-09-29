@@ -27,8 +27,8 @@ function pdfAction(resume) {
   return {
     href: r.startsWith("/") ? `${process.env.PUBLIC_URL || ""}${r}` : r,
     label: r.toLowerCase().endsWith(".pdf")
-      ? "📄 Download the paper (PDF)"
-      : "View Resume",
+      ? "Download the paper (PDF)"
+      : "Open resource",
   };
 }
 
@@ -101,8 +101,7 @@ function ArticleDetail(props) {
         html=""
         emptyNote={
           <p>
-            This article does not exist. Add a Markdown file under{" "}
-            <code>src/content/research/articles/</code>.
+            This page could not be found. It may have been moved or renamed.
           </p>
         }
       />

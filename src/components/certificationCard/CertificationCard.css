@@ -142,7 +142,7 @@
   }
 }
 
-/* Reveal wrapper sits between the card and its content — make it a
+/* Reveal wrapper sits between the card and its content; make it a
    transparent column so the body still stretches to the card height. */
 .cert-card-inner {
   display: flex;

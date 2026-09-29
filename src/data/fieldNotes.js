@@ -1,19 +1,18 @@
-// "Field notes" — the personal photography page.
+// Field notes: the photography page.
 //
-// Everything here is a first draft to edit: the intro, every caption, and
-// the location line. Photos live in public/uploads/field-notes/ as two WebP
-// sizes each (long edge 1200px and 2400px), metadata stripped.
+// Photos live in public/uploads/field-notes/ as two WebP sizes each (long
+// edge 1200px and 2400px), metadata stripped.
 //
-// layout: "full"  — spans the page width
-//         "pair"  — consecutive "pair" photos sit side by side (two frames
+// layout: "full"  : spans the page width
+//         "pair"  : consecutive "pair" photos sit side by side (two frames
 //                   of the same shape)
-//         "solo"  — a single portrait frame, centred at a narrower width
+//         "solo"  : a single portrait frame, centred at a narrower width
 
 const fieldNotesHeader = {
   title: "Field notes",
   location: "Tanzania",
   intro:
-    "Physics is, at heart, the discipline of careful observation — and so is wildlife photography. Both reward patience: you wait, you watch, and every so often the moment arrives. I recently spent time on safari in Tanzania — the Serengeti, Ngorongoro, Tarangire and Lake Manyara — with a camera and a long lens. These are a few of the moments I was patient enough to catch.",
+    "Photographs from a safari in Tanzania (the Serengeti, Ngorongoro, Tarangire and Lake Manyara), taken with a telephoto lens. Like much of experimental physics, wildlife photography is mostly a matter of patient observation.",
 };
 
 const fieldNotes = {
@@ -25,7 +24,7 @@ const fieldNotes = {
     large: { w: 2252, h: 2252 },
     alt:
       "Zakaria, seen over his shoulder from inside a safari vehicle, watching an elephant mother and calf graze on open grassland",
-    caption: "Watching a mother and her calf. The best seat is the quiet one.",
+    caption: "Watching an elephant and her calf graze.",
   },
   photos: [
     {
@@ -36,8 +35,7 @@ const fieldNotes = {
       large: { w: 2400, h: 1600 },
       alt:
         "A male lion with a dark mane walking straight toward the camera through golden grass",
-      caption:
-        "He walked straight toward us for a full minute. You don't reframe a moment like this — you hold still.",
+      caption: "A male lion that walked straight towards us for a full minute.",
     },
     {
       file: "zebras-buffalo",
@@ -47,8 +45,7 @@ const fieldNotes = {
       large: { w: 2400, h: 1600 },
       alt:
         "Two zebras standing in dry grass looking toward the camera, with buffalo grazing out of focus behind them",
-      caption:
-        "No two zebras share the same stripes — every one of them carries its own barcode.",
+      caption: "Zebras in dry grass. Each animal's stripe pattern is unique.",
     },
     {
       file: "lion-pride-mound",
@@ -59,7 +56,7 @@ const fieldNotes = {
       alt:
         "A pride of lions on and around a termite mound under a blue sky: three lionesses on top looking out, several young lions asleep in the grass below",
       caption:
-        "A whole pride at rest. Most of them asleep — but someone is always on watch.",
+        "A pride at rest: most are asleep, while the lionesses on the mound keep watch.",
     },
     {
       file: "giraffe-profile",
@@ -70,7 +67,7 @@ const fieldNotes = {
       alt:
         "A giraffe standing in profile in dry grass among acacia shrubs, under a pale blue sky",
       caption:
-        "A giraffe's neck has seven vertebrae — exactly as many as ours. Each one is just a lot longer.",
+        "A giraffe's neck has seven vertebrae, as a human neck does; each is much longer.",
     },
     {
       file: "leopard-resting",
@@ -80,7 +77,7 @@ const fieldNotes = {
       large: { w: 2400, h: 1600 },
       alt:
         "A leopard lying along a lichen-covered branch, tail hanging down, looking at the camera against green foliage",
-      caption: "Equilibrium, briefly.",
+      caption: "A leopard resting along a branch.",
     },
     {
       file: "leopard-acacia",
@@ -101,7 +98,8 @@ const fieldNotes = {
       large: { w: 2400, h: 1600 },
       alt:
         "A spotted hyena lying low in tall dry grass, looking straight at the camera",
-      caption: "The reason the leopard keeps its meal up a tree.",
+      caption:
+        "A spotted hyena, the reason leopards keep their prey in the trees.",
     },
     {
       file: "jackal-grass",
@@ -121,8 +119,7 @@ const fieldNotes = {
       large: { w: 1600, h: 2400 },
       alt:
         "A lilac-breasted roller perched on a bare branch, its lilac, turquoise and deep blue plumage bright against soft green",
-      caption:
-        "The lilac-breasted roller — nature has no problem with a bold colour palette.",
+      caption: "A lilac-breasted roller.",
     },
     {
       file: "crocodiles-gaping",
@@ -133,7 +130,7 @@ const fieldNotes = {
       alt:
         "Two Nile crocodiles basking on rocks at the water's edge, the one behind with its jaws wide open, both reflected in the rippled water",
       caption:
-        "The open jaws aren't a threat: crocodiles gape to shed heat. A radiator, with teeth.",
+        "Nile crocodiles on the bank. Gaping helps them shed heat; it is not a threat display.",
     },
     {
       file: "lake-sunset",
@@ -153,7 +150,7 @@ const fieldNotes = {
       large: { w: 1600, h: 2400 },
       alt:
         "The sun setting behind a tent at a bush camp in the Serengeti, framed by acacia trees, the sky glowing orange above the dark grassland",
-      caption: "Home for the night — our bush camp in the Serengeti.",
+      caption: "Our bush camp in the Serengeti at sunset.",
     },
   ],
 };

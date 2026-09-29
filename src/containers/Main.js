@@ -10,7 +10,7 @@ import {
 } from "../content/research/researchRoutes.js";
 
 // Splash and Home stay in the entry chunk (they are the landing path);
-// every other page loads on demand — notably ArticleDetail, which carries
+// every other page loads on demand, notably ArticleDetail, which carries
 // the markdown + KaTeX machinery.
 const Education = lazy(() => import("../pages/education/EducationComponent"));
 const Experience = lazy(() => import("../pages/experience/Experience"));

@@ -31,7 +31,7 @@ glance:
 
 ## About this project
 
-This project started in the classroom, with a simple goal: let students *see* radioactivity happen. It pairs Python programs that simulate radioactive decay and compute nuclear energies from real data with the complete set of notes below, which explain the physics behind them, from what a nucleus is made of to why the Sun shines. The notes are written for the last years of high school and the first year of university; the code is [on GitHub](https://github.com/daoudizakaria/Radioactive_Decay), and the notes can also be [downloaded as a PDF](/uploads/projects/nuclear-physics-notes.pdf).
+The project was written for teaching, so that students can observe radioactive decay in simulation. It pairs Python programs that simulate radioactive decay and compute nuclear energies from real data with the complete set of notes below, which explain the physics behind them, from what a nucleus is made of to why the Sun shines. The notes are written for the last years of high school and the first year of university; the code is [on GitHub](https://github.com/daoudizakaria/Radioactive_Decay), and the notes can also be [downloaded as a PDF](/uploads/projects/nuclear-physics-notes.pdf).
 
 ## Abstract
 
@@ -742,7 +742,7 @@ Exercises marked ★ use the _Going further_ material. Answers are given at the 
 
 ## Validation of the code
 
-Teaching code has to be right. A suite of 13 unit tests checks the programs against exact results:
+A suite of 13 unit tests checks the programs against exact results:
 
 - **Decay:** the half-life, the first-order convergence of Euler's method, and a Monte Carlo average that follows $N_0 e^{-\lambda t}$ (with reproducible random seeds).
 - **Chains:** Bateman's solution against a very fine numerical integration, the special case $\lambda_P = \lambda_D$ as the limit of the general formula, secular equilibrium for uranium-238 → thorium-234, and branching ratios.

@@ -9,12 +9,12 @@ export default function Skills(props) {
     <div className="main" id="skills">
       <div className="skills-header-div">
         <Fade bottom duration={2000} distance="20px">
-          <p className="skills-kicker">Services</p>
+          <p className="skills-kicker">Expertise</p>
           <h2 className="skills-header" style={{ color: theme.text }}>
-            What I Do
+            Areas of work
           </h2>
           <p className="skills-intro">
-            From the first model to the final report.
+            Machine learning, physical modelling and scientific writing.
           </p>
         </Fade>
       </div>

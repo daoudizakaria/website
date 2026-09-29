@@ -12,10 +12,7 @@ export default function Footer(props) {
         >
           <p className="footer-copyright">© 2026 Zakaria Daoudi</p>
           <p className="footer-domains">
-            Computational Physics • Research • Software
-          </p>
-          <p className="footer-tagline">
-            Designed for research, education, and scientific communication.
+            Physics · Machine learning · Scientific writing
           </p>
         </footer>
       </Fade>

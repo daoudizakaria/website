@@ -7,7 +7,7 @@ class CertificationCard extends Component {
     const certificate = this.props.certificate;
     const theme = this.props.theme;
     return (
-      /* The card must be the grid item itself — a reveal wrapper around it
+      /* The card must be the grid item itself: a reveal wrapper around it
          would swallow the grid sizing and collapse the card. */
       <div className="cert-card">
         <Fade

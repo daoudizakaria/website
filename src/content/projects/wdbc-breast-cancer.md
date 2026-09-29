@@ -6,9 +6,10 @@ summary: >-
   A malignancy model for the Wisconsin Diagnostic Breast Cancer data, built
   and validated to current clinical-prediction standards: bootstrap internal
   validation, calibration, decision curves at a clinically chosen biopsy
-  threshold, sample size, stability analysis, and an honest comparison with
+  threshold, sample size, stability analysis, and a comparison with
   the original 1990s work.
 category: ml
+repo: "https://github.com/daoudizakaria/wdbc-clinical-prediction-model"
 featured: true
 tags:
   - machine-learning
@@ -22,15 +23,15 @@ type: case-study
 rank: 3
 image: "/uploads/projects/thumbs/wdbc-breast-cancer.webp"
 glance:
-  problem: "What can honestly be claimed about a malignancy model built on the 569-case Wisconsin breast cancer dataset?"
+  problem: "What can be claimed, with appropriate validation, about a malignancy model built on the 569-case Wisconsin breast cancer dataset?"
   approach: "Penalised logistic regression validated like a clinical prediction model: 500 bootstrap resamples, calibration, decision curves at a 2% biopsy threshold, sample size and stability."
-  result: "Corrected AUC 0.996 and 98.0% accuracy. At the 2% threshold it flags 99.3% of cancers and avoids 36 unnecessary biopsies per 100 patients. It matches the original 1990s study rather than beating it."
+  result: "Corrected AUC 0.996 and 98.0% accuracy. At the 2% threshold it flags 99.3% of cancers and avoids 36 unnecessary biopsies per 100 patients. It matches, but does not exceed, the original 1990s study."
   tools: "Python, scikit-learn, pandas, TRIPOD+AI reporting"
 ---
 
 ## About this project
 
-The Wisconsin Diagnostic Breast Cancer dataset is one of the most-used benchmarks in machine learning, and one of the most over-claimed: accuracies of 99% or more are common, often from a single train/test split and sometimes from models tuned on the test set. This project asks a more useful question: what can honestly be said about a model for this data, if it is built and validated the way clinical prediction models are supposed to be? This is the second version of the analysis. It follows the methodological and clinical literature throughout: TRIPOD+AI reporting, internal validation by bootstrap, calibration, decision curve analysis at a biopsy threshold taken from clinical practice, minimum sample size, and model stability.
+The Wisconsin Diagnostic Breast Cancer dataset is one of the most-used benchmarks in machine learning, and one for which performance is frequently overstated: accuracies of 99% or more are common, often from a single train/test split and sometimes from models tuned on the test set. This project asks a more useful question: what can be said about a model for these data when it is built and validated as a clinical prediction model should be? This is the second version of the analysis. It follows the methodological and clinical literature throughout: TRIPOD+AI reporting, internal validation by bootstrap, calibration, decision curve analysis at a biopsy threshold taken from clinical practice, minimum sample size, and model stability.
 
 ## Intended use
 
@@ -48,7 +49,7 @@ The classes are close to separable. A single feature, `perimeter_worst`, already
 
 The model is an L2-penalised logistic regression on the log-transformed, standardised features, with the penalty tuned by cross-validation. Logistic regression is the natural choice here. A systematic review found no performance benefit of machine learning over logistic regression for clinical prediction models [Christodoulou et al. 2019]. A logistic model gives probabilities that can be calibrated, and it can be written out in full. Three models were built: one on all 30 features, one on the three features used by the original study, and one on three features chosen by forward selection.
 
-## Is 569 cases enough?
+## Sample size
 
 The minimum sample size was checked with the criteria of Riley et al. [2019, 2020, 2021]: the sample must be large enough to limit overfitting (an expected shrinkage factor of at least 0.9), to keep the gap between apparent and adjusted explained variance small, and to estimate the overall risk to within ±5 percentage points. The answer depends on how well the model is expected to discriminate:
 
@@ -60,7 +61,7 @@ The minimum sample size was checked with the criteria of Riley et al. [2019, 202
 
 The original studies imply an AUC of at least 0.95. On that assumption, 569 cases are just enough for 30 predictors and comfortably enough for 3. Under the conservative default, the 30-feature model would be too large for the data, and it relies on the tuned L2 penalty to control overfitting. The internal validation below shows that the penalty does this job.
 
-## Validating it properly
+## Internal validation
 
 With 569 cases, setting aside a test set wastes data and gives a noisy answer: a 20% test set holds only about 42 cancers. Following current guidance [Steyerberg et al. 2001; Harrell et al. 1996; Collins et al. 2024], each model was developed on all 569 cases. Its optimism was then estimated by repeating the entire procedure, including the penalty tuning and the feature selection, on 500 bootstrap samples and on 20 repeats of 10-fold cross-validation.
 
@@ -72,7 +73,7 @@ With 569 cases, setting aside a test set wastes data and gives a noisy answer: a
 
 _Brier score and accuracy are optimism-corrected. Calibration slope and intercept are the mean ± SD over 20 repeats of 10-fold cross-validation; the ideal values are 1 and 0. A slope slightly above 1 means slightly conservative, not overconfident, predictions._
 
-A good AUC isn't enough for a model that outputs a risk: a predicted 20% should mean about 20%. Calibration was measured by the calibration slope and intercept, and by a flexible calibration curve [Van Calster et al. 2016, 2019]. All three models are well calibrated. One technical point: because the classes are nearly separable, the calibration slope has no stable estimate in some bootstrap samples (it exceeded 3 in about one sample in ten, and reached 72 in one). The bootstrap is still fine for the AUC and Brier score, but calibration was taken from repeated cross-validation, which gives stable estimates, as Collins et al. [2024] also recommend.
+A good AUC is not sufficient for a model that outputs a risk: a predicted 20% should mean about 20%. Calibration was measured by the calibration slope and intercept, and by a flexible calibration curve [Van Calster et al. 2016, 2019]. All three models are well calibrated. One technical point: because the classes are nearly separable, the calibration slope has no stable estimate in some bootstrap samples (it exceeded 3 in about one sample in ten, and reached 72 in one). The bootstrap is still fine for the AUC and Brier score, but calibration was taken from repeated cross-validation, which gives stable estimates, as Collins et al. [2024] also recommend.
 
 ![Flexible calibration curves from out-of-fold predictions, with 95% bootstrap bands. All three curves lie close to the diagonal. The rug shows that most predictions are close to 0 or 1, which is why the bands are wide at intermediate probabilities.](/uploads/projects/wdbc-calibration.png "Figure 1: Flexible calibration curves from out-of-fold predictions, with 95% bootstrap bands. All three curves lie close to the diagonal. The rug shows that most predictions are close to 0 or 1, which is why the bands are wide at intermediate probabilities.")
 
@@ -80,7 +81,7 @@ A good AUC isn't enough for a model that outputs a risk: a predicted 20% should 
 
 A diagnostic model is only useful if acting on it leads to better decisions. Rather than picking a cutoff from the data, the threshold was fixed in advance from how breast lesions are managed. In the BI-RADS system, a lesion with a malignancy risk of 2% or less is "probably benign" and gets short-interval follow-up, while above 2% a biopsy is recommended. A decision-analysis model also found about 2% to be optimal for women aged 42–75 [Burnside et al. 2012], and the Yokohama "benign" cytology category carries a pooled malignancy risk of about 1% [Nikas et al. 2023]. A 2% threshold means accepting up to 49 unnecessary biopsies to find one cancer. A 10% threshold was analysed as a sensitivity check.
 
-Decision curve analysis [Vickers & Elkin 2006; Vickers et al. 2019] asks whether acting on the model beats the default strategies of biopsying everyone or no one. The full and forward-selected models beat biopsying everyone at every threshold from 1% to 20%, and the original-feature model does from just above 1%. At the 2% threshold, the full model avoids about 36 unnecessary biopsies per 100 patients, and the three-feature models 21–25. The gap closes at higher thresholds and falls below one biopsy per 100 above about 9%. The extra features earn their place exactly where the clinical threshold sits.
+Decision curve analysis [Vickers & Elkin 2006; Vickers et al. 2019] asks whether acting on the model outperforms the default strategies of biopsying everyone or no one. The full and forward-selected models outperform biopsying everyone at every threshold from 1% to 20%, and the original-feature model does from just above 1%. At the 2% threshold, the full model avoids about 36 unnecessary biopsies per 100 patients, and the three-feature models 21–25. The gap closes at higher thresholds and falls below one biopsy per 100 above about 9%. The additional features therefore add most value at the clinically relevant threshold.
 
 ![Decision curves over thresholds from 1% to 20%. Left: net benefit. Right: net unnecessary biopsies avoided per 100 patients, compared with biopsying everyone.](/uploads/projects/wdbc-decision-curve.png "Figure 2: Decision curves over thresholds from 1% to 20%. Left: net benefit. Right: net unnecessary biopsies avoided per 100 patients, compared with biopsying everyone.")
 
@@ -107,17 +108,17 @@ Cytopathologists report breast aspirates in the five categories of the Yokohama 
 
 _Full model, out-of-fold predictions averaged over 20 repeats. Pooled Yokohama risks from Nikas et al. [2023] (18 studies, 7,969 cases); BI-RADS 4A range from Elezaby et al. [2018]. The prevalence of malignancy here is 37%; in a setting with a different prevalence, the model's intercept must be recalibrated before the bands mean the same thing._
 
-## How stable are the results?
+## Stability of the results
 
 A model developed on 569 cases could have come out differently on another sample of 569 [Riley & Collins 2023]. Refitted on 500 bootstrap samples, a patient's predicted risk moves by 1.6 percentage points on average (1.1 for the original-feature model). The unstable cases sit near the 2% threshold: for 79 cases, more than 10% of the refitted models give the opposite decision, and 74 of them are benign, with a median predicted risk of 3%.
 
 ![Left: range of each case's prediction across 500 bootstrap models. Right: share of bootstrap models that flip each case's decision at the 2% threshold. Predictions near 0 or 1 are stable; instability is concentrated in borderline cases.](/uploads/projects/wdbc-stability.png "Figure 3: Left: range of each case's prediction across 500 bootstrap models. Right: share of bootstrap models that flip each case's decision at the 2% threshold. Predictions near 0 or 1 are stable; instability is concentrated in borderline cases.")
 
-A "best three features" model found by forward selection looks attractive, but it doesn't survive the bootstrap. The same procedure picked 46 different three-feature sets across 500 resamples, and the most common set appeared in only 25% of them. Run on all 569 cases, it now picks `smoothness_worst` where the first version of the analysis picked `concave points_mean`. Only `perimeter_worst` (85%) and `texture_worst` (77%) are chosen consistently.
+A "best three features" model found by forward selection looks attractive, but it does not survive the bootstrap. The same procedure picked 46 different three-feature sets across 500 resamples, and the most common set appeared in only 25% of them. Run on all 569 cases, it now picks `smoothness_worst` where the first version of the analysis picked `concave points_mean`. Only `perimeter_worst` (85%) and `texture_worst` (77%) are chosen consistently.
 
 ![How often forward selection picked each feature across 500 bootstrap samples. Only perimeter_worst and texture_worst are chosen consistently.](/uploads/projects/wdbc-selection-frequency.png "Figure 4: How often forward selection picked each feature across 500 bootstrap samples. Only perimeter_worst and texture_worst are chosen consistently.")
 
-The original study's three features (mean texture, worst area and worst smoothness) capture the same properties of the nuclei: size, texture and shape. They were fixed in advance, so they don't vary between samples, and they give better-calibrated and more stable predictions. They make the better simple model. TRIPOD+AI asks for enough detail to compute predictions independently, and this model is small enough to write out in full; the equation reproduces the fitted model's predictions exactly:
+The original study's three features (mean texture, worst area and worst smoothness) capture the same properties of the nuclei: size, texture and shape. They were fixed in advance, so they do not vary between samples, and they give better-calibrated and more stable predictions. They make the better simple model. TRIPOD+AI asks for enough detail to compute predictions independently, and this model is small enough to write out in full; the equation reproduces the fitted model's predictions exactly:
 
 $$
 \operatorname{logit} P(\text{malignant}) = -120.04 + 7.447\,\ln(1+\text{texture}_{\text{mean}}) + 12.458\,\ln(1+\text{area}_{\text{worst}}) + 111.72\,\ln(1+\text{smoothness}_{\text{worst}})
@@ -141,7 +142,7 @@ The original team chose their classifier by searching over feature subsets, then
 
 _Only results on the 569-case dataset are included. The earlier 699-case Wisconsin Breast Cancer Database (WBCD) is a different dataset, with nine visually graded features and many duplicate records, and its results are often wrongly attributed to WDBC._
 
-So this work **matches the original results; it does not beat them**. And the least flattering result is a warning: on 56 difficult, indeterminate aspirates at another hospital, the same system reached only 75% accuracy [Teague et al. 1997].
+The present model therefore **matches, but does not exceed, the original results**. A cautionary result is that, on 56 difficult, indeterminate aspirates at another hospital, the same system reached only 75% accuracy [Teague et al. 1997].
 
 ## Checking for data leakage
 
@@ -159,7 +160,7 @@ Possible sources of leakage were checked against the taxonomy of Kapoor & Naraya
 - **One operator, one hospital, 1990s imaging.** The original authors describe their system as validated for a single investigator at one institution, and on 56 indeterminate aspirates at another hospital it reached 75% accuracy [Teague et al. 1997]. External validation, with its own sample-size calculation [Riley et al. 2024], is needed before any clinical use.
 - **Prevalence.** 37% of these cases are malignant. The model's intercept must be recalibrated to the local prevalence before its probabilities or risk bands are used.
 - **Calibration at low risk.** With 357 benign and 212 malignant cases, calibration below about 5% risk is estimated with limited precision, and that is where the 2% threshold lies. Van Calster et al. suggest at least about 200 events and 200 non-events for calibration curves, which this dataset only just meets.
-- **No patient characteristics,** so performance across age or ethnic groups can't be checked.
+- **No patient characteristics,** so performance across age or ethnic groups cannot be checked.
 - **No provision for inadequate samples.** The model assumes an adequate aspirate with measurable nuclei; it has no equivalent of the Yokohama "non-diagnostic" category.
 - **Outcome ascertainment** for the 569 labels is not documented in the dataset.
 - **Not addressed:** protocol registration and patient and public involvement (TRIPOD+AI items 18–19).

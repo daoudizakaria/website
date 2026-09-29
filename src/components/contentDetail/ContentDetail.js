@@ -123,15 +123,15 @@ function ReadingProgress({ active }) {
 /**
  * @param {object} props
  * @param {object} props.theme
- * @param {string} props.pageTitle — browser-tab title (via Header/SeoHeader)
- * @param {string} props.title — page heading
- * @param {string} [props.subtitle] — line under the title (date etc.)
- * @param {string} [props.badge] — small label chip next to the subtitle
- * @param {string} props.html — pre-rendered body ("" allowed)
- * @param {Array<{level: number, text: string, id: string}>} [props.toc] — headings of the body
- * @param {React.ReactNode} [props.emptyNote] — shown when there is no body
- * @param {React.ReactNode} [props.lead] — block shown between the heading and the body
- * @param {Array<{href: string, label: string}>} [props.actions] — link buttons
+ * @param {string} props.pageTitle - browser-tab title (via Header/SeoHeader)
+ * @param {string} props.title - page heading
+ * @param {string} [props.subtitle] - line under the title (date etc.)
+ * @param {string} [props.badge] - small label chip next to the subtitle
+ * @param {string} props.html - pre-rendered body ("" allowed)
+ * @param {Array<{level: number, text: string, id: string}>} [props.toc] - headings of the body
+ * @param {React.ReactNode} [props.emptyNote] - shown when there is no body
+ * @param {React.ReactNode} [props.lead] - block shown between the heading and the body
+ * @param {Array<{href: string, label: string}>} [props.actions] - link buttons
  * @param {{prev: ?{to: string, title: string}, next: ?{to: string, title: string}, prevLabel: string, nextLabel: string, ariaLabel: string}} [props.pager]
  */
 export default function ContentDetail({

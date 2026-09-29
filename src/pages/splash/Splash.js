@@ -13,9 +13,9 @@ const SCENES = {
     Component: CollisionEvent,
     title: "Particle collision, as a detector sees it",
     caption:
-      "Particles fly out of the collision point and a magnetic field bends their paths. The faster a particle is, the straighter it flies; slow ones spiral. Which way it curls tells you the sign of its charge.",
+      "Charged particles leave the collision vertex and are bent by a magnetic field. High-momentum tracks are nearly straight, low-momentum tracks spiral, and the direction of curvature gives the sign of the charge.",
     legend: [
-      { kind: "scale", label: "slow → fast" },
+      { kind: "scale", label: "low → high momentum" },
       { kind: "photon", label: "photon (no charge, no bend)" },
       { kind: "calo", label: "energy absorbed at the rim" },
     ],
@@ -24,7 +24,7 @@ const SCENES = {
     Component: IsingLattice,
     title: "A magnet forming, atom by atom",
     caption:
-      "Each square is one atom's magnetic spin, flipping at random while the material cools. Below a critical temperature the flipping stops winning and matching spins lock together into growing domains — a magnet appearing out of noise.",
+      "Each square is the spin of one lattice site, updated at random as the system cools. Below the critical temperature, domains of aligned spins grow and a net magnetisation appears.",
     legend: [
       { kind: "up", label: "spin up" },
       { kind: "down", label: "spin down" },
@@ -105,12 +105,12 @@ export default function Splash(props) {
             {greeting.title}
           </h1>
           <p className="splash-tagline" style={{ color: theme.secondaryText }}>
-            Physicist · Data Scientist · Scientific Writer
+            Physicist · Machine-learning engineer
           </p>
         </div>
       </div>
       <span className="splash-skip" style={{ color: theme.secondaryText }}>
-        click to skip
+        Click to skip
       </span>
     </div>
   );

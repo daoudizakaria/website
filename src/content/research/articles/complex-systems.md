@@ -15,7 +15,7 @@ tags:
 resume: "/uploads/research/complex-systems.pdf"
 ---
 
-## Part I — Evolution of Neural Computation
+## Part I: Evolution of Neural Computation
 
 ### 1 Introduction and Motivation
 
@@ -29,7 +29,7 @@ Mammals descend from a lineage that diverged from early reptile-like ancestors (
 
 #### 2.1 Evolution of the mammalian brain
 
-Perhaps the greatest breakthrough in neural computation during vertebrate evolution is the transition from early reptiles to mammals. That period brought significant qualitative changes in the organization of the brain. As mammals evolved, the increased need to form associations and store memories—particularly memories of spatial environments and of specific events—favored the development of complex, intricate neural networks. A major innovation is the laminated isocortex, into which a completely new layer of granule cells, _Layer IV_, is inserted, a process known as granulation. These granule cells are specific to the mammalian brain [1–3]. This shift away from the reptilian dorsal cortex, in which the keen sense of smell characteristic of early mammals played a crucial role, is essential for supporting the fine topography observed in mammalian sensory maps. The mammalian isocortex stands out as a highly organized structure, with a distinctive six-layered architecture and a radial columnar organization; it represents a remarkable leap in structural complexity and functional capacity. The uniqueness of the mammalian brain is highlighted, for example, by the diversification of intratelencephalic (IT) cortical neurons, found in layers 2 through 6 of the isocortex, and by the addition of new cell types, such as stellate cells in layer 4, pyramidal tract cells in layer 5B, and corticothalamic cells in layer 6 [3, 5].
+The transition from early reptiles to mammals is one of the major steps in the evolution of neural computation in vertebrates, and it brought qualitative changes in the organization of the brain. As mammals evolved, the increased need to form associations and to store memories, in particular memories of spatial environments and of specific events, favored the development of richer neural networks. A major innovation is the laminated isocortex, into which a new layer of granule cells, _Layer IV_, is inserted, a process known as granulation. These granule cells are specific to the mammalian brain [1–3]. This departure from the reptilian dorsal cortex, in which the acute sense of smell of early mammals played a central role, supports the fine topography observed in mammalian sensory maps. The mammalian isocortex is a highly organized structure, with a six-layered architecture and a radial columnar organization, and it marks a substantial increase in structural complexity and functional capacity. The uniqueness of the mammalian brain is highlighted, for example, by the diversification of intratelencephalic (IT) cortical neurons, found in layers 2 through 6 of the isocortex, and by the addition of new cell types, such as stellate cells in layer 4, pyramidal tract cells in layer 5B, and corticothalamic cells in layer 6 [3, 5].
 
 This laminar architecture forms according to a specific developmental pattern known as the inside-out neurogenetic gradient: neurons born later in development migrate past the earlier-formed layers to reach their final positions in the more superficial layers of the cortex.
 
@@ -60,13 +60,13 @@ h_i = \sum_{j=1}^C J^c_{ij} V_j + \Delta h_i + b \left(X \right).
 \tag{3}
 $$
 
-The performance of autoassociative networks is measured by how many patterns they can store and retrieve—their storage capacity—and by their information content, the amount of information that can be reliably retrieved from the network per synapse [6].
+The performance of autoassociative networks is measured by how many patterns they can store and retrieve (their storage capacity) and by their information content, the amount of information that can be reliably retrieved from the network per synapse [6].
 
 #### 2.3 Hippocampus, space and memory
 
 The prevalence of spatial correlates in hippocampal firing rates has encouraged speculation that the hippocampus evolved to serve spatial functions. Mammals differ from birds and reptiles in that, during their evolution, the dentate gyrus became detached from Ammon's horn [1, 5].
 
-The dual operating mode of memory, storage and retrieval, can be achieved with acetylcholine (ACh), which acts differentially on afferent inputs and on recurrent connections [1]. Unlike in other species, in the mammalian hippocampus both functions can be performed efficiently in a passive mode, by inserting a preprocessor before the CA3 memory network that determines which CA3 units should be involved. This preprocessor also makes it possible to estimate how much new information can be encoded in CA3 representations with different input systems [1, 6, 7]. The neural-network approach to quantifying the capacity of associative memories was initially formulated for fully connected recurrent architectures and discrete memory states; it was Rolls (1989) [11] who clearly defined the crucial role of the CA3 recurrent collaterals and made the relation to autoassociative memory networks explicit. An autoassociator can store both discrete memories and more complex ones. In particular, a multichart recurrent autoassociator maps a finite environment onto the activity of place-cell-like units, which is equivalent to storing as many discrete attractor states as there are locations in the environment [6].
+The dual operating mode of memory, storage and retrieval, can be achieved with acetylcholine (ACh), which acts differentially on afferent inputs and on recurrent connections [1]. Unlike in other species, in the mammalian hippocampus both functions can be performed efficiently in a passive mode, by inserting a preprocessor before the CA3 memory network that determines which CA3 units should be involved. This preprocessor also makes it possible to estimate how much new information can be encoded in CA3 representations with different input systems [1, 6, 7]. The neural-network approach to quantifying the capacity of associative memories was initially formulated for fully connected recurrent architectures and discrete memory states; it was Rolls (1989) [11] who clearly defined the central role of the CA3 recurrent collaterals and made the relation to autoassociative memory networks explicit. An autoassociator can store both discrete memories and more complex ones. In particular, a multichart recurrent autoassociator maps a finite environment onto the activity of place-cell-like units, which is equivalent to storing as many discrete attractor states as there are locations in the environment [6].
 
 The dentate gyrus plays a prominent role in the capacity to retrieve charts. A quantitative analysis of information storage in a model CA3 network, operating with and without the dentate gyrus, confirmed that inputs from the dentate gyrus to CA3 are essential for guiding the learning of a new chart. The forcing effect of the mossy fibers on CA3 is even more salient when assessed indirectly, through the localization accuracy afforded by representations in CA1, which DG cells influence only indirectly [1, 3]. DG activity is concentrated on a relatively small fraction of newly generated granule cells, which represent new information more efficiently than older neurons. The flow of information from the entorhinal cortex (EC) through the dentate gyrus (DG) to CA3, and then to CA1, can be summarized as follows [5]:
 
@@ -118,7 +118,7 @@ $$
 
 where $q(t)$ is the overlap between the network activity and the target memory pattern, and $\tau$ measures how long the network takes to move from one attractor to the next.
 
-## Part II — High-Dimensional Random Landscapes
+## Part II: High-Dimensional Random Landscapes
 
 ### 4 The Landscape Program: Introduction and Motivation
 
@@ -173,7 +173,7 @@ Two limiting cases are instructive. First, as $r \rightarrow 0$, the overlap $q_
 
    in the limit $\beta \rightarrow \infty$ the measure concentrates on the ground-state configuration, which gives a convenient formulation of the maximum-likelihood problem.
 
-2. **Topology and geometry:** Are there exponentially many local minima—in other words, is the energy landscape $\mathcal{E}_r$ rugged? How are the stationary points distributed in energy on the hypersphere $S_N$, and what is their overlap with $\mathbf{v}$?
+2. **Topology and geometry:** Are there exponentially many local minima, that is, is the energy landscape $\mathcal{E}_r$ rugged? How are the stationary points distributed in energy on the hypersphere $S_N$, and what is their overlap with $\mathbf{v}$?
 
 3. **Dynamics:** Does the search for $\mathbf{s}_{\mathrm{GS}}$ require very long time scales? If so, the problem is hard.
 
@@ -245,7 +245,7 @@ $$
 
 For $N \rightarrow \infty$, a sharp transition occurs at $r = r_c (\sigma) = \sigma$. The transition is continuous: at the critical signal-to-noise ratio $(r/\sigma)_c=1$, called the _recovery threshold_, the order parameter $q_\infty(\mathbf{s}_{\mathrm{GS}},\mathbf{v})$ grows continuously from zero to positive values, which makes it a second-order transition. The same threshold also marks the _detection threshold_: below it, spiked and pure GOE matrices cannot be distinguished.
 
-The total number of stationary points does not grow exponentially with $N$—on the sphere, a quadratic function has exactly $2N$ of them, namely $\pm$ each eigenvector of $\mathbf{M}$—so the landscape is not rugged. The random variable $X_N (\epsilon)$, which counts the stationary points at energy density $\epsilon$, is self-averaging as $N \rightarrow \infty$. Most stationary points are saddles of _extensive index_ $\kappa=O(N)$, corresponding to eigenvalues in the bulk of the density; a few are saddles of _intensive index_ $\kappa =O(1)$, corresponding to eigenvalues at its edge. Above the BBP transition, only the eigenvector of the largest eigenvalue acquires an overlap with the signal; for all the others, $q_N (\mathbf{s}_\alpha, \mathbf{v}) \rightarrow 0$ as $N \rightarrow \infty$, which means that all the saddles lie at the equator [8, 10].
+The total number of stationary points does not grow exponentially with $N$ (on the sphere, a quadratic function has exactly $2N$ of them, namely $\pm$ each eigenvector of $\mathbf{M}$), so the landscape is not rugged. The random variable $X_N (\epsilon)$, which counts the stationary points at energy density $\epsilon$, is self-averaging as $N \rightarrow \infty$. Most stationary points are saddles of _extensive index_ $\kappa=O(N)$, corresponding to eigenvalues in the bulk of the density; a few are saddles of _intensive index_ $\kappa =O(1)$, corresponding to eigenvalues at its edge. Above the BBP transition, only the eigenvector of the largest eigenvalue acquires an overlap with the signal; for all the others, $q_N (\mathbf{s}_\alpha, \mathbf{v}) \rightarrow 0$ as $N \rightarrow \infty$, which means that all the saddles lie at the equator [8, 10].
 
 Because the number of stationary points is only polynomial in $N$ and there are no trapping metastable states, reaching the ground state does not require exponentially long time scales: the quadratic energy landscape is _not hard_. The dynamics are described by the Langevin equation [10]
 
@@ -422,7 +422,7 @@ The complexity curve $\Sigma(\epsilon)$ summarizes the landscape. Its maximum gi
 
 #### 6.3 Ground State, Metastability, and Dynamics
 
-As in the quadratic case, maximum-likelihood recovery is possible when $q_{\infty}(\mathbf{s}_{\mathrm{GS}}, \mathbf{v}):= \lim_{N \to \infty} q_N(\mathbf{s}_{\mathrm{GS}}, \mathbf{v}) > 0$. For higher-order landscapes, however, the recovery transition—the ferromagnetic transition at $\beta \rightarrow \infty$—is discontinuous. Moreover, at energy densities above that of the ground state, most stationary points lie at the equator, and there are exponentially many local minima. In this setting, the isolated eigenvalue plays no role in counting the local minima at the equator. For $r = O(1)$ the landscape remains rugged at every value of $r$: it becomes topologically trivial only for $r/\sigma \gg 1$, far above the recovery threshold $(r/\sigma)_{1st}$, where the subscript indicates that this transition is first order.
+As in the quadratic case, maximum-likelihood recovery is possible when $q_{\infty}(\mathbf{s}_{\mathrm{GS}}, \mathbf{v}):= \lim_{N \to \infty} q_N(\mathbf{s}_{\mathrm{GS}}, \mathbf{v}) > 0$. For higher-order landscapes, however, the recovery transition (the ferromagnetic transition at $\beta \rightarrow \infty$) is discontinuous. Moreover, at energy densities above that of the ground state, most stationary points lie at the equator, and there are exponentially many local minima. In this setting, the isolated eigenvalue plays no role in counting the local minima at the equator. For $r = O(1)$ the landscape remains rugged at every value of $r$: it becomes topologically trivial only for $r/\sigma \gg 1$, far above the recovery threshold $(r/\sigma)_{1st}$, where the subscript indicates that this transition is first order.
 
 Optimizing this landscape is therefore expected to be hard, because the energy landscape of the tensor denoising problem is _rugged_ for $r = O(N^0)$. Its geometry is dominated by exponentially many local minima near the threshold energy, separated by high-index saddles. These minima act as attractors for gradient-based dynamics, which leads to metastability. The ground state lies well below the threshold energy, and it is dynamically inaccessible unless rare fluctuations (thermal activation, or non-local moves) occur [9, 10].
 

@@ -37,16 +37,6 @@ class Articles extends Component {
                 >
                   {articlesHeader["description"]}
                 </p>
-                <p
-                  className="articles-list-preface subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
-                  Below is a short abstract for each piece; use{" "}
-                  <span className="articles-preface-emphasis">
-                    Read article
-                  </span>{" "}
-                  to open the full note.
-                </p>
               </div>
             </div>
           </Fade>

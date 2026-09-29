@@ -1,15 +1,11 @@
-/**
- * Routing constants for the research section — deliberately free of heavy
- * imports (gray-matter, markdown files) so the router and cards can use
- * them without pulling article parsing into the entry chunk.
- */
+/** Research URLs. No content imports, so the router stays out of the article chunks. */
 
-/** Canonical list URL — use everywhere (nav, redirects, links) to avoid drift. */
+/** Research index URL. */
 export const RESEARCH_BASE_PATH = "/research";
 
 /**
  * Build the in-app URL for one article.
- * @param {string} slug — URL segment; equals `id` for legacy posts
+ * @param {string} slug - URL segment; equals `id` for legacy posts
  */
 export function researchArticleUrl(slug) {
   return `${RESEARCH_BASE_PATH}/${encodeURIComponent(slug)}`;

@@ -14,8 +14,8 @@ import "./RandomWalk.css";
  */
 const MODES = [
   { label: "Balanced", mu: 1.5, sigma: 0.8 },
-  { label: "Mostly drift", mu: 2.6, sigma: 0.35 },
-  { label: "Mostly noise", mu: 0.4, sigma: 1.1 },
+  { label: "Drift-dominated", mu: 2.6, sigma: 0.35 },
+  { label: "Noise-dominated", mu: 0.4, sigma: 1.1 },
 ];
 
 const STEPS = 300; // time steps per path
@@ -178,10 +178,9 @@ export default function RandomWalk({ className = "" }) {
       }
       ctx.setLineDash([]);
 
-      // paths: only the newly reached steps are drawn, into a layer that
-      // keeps the rest (redrawing every path from t = 0 each frame cost
-      // ~100 ms per frame on a slow phone by the end of a sweep). Both
-      // blend modes are associative, so this matches drawing them here.
+      // paths: only newly reached steps are drawn, into a layer that keeps
+      // the rest. Both blend modes are associative, so this equals a full
+      // redraw.
       ctx.globalCompositeOperation = col.glow ? "lighter" : "source-over";
       if (k < layerK) clearLayer();
       if (k > layerK) {
@@ -353,8 +352,8 @@ export default function RandomWalk({ className = "" }) {
           · <i>μ</i> = {mu}, <i>σ</i> = {sigma}
         </span>
         <span className="sim-note">
-          The mean grows like t, the spread only like √t: over time, direction
-          wins over noise.
+          The mean grows linearly in t and the standard deviation as √t, so at
+          long times the drift dominates the fluctuations.
         </span>
       </figcaption>
       <div className="sim-picker" role="group" aria-label="Choose a regime">

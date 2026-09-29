@@ -1,11 +1,7 @@
 /**
- * Project content façade — mirrors researchContent.js.
- *
- * Single source of truth: Markdown files in this folder, parsed at build time
- * by scripts/markdown-frontmatter-loader.js (`slug`, `title`, `date`, `summary`, `category`, `repo`,
- * `paper`, `featured`, `tags`, `year`, `type`, `rank`, `image`, `glance`,
- * `aliases`; the body loads on demand). Edit or add projects by editing those files (by hand or
- * through the Decap CMS admin).
+ * Projects, one Markdown file each in this folder. Front matter is parsed at
+ * build time by scripts/markdown-frontmatter-loader.js; the body loads on
+ * demand.
  */
 
 // Project pages, plus the pages of long texts split into chapters
@@ -36,6 +32,7 @@ export const CATEGORY_SHORT_LABELS = {
 export const TYPE_LABELS = {
   client: "Client work",
   "case-study": "Data science case study",
+  research: "Research project",
   notes: "Notes & simulations",
   tool: "Open-source tool",
   teaching: "Teaching materials",

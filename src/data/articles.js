@@ -3,7 +3,7 @@
 const articlesHeader = {
   title: "Research notes",
   description:
-    "This section gathers longer-form notes, explainers, and technical writing on physics, machine learning, and mathematics. Entries may include informal write-ups as well as more structured articles—each card opens the full text.",
+    "Reviews, lecture notes and technical articles in physics, machine learning and mathematics. Each entry opens with a short abstract.",
 };
 
 /**
@@ -14,7 +14,7 @@ const articlesHeader = {
 const researchInterests = {
   title: "Research interests",
   intro:
-    "The questions I keep coming back to, and where to read about them on this site.",
+    "Research interests, with links to the related articles and projects on this site.",
   themes: [
     {
       key: "physics",
@@ -51,7 +51,7 @@ const researchInterests = {
       glyph: "∇",
       title: "Machine learning and science",
       text:
-        "Machine learning as a scientific instrument, in any field where data has to become evidence, from physics to medicine: models that are calibrated, validated and stress-tested rather than merely accurate, with their limits stated as clearly as their results.",
+        "Machine learning as a scientific instrument, in physics, medicine and other fields where data must serve as evidence, with emphasis on calibration, validation and a clear statement of each model's limitations.",
       links: [
         {
           kind: "project",
@@ -81,12 +81,10 @@ const researchInterests = {
       glyph: "⊕",
       title: "Earth observation and geospatial AI",
       text:
-        "Turning satellite and geospatial data into decisions: mapping land cover and urban growth, monitoring crops, water and ecosystems over time, and measuring how far the maps can be trusted before anyone acts on them.",
+        "Remote sensing and geospatial machine learning: land-cover and urban-growth mapping, monitoring of crops, water and ecosystems, and assessment of map accuracy.",
       links: [],
     },
   ],
 };
-
-// Contact Page
 
 export { articlesHeader, researchInterests };

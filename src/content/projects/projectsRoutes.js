@@ -1,4 +1,4 @@
-/** Routing constants for projects — no heavy imports (see researchRoutes.js). */
+/** Project URLs. No content imports (see researchRoutes.js). */
 
 export const PROJECTS_BASE_PATH = "/projects";
 

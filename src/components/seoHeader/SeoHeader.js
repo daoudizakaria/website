@@ -4,8 +4,6 @@ import {
   greeting,
   seo,
   socialMediaLinks,
-  experience,
-  contactPageData,
   certifications,
 } from "../../portfolio.js";
 
@@ -24,9 +22,6 @@ function SeoHeader({ pageTitle }) {
   let mail = socialMediaLinks
     .find((media) => media.link.startsWith("mailto"))
     .link.substring("mailto:".length);
-  const workRoles =
-    experience.sections?.find((section) => section.work)?.experiences || [];
-  let job = workRoles.find((role) => role.primary) || workRoles.at(0);
 
   let credentials = [];
   certifications.certifications.forEach((certification) => {
@@ -44,21 +39,8 @@ function SeoHeader({ pageTitle }) {
     name: greeting.title,
     url: seo?.og?.url,
     email: mail,
-    telephone: contactPageData.phoneSection?.subtitle,
     sameAs: sameAs,
-    jobTitle: job.title,
-    worksFor: {
-      "@type": "Organization",
-      name: job.company,
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: contactPageData.addressSection?.locality,
-      addressRegion: contactPageData.addressSection?.region,
-      addressCountry: contactPageData.addressSection?.country,
-      postalCode: contactPageData.addressSection?.postalCode,
-      streetAddress: contactPageData.addressSection?.streetAddress,
-    },
+    jobTitle: seo.jobTitle,
     hasCredential: credentials,
   };
   return (

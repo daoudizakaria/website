@@ -1,15 +1,7 @@
-/**
- * Decap CMS UI polish helpers (editor-only).
- * Structured entry cards + search layout — no schema changes.
- * Login page welcome chrome is visual-only (no auth/routing changes).
- */
+/** Admin UI tweaks: login panel, entry cards, search layout. DOM only. */
 (function () {
-  /**
-   * Avatar placeholder uses a user icon by default (fixed circle).
-   * To swap in a photo later without layout changes, add the image under
-   * public/admin/ and set before this script loads, e.g. in index.html:
-   *   window.CMS_LOGIN_AVATAR = "./avatar.jpg";
-   */
+  // window.CMS_LOGIN_AVATAR (set before this script) shows a photo instead
+  // of the default icon.
   var LOGIN_WELCOME = {
     name: "Zakaria Daoudi",
     greeting: "Welcome back,",
@@ -40,7 +32,7 @@
       if (!page.querySelector("[data-cms-login-welcome]")) {
         injectLoginWelcome(page);
       }
-      // Move the real Decap LoginButton into the glass panel (no clone).
+      // Move Decap's login button into the panel.
       placeLoginButtonInPanel(page);
       relabelLoginButton(page);
     });
@@ -108,15 +100,12 @@
     }
   }
 
-  /** Native Decap auth CTA only — never LoginButtonIcon / IconWrapper. */
+  /** Decap's login button, not its icon wrapper. */
   function findLoginButtons(scope) {
     return (scope || document).querySelectorAll('button[class*="LoginButton"]');
   }
 
-  /**
-   * Relocate Decap's native LoginButton into the welcome panel.
-   * Preserves the same DOM node (and click/auth handlers). No clones.
-   */
+  /** Move Decap's own login button (with its handlers) into the panel. */
   function placeLoginButtonInPanel(page) {
     var panel = page.querySelector("[data-cms-login-welcome]");
     if (!panel) return;
@@ -143,8 +132,7 @@
       return;
     }
 
-    // Prefer the live React node; remove any stale duplicate only if it
-    // is already inside our non-React panel (never delete outside).
+    // Drop stale copies inside our panel.
     for (i = 0; i < buttons.length; i++) {
       if (buttons[i] !== btn && buttons[i].parentNode === panel) {
         panel.removeChild(buttons[i]);
@@ -389,7 +377,7 @@
       enhanceEntryCards(root);
       annotateDateControls(root);
     } catch (e) {
-      /* never break CMS */
+      /* cosmetic; ignore failures */
     }
   }
 

@@ -1,10 +1,10 @@
-// Work, ML work, and volunteering history
+// Experience page: work, machine-learning roles and voluntary work
 
 const experience = {
   title: "Experience",
-  subtitle: "Work, Machine Learning and Volunteering",
+  subtitle: "Professional experience and voluntary work",
   description:
-    "I have worked with many evolving startups and successful companies as a Physicist, Mathematician, Data Scientist, or Scientific Consultant/Advisor. The contracts were either a freelancing contract or a remote contract.",
+    "Machine-learning, research and consulting roles in physics and mathematics, most of them on remote or freelance contracts.",
   header_image_path: "experience.svg",
   sections: [
     {
@@ -14,13 +14,12 @@ const experience = {
         {
           title: "AI Training and Subject Matter Expert",
           company: "Mercor",
-          primary: true,
           company_url: "https://mercor.com/",
           logo_path: "mercor_logo.png",
           duration: "May 2023 – Present",
           location: "Remote",
           description:
-            "I am a Physics, Mathematics, and Arabic Subject Matter Expert. The work is about creating very hard questions in my fields of expertise in order to train the models. I have already trained various models for the biggest AI companies.",
+            "Subject-matter expert in physics, mathematics and Arabic: difficult problems in these fields, written to train and evaluate large AI models for leading AI companies.",
           color: "#000000",
         },
         {
@@ -31,18 +30,17 @@ const experience = {
           duration: "Apr 2025 – Present",
           location: "Remote",
           description:
-            "I was responsible for designing the astronomy section's charts using advanced scientific data and software, and writing the relevant texts for each subsection.",
+            "Astronomy section: sky charts prepared from scientific data with astronomy software, and the accompanying texts.",
           color: "#000000",
         },
         {
           title: "Scientific Advisor and Proofreader",
-          company: "PhotoMath inc.",
+          company: "Photomath",
           company_url: "https://photomath.com/",
           logo_path: "photomath_logo.png",
           duration: "Feb 2024 – Apr 2025",
           location: "Remote",
-          description:
-            "I was responsible for proofreading and reviewing the Mathematical Content.",
+          description: "Proofreading and review of mathematical content.",
           color: "#000000",
         },
         {
@@ -52,8 +50,7 @@ const experience = {
           logo_path: "bootcamp_logo.png",
           duration: "Jun 2023 – Oct 2024",
           location: "Remote",
-          description:
-            "Creating and Designing Mathematics and Science curriculum using MS. Office.",
+          description: "Design of mathematics and science curricula.",
           color: "#0879bf",
         },
         {
@@ -64,7 +61,7 @@ const experience = {
           duration: "Oct 2022 – Jan 2025",
           location: "Remote",
           description:
-            "I am a Physics, Mathematics, and Arabic Subject Matter Expert. The work is about creating very hard questions in my fields of expertise in order to train the models. I have already trained various models for the biggest AI companies.",
+            "Subject-matter expert in physics, mathematics and Arabic: difficult problems in these fields, written to train and evaluate large AI models for leading AI companies.",
           color: "#000000",
         },
         {
@@ -75,7 +72,7 @@ const experience = {
           duration: "May 2023 – Jul 2024",
           location: "Remote",
           description:
-            "The work involved creating a set of Graduate Physics and Mathematics question hard enough to cause a failure of the model. The questions were used for safety alignment research.",
+            "Graduate-level physics and mathematics problems designed to expose model failures, used in AI safety and alignment research.",
           color: "#9b1578",
         },
         {
@@ -86,7 +83,7 @@ const experience = {
           duration: "May 2023 – Sep 2023",
           location: "Remote",
           description:
-            "Engineering Director Inc. is a company that combines advanced software, autonomous agents, and global environmental data to forecast and prevent corrosion—maximizing asset longevity and minimizing environmental impact. My work was about building a mathematical model of soil corrosion to simulate the Impressed Current Cathodic Protection for pipelines.",
+            "Mathematical model of soil corrosion for the simulation of impressed current cathodic protection of buried pipelines.",
           color: "#fc1f20",
         },
       ],
@@ -97,34 +94,34 @@ const experience = {
         {
           title: "Machine Learning Engineer",
           company: "Agro Tech",
-          company_url: "https://about.google/",
+          company_url: "",
           logo_path: "free_logo.png",
           duration: "Sep 2021 – Jun 2023",
           location: "Constantine, Algeria",
           description:
-            "Build scalable ML pipeline that analyze satellite imagery, local weather data, and farmer inputs to predict crop yield for wheat and olives, and detect early signs of plant diseases.",
+            "Machine-learning pipeline combining satellite imagery, local weather data and farmer inputs to predict wheat and olive yields and to detect early signs of plant disease.",
           color: "#4285F4",
         },
         {
           title: "Machine Learning Engineer",
-          company: ".",
-          company_url: "https://about.google/",
+          company: "",
+          company_url: "",
           logo_path: "free_logo.png",
           duration: "Mar 2024 – May 2025",
           location: "Algiers, Algeria",
           description:
-            "Develop an AI-based system capable of analyzing chest X-ray images and automatically detecting diseases such as tuberculosis, pneumonia, and other lung abnormalities.",
+            "System for the automatic detection of tuberculosis, pneumonia and other lung abnormalities in chest X-ray images.",
           color: "#4285F4",
         },
         {
           title: "Machine Learning Researcher",
-          company: ".",
-          company_url: "https://about.google/",
+          company: "",
+          company_url: "",
           logo_path: "free_logo.png",
           duration: "Jan 2024 – Apr 2025",
           location: "Remote",
           description:
-            "Using Big Data to develop the correct Cost function and Loss function to build reliable ML algorithms.",
+            "Design of cost and loss functions for machine-learning models trained on large datasets.",
           color: "#4285F4",
         },
       ],
@@ -139,46 +136,45 @@ const experience = {
           logo_path: "ccu_logo.png",
           duration: "Jan 2025 – Present",
           location: "Algiers, Algeria",
-          description: "Physics Public Speaker.",
+          description: "Public lectures on physics.",
           color: "#4285F4",
         },
         {
           title: "Machine Learning Engineer",
-          company: "Biochemistry and Genetics Lab -University of Annaba",
-          company_url: "https://www.instagram.com/alger_ccu/?hl=en",
+          company:
+            "Biochemistry and Genetics Laboratory, Badji Mokhtar University Annaba",
+          company_url: "",
           logo_path: "ubma_logo.png",
           duration: "Feb 2023 – Jun 2024",
           location: "Annaba, Algeria",
           description:
-            "I was in charge of fine-tuning and developing a ML model to analyze Biochemistry and Genetics Data.",
+            "Development and fine-tuning of a machine-learning model for the analysis of biochemical and genetic data.",
           color: "#4285F4",
         },
         {
           title: "Physics & Mathematics Teacher",
-          company: "None",
-          company_url: "https://www.instagram.com/alger_ccu/?hl=en",
+          company: "",
+          company_url: "",
           logo_path: "free_logo.png",
           duration: "Sep 2020 – Jun 2024",
           location: "Annaba, Algeria",
           description:
-            "I volunteer to teach Physics and Mathematics to disadvantaged students.",
+            "Voluntary teaching of physics and mathematics to students from disadvantaged backgrounds.",
           color: "#4285F4",
         },
         {
           title: "Teacher of Philosophy of Physics",
-          company: "University of Constantine",
-          company_url: "https://about.google/",
+          company: "Frères Mentouri University Constantine 1",
+          company_url: "",
           logo_path: "umc_logo.png",
           duration: "Sep 2018 – May 2019",
           location: "Constantine, Algeria",
-          description: "Teacher of Philosophy of Quantum Mechanics.",
+          description: "Course on the philosophy of quantum mechanics.",
           color: "#4285F4",
         },
       ],
     },
   ],
 };
-
-// Projects Page
 
 export { experience };

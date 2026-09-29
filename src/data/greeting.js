@@ -4,10 +4,9 @@ const greeting = {
   title: "Zakaria Daoudi",
   logo_name: "Zakaria Daoudi",
   subTitle:
-    "A physicist dedicated to delivering end-to-end Data Science solutions, Scientific Consulting, and Technical Writing — helping companies build scalable, robust, and impactful systems through deep analytical expertise and domain-driven insight.",
+    "Physicist by training, machine-learning engineer by profession. I develop and validate predictive models, provide scientific consulting in physics and mathematics, and write technical and scientific documents.",
   resumeLink:
     "https://drive.google.com/file/d/19hTmIySzPJ73mrYQ2VlT8Tk2HBAiPBbD/view?usp=sharing",
-  portfolio_repository: "https://github.com/daoudizakaria/website",
   githubProfile: "https://github.com/daoudizakaria",
   // Photo beside the greeting. Remove this entry to bring back the
   // illustration (FeelingProud). Files: public/uploads/profile/.
@@ -22,13 +21,8 @@ const greeting = {
 };
 
 const socialMediaLinks = [
-  /* Your Social Media Link */
-  // github: "https://github.com/daoudizakaria",
-  // linkedin: "https://www.linkedin.com/in/zakaria-daoudi-022151122/",
-  // gmail: "zackaria.daoudi@gmail.com",
-
   {
-    name: "Github",
+    name: "GitHub",
     link: "https://github.com/daoudizakaria",
     fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
     backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github

@@ -6,8 +6,8 @@ import { BaseProvider, LightTheme } from "baseui";
 import { Provider as StyletronProvider } from "styletron-react";
 import { Client as Styletron } from "styletron-engine-atomic";
 
-// baseui (and its styletron engine) is scoped to this component — the only
-// baseui consumer on the site — so it ships with the lazy Experience page
+// baseui (and its styletron engine) is scoped to this component (the only
+// baseui consumer on the site), so it ships with the lazy Experience page
 // instead of in the entry bundle every visitor downloads.
 const engine = new Styletron();
 

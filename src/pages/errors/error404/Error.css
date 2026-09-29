@@ -5,7 +5,6 @@
 .error-main > .error-class {
   width: 90%;
   margin: auto 5%;
-  /* min-height: calc(100vh - 192px); */
   text-align: center;
   display: block;
 }

@@ -1,8 +1,6 @@
 /**
- * Drop-in replacement for the `react-reveal` animations this site used
- * (`Fade` with direction/duration/distance, `Flip` with left/duration).
- * Elements start hidden and animate in the first time they enter the
- * viewport, matching react-reveal's behavior. No dependencies.
+ * Fade and Flip entrance animations, run the first time an element enters
+ * the viewport (IntersectionObserver). The props follow react-reveal.
  */
 import React, { useEffect, useRef, useState } from "react";
 
@@ -12,7 +10,7 @@ function useInView() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return undefined;
-    // Content already in the initial viewport reveals immediately —
+    // Content already in the initial viewport reveals immediately;
     // synchronous check so it works even before the first paint (and in
     // backgrounded pages, where IntersectionObserver callbacks are paused).
     const rect = el.getBoundingClientRect();

@@ -9,14 +9,10 @@
  * The body itself is not in that module. `load()` fetches `file.md?body`, a
  * separate chunk, only when a page opens it. That chunk holds the body
  * already rendered to HTML ({ html, toc }): Markdown parsing and KaTeX
- * typesetting happen here, once, instead of on every visitor's phone. The
- * rendering mirrors src/components/markdown/MarkdownContent.js (same
- * plugins, sanitize schema, heading ids, image captions and link targets),
- * so the output is the markup the browser used to build itself.
+ * typesetting happen once, at build time.
  *
- * gray-matter runs here, never in the browser (it drags in js-yaml, esprima
- * and a Buffer polyfill). Dates serialise to ISO strings, which the content
- * façades already normalise.
+ * gray-matter runs only here (it pulls in js-yaml and a Buffer polyfill).
+ * Dates serialise to ISO strings.
  */
 const fs = require("fs");
 const path = require("path");

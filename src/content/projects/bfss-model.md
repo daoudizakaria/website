@@ -33,7 +33,7 @@ glance:
 
 The BFSS model, proposed by Banks, Fischler, Shenker, and Susskind, is a conjectured non-perturbative formulation of M-theory as the quantum mechanics of $N\times N$ matrices [1]. The matrices describe D0-branes: when they commute, their eigenvalues are the positions of $N$ point-like branes in nine dimensions; when they do not, the off-diagonal elements are strings stretched between the branes and the notion of a definite position is lost. At finite temperature and strong coupling, the supersymmetric model is dual to a black hole made of D0-branes, which makes it one of the few settings where gauge/gravity duality can be tested directly on a computer [2–4].
 
-This project simulates the **bosonic part** of the model at finite temperature. The bosonic model is a different theory from the supersymmetric one, not an approximation to it, but it has a rich phase structure of its own — a confinement/deconfinement transition with well-studied benchmarks — and it is the natural first step towards simulating the full model. The deliverables are a short, self-contained Fortran 90 code, a temperature scan that reproduces the known transition, and a set of pedagogical notes (linked above) that derive every ingredient of the algorithm.
+This project simulates the **bosonic part** of the model at finite temperature. The bosonic model is a different theory from the supersymmetric one, not an approximation to it, but it has a rich phase structure of its own, including a confinement/deconfinement transition with well-studied benchmarks, and it is the natural first step towards simulating the full model. The deliverables are a short, self-contained Fortran 90 code, a temperature scan that reproduces the known transition, and a set of pedagogical notes (linked above) that derive every ingredient of the algorithm.
 
 ## 2 The Model
 
@@ -55,7 +55,7 @@ A scaling argument shows that physics depends only on the dimensionless coupling
 
 ## 3 Lattice Formulation
 
-Euclidean time is discretized into $L$ sites with spacing $a = \beta/L$ and periodic boundary conditions. The trace of each $X_i$ (the centre of mass) decouples as a free particle, so the matrices are taken traceless — $SU(N)$ rather than $U(N)$.
+Euclidean time is discretized into $L$ sites with spacing $a = \beta/L$ and periodic boundary conditions. The trace of each $X_i$ (the centre of mass) decouples as a free particle, so the matrices are taken traceless, in $SU(N)$ rather than $U(N)$.
 
 **Static diagonal gauge.** Gauge transformations reduce the link variables to a single diagonal holonomy, spread evenly over the lattice: $U = \mathrm{diag}(e^{i\alpha_1/L}, \dots, e^{i\alpha_N/L})$. The change of variables to the $N$ angles $\alpha_k$ produces a Faddeev–Popov term
 
@@ -73,13 +73,13 @@ the same discretization used in the reference studies [5, 6]. Since the angles a
 
 ## 4 Hybrid Monte Carlo
 
-A configuration at $N = 8$, $L = 12$ has about 6,800 real degrees of freedom, all coupled through the commutator term, so local updates are hopeless. Hybrid Monte Carlo [7] updates everything at once:
+A configuration at $N = 8$, $L = 12$ has about 6,800 real degrees of freedom, all coupled through the commutator term, so local updates are impractical. Hybrid Monte Carlo [7] updates everything at once:
 
 1. **Momenta.** Draw Gaussian momenta $P_i(t)$ (Hermitian, traceless) and $p_k$ conjugate to $X_i(t)$ and $\alpha_k$, using the Box–Muller transform on top of the `ran2` generator from _Numerical Recipes_.
 2. **Molecular dynamics.** Evolve the fictitious Hamiltonian $\mathcal{H} = \frac{1}{2}\sum \mathrm{Tr}\,P^2 + \frac{1}{2}\sum p^2 + S$ for $n_\tau$ leapfrog steps of size $\Delta\tau$, with analytic forces for both the matrices and the angles. The leapfrog integrator is time-reversible and preserves phase-space volume, and its energy error scales as $\Delta\tau^2$ at fixed trajectory length.
 3. **Metropolis test.** Accept the new configuration with probability $\min(1, e^{-\Delta\mathcal{H}})$. This corrects the integration error exactly: the only cost of a large step is a lower acceptance rate.
 
-The step size is set by the stiffest mode of the kinetic term, whose frequency is of order $2\sqrt{N/a}$, and it is fixed during thermalization — adapting it on the fly along the Markov chain would break detailed balance. Separate step sizes for the matrices and the angles are allowed, since each update remains a reversible, volume-preserving shear.
+The step size is set by the stiffest mode of the kinetic term, whose frequency is of order $2\sqrt{N/a}$, and it is set during thermalization and then held fixed, since adapting it along the Markov chain would break detailed balance. Separate step sizes for the matrices and the angles are allowed, since each update remains a reversible, volume-preserving shear.
 
 ## 5 Validation
 
@@ -96,7 +96,7 @@ An HMC code can run, accept most proposals, and still sample the wrong distribut
 | 0.005 | 40 | $9.51\times10^{-3}$ | 4.3 |
 | 0.0025 | 80 | $2.33\times10^{-3}$ | 4.1 |
 
-- **Equilibrium identity.** In production runs, $\langle e^{-\Delta\mathcal{H}}\rangle$ — which must equal 1 by reversibility and volume preservation alone — stays within about 1% of 1 at every temperature up to $T = 1.25$ and within 2% at $T = 1.5$.
+- **Equilibrium identity.** In production runs, $\langle e^{-\Delta\mathcal{H}}\rangle$, which must equal 1 by reversibility and volume preservation alone, stays within about 1% of 1 at every temperature up to $T = 1.25$ and within 2% at $T = 1.5$.
 
 ## 6 Results
 
@@ -118,14 +118,14 @@ A temperature scan at $N = 8$, $L = 12$ covers ten temperatures between $T = 0.6
 | 1.50 | 0.900(1) | 10.407(41) | 2.905(7) | 0.82 |
 
 - **The transition.** The Polyakov loop is small at low temperature and rises steeply between $T = 0.85$ and $T = 0.95$, exactly where the literature places the confinement/deconfinement transition: $T \approx 0.9$ in Ref. [5], and a single first-order transition at $T_c \approx 0.885$–$0.89$ in more recent large-$N$ work [8]. At $N = 8$ it appears as a smooth crossover, and the residual $\langle|P|\rangle \approx 0.14$ at $T = 0.6$ is a finite-$N$ effect.
-- **The confined phase.** Below the transition, $E/N^2 \approx 6.50$–$6.61$ and $R^2 \approx 2.25$–$2.27$ depend only weakly on temperature, within 3% and 2% of the $N = 32$ benchmarks $E/N^2 = 6.695$ and $R^2 = 2.291$ [5] — differences consistent with finite-$N$ and finite-lattice-spacing corrections.
+- **The confined phase.** Below the transition, $E/N^2 \approx 6.50$–$6.61$ and $R^2 \approx 2.25$–$2.27$ depend only weakly on temperature, within 3% and 2% of the $N = 32$ benchmarks $E/N^2 = 6.695$ and $R^2 = 2.291$ [5]; the differences are consistent with finite-$N$ and finite-lattice-spacing corrections.
 - **High temperature.** Above the transition both quantities grow with $T$. In the weak-coupling limit the model reduces to a ten-matrix Yang–Mills integral, which predicts $E/N^2 \to 6T$; the data approach this slope from above ($E/N^2 \approx 6.9\,T$ at $T = 1.5$).
 
 These runs use a single, small $N$ and a single lattice spacing: they show that the algorithm works and reproduces the known physics, not a precision study. A careful study would repeat the scan at several $N$ and $L$ and extrapolate to $N\to\infty$ and $a\to0$.
 
 ## 7 Implementation
 
-A single Fortran 90 source file with no external dependencies, compiled with `gfortran -O3 -march=native`. Every parameter — $N$, $L$, the number of matrices, temperature, optional mass term, step sizes, trajectory counts, seed, cold or hot start, and an ungauged mode with the angles frozen — has a default and can be overridden through a namelist:
+A single Fortran 90 source file with no external dependencies, compiled with `gfortran -O3 -march=native`. Every parameter ($N$, $L$, the number of matrices, temperature, optional mass term, step sizes, trajectory counts, seed, cold or hot start, and an ungauged mode with the angles frozen) has a default and can be overridden through a namelist:
 
 ```
 &params nmat=8, nsite=12, temp=1.0, ntherm=500, nmeas=3000,

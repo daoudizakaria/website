@@ -174,7 +174,7 @@
 
   CMS.registerPreviewTemplate("research_articles", ResearchPreview);
 
-  /* Extra toolbar inserts — safe Markdown only; no parser changes on the site */
+  /* Editor components: display and inline maths, rule, table. */
   CMS.registerEditorComponent({
     id: "math-display",
     label: "Math (display)",

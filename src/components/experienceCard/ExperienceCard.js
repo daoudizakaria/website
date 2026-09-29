@@ -76,18 +76,24 @@ class ExperienceCard extends Component {
                   >
                     {experience["title"]}
                   </h3>
-                  <p
-                    className="experience-card-company"
-                    style={{ color: theme.text }}
-                  >
-                    <a
-                      href={experience["company_url"]}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {experience["company"] && (
+                    <p
+                      className="experience-card-company"
+                      style={{ color: theme.text }}
                     >
-                      {experience["company"]}
-                    </a>
-                  </p>
+                      {experience["company_url"] ? (
+                        <a
+                          href={experience["company_url"]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {experience["company"]}
+                        </a>
+                      ) : (
+                        experience["company"]
+                      )}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <div className="experience-card-heading-right">

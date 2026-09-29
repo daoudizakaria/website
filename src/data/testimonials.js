@@ -1,9 +1,7 @@
-// Client feedback (verbatim quotes from completed freelance engagements).
-// Keep quotes exactly as the client wrote them; use "…" for trims only.
-// No client names, companies, or contract values.
+// Client feedback, verbatim ("…" marks cuts), anonymised.
 
 const testimonialsHeader = {
-  title: "What clients say",
+  title: "Client feedback",
   description:
     "Selected feedback from completed freelance engagements, each rated 5.0 on Upwork.",
   profileLink: "https://www.upwork.com/freelancers/~01676c59130490a282",

@@ -27,41 +27,6 @@
   margin-bottom: 10px;
 }
 
-/* .facebook i {
-  background-color: #3b5998;
-}
-
-.linkedin i {
-  background-color: #0e76a8;
-}
-
-.github i {
-  background-color: #333;
-}
-
-.gitlab i {
-  background-color: #fca326;
-}
-
-.google i {
-  background-color: #ea4335;
-}
-
-.twitter i {
-  background-color: #1da1f2;
-}
-
-.instagram i {
-  background-color: #E4405F;
-} */
-
-/*Hover Transition*/
-/* .twitter i:hover, .google i:hover, .gitlab i:hover,
-.github i:hover ,.linkedin i:hover ,.facebook i:hover, .instagram i:hover{
-  background-color: black;
-  transition: 0.3s ease-in;
-} */
-
 /* Media Query */
 @media (max-width: 768px) {
   .social-media-div {
@@ -69,7 +34,7 @@
   }
 }
 
-/* Iconify brand marks (e.g. Upwork — absent from Font Awesome 5): centre the
+/* Iconify brand marks (e.g. Upwork, absent from Font Awesome 5): centre the
    generated SVG inside the same circular badge the Font Awesome icons use. */
 .icon-button i.social-icon-iconify {
   /* Keep the inline-block/line-height model of the Font Awesome badges so

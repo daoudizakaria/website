@@ -1,8 +1,6 @@
 # Decap CMS — Research articles (GitHub backend for GitHub Pages)
 # Production login: deploy an OAuth proxy and set base_url + auth_endpoint below.
-# Local editing: npm run cms:dev (decap-server) — no GitHub login on localhost.
-
-# local_backend: true
+# Local editing: npm run cms:dev (decap-server); no GitHub login on localhost.
 
 backend:
   name: github
@@ -81,6 +79,7 @@ collections:
         options:
           - { label: "Client work", value: client }
           - { label: "Data science case study", value: case-study }
+          - { label: "Research project", value: research }
           - { label: "Notes & simulations", value: notes }
           - { label: "Open-source tool", value: tool }
           - { label: "Teaching materials", value: teaching }

@@ -1,24 +1,24 @@
 ---
-# REQUIRED — must match legacy `articles.data[].id` when migrating (URL: /research/<slug>)
+# Required. URL: /research/<slug>
 slug: your-article-slug
 
-# REQUIRED — same as legacy `name`
-title: "Your article title (use quotes if it contains : colons)"
+# Required. Quote the title if it contains a colon.
+title: "Your article title"
 
-# REQUIRED — publish date; use YYYY-MM-DD or ISO 8601 (maps to `createdAt`)
+# Required. Publication date, YYYY-MM-DD.
 date: 2024-01-15
 
-# REQUIRED for cards — same role as legacy `description` (shown on /research list)
+# Required. Text of the card on /research.
 summary: >-
   One or two sentences for the research index card. Folded YAML (`>-`) strips
   the single newline; use a blank line in the body for longer abstracts.
 
-# OPTIONAL — YAML list of strings
+# Optional. List of topics.
 tags:
   - topic-one
   - topic-two
 
-# OPTIONAL — URL string, or "" (same as legacy `resume`; shown as “View Resume” when non-empty)
+# Optional. PDF path or URL; shown as a download link when set.
 resume: ""
 ---
 
@@ -64,4 +64,4 @@ $$
 
 ---
 
-_End of template. Rename to `your-slug.md`, register the import in `researchContent.js`, and remove the matching legacy `articles.data` entry when ready._
+_Rename to `<slug>.md`; it is picked up on the next build._

@@ -35,9 +35,9 @@ Create an OAuth App (not a GitHub App) with:
   - Dev: `http://localhost:8787/callback` when using `wrangler dev`
   - Prod: your `*.workers.dev` URL or custom domain + `/callback`
 
-## CMS wiring (later milestone)
+## CMS configuration
 
-In `public/admin/config.yml`, uncomment and set:
+In `public/admin/config.yml`, set:
 
 ```yaml
 backend:
@@ -55,11 +55,9 @@ npm install
 npm run dev
 ```
 
-## Deploy (later milestone)
+## Deploy
 
 1. Set `account_id` in `wrangler.toml`.
 2. `wrangler login`
 3. Set secrets (`CLIENT_ID`, `CLIENT_SECRET`).
 4. `npm run deploy`
-
-Do not deploy or configure secrets until the operator runbook for Phase 2 is ready.

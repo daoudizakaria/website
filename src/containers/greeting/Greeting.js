@@ -55,24 +55,15 @@ export default function Greeting(props) {
               <SocialMedia theme={theme} />
               <div className="button-greeting-div">
                 <Button
-                  text="Contact me"
+                  text="Contact"
                   href={`${process.env.PUBLIC_URL}/contact`}
                   theme={theme}
                 />
                 <Button
-                  text="See my resume"
+                  text="View CV"
                   newTab={true}
                   href={greeting.resumeLink}
                   theme={theme}
-                />
-              </div>
-              <div className="portfolio-repo-btn-div">
-                <Button
-                  text="⭐ Star Me On Github"
-                  newTab={true}
-                  href={greeting.portfolio_repository}
-                  theme={theme}
-                  className="portfolio-repo-btn"
                 />
               </div>
             </div>

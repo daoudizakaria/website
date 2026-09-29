@@ -12,8 +12,8 @@ import "./MarkdownContent.css";
  * The HTML is trusted: it comes from this repository's Markdown files and was
  * sanitized (rehype-sanitize) when it was built.
  *
- * @param {string} html — pre-rendered body
- * @param {string} [className] — optional extra class on the wrapper
+ * @param {string} html - pre-rendered body
+ * @param {string} [className] - optional extra class on the wrapper
  */
 function MarkdownContent({ html, className = "" }) {
   const history = useHistory();

@@ -11,8 +11,7 @@ import { DATASETS, makeNet } from "./nn";
  * the decision boundary p = 0.5. Points: the training data; misclassified
  * ones carry a ring. Training is paced (slow at first so the boundary can
  * be seen forming, then faster) and time-boxed per frame so the page stays
- * smooth on slow devices. Tested in Node: 2-24-24-1, Adam lr 0.02 reaches
- * 99% on every dataset in every trial (spirals in 300-800 epochs).
+ * smooth on slow devices.
  */
 const SIZES = [2, 24, 24, 1];
 const LR = 0.02;
@@ -336,8 +335,8 @@ export default function NeuralPlayground({ className = "" }) {
           accuracy <b>{(stats.accuracy * 100).toFixed(1)}%</b>
         </span>
         <span className="sim-note">
-          Trained live in your browser by backpropagation. The background is its
-          prediction; the bright line, its decision boundary.
+          Trained in the browser by backpropagation. Shading shows the network's
+          prediction; the bright curve is its decision boundary.
         </span>
       </figcaption>
       <div className="sim-picker" role="group" aria-label="Choose a dataset">

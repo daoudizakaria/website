@@ -9,7 +9,7 @@ import React, { useEffect, useRef } from "react";
  * R = p_T / (0.3 q B). So the bending radius is proportional to transverse
  * momentum and its direction is set by the sign of the charge: soft tracks
  * curl tightly, stiff tracks run almost straight, and opposite charges bend
- * opposite ways — the picture every detector event display shows.
+ * opposite ways, as in a detector event display.
  *
  * Momenta are drawn from a steeply falling spectrum and most tracks are
  * clustered into two back-to-back jets, as in a real hadronic event.

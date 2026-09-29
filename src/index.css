@@ -69,9 +69,7 @@
   --bg-glow-2: rgba(37, 99, 235, 0.04);
 }
 
-/* WOFF2 first (~60% smaller than the TTF originals, which remain as
-   fallbacks). The originals were previously all labelled format("woff"),
-   which is wrong for .ttf files. */
+/* WOFF2 first, TTF fallback. */
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;

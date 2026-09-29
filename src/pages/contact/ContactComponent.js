@@ -13,7 +13,7 @@ import {
 } from "../../portfolio.js";
 
 const ContactData = contactPageData.contactSection;
-// Visible, copyable address — mailto buttons silently fail on machines
+// Visible, copyable address: mailto buttons silently fail on machines
 // without a configured mail client.
 const gmailLink = socialMediaLinks.find((s) => s.link.startsWith("mailto:"));
 const contactEmail = gmailLink ? gmailLink.link.replace("mailto:", "") : null;
@@ -63,7 +63,7 @@ class Contact extends Component {
                 <SocialMedia theme={theme} />
                 <div className="resume-btn-div">
                   <Button
-                    text="See My Resume"
+                    text="View CV"
                     newTab={true}
                     href={greeting.resumeLink}
                     theme={theme}

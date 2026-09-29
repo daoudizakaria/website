@@ -9,7 +9,7 @@ import { makeMemories, makeNetwork, noisyCue } from "./hopfield";
  * Each cycle cues one stored memory with 28% of its neurons flipped, then
  * lets the network relax by asynchronous updates in random order; neurons
  * that flip flash briefly. When a full pass changes nothing, the memory has
- * been recalled (tested: exact recall in every trial up to 30% noise).
+ * been recalled.
  */
 const G = 24;
 const CUE_NOISE = 0.28;
@@ -109,9 +109,8 @@ export default function HopfieldMemory({ className = "" }) {
       readTheme();
     };
 
-    // Cell geometry, the resting grid (drawn once per size or theme) and
-    // brightness levels: the active cells of one level are filled together,
-    // ~12 fills per frame instead of ~900 (≈100 ms a frame on a slow phone).
+    // Cell geometry, the resting grid (redrawn per size or theme) and
+    // LEVELS brightness levels: cells of one level are filled as one path.
     const LEVELS = 12;
     const grid = document.createElement("canvas");
     const gctx = grid.getContext("2d");
@@ -291,8 +290,9 @@ export default function HopfieldMemory({ className = "" }) {
           <span className="hopfield-overlap">{overlap.toFixed(2)}</span>
         </span>
         <span className="sim-note">
-          Recalling a memory from a noisy cue, the autoassociative principle
-          behind the hippocampal CA3 network. Stored with the projection rule.
+          Retrieval of a stored pattern from a noisy cue, the autoassociative
+          mechanism proposed for hippocampal area CA3. Patterns are stored with
+          the projection (pseudo-inverse) rule.
         </span>
       </figcaption>
       <div className="sim-picker" role="group" aria-label="Choose a memory">

@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 const cache = new Map();
 
 /**
- * KaTeX faces used by almost every equation. Fetched in parallel with the
- * text, so that a long article is laid out once, not again each time one of
- * these fonts arrives (measured: ~1 s of blocking on a phone for the Ising
- * page). The rarer faces still load when first used.
+ * KaTeX faces used by most equations, fetched together with the text so
+ * that a long article is laid out once rather than once per font. Rarer
+ * faces load on first use.
  */
 const MATH_FONTS = [
   "1em KaTeX_Main",

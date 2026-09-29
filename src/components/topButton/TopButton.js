@@ -34,24 +34,20 @@ export default function TopButton({ theme }) {
   }, []);
 
   const onMouseEnter = (color, bgColor) => {
-    /* For the button */
     const topButton = document.getElementById("topButton");
     topButton.style.color = color;
     topButton.style.backgroundColor = bgColor;
 
-    /* For arrow icon */
     const arrow = document.getElementById("arrow");
     arrow.style.color = color;
     arrow.style.backgroundColor = bgColor;
   };
 
   const onMouseLeave = (color, bgColor) => {
-    /* For the button */
     const topButton = document.getElementById("topButton");
     topButton.style.color = color;
     topButton.style.backgroundColor = bgColor;
 
-    /* For arrow icon */
     const arrow = document.getElementById("arrow");
     arrow.style.color = color;
     arrow.style.backgroundColor = bgColor;

@@ -1,11 +1,10 @@
 # Cloudflare Worker configuration for the Decap CMS GitHub OAuth proxy.
-# Do not commit secrets here — use `wrangler secret put` after deploy (see README.md).
+# Secrets are set with `wrangler secret put` (see README.md).
 
 name = "decap-oauth"
 main = "index.ts"
 compatibility_date = "2023-11-11"
 
-# Replace with your Cloudflare account ID before deploy (`wrangler whoami`).
 account_id = "fa67e8cf12f9afbb60cd731d3bd602f9"
 
 workers_dev = true

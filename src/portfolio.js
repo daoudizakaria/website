@@ -1,9 +1,4 @@
-/* Portfolio content barrel.
- *
- * Content now lives in one file per section under src/data/ — edit those.
- * This module re-exports everything so existing `from "../portfolio.js"`
- * imports keep working unchanged.
- */
+/* Re-exports src/data/*. */
 
 export * from "./data/settings";
 export * from "./data/seo";

@@ -1,31 +1,22 @@
 /**
- * Research article content façade.
- *
- * Single source of truth: Markdown files in `articles/*.md` (`slug`, `title`,
- * `date`, `summary`, `tags`, `resume` + body). Front matter is parsed at build
- * time (scripts/markdown-frontmatter-loader.js); each import gives the front
- * matter, and its `load()` fetches the body on demand. Add or edit articles by editing those files (by
- * hand or through the Decap CMS admin).
+ * Research articles, one Markdown file each in articles/. Front matter is
+ * parsed at build time by scripts/markdown-frontmatter-loader.js; the body
+ * loads on demand.
  */
 
 import { articlesHeader } from "../../portfolio.js";
 
-/** Auto-import published research `.md` files. The KaTeX sample is a test
- *  fixture, excluded here so it is not even bundled. */
+// One folder level: the chapters of texts split into pages.
 const articleModules = require.context(
   "./articles",
   true,
-  /^\.\/(?!markdown-katex-sample)(?:[^/]+\/)?[^/]+\.md$/
+  /^\.\/(?:[^/]+\/)?[^/]+\.md$/
 );
-const MARKDOWN_EXCLUDED = /^(MIGRATION_CHECKLIST|article-template|markdown-katex-sample)/i;
 
-const MARKDOWN_RAW_FILES = articleModules
-  .keys()
-  .filter((key) => !MARKDOWN_EXCLUDED.test(key.replace(/^.*\//, "")))
-  .map((key) => ({
-    label: key.replace(/^\.\//, ""),
-    raw: articleModules(key),
-  }));
+const MARKDOWN_RAW_FILES = articleModules.keys().map((key) => ({
+  label: key.replace(/^\.\//, ""),
+  raw: articleModules(key),
+}));
 
 export {
   RESEARCH_BASE_PATH,
@@ -64,8 +55,8 @@ function parseOverview(o, meta) {
 }
 
 /**
- * @param {{data: object, meta: object, load: function}} parsed — build-time parsed file
- * @param {string} label — filename for warnings
+ * @param {{data: object, meta: object, load: function}} parsed - build-time parsed file
+ * @param {string} label - filename for warnings
  * @returns {object | null}
  */
 function parseMarkdownArticle(parsed, label) {
@@ -125,7 +116,7 @@ export function getSeriesPart(seriesSlug, part) {
 }
 
 /**
- * @param {string | undefined} slug — from React Router `/research/:slug`
+ * @param {string | undefined} slug - from React Router `/research/:slug`
  */
 export function getResearchArticleBySlug(slug) {
   if (slug == null || slug === "") return undefined;

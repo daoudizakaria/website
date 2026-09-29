@@ -48,7 +48,7 @@
 }
 
 @media (max-width: 768px) {
-  /* Accordion lives outside .basic-experience — apply own floating gutter */
+  /* Accordion lives outside .basic-experience, so it sets its own gutter */
   .experience-accord {
     margin: 0.75rem 1rem;
   }

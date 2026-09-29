@@ -1,70 +1,43 @@
-# Decap CMS — Research articles
+# Decap CMS
 
-Zakaria can add and edit research articles at **`/admin`** without touching code. Saved files land in `src/content/research/articles/*.md` and are picked up automatically on the next site build.
+Research articles and projects can be added and edited at **`/admin`**. Saved files are written to `src/content/research/articles/*.md` and `src/content/projects/*.md` and are picked up on the next build.
 
-## Editor fields (logical order)
+## Research article fields
 
-| Editor label  | Frontmatter | Purpose                                               |
-| ------------- | ----------- | ----------------------------------------------------- |
-| Title         | `title`     | Article headline                                      |
-| URL           | `slug`      | Public path `/research/<slug>`                        |
-| Publish date  | `date`      | Publication date (defaults to today)                  |
-| Short summary | `summary`   | Card text on `/research`                              |
-| Article       | body        | Markdown + KaTeX (`$…$`, `$$…$$`) + images            |
-| Paper PDF     | `resume`    | Optional PDF upload / URL — download link on the page |
-| Tags          | `tags`      | Optional topic list                                   |
+| Editor label  | Front matter | Purpose                                            |
+| ------------- | ------------ | -------------------------------------------------- |
+| Title         | `title`      | Article headline                                   |
+| URL           | `slug`       | Public path `/research/<slug>`                     |
+| Publish date  | `date`       | Publication date (defaults to today)               |
+| Short summary | `summary`    | Card text on `/research`                           |
+| Article       | body         | Markdown with KaTeX (`$…$`, `$$…$$`) and images    |
+| Overview      | `overview`   | Optional summary, key results and figure           |
+| Paper PDF     | `resume`     | Optional PDF; a download link is shown on the page |
+| Tags          | `tags`       | Optional topic list (not displayed at present)     |
 
-New articles start with today’s date and a short Markdown outline in **Article**.
+Project fields are listed in `config.yml` (`projects` collection); they include the category, type, year, card thumbnail, "At a glance" rows and up to four headline numbers.
 
-## Local editing (no GitHub login)
+## Local editing
 
 ```bash
-npm run cms:dev    # Terminal 1 — local Git proxy on :8081
-npm start          # Terminal 2 — open http://localhost:3000/admin
+npm run cms:dev    # terminal 1: local Git proxy on :8081
+npm start          # terminal 2: open http://localhost:3000/admin
 ```
 
-Uncomment `local_backend: true` in `config.yml` while using `decap-server` on localhost.
+On localhost, `admin/index.html` enables `local_backend` automatically, so no GitHub login is needed.
 
-## Production — GitHub login (GitHub Pages)
+## Production login
 
-The site uses the **GitHub backend** (not Git Gateway). GitHub OAuth requires a small proxy because the admin runs in the browser.
+The site uses the GitHub backend. GitHub OAuth needs a small proxy because the admin runs in the browser; the worker in `workers/decap-oauth/` provides it.
 
-1. Create a [GitHub OAuth App](https://github.com/settings/developers):
+1. Create a [GitHub OAuth App](https://github.com/settings/developers) with homepage `https://www.zakariadaoudi.com` and callback `https://<oauth-proxy>/callback`.
+2. Deploy the proxy and set `base_url` and `auth_endpoint` under `backend` in `config.yml`.
+3. The GitHub account used to log in needs write access to `daoudizakaria/website`.
 
-   - **Homepage URL:** `https://www.zakariadaoudi.com`
-   - **Callback URL:** `https://<your-oauth-proxy>/callback` (from your proxy’s docs)
+## Publishing
 
-2. Deploy an OAuth proxy (pick one):
+The CMS commits Markdown files to `main`; each push to `main` triggers the GitHub Pages deployment workflow.
 
-   - [decap-cms-github-oauth-provider-cloudflare](https://github.com/ottmartens/decap-cms-github-oauth-provider-cloudflare) (Cloudflare Worker)
-   - [netlify-cms-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider) (Node / Vercel)
+## Maths in the editor preview
 
-3. In `public/admin/config.yml`, set:
-
-   ```yaml
-   backend:
-     name: github
-     repo: daoudizakaria/website
-     branch: main
-     base_url: https://your-oauth-proxy.example.com
-     auth_endpoint: auth
-   ```
-
-4. Rebuild and deploy. Open `https://www.zakariadaoudi.com/admin` and click **Login with GitHub**.
-
-Zakaria’s GitHub account needs **write access** to `daoudizakaria/website`.
-
-## Tags
-
-`tags` are parsed into article data in `researchContent.js` but **are not rendered** on Research cards, article pages, search, or SEO today. Keep the field for future filtering/search — remove from the editor only if you are sure you will not need them.
-
-- Images: use the **image** control in the Article editor, or Media in the sidebar. Formats: PNG, JPG, WebP, GIF (stored under `/uploads/research`).
-- PDFs: use **Paper PDF**. When set, the article page shows a download control automatically.
-
-## After publishing in the CMS
-
-CMS commits `.md` files to the repo. Trigger a new GitHub Pages deploy (`npm run deploy` or CI) so the live site shows the new article.
-
-## Math in the editor preview
-
-The admin preview uses Marked + KaTeX (same delimiters as the public site). Use `$inline$` and `$$display$$` in the Article field.
+The admin preview uses Marked and KaTeX with the same delimiters as the site: `$inline$` and `$$display$$`.

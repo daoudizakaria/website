@@ -8,11 +8,7 @@ function withPublicUrl(path) {
   return `${process.env.PUBLIC_URL || ""}${path}`;
 }
 
-/**
- * Overview of a long research text: what it is, its key results and one
- * figure, for readers who decide in a minute. Results are Markdown (they may
- * contain inline maths).
- */
+/** Overview of a long text: summary, key results (Markdown), one figure. */
 export function Overview({ overview, children }) {
   if (!overview) return null;
   const results = overview.resultsHtml;

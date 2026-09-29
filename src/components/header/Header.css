@@ -1,4 +1,4 @@
-/* Sticky shell sits outside react-reveal transforms */
+/* Sticky header, outside the Reveal wrappers. */
 .header-sticky {
   position: sticky;
   top: 0;
@@ -162,8 +162,8 @@
     padding: 0 0.35em;
   }
 
-  /* Column 3 exists to keep the nav optically centred; the toggle now
-     occupies it, balancing the logo on the left. */
+  /* Column 3 holds the theme toggle, balancing the logo so that the nav
+     stays centred. */
   .header .theme-toggle {
     grid-column: 3;
     /* Explicit row: the toggle precedes the nav in the DOM, and grid's

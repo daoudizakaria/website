@@ -5,10 +5,11 @@ date: 2026-09-29
 summary: >-
   A convolutional-network search for binary black-hole mergers in two-detector
   LIGO data, evaluated with the official code of the MLGWSC-1 benchmark. In
-  real O3a noise it is statistically level with the PyCBC matched-filter
+  real O3a noise it is statistically indistinguishable from the PyCBC matched-filter
   search at one false alarm per month and 40% beyond the best network of the
   challenge; both results are confirmed on pre-registered blind data.
 category: ml
+repo: "https://github.com/daoudizakaria/ml-gw-bbh-search"
 paper: "/uploads/projects/ligo-black-hole-search-report.pdf"
 featured: true
 tags:
@@ -18,7 +19,7 @@ tags:
   - time-series
   - pytorch
 year: "2026"
-type: case-study
+type: research
 rank: 2
 image: "/uploads/projects/thumbs/ligo-black-hole-search.webp"
 glance:
@@ -67,7 +68,7 @@ The strain of each detector is whitened in 512 s chunks with a median-averaged W
 
 The network was trained on 60,000 simulated signals drawn from the challenge population, added to noise that shares no random seed, GPS time or injection with any test set. The signal-to-noise ratio of the training signals follows a curriculum from 10–25 down to 5–20. Checkpoints were selected on held-out validation data only, by the fraction of signals at network SNR 8 detected at a false-positive probability of $10^{-4}$ per window.
 
-## Two design choices that mattered
+## Two design choices
 
 **Glitches.** In real O3a noise, 0.68% of one-second windows contain a whitened sample above 6σ in at least one detector; in Gaussian noise there are none. At the false-positive probabilities of interest, the detection threshold is therefore set entirely by glitches. A first model trained with glitches at their natural rate degraded within a few thousand steps and was stopped. The final model draws 40% of its noise-only examples centred on a glitch in one detector, with random data in the other, and so learns that excess power in a single detector is not a coherent signal.
 

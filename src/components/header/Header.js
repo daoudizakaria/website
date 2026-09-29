@@ -117,7 +117,7 @@ class Header extends Component {
                     }
                     onMouseOut={(event) => onMouseOut(event)}
                   >
-                    Field Notes
+                    Field notes
                   </NavLink>
                 </li>
                 <li>
@@ -130,7 +130,7 @@ class Header extends Component {
                     }
                     onMouseOut={(event) => onMouseOut(event)}
                   >
-                    Contact Me
+                    Contact
                   </NavLink>
                 </li>
               </ul>

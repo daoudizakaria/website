@@ -1,5 +1,5 @@
 /**
- * Decap CMS admin theme — portfolio-aligned dark academic UI.
+ * Decap CMS admin theme: portfolio-aligned dark academic UI.
  * Targets Decap Emotion class labels (…-FieldLabel, …-GridCard, etc.)
  * rather than fragile global element rules that fight Decap layout.
  */
@@ -95,7 +95,7 @@ body header button:focus-visible {
 }
 
 /* Search becomes the first interactive element in the sidebar */
-/* Height belongs on the input row only — SearchContainer must stay open
+/* Height belongs on the input row only: SearchContainer must stay open
    so the suggestions dropdown is not clipped. */
 [class*="SearchContainer"] {
   height: auto !important;
@@ -174,7 +174,7 @@ body header button:focus-visible {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.28) !important;
 }
 
-/* Search scope dropdown — wide enough for "Research Articles" */
+/* Search scope dropdown: wide enough for "Research Articles" */
 [class*="SuggestionsContainer"] {
   position: relative !important;
   width: 100% !important;
@@ -254,7 +254,7 @@ body header button:focus-visible {
   border-left-color: #60a5fa !important;
 }
 
-/* Active collection — soft blue chip + dark text for contrast */
+/* Active collection: soft blue chip + dark text for contrast */
 [class*="SidebarNavLink"].sidebar-active,
 [class*="SidebarNavLink"].sidebar-active:hover,
 [class*="SidebarNavLink"].sidebar-active:active,
@@ -306,7 +306,7 @@ a[href*="/entries/new"] {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28) !important;
 }
 
-/* ========== Entry cards — one glass surface (list + grid) ========== */
+/* ========== Entry cards: one glass surface (list + grid) ========== */
 [class*="GridCard"],
 [class*="ListCard"],
 li[data-cms-entry-card] {
@@ -455,7 +455,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   color: var(--cms-text);
 }
 
-/* Top editor strip — Decap hardcodes #fff; keep dark theme on hover too */
+/* Top editor strip: Decap hardcodes #fff; keep dark theme on hover too */
 [class*="EditorContainer"] > [class*="ToolbarContainer"],
 [class*="ToolbarContainer"][class*="e1d2l9mo22"] {
   background: rgba(7, 17, 31, 0.96) !important;
@@ -546,7 +546,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   max-width: 40rem;
 }
 
-/* Section chrome removed — keep no leftover styling */
+/* Section chrome removed: keep no leftover styling */
 .cms-section {
   display: none !important;
 }
@@ -579,7 +579,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   resize: vertical;
 }
 
-/* DateTime widget — Decap leaves a stark white control strip */
+/* DateTime widget: Decap leaves a stark white control strip */
 [class*="DateTimeControl"] {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -637,12 +637,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   color: var(--cms-text) !important;
 }
 
-/*
- * Markdown editor surface — visual only.
- * Toolbar lives INSIDE MarkdownControl (EditorControlBar). Do not use
- * overflow:hidden here (clips menus / can confuse hit-testing). Do not set
- * pointer-events, user-select, or disabled-looking opacity on toolbar buttons.
- */
+/* Markdown editor. No overflow:hidden here: it clips the toolbar menus. */
 [class*="MarkdownControl"] {
   border-radius: var(--cms-radius) !important;
   border: 1px solid var(--cms-border) !important;
@@ -651,7 +646,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   overflow: visible;
 }
 
-/* Rich Text formatting bar (Decap EditorControlBar) — dark chrome only */
+/* Rich Text formatting bar (Decap EditorControlBar): dark chrome only */
 [class*="MarkdownControl"] [class*="EditorControlBar"],
 [class*="MarkdownControl"] [class*="ToolbarContainer"] {
   background: rgba(7, 17, 31, 0.96) !important;
@@ -660,11 +655,8 @@ li[data-cms-entry-card] [class*="CardBody"] {
   border-bottom: 1px solid var(--cms-border) !important;
 }
 
-/*
- * Decap inactive toolbar icons use color:inherit (reads as “disabled” grey).
- * Active icons hardcode #1e2532 — invisible on a dark bar.
- * Override colors only; never touch pointer-events / disabled / user-select.
- */
+/* Decap's inactive toolbar icons inherit grey; active ones use #1e2532,
+   invisible on a dark bar. Colours only. */
 [class*="MarkdownControl"] [class*="EditorControlBar"] button,
 [class*="MarkdownControl"]
   [class*="ToolbarContainer"]
@@ -683,7 +675,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   background: rgba(59, 130, 246, 0.12) !important;
 }
 
-/* Outer chrome around the Editable — not the toolbar row */
+/* Outer chrome around the Editable: not the toolbar row */
 [class*="MarkdownControl"]
   .cms-editor-visual
   > div:not([class*="ToolbarContainer"]):not([class*="EditorControlBar"]),
@@ -722,7 +714,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   color: inherit;
 }
 
-/* Selection highlight — visual only (does not alter Slate selection APIs) */
+/* Selection highlight: visual only (does not alter Slate selection APIs) */
 [class*="MarkdownControl"] [contenteditable="true"]::selection,
 [class*="MarkdownControl"] [data-slate-editor="true"]::selection,
 [class*="MarkdownControl"] [data-slate-editor="true"] *::selection,
@@ -739,13 +731,7 @@ li[data-cms-entry-card] [class*="CardBody"] {
   background: var(--cms-bg-deep) !important;
 }
 
-/*
- * Editor ↔ preview “white line” (DevTools):
- * The span.Resizer.vertical is already transparent (2px hit area).
- * The visible line is the parent StyledSplitPane card background
- * (Decap default #fff) showing through that 2px gap.
- * Match SplitPane to the pane background; keep Resizer transparent + functional.
- */
+/* The 2px resizer gap shows the SplitPane background; match it to the panes. */
 [class*="StyledSplitPane"] {
   background: var(--cms-bg-deep) !important;
   background-color: var(--cms-bg-deep) !important;
@@ -990,11 +976,8 @@ body textarea:focus-visible {
   font-size: 0.9rem !important;
 }
 
-/*
- * Style ONLY the native <button class*="LoginButton">.
- * Do NOT use [class*="LoginButton"] alone — that also matches
- * LoginButtonIcon and turns the GitHub glyph into a second pill.
- */
+/* button[class*=LoginButton] only: the bare selector also matches
+   LoginButtonIcon. */
 .cms-login-panel > button[class*="LoginButton"] {
   display: inline-flex !important;
   align-items: center !important;
