@@ -158,6 +158,9 @@ export default function HopfieldMemory({ className = "" }) {
     };
 
     const draw = () => {
+      // Nothing to draw on while the figure has no width (hidden or not yet
+      // laid out); drawImage of a 0×0 canvas would throw.
+      if (!W) return;
       ctx.clearRect(0, 0, W, W);
       ctx.globalAlpha = 1;
       ctx.drawImage(grid, 0, 0); // resting grid

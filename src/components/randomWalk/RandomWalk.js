@@ -126,6 +126,9 @@ export default function RandomWalk({ className = "" }) {
     };
 
     const draw = () => {
+      // Nothing to draw on while the figure has no width (hidden or not yet
+      // laid out); drawImage of a 0×0 canvas would throw.
+      if (!W || !H) return;
       ctx.clearRect(0, 0, W, H);
       const { X, Y, left, right } = box();
       const { mu, sigma } = MODES[m];
