@@ -31,7 +31,7 @@ glance:
 
 ## About this project
 
-The Wisconsin Diagnostic Breast Cancer dataset is one of the most-used benchmarks in machine learning, and one for which performance is frequently overstated: accuracies of 99% or more are common, often from a single train/test split and sometimes from models tuned on the test set. This project asks a more useful question: what can be said about a model for these data when it is built and validated as a clinical prediction model should be? This is the second version of the analysis. It follows the methodological and clinical literature throughout: TRIPOD+AI reporting, internal validation by bootstrap, calibration, decision curve analysis at a biopsy threshold taken from clinical practice, minimum sample size, and model stability.
+The Wisconsin Diagnostic Breast Cancer dataset is one of the most-used benchmarks in machine learning, and one for which performance is frequently overstated: accuracies of 99% or more are common, often from a single train/test split and sometimes from models tuned on the test set. This project asks a more useful question: what can be said about a model for these data when it is built and validated as a clinical prediction model should be? The analysis follows the methodological and clinical literature throughout: TRIPOD+AI reporting, internal validation by bootstrap, calibration, decision curve analysis at a biopsy threshold taken from clinical practice, minimum sample size, and model stability.
 
 ## Intended use
 
@@ -114,7 +114,7 @@ A model developed on 569 cases could have come out differently on another sample
 
 ![Left: range of each case's prediction across 500 bootstrap models. Right: share of bootstrap models that flip each case's decision at the 2% threshold. Predictions near 0 or 1 are stable; instability is concentrated in borderline cases.](/uploads/projects/wdbc-stability.png "Figure 3: Left: range of each case's prediction across 500 bootstrap models. Right: share of bootstrap models that flip each case's decision at the 2% threshold. Predictions near 0 or 1 are stable; instability is concentrated in borderline cases.")
 
-A "best three features" model found by forward selection looks attractive, but it does not survive the bootstrap. The same procedure picked 46 different three-feature sets across 500 resamples, and the most common set appeared in only 25% of them. Run on all 569 cases, it now picks `smoothness_worst` where the first version of the analysis picked `concave points_mean`. Only `perimeter_worst` (85%) and `texture_worst` (77%) are chosen consistently.
+A "best three features" model found by forward selection looks attractive, but it does not survive the bootstrap. The same procedure picked 46 different three-feature sets across 500 resamples, and the most common set appeared in only 25% of them. Run on all 569 cases, it picks `smoothness_worst`, where an initial analysis picked `concave points_mean`. Only `perimeter_worst` (85%) and `texture_worst` (77%) are chosen consistently.
 
 ![How often forward selection picked each feature across 500 bootstrap samples. Only perimeter_worst and texture_worst are chosen consistently.](/uploads/projects/wdbc-selection-frequency.png "Figure 4: How often forward selection picked each feature across 500 bootstrap samples. Only perimeter_worst and texture_worst are chosen consistently.")
 
