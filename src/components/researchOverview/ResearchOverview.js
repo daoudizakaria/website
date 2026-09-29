@@ -58,13 +58,21 @@ export function Overview({ overview, children }) {
   );
 }
 
+/** "Chapter 3: Quantization…", "Section 2: Preliminaries", but "References". */
+export function seriesPartLabel(p) {
+  return /^(Chapter|Appendix|Sections?)\b/.test(p.kicker)
+    ? `${p.kicker}: ${p.name}`
+    : p.name;
+}
+
 /** Contents of a text split into pages (e.g. the chapters of a thesis). */
 export function SeriesGuide({ parts, urlFor }) {
   if (!parts || parts.length === 0) return null;
+  const unit = /^Section/.test(parts[0].kicker) ? "section" : "chapter";
   return (
     <nav className="series-guide" aria-labelledby="series-guide-title">
       <h2 id="series-guide-title" className="series-guide-title">
-        Read online, chapter by chapter
+        Read online, {unit} by {unit}
       </h2>
       <ol className="series-guide-list">
         {parts.map((p) => (

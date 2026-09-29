@@ -1,0 +1,177 @@
+---
+slug: hawking-radiation-review/references
+title: "References"
+date: 2024-12-01
+summary: "The works cited in the review, with links to their published versions."
+series: hawking-radiation-review
+part: references
+order: 11
+kicker: "References"
+---
+- M. Ackermann et al. Search for gamma-ray emission from local primordial black holes with the Fermi Large Area Telescope. _Astrophys. J._, 857:49, 2018. [doi:10.3847/1538-4357/aaac7b](https://doi.org/10.3847/1538-4357/aaac7b).
+- F. Aharonian et al. Search for the evaporation of primordial black holes with H.E.S.S. _J. Cosmol. Astropart. Phys._, 2023(04):040, 2023. [doi:10.1088/1475-7516/2023/04/040](https://doi.org/10.1088/1475-7516/2023/04/040).
+- Y. Aharonov, A. Casher, and S. Nussinov. The unitarity puzzle and Planck mass stable particles. _Phys. Lett. B_, 191:51–55, 1987. [doi:10.1016/0370-2693(87)91320-7](https://doi.org/10.1016/0370-2693(87)91320-7).
+- A. Albert et al. Constraining the local burst rate density of primordial black holes with HAWC. _J. Cosmol. Astropart. Phys._, 2020(04):026, 2020. [doi:10.1088/1475-7516/2020/04/026](https://doi.org/10.1088/1475-7516/2020/04/026).
+- A. Alexandre, G. Dvali, and E. Koutsangelas. New mass window for primordial black holes as dark matter from the memory burden effect. _Phys. Rev. D_, 110:036004, 2024. [doi:10.1103/physrevd.110.036004](https://doi.org/10.1103/physrevd.110.036004).
+- A. Almheiri, D. Marolf, J. Polchinski, and J. Sully. Black holes: complementarity or firewalls? _J. High Energy Phys._, 2013(02):062, 2013. [doi:10.1007/jhep02(2013)062](https://doi.org/10.1007/jhep02(2013)062).
+- A. Almheiri, N. Engelhardt, D. Marolf, and H. Maxfield. The entropy of bulk quantum fields and the entanglement wedge of an evaporating black hole. _J. High Energy Phys._, 2019(12):063, 2019. [doi:10.1007/jhep12(2019)063](https://doi.org/10.1007/jhep12(2019)063).
+- A. Almheiri, T. Hartman, J. Maldacena, E. Shaghoulian, and A. Tajdini. Replica wormholes and the entropy of Hawking radiation. _J. High Energy Phys._, 2020(05):013, 2020a. [doi:10.1007/jhep05(2020)013](https://doi.org/10.1007/jhep05(2020)013).
+- A. Almheiri, R. Mahajan, J. Maldacena, and Y. Zhao. The Page curve of Hawking radiation from semiclassical geometry. _J. High Energy Phys._, 2020(03):149, 2020b. [doi:10.1007/jhep03(2020)149](https://doi.org/10.1007/jhep03(2020)149).
+- A. Almheiri, T. Hartman, J. Maldacena, E. Shaghoulian, and A. Tajdini. The entropy of Hawking radiation. _Rev. Mod. Phys._, 93:035002, 2021. [doi:10.1103/revmodphys.93.035002](https://doi.org/10.1103/revmodphys.93.035002).
+- A. Arbey and J. Auffinger. BlackHawk: a public code for calculating the Hawking evaporation spectra of any black hole distribution. _Eur. Phys. J. C_, 79:693, 2019. [doi:10.1140/epjc/s10052-019-7161-1](https://doi.org/10.1140/epjc/s10052-019-7161-1).
+- A. Arbey and J. Auffinger. Physics beyond the standard model with BlackHawk v2.0. _Eur. Phys. J. C_, 81:910, 2021. [doi:10.1140/epjc/s10052-021-09702-8](https://doi.org/10.1140/epjc/s10052-021-09702-8).
+- N. Arkani-Hamed, S. Dimopoulos, and G. Dvali. The hierarchy problem and new dimensions at a millimeter. _Phys. Lett. B_, 429:263–272, 1998. [doi:10.1016/s0370-2693(98)00466-3](https://doi.org/10.1016/s0370-2693(98)00466-3).
+- A. Ashtekar, J. Baez, A. Corichi, and K. Krasnov. Quantum geometry and black hole entropy. _Phys. Rev. Lett._, 80:904–907, 1998. [doi:10.1103/physrevlett.80.904](https://doi.org/10.1103/physrevlett.80.904).
+- J. Auffinger. Primordial black hole constraints with Hawking radiation—A review. _Prog. Part. Nucl. Phys._, 131:104040, 2023. [doi:10.1016/j.ppnp.2023.104040](https://doi.org/10.1016/j.ppnp.2023.104040).
+- R. Balbinot, A. Fabbri, S. Fagnocchi, A. Recati, and I. Carusotto. Nonlocal density correlations as a signature of Hawking radiation from acoustic black holes. _Phys. Rev. A_, 78:021603, 2008. [doi:10.1103/physreva.78.021603](https://doi.org/10.1103/physreva.78.021603).
+- C. Barceló, S. Liberati, S. Sonego, and M. Visser. Hawking-like radiation from evolving black holes and compact horizonless objects. _J. High Energy Phys._, 2011(02):003, 2011a. [doi:10.1007/jhep02(2011)003](https://doi.org/10.1007/jhep02(2011)003).
+- C. Barceló, S. Liberati, and M. Visser. Analogue gravity. _Living Rev. Relativ._, 14:3, 2011b. [doi:10.12942/lrr-2011-3](https://doi.org/10.12942/lrr-2011-3).
+- J. M. Bardeen. Black holes do evaporate thermally. _Phys. Rev. Lett._, 46:382–385, 1981. [doi:10.1103/physrevlett.46.382](https://doi.org/10.1103/physrevlett.46.382).
+- J. M. Bardeen, B. Carter, and S. W. Hawking. The four laws of black hole mechanics. _Commun. Math. Phys._, 31:161–170, 1973. [doi:10.1007/BF01645742](https://doi.org/10.1007/BF01645742).
+- J. D. Bekenstein. Black holes and the second law. _Lett. Nuovo Cimento_, 4:737–740, 1972. [doi:10.1007/BF02757029](https://doi.org/10.1007/BF02757029).
+- J. D. Bekenstein. Black holes and entropy. _Phys. Rev. D_, 7:2333–2346, 1973. [doi:10.1103/PhysRevD.7.2333](https://doi.org/10.1103/PhysRevD.7.2333).
+- J. D. Bekenstein. Generalized second law of thermodynamics in black-hole physics. _Phys. Rev. D_, 9:3292–3300, 1974. [doi:10.1103/PhysRevD.9.3292](https://doi.org/10.1103/PhysRevD.9.3292).
+- F. Belgiorno, S. L. Cacciatori, M. Clerici, V. Gorini, G. Ortenzi, L. Rizzi, E. Rubino, V. G. Sala, and D. Faccio. Hawking radiation from ultrashort laser pulse filaments. _Phys. Rev. Lett._, 105:203901, 2010. [doi:10.1103/physrevlett.105.203901](https://doi.org/10.1103/physrevlett.105.203901).
+- N. D. Birrell and P. C. W. Davies. _Quantum Fields in Curved Space_. Cambridge University Press, Cambridge, 1982. [doi:10.1017/cbo9780511622632](https://doi.org/10.1017/cbo9780511622632).
+- L. Bombelli, R. K. Koul, J. Lee, and R. D. Sorkin. Quantum source of entropy for black holes. _Phys. Rev. D_, 34:373–383, 1986. [doi:10.1103/physrevd.34.373](https://doi.org/10.1103/physrevd.34.373).
+- M. Boudaud and M. Cirelli. Voyager 1 $e^{\pm}$ further constrain primordial black holes as dark matter. _Phys. Rev. Lett._, 122:041104, 2019. [doi:10.1103/PhysRevLett.122.041104](https://doi.org/10.1103/PhysRevLett.122.041104).
+- D. G. Boulware. Quantum field theory in Schwarzschild and Rindler spaces. _Phys. Rev. D_, 11:1404–1423, 1975. [doi:10.1103/physrevd.11.1404](https://doi.org/10.1103/physrevd.11.1404).
+- S. L. Braunstein, S. Pirandola, and K. \.Zyczkowski. Better late than never: information retrieval from black holes. _Phys. Rev. Lett._, 110:101301, 2013. [doi:10.1103/physrevlett.110.101301](https://doi.org/10.1103/physrevlett.110.101301).
+- R. Brito, V. Cardoso, and P. Pani. _Superradiance: New Frontiers in Black Hole Physics_, volume 971 of _Lecture Notes in Physics_. Springer, Cham, 2nd edition, 2020. [doi:10.1007/978-3-030-46622-0](https://doi.org/10.1007/978-3-030-46622-0).
+- R. Brout, S. Massar, R. Parentani, and Ph. Spindel. A primer for black hole quantum physics. _Phys. Rep._, 260:329–446, 1995. [doi:10.1016/0370-1573(95)00008-5](https://doi.org/10.1016/0370-1573(95)00008-5).
+- C. G. Callan and J. M. Maldacena. D-brane approach to black hole quantum mechanics. _Nucl. Phys. B_, 472:591–608, 1996. [doi:10.1016/0550-3213(96)00225-8](https://doi.org/10.1016/0550-3213(96)00225-8).
+- C. G. Callan, S. B. Giddings, J. A. Harvey, and A. Strominger. Evanescent black holes. _Phys. Rev. D_, 45:R1005–R1009, 1992. [doi:10.1103/physrevd.45.r1005](https://doi.org/10.1103/physrevd.45.r1005).
+- P. Candelas. Vacuum polarization in Schwarzschild spacetime. _Phys. Rev. D_, 21:2185–2202, 1980. [doi:10.1103/physrevd.21.2185](https://doi.org/10.1103/physrevd.21.2185).
+- S. Carlip. Black hole thermodynamics. _Int. J. Mod. Phys. D_, 23:1430023, 2014. [doi:10.1142/s0218271814300237](https://doi.org/10.1142/s0218271814300237).
+- R. D. Carlitz and R. S. Willey. Reflections on moving mirrors. _Phys. Rev. D_, 36:2327–2335, 1987. [doi:10.1103/physrevd.36.2327](https://doi.org/10.1103/physrevd.36.2327).
+- B. Carr, K. Kohri, Y. Sendouda, and J. Yokoyama. Constraints on primordial black holes. _Rep. Prog. Phys._, 84:116902, 2021. [doi:10.1088/1361-6633/ac1e31](https://doi.org/10.1088/1361-6633/ac1e31).
+- B. J. Carr. The primordial black hole mass spectrum. _Astrophys. J._, 201:1–19, 1975. [doi:10.1086/153853](https://doi.org/10.1086/153853).
+- B. J. Carr and S. W. Hawking. Black holes in the early Universe. _Mon. Not. R. Astron. Soc._, 168:399–415, 1974. [doi:10.1093/mnras/168.2.399](https://doi.org/10.1093/mnras/168.2.399).
+- B. J. Carr, K. Kohri, Y. Sendouda, and J. Yokoyama. New cosmological constraints on primordial black holes. _Phys. Rev. D_, 81:104019, 2010. [doi:10.1103/physrevd.81.104019](https://doi.org/10.1103/physrevd.81.104019).
+- I. Carusotto, S. Fagnocchi, A. Recati, R. Balbinot, and A. Fabbri. Numerical observation of Hawking radiation from acoustic black holes in atomic Bose-Einstein condensates. _New J. Phys._, 10:103001, 2008. [doi:10.1088/1367-2630/10/10/103001](https://doi.org/10.1088/1367-2630/10/10/103001).
+- C. M. Chambers, W. A. Hiscock, and B. E. Taylor. Spinning down a black hole with scalar fields. _Phys. Rev. Lett._, 78:3249–3251, 1997. [doi:10.1103/physrevlett.78.3249](https://doi.org/10.1103/physrevlett.78.3249).
+- P. Chen, Y. C. Ong, and D.-h. Yeom. Black hole remnants and the information loss paradox. _Phys. Rep._, 603:1–45, 2015. [doi:10.1016/j.physrep.2015.10.007](https://doi.org/10.1016/j.physrep.2015.10.007).
+- S. M. Christensen and S. A. Fulling. Trace anomalies and the Hawking effect. _Phys. Rev. D_, 15:2088–2104, 1977. [doi:10.1103/physrevd.15.2088](https://doi.org/10.1103/physrevd.15.2088).
+- D. Christodoulou. Reversible and irreversible transformations in black-hole physics. _Phys. Rev. Lett._, 25:1596–1597, 1970. [doi:10.1103/physrevlett.25.1596](https://doi.org/10.1103/physrevlett.25.1596).
+- A. Coogan, L. Morrison, and S. Profumo. Direct detection of Hawking radiation from asteroid-mass primordial black holes. _Phys. Rev. Lett._, 126:171101, 2021. [doi:10.1103/physrevlett.126.171101](https://doi.org/10.1103/physrevlett.126.171101).
+- S. Corley and T. Jacobson. Hawking spectrum and high frequency dispersion. _Phys. Rev. D_, 54:1568–1586, 1996. [doi:10.1103/physrevd.54.1568](https://doi.org/10.1103/physrevd.54.1568).
+- S. Corley and T. Jacobson. Black hole lasers. _Phys. Rev. D_, 59:124011, 1999. [doi:10.1103/physrevd.59.124011](https://doi.org/10.1103/physrevd.59.124011).
+- L. C. B. Crispino, A. Higuchi, and G. E. A. Matsas. The Unruh effect and its applications. _Rev. Mod. Phys._, 80:787–838, 2008. [doi:10.1103/revmodphys.80.787](https://doi.org/10.1103/revmodphys.80.787).
+- T. Damour and R. Ruffini. Black-hole evaporation in the Klein-Sauter-Heisenberg-Euler formalism. _Phys. Rev. D_, 14:332–334, 1976. [doi:10.1103/physrevd.14.332](https://doi.org/10.1103/physrevd.14.332).
+- S. R. Das and S. D. Mathur. Comparing decay rates for black holes and D-branes. _Nucl. Phys. B_, 478:561–576, 1996. [doi:10.1016/0550-3213(96)00453-1](https://doi.org/10.1016/0550-3213(96)00453-1).
+- S. R. Das, G. Gibbons, and S. D. Mathur. Universality of low energy absorption cross sections for black holes. _Phys. Rev. Lett._, 78:417–419, 1997. [doi:10.1103/PhysRevLett.78.417](https://doi.org/10.1103/PhysRevLett.78.417).
+- B. Dasgupta, R. Laha, and A. Ray. Neutrino and positron constraints on spinning primordial black hole dark matter. _Phys. Rev. Lett._, 125:101101, 2020. [doi:10.1103/physrevlett.125.101101](https://doi.org/10.1103/physrevlett.125.101101).
+- P. C. W. Davies. Scalar production in Schwarzschild and Rindler metrics. _J. Phys. A_, 8:609–616, 1975. [doi:10.1088/0305-4470/8/4/022](https://doi.org/10.1088/0305-4470/8/4/022).
+- P. C. W. Davies, S. A. Fulling, and W. G. Unruh. Energy-momentum tensor near an evaporating black hole. _Phys. Rev. D_, 13:2720–2723, 1976. [doi:10.1103/physrevd.13.2720](https://doi.org/10.1103/physrevd.13.2720).
+- W. DeRocco and P. W. Graham. Constraining primordial black hole abundance with the Galactic 511 keV line. _Phys. Rev. Lett._, 123:251102, 2019. [doi:10.1103/physrevlett.123.251102](https://doi.org/10.1103/physrevlett.123.251102).
+- R. Dey, S. Liberati, and D. Pranzetti. The black hole quantum atmosphere. _Phys. Lett. B_, 774:308–316, 2017. [doi:10.1016/j.physletb.2017.09.076](https://doi.org/10.1016/j.physletb.2017.09.076).
+- S. Dimopoulos and G. Landsberg. Black holes at the Large Hadron Collider. _Phys. Rev. Lett._, 87:161602, 2001. [doi:10.1103/physrevlett.87.161602](https://doi.org/10.1103/physrevlett.87.161602).
+- J. Drori, Y. Rosenberg, D. Bermudez, Y. Silberberg, and U. Leonhardt. Observation of stimulated Hawking radiation in an optical analogue. _Phys. Rev. Lett._, 122:010404, 2019. [doi:10.1103/physrevlett.122.010404](https://doi.org/10.1103/physrevlett.122.010404).
+- G. Dvali, L. Eisemann, M. Michel, and S. Zell. Black hole metamorphosis and stabilization by memory burden. _Phys. Rev. D_, 102:103523, 2020. [doi:10.1103/physrevd.102.103523](https://doi.org/10.1103/physrevd.102.103523).
+- R. Emparan, G. T. Horowitz, and R. C. Myers. Black holes radiate mainly on the brane. _Phys. Rev. Lett._, 85:499–502, 2000. [doi:10.1103/PhysRevLett.85.499](https://doi.org/10.1103/PhysRevLett.85.499).
+- N. Engelhardt and A. C. Wall. Quantum extremal surfaces: holographic entanglement entropy beyond the classical regime. _J. High Energy Phys._, 2015(01):073, 2015. [doi:10.1007/jhep01(2015)073](https://doi.org/10.1007/jhep01(2015)073).
+- L.-P. Euvé, F. Michel, R. Parentani, T. G. Philbin, and G. Rousseaux. Observation of noise correlated by the Hawking effect in a water tank. _Phys. Rev. Lett._, 117:121301, 2016. [doi:10.1103/physrevlett.117.121301](https://doi.org/10.1103/physrevlett.117.121301).
+- T. Faulkner, A. Lewkowycz, and J. Maldacena. Quantum corrections to holographic entanglement entropy. _J. High Energy Phys._, 2013(11):074, 2013. [doi:10.1007/jhep11(2013)074](https://doi.org/10.1007/jhep11(2013)074).
+- K. Fredenhagen and R. Haag. On the derivation of Hawking radiation associated with the formation of a black hole. _Commun. Math. Phys._, 127:273–284, 1990. [doi:10.1007/bf02096757](https://doi.org/10.1007/bf02096757).
+- S. A. Fulling. Nonuniqueness of canonical field quantization in Riemannian space-time. _Phys. Rev. D_, 7:2850–2862, 1973. [doi:10.1103/physrevd.7.2850](https://doi.org/10.1103/physrevd.7.2850).
+- S. A. Fulling and P. C. W. Davies. Radiation from a moving mirror in two dimensional space-time: conformal anomaly. _Proc. R. Soc. Lond. A_, 348:393–414, 1976. [doi:10.1098/rspa.1976.0045](https://doi.org/10.1098/rspa.1976.0045).
+- L. J. Garay, J. R. Anglin, J. I. Cirac, and P. Zoller. Sonic analog of gravitational black holes in Bose-Einstein condensates. _Phys. Rev. Lett._, 85:4643–4647, 2000. [doi:10.1103/physrevlett.85.4643](https://doi.org/10.1103/physrevlett.85.4643).
+- H. Geng and A. Karch. Massive islands. _J. High Energy Phys._, 2020(09):121, 2020. [doi:10.1007/jhep09(2020)121](https://doi.org/10.1007/jhep09(2020)121).
+- G. W. Gibbons. Vacuum polarization and the spontaneous loss of charge by black holes. _Commun. Math. Phys._, 44:245–264, 1975. [doi:10.1007/bf01609829](https://doi.org/10.1007/bf01609829).
+- G. W. Gibbons and S. W. Hawking. Action integrals and partition functions in quantum gravity. _Phys. Rev. D_, 15:2752–2756, 1977a. [doi:10.1103/PhysRevD.15.2752](https://doi.org/10.1103/PhysRevD.15.2752).
+- G. W. Gibbons and S. W. Hawking. Cosmological event horizons, thermodynamics, and particle creation. _Phys. Rev. D_, 15:2738–2751, 1977b. [doi:10.1103/PhysRevD.15.2738](https://doi.org/10.1103/PhysRevD.15.2738).
+- S. B. Giddings. Hawking radiation, the Stefan–Boltzmann law, and unitarization. _Phys. Lett. B_, 754:39–42, 2016. [doi:10.1016/j.physletb.2015.12.076](https://doi.org/10.1016/j.physletb.2015.12.076).
+- S. B. Giddings and S. Thomas. High energy colliders as black hole factories: The end of short distance physics. _Phys. Rev. D_, 65:056010, 2002. [doi:10.1103/physrevd.65.056010](https://doi.org/10.1103/physrevd.65.056010).
+- F. Gray, S. Schuster, A. Van-Brunt, and M. Visser. The Hawking cascade from a black hole is extremely sparse. _Class. Quantum Grav._, 33:115003, 2016. [doi:10.1088/0264-9381/33/11/115003](https://doi.org/10.1088/0264-9381/33/11/115003).
+- D. Harlow. Jerusalem lectures on black holes and quantum information. _Rev. Mod. Phys._, 88:015002, 2016. [doi:10.1103/revmodphys.88.015002](https://doi.org/10.1103/revmodphys.88.015002).
+- J. B. Hartle and S. W. Hawking. Path-integral derivation of black-hole radiance. _Phys. Rev. D_, 13:2188–2203, 1976. [doi:10.1103/PhysRevD.13.2188](https://doi.org/10.1103/PhysRevD.13.2188).
+- S. W. Hawking. Gravitational radiation from colliding black holes. _Phys. Rev. Lett._, 26:1344–1346, 1971a. [doi:10.1103/physrevlett.26.1344](https://doi.org/10.1103/physrevlett.26.1344).
+- S. W. Hawking. Gravitationally collapsed objects of very low mass. _Mon. Not. R. Astron. Soc._, 152:75–78, 1971b. [doi:10.1093/mnras/152.1.75](https://doi.org/10.1093/mnras/152.1.75).
+- S. W. Hawking. Black hole explosions? _Nature_, 248:30–31, 1974. [doi:10.1038/248030a0](https://doi.org/10.1038/248030a0).
+- S. W. Hawking. Particle creation by black holes. _Commun. Math. Phys._, 43:199–220, 1975. [doi:10.1007/BF02345020](https://doi.org/10.1007/BF02345020).
+- S. W. Hawking. Breakdown of predictability in gravitational collapse. _Phys. Rev. D_, 14:2460–2473, 1976. [doi:10.1103/physrevd.14.2460](https://doi.org/10.1103/physrevd.14.2460).
+- S. W. Hawking. Information loss in black holes. _Phys. Rev. D_, 72:084013, 2005. [doi:10.1103/physrevd.72.084013](https://doi.org/10.1103/physrevd.72.084013).
+- S. W. Hawking and D. N. Page. Thermodynamics of black holes in anti-de Sitter space. _Commun. Math. Phys._, 87:577–588, 1983. [doi:10.1007/bf01208266](https://doi.org/10.1007/bf01208266).
+- S. W. Hawking, M. J. Perry, and A. Strominger. Soft hair on black holes. _Phys. Rev. Lett._, 116:231301, 2016. [doi:10.1103/physrevlett.116.231301](https://doi.org/10.1103/physrevlett.116.231301).
+- P. Hayden and J. Preskill. Black holes as mirrors: quantum information in random subsystems. _J. High Energy Phys._, 2007(09):120, 2007. [doi:10.1088/1126-6708/2007/09/120](https://doi.org/10.1088/1126-6708/2007/09/120).
+- A. F. Heckler. Formation of a Hawking-radiation photosphere around microscopic black holes. _Phys. Rev. D_, 55:480–488, 1997. [doi:10.1103/physrevd.55.480](https://doi.org/10.1103/physrevd.55.480).
+- A. D. Helfer. Do black holes radiate? _Rep. Prog. Phys._, 66:943–1008, 2003. [doi:10.1088/0034-4885/66/6/202](https://doi.org/10.1088/0034-4885/66/6/202).
+- D. Hooper, G. Krnjaic, and S. D. McDermott. Dark radiation and superheavy dark matter from black hole domination. _J. High Energy Phys._, 2019(08):001, 2019. [doi:10.1007/jhep08(2019)001](https://doi.org/10.1007/jhep08(2019)001).
+- V. E. Hubeny, M. Rangamani, and T. Takayanagi. A covariant holographic entanglement entropy proposal. _J. High Energy Phys._, 2007(07):062, 2007. [doi:10.1088/1126-6708/2007/07/062](https://doi.org/10.1088/1126-6708/2007/07/062).
+- M. Isi, W. M. Farr, M. Giesler, M. A. Scheel, and S. A. Teukolsky. Testing the black-hole area law with GW150914. _Phys. Rev. Lett._, 127:011103, 2021. [doi:10.1103/PhysRevLett.127.011103](https://doi.org/10.1103/PhysRevLett.127.011103).
+- S. Iso, H. Umetsu, and F. Wilczek. Hawking radiation from charged black holes via gauge and gravitational anomalies. _Phys. Rev. Lett._, 96:151302, 2006. [doi:10.1103/physrevlett.96.151302](https://doi.org/10.1103/physrevlett.96.151302).
+- W. Israel. Thermo-field dynamics of black holes. _Phys. Lett. A_, 57:107–110, 1976. [doi:10.1016/0375-9601(76)90178-x](https://doi.org/10.1016/0375-9601(76)90178-x).
+- T. Jacobson. Black-hole evaporation and ultrashort distances. _Phys. Rev. D_, 44:1731–1739, 1991. [doi:10.1103/physrevd.44.1731](https://doi.org/10.1103/physrevd.44.1731).
+- T. Jacobson. Black hole radiation in the presence of a short distance cutoff. _Phys. Rev. D_, 48:728–741, 1993. [doi:10.1103/physrevd.48.728](https://doi.org/10.1103/physrevd.48.728).
+- T. Jacobson. Introduction to quantum fields in curved spacetime and the Hawking effect. In A. Gomberoff and D. Marolf, editors, _Lectures on Quantum Gravity_, pages 39–89. Springer, Boston, MA, 2005. [doi:10.1007/0-387-24992-3_2](https://doi.org/10.1007/0-387-24992-3_2).
+- P. Kanti. Black holes in theories with large extra dimensions: a review. _Int. J. Mod. Phys. A_, 19:4899–4951, 2004. [doi:10.1142/s0217751x04018324](https://doi.org/10.1142/s0217751x04018324).
+- B. S. Kay and R. M. Wald. Theorems on the uniqueness and thermal properties of stationary, nonsingular, quasifree states on spacetimes with a bifurcate Killing horizon. _Phys. Rep._, 207:49–136, 1991. [doi:10.1016/0370-1573(91)90015-e](https://doi.org/10.1016/0370-1573(91)90015-e).
+- V. I. Kolobov, K. Golubkov, J. R. Mu noz de Nova, and J. Steinhauer. Observation of stationary spontaneous Hawking radiation and the time evolution of an analogue black hole. _Nat. Phys._, 17:362–367, 2021. [doi:10.1038/s41567-020-01076-0](https://doi.org/10.1038/s41567-020-01076-0).
+- R. Laha. Primordial black holes as a dark matter candidate are severely constrained by the Galactic Center 511 keV $\gamma$-ray line. _Phys. Rev. Lett._, 123:251101, 2019. [doi:10.1103/PhysRevLett.123.251101](https://doi.org/10.1103/PhysRevLett.123.251101).
+- O. Lahav, A. Itah, A. Blumkin, C. Gordon, S. Rinott, A. Zayats, and J. Steinhauer. Realization of a sonic black hole analog in a Bose-Einstein condensate. _Phys. Rev. Lett._, 105:240401, 2010. [doi:10.1103/physrevlett.105.240401](https://doi.org/10.1103/physrevlett.105.240401).
+- O. Lennon, J. March-Russell, R. Petrossian-Byrne, and H. Tillim. Black hole genesis of dark matter. _J. Cosmol. Astropart. Phys._, 2018(04):009, 2018. [doi:10.1088/1475-7516/2018/04/009](https://doi.org/10.1088/1475-7516/2018/04/009).
+- U. Leonhardt. Questioning the recent observation of quantum Hawking radiation. _Ann. Phys. (Berlin)_, 530:1700114, 2018. [doi:10.1002/andp.201700114](https://doi.org/10.1002/andp.201700114).
+- J. H. MacGibbon. Quark- and gluon-jet emission from primordial black holes. II. The emission over the black-hole lifetime. _Phys. Rev. D_, 44:376–392, 1991. [doi:10.1103/physrevd.44.376](https://doi.org/10.1103/physrevd.44.376).
+- J. H. MacGibbon and B. R. Webber. Quark- and gluon-jet emission from primordial black holes: The instantaneous spectra. _Phys. Rev. D_, 41:3052–3079, 1990. [doi:10.1103/physrevd.41.3052](https://doi.org/10.1103/physrevd.41.3052).
+- J. H. MacGibbon, B. J. Carr, and D. N. Page. Do evaporating black holes form photospheres? _Phys. Rev. D_, 78:064043, 2008. [doi:10.1103/physrevd.78.064043](https://doi.org/10.1103/physrevd.78.064043).
+- J. Maldacena. The large N limit of superconformal field theories and supergravity. _Adv. Theor. Math. Phys._, 2:231–252, 1998. [doi:10.4310/ATMP.1998.v2.n2.a1](https://doi.org/10.4310/ATMP.1998.v2.n2.a1).
+- J. Maldacena and A. Strominger. Black hole greybody factors and D-brane spectroscopy. _Phys. Rev. D_, 55:861–870, 1997. [doi:10.1103/physrevd.55.861](https://doi.org/10.1103/physrevd.55.861).
+- J. Maldacena and L. Susskind. Cool horizons for entangled black holes. _Fortschr. Phys._, 61:781–811, 2013. [doi:10.1002/prop.201300020](https://doi.org/10.1002/prop.201300020).
+- D. Marolf. The black hole information problem: past, present, and future. _Rep. Prog. Phys._, 80:092001, 2017. [doi:10.1088/1361-6633/aa77cc](https://doi.org/10.1088/1361-6633/aa77cc).
+- S. D. Mathur. The fuzzball proposal for black holes: an elementary review. _Fortschr. Phys._, 53:793–827, 2005. [doi:10.1002/prop.200410203](https://doi.org/10.1002/prop.200410203).
+- S. D. Mathur. The information paradox: a pedagogical introduction. _Class. Quantum Grav._, 26:224001, 2009. [doi:10.1088/0264-9381/26/22/224001](https://doi.org/10.1088/0264-9381/26/22/224001).
+- P. Montero-Camacho, X. Fang, G. Vasquez, M. Silva, and C. M. Hirata. Revisiting constraints on asteroid-mass primordial black holes as dark matter candidates. _J. Cosmol. Astropart. Phys._, 2019(08):031, 2019. [doi:10.1088/1475-7516/2019/08/031](https://doi.org/10.1088/1475-7516/2019/08/031).
+- J. R. Mu noz de Nova, K. Golubkov, V. I. Kolobov, and J. Steinhauer. Observation of thermal Hawking radiation and its temperature in an analogue black hole. _Nature_, 569:688–691, 2019. [doi:10.1038/s41586-019-1241-0](https://doi.org/10.1038/s41586-019-1241-0).
+- H. S. Nguyen, D. Gerace, I. Carusotto, D. Sanvitto, E. Galopin, A. Lemaître, I. Sagnes, J. Bloch, and A. Amo. Acoustic black hole in a stationary hydrodynamic flow of microcavity polaritons. _Phys. Rev. Lett._, 114:036402, 2015. [doi:10.1103/physrevlett.114.036402](https://doi.org/10.1103/physrevlett.114.036402).
+- D. N. Page. Particle emission rates from a black hole: Massless particles from an uncharged, nonrotating hole. _Phys. Rev. D_, 13:198–206, 1976a. [doi:10.1103/physrevd.13.198](https://doi.org/10.1103/physrevd.13.198).
+- D. N. Page. Particle emission rates from a black hole. II. Massless particles from a rotating hole. _Phys. Rev. D_, 14:3260–3273, 1976b. [doi:10.1103/physrevd.14.3260](https://doi.org/10.1103/physrevd.14.3260).
+- D. N. Page. Particle emission rates from a black hole. III. Charged leptons from a nonrotating hole. _Phys. Rev. D_, 16:2402–2411, 1977. [doi:10.1103/physrevd.16.2402](https://doi.org/10.1103/physrevd.16.2402).
+- D. N. Page. Average entropy of a subsystem. _Phys. Rev. Lett._, 71:1291–1294, 1993a. [doi:10.1103/physrevlett.71.1291](https://doi.org/10.1103/physrevlett.71.1291).
+- D. N. Page. Information in black hole radiation. _Phys. Rev. Lett._, 71:3743–3746, 1993b. [doi:10.1103/physrevlett.71.3743](https://doi.org/10.1103/physrevlett.71.3743).
+- D. N. Page. Hawking radiation and black hole thermodynamics. _New J. Phys._, 7:203, 2005. [doi:10.1088/1367-2630/7/1/203](https://doi.org/10.1088/1367-2630/7/1/203).
+- D. N. Page. Time dependence of Hawking radiation entropy. _J. Cosmol. Astropart. Phys._, 2013(09):028, 2013. [doi:10.1088/1475-7516/2013/09/028](https://doi.org/10.1088/1475-7516/2013/09/028).
+- D. N. Page and S. W. Hawking. Gamma rays from primordial black holes. _Astrophys. J._, 206:1–7, 1976. [doi:10.1086/154350](https://doi.org/10.1086/154350).
+- M. K. Parikh and F. Wilczek. Hawking radiation as tunneling. _Phys. Rev. Lett._, 85:5042–5045, 2000. [doi:10.1103/physrevlett.85.5042](https://doi.org/10.1103/physrevlett.85.5042).
+- L. Parker. Probability distribution of particles created by a black hole. _Phys. Rev. D_, 12:1519–1525, 1975. [doi:10.1103/PhysRevD.12.1519](https://doi.org/10.1103/PhysRevD.12.1519).
+- G. Penington. Entanglement wedge reconstruction and the information paradox. _J. High Energy Phys._, 2020(09):002, 2020. [doi:10.1007/jhep09(2020)002](https://doi.org/10.1007/jhep09(2020)002).
+- G. Penington, S. H. Shenker, D. Stanford, and Z. Yang. Replica wormholes and the black hole interior. _J. High Energy Phys._, 2022(03):205, 2022. [doi:10.1007/jhep03(2022)205](https://doi.org/10.1007/jhep03(2022)205).
+- R. Penrose. Gravitational collapse: the role of general relativity. _Riv. Nuovo Cimento, Numero Speciale_, 1:252–276, 1969.
+- R. Penrose and R. M. Floyd. Extraction of rotational energy from a black hole. _Nature Phys. Sci._, 229:177–179, 1971. [doi:10.1038/physci229177a0](https://doi.org/10.1038/physci229177a0).
+- T. G. Philbin, C. Kuklewicz, S. Robertson, S. Hill, F. König, and U. Leonhardt. Fiber-optical analog of the event horizon. _Science_, 319:1367–1370, 2008. [doi:10.1126/science.1153625](https://doi.org/10.1126/science.1153625).
+- J. Polchinski. The black hole information problem. In J. Polchinski, P. Vieira, and O. DeWolfe, editors, _New Frontiers in Fields and Strings: TASI 2015_, pages 353–397. World Scientific, Singapore, 2017. [doi:10.1142/9789813149441_0006](https://doi.org/10.1142/9789813149441_0006).
+- S. Raju. Lessons from the information paradox. _Phys. Rep._, 943:1–80, 2022. [doi:10.1016/j.physrep.2021.10.001](https://doi.org/10.1016/j.physrep.2021.10.001).
+- S. P. Robinson and F. Wilczek. Relationship between Hawking radiation and gravitational anomalies. _Phys. Rev. Lett._, 95:011303, 2005. [doi:10.1103/physrevlett.95.011303](https://doi.org/10.1103/physrevlett.95.011303).
+- G. Rousseaux, C. Mathis, P. Maïssa, T. G. Philbin, and U. Leonhardt. Observation of negative-frequency waves in a water tank: a classical analogue to the Hawking effect? _New J. Phys._, 10:053015, 2008. [doi:10.1088/1367-2630/10/5/053015](https://doi.org/10.1088/1367-2630/10/5/053015).
+- C. Rovelli. Black hole entropy from loop quantum gravity. _Phys. Rev. Lett._, 77:3288–3291, 1996. [doi:10.1103/physrevlett.77.3288](https://doi.org/10.1103/physrevlett.77.3288).
+- J. G. Russo, L. Susskind, and L. Thorlacius. End point of Hawking radiation. _Phys. Rev. D_, 46:3444–3449, 1992. [doi:10.1103/physrevd.46.3444](https://doi.org/10.1103/physrevd.46.3444).
+- S. Ryu and T. Takayanagi. Holographic derivation of entanglement entropy from the anti-de Sitter space/conformal field theory correspondence. _Phys. Rev. Lett._, 96:181602, 2006. [doi:10.1103/physrevlett.96.181602](https://doi.org/10.1103/physrevlett.96.181602).
+- P. Saad, S. H. Shenker, and D. Stanford. JT gravity as a matrix integral. arXiv:1903.11115 [hep-th], 2019.
+- A. M. Sirunyan et al. Search for black holes and sphalerons in high-multiplicity final states in proton-proton collisions at $\sqrt{s} = 13$ TeV. _J. High Energy Phys._, 2018(11):042, 2018. [doi:10.1007/JHEP11(2018)042](https://doi.org/10.1007/JHEP11(2018)042).
+- S. N. Solodukhin. Entanglement entropy of black holes. _Living Rev. Relativ._, 14:8, 2011. [doi:10.12942/lrr-2011-8](https://doi.org/10.12942/lrr-2011-8).
+- M. Srednicki. Entropy and area. _Phys. Rev. Lett._, 71:666–669, 1993. [doi:10.1103/physrevlett.71.666](https://doi.org/10.1103/physrevlett.71.666).
+- K. Srinivasan and T. Padmanabhan. Particle production and complex path analysis. _Phys. Rev. D_, 60:024007, 1999. [doi:10.1103/physrevd.60.024007](https://doi.org/10.1103/physrevd.60.024007).
+- A. A. Starobinsky. Amplification of waves during reflection from a rotating “black hole”. _Sov. Phys. JETP_, 37:28–32, 1973.
+- J. Steinhauer. Observation of self-amplifying Hawking radiation in an analogue black-hole laser. _Nat. Phys._, 10:864–869, 2014. [doi:10.1038/nphys3104](https://doi.org/10.1038/nphys3104).
+- J. Steinhauer. Observation of quantum Hawking radiation and its entanglement in an analogue black hole. _Nat. Phys._, 12:959–965, 2016. [doi:10.1038/nphys3863](https://doi.org/10.1038/nphys3863).
+- A. Strominger and C. Vafa. Microscopic origin of the Bekenstein-Hawking entropy. _Phys. Lett. B_, 379:99–104, 1996. [doi:10.1016/0370-2693(96)00345-0](https://doi.org/10.1016/0370-2693(96)00345-0).
+- L. Susskind, L. Thorlacius, and J. Uglum. The stretched horizon and black hole complementarity. _Phys. Rev. D_, 48:3743–3761, 1993. [doi:10.1103/physrevd.48.3743](https://doi.org/10.1103/physrevd.48.3743).
+- G. 't Hooft. On the quantum structure of a black hole. _Nucl. Phys. B_, 256:727–745, 1985. [doi:10.1016/0550-3213(85)90418-3](https://doi.org/10.1016/0550-3213(85)90418-3).
+- S. A. Teukolsky and W. H. Press. Perturbations of a rotating black hole. III. Interaction of the hole with gravitational and electromagnetic radiation. _Astrophys. J._, 193:443–461, 1974. [doi:10.1086/153180](https://doi.org/10.1086/153180).
+- V. Thoss, A. Burkert, and K. Kohri. Breakdown of Hawking evaporation opens new mass window for primordial black holes as dark matter candidate. _Mon. Not. R. Astron. Soc._, 532:451–459, 2024. [doi:10.1093/mnras/stae1098](https://doi.org/10.1093/mnras/stae1098).
+- T. Torres, S. Patrick, A. Coutant, M. Richartz, E. W. Tedford, and S. Weinfurtner. Rotational superradiant scattering in a vortex flow. _Nat. Phys._, 13:833–836, 2017. [doi:10.1038/nphys4151](https://doi.org/10.1038/nphys4151).
+- W. G. Unruh. Second quantization in the Kerr metric. _Phys. Rev. D_, 10:3194–3205, 1974. [doi:10.1103/physrevd.10.3194](https://doi.org/10.1103/physrevd.10.3194).
+- W. G. Unruh. Notes on black-hole evaporation. _Phys. Rev. D_, 14:870–892, 1976. [doi:10.1103/physrevd.14.870](https://doi.org/10.1103/physrevd.14.870).
+- W. G. Unruh. Experimental black-hole evaporation? _Phys. Rev. Lett._, 46:1351–1353, 1981. [doi:10.1103/PhysRevLett.46.1351](https://doi.org/10.1103/PhysRevLett.46.1351).
+- W. G. Unruh. Sonic analogue of black holes and the effects of high frequencies on black hole evaporation. _Phys. Rev. D_, 51:2827–2838, 1995. [doi:10.1103/physrevd.51.2827](https://doi.org/10.1103/physrevd.51.2827).
+- W. G. Unruh and R. Schützhold. Universality of the Hawking effect. _Phys. Rev. D_, 71:024028, 2005. [doi:10.1103/physrevd.71.024028](https://doi.org/10.1103/physrevd.71.024028).
+- W. G. Unruh and R. M. Wald. Information loss. _Rep. Prog. Phys._, 80:092002, 2017. [doi:10.1088/1361-6633/aa778e](https://doi.org/10.1088/1361-6633/aa778e).
+- M. Visser. Acoustic black holes: horizons, ergospheres and Hawking radiation. _Class. Quantum Grav._, 15:1767–1791, 1998. [doi:10.1088/0264-9381/15/6/024](https://doi.org/10.1088/0264-9381/15/6/024).
+- M. Visser. Essential and inessential features of Hawking radiation. _Int. J. Mod. Phys. D_, 12:649–661, 2003. [doi:10.1142/s0218271803003190](https://doi.org/10.1142/s0218271803003190).
+- R. M. Wald. On particle creation by black holes. _Commun. Math. Phys._, 45:9–34, 1975. [doi:10.1007/bf01609863](https://doi.org/10.1007/bf01609863).
+- R. M. Wald. Black hole entropy is the Noether charge. _Phys. Rev. D_, 48:R3427–R3431, 1993. [doi:10.1103/physrevd.48.r3427](https://doi.org/10.1103/physrevd.48.r3427).
+- R. M. Wald. _Quantum Field Theory in Curved Spacetime and Black Hole Thermodynamics_. University of Chicago Press, Chicago, 1994.
+- R. M. Wald. The thermodynamics of black holes. _Living Rev. Relativ._, 4:6, 2001. [doi:10.12942/lrr-2001-6](https://doi.org/10.12942/lrr-2001-6).
+- S. Weinfurtner, E. W. Tedford, M. C. J. Penrice, W. G. Unruh, and G. A. Lawrence. Measurement of stimulated Hawking emission in an analogue system. _Phys. Rev. Lett._, 106:021302, 2011. [doi:10.1103/physrevlett.106.021302](https://doi.org/10.1103/physrevlett.106.021302).
+- J. W. York. Dynamical origin of black-hole radiance. _Phys. Rev. D_, 28:2929–2945, 1983. [doi:10.1103/physrevd.28.2929](https://doi.org/10.1103/physrevd.28.2929).
+- Ya. B. Zel'dovich. Generation of waves by a rotating body. _JETP Lett._, 14:180–181, 1971.
+- Ya. B. Zel'dovich and I. D. Novikov. The hypothesis of cores retarded during expansion and the hot cosmological model. _Sov. Astron._, 10:602–603, 1967.

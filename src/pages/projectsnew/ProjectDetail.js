@@ -3,13 +3,23 @@ import { Redirect, useParams } from "react-router-dom";
 import ContentDetail from "../../components/contentDetail/ContentDetail";
 import useMarkdownBody from "../../components/markdown/useMarkdownBody";
 import {
+  SeriesBreadcrumb,
+  SeriesGuide,
+  seriesPartLabel,
+} from "../../components/researchOverview/ResearchOverview";
+import {
   CATEGORY_LABELS,
   TYPE_LABELS,
   getProjectBySlug,
   getProjectList,
+  getProjectPart,
+  getProjectParts,
   getProjectRedirect,
 } from "../../content/projects/projectsContent.js";
-import { projectUrl } from "../../content/projects/projectsRoutes.js";
+import {
+  projectPartUrl,
+  projectUrl,
+} from "../../content/projects/projectsRoutes.js";
 import "./ProjectDetail.css";
 
 /** External-link label matched to where the project actually lives. */
@@ -61,15 +71,40 @@ function AtAGlance({ glance, actions }) {
   );
 }
 
-/** Project page for `/projects/:slug` (layout: ContentDetail). */
+/**
+ * Project page (layout: ContentDetail).
+ *   /projects/:slug        the project, with the contents of its text if the
+ *                          text is split into pages
+ *   /projects/:slug/:part  one page (section) of that text
+ */
 function ProjectDetail(props) {
-  const { slug } = useParams();
+  const { slug, part } = useParams();
   const theme = props.theme;
   const project = getProjectBySlug(slug);
-  const { html, toc, loading } = useMarkdownBody(project);
+  const parts = useMemo(() => getProjectParts(slug), [slug]);
+  const page = part ? getProjectPart(slug, part) : project;
+  const { html, toc, loading } = useMarkdownBody(page);
 
   const pager = useMemo(() => {
     if (!project) return null;
+    if (part) {
+      const idx = parts.findIndex((p) => p.part === part);
+      if (idx < 0) return null;
+      const toPart = (p) =>
+        p
+          ? { to: projectPartUrl(slug, p.part), title: seriesPartLabel(p) }
+          : null;
+      return {
+        prev:
+          idx > 0
+            ? toPart(parts[idx - 1])
+            : { to: projectUrl(slug), title: "Overview" },
+        next: idx < parts.length - 1 ? toPart(parts[idx + 1]) : null,
+        prevLabel: "← Previous",
+        nextLabel: "Next →",
+        ariaLabel: "Sections",
+      };
+    }
     const list = getProjectList();
     const idx = list.findIndex((p) => p.id === project.id);
     const toEntry = (p) => (p ? { to: projectUrl(p.id), title: p.name } : null);
@@ -80,9 +115,9 @@ function ProjectDetail(props) {
       nextLabel: "Next project →",
       ariaLabel: "More projects",
     };
-  }, [project]);
+  }, [project, part, parts, slug]);
 
-  if (!project) {
+  if (!project && !part) {
     const redirect = getProjectRedirect(slug);
     if (redirect) {
       return (
@@ -91,6 +126,8 @@ function ProjectDetail(props) {
         />
       );
     }
+  }
+  if (!project || !page) {
     return (
       <ContentDetail
         theme={theme}
@@ -127,10 +164,42 @@ function ProjectDetail(props) {
     });
   }
 
+  const loadingNote = loading ? (
+    <p className="content-detail-loading">Loading…</p>
+  ) : null;
+
+  if (part) {
+    const idx = parts.findIndex((p) => p.id === page.id);
+    return (
+      <ContentDetail
+        theme={theme}
+        pageTitle={`${seriesPartLabel(page)} · ${project.name}`}
+        title={page.name}
+        badge={CATEGORY_LABELS[project.category]}
+        lead={
+          <SeriesBreadcrumb
+            parent={project}
+            parentUrl={projectUrl(slug)}
+            part={page}
+            index={idx}
+            total={parts.length}
+          />
+        }
+        html={html}
+        toc={toc}
+        emptyNote={loadingNote}
+        actions={actions}
+        pager={pager}
+      />
+    );
+  }
+
   const subtitle = [
     project.year,
     TYPE_LABELS[project.type],
-    project.hasCaseStudy ? `${project.readingMinutes} min read` : "",
+    project.hasCaseStudy && parts.length === 0
+      ? `${project.readingMinutes} min read`
+      : "",
   ]
     .filter(Boolean)
     .join(" · ");
@@ -142,12 +211,18 @@ function ProjectDetail(props) {
       title={project.name}
       subtitle={subtitle || `Last updated ${project.createdAt.split("T")[0]}`}
       badge={CATEGORY_LABELS[project.category]}
-      lead={<AtAGlance glance={project.glance} actions={actions} />}
+      lead={
+        <>
+          <AtAGlance glance={project.glance} actions={actions} />
+          <SeriesGuide
+            parts={parts}
+            urlFor={(p) => projectPartUrl(slug, p.part)}
+          />
+        </>
+      }
       html={html}
       toc={toc}
-      emptyNote={
-        loading ? <p className="content-detail-loading">Loading…</p> : null
-      }
+      emptyNote={loadingNote}
       actions={actions}
       pager={pager}
     />

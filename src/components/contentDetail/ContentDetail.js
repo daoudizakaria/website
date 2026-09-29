@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import TopButton from "../topButton/TopButton";
@@ -39,6 +39,38 @@ function useActiveHeading(contentKey, headingCount) {
     return () => observer.disconnect();
   }, [contentKey, headingCount]);
   return activeId;
+}
+
+/**
+ * Following a link to another page (e.g. the next chapter) starts at its top,
+ * or at the section named in the URL (#…) once the text has loaded. Back and
+ * forward are left to the browser, which restores the reading position.
+ */
+let firstPageOfVisit = true;
+
+function usePageScroll(html) {
+  const { pathname, hash } = useLocation();
+  const history = useHistory();
+  const actionRef = useRef(history.action);
+  actionRef.current = history.action;
+  // Read, not watched: a jump within the page (#…) is the browser's job.
+  const hashRef = useRef(hash);
+  hashRef.current = hash;
+  useEffect(() => {
+    if (actionRef.current !== "POP" && !hashRef.current) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [pathname]);
+  useEffect(() => {
+    if (!html) return;
+    // A shared link (#…) opened directly also counts as "POP".
+    const direct = firstPageOfVisit;
+    firstPageOfVisit = false;
+    const h = hashRef.current;
+    if (!h || (actionRef.current === "POP" && !direct)) return;
+    const el = document.getElementById(decodeURIComponent(h.slice(1)));
+    if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+  }, [pathname, html]);
 }
 
 /** Contents longer than this show subsections only for the current section. */
@@ -117,6 +149,7 @@ export default function ContentDetail({
 }) {
   const links = (actions || []).filter((a) => a && a.href);
   const hasBody = Boolean(html && html.length > 0);
+  usePageScroll(html);
   const toc = useMemo(() => (hasBody && tocProp ? tocProp : []), [
     hasBody,
     tocProp,

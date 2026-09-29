@@ -18,6 +18,8 @@
  * and a Buffer polyfill). Dates serialise to ISO strings, which the content
  * façades already normalise.
  */
+const fs = require("fs");
+const path = require("path");
 const matter = require("gray-matter");
 
 const WORDS_PER_MINUTE = 200;
@@ -86,6 +88,47 @@ function withPublicUrl(path) {
   return `${publicUrl}${path}`;
 }
 
+/**
+ * Pixel size of a PNG or WebP under public/, read from its header, so the
+ * page can reserve the figure's space before it loads (no text jumping down
+ * as figures arrive, and links to a section land on it). null if unknown.
+ */
+function imageSize(src) {
+  if (!src || !/^\/uploads\/.+\.(png|webp)$/i.test(src)) return null;
+  let b;
+  try {
+    b = fs.readFileSync(path.join(__dirname, "..", "public", src));
+  } catch (e) {
+    return null;
+  }
+  if (b.length > 24 && b.toString("ascii", 1, 4) === "PNG") {
+    return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+  }
+  if (b.length > 30 && b.toString("ascii", 0, 4) === "RIFF") {
+    const kind = b.toString("ascii", 12, 16);
+    if (kind === "VP8 ") {
+      return {
+        width: b.readUInt16LE(26) & 0x3fff,
+        height: b.readUInt16LE(28) & 0x3fff,
+      };
+    }
+    if (kind === "VP8L") {
+      const bits = b.readUInt32LE(21);
+      return {
+        width: (bits & 0x3fff) + 1,
+        height: ((bits >> 14) & 0x3fff) + 1,
+      };
+    }
+    if (kind === "VP8X") {
+      return {
+        width: b.readUIntLE(24, 3) + 1,
+        height: b.readUIntLE(27, 3) + 1,
+      };
+    }
+  }
+  return null;
+}
+
 let rendererPromise = null;
 
 /** Build the renderer once (the unified ecosystem is ESM-only). */
@@ -142,6 +185,7 @@ function getRenderer() {
             h("img", {
               loading: "lazy",
               decoding: "async",
+              ...imageSize(src),
               ...props,
               src: withPublicUrl(src),
               alt: alt || "",

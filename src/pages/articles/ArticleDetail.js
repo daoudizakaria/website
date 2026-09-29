@@ -6,6 +6,7 @@ import {
   Overview,
   SeriesBreadcrumb,
   SeriesGuide,
+  seriesPartLabel,
 } from "../../components/researchOverview/ResearchOverview";
 import {
   getResearchArticleBySlug,
@@ -18,12 +19,7 @@ import {
   researchPartUrl,
 } from "../../content/research/researchRoutes.js";
 
-/** "Chapter 3: Quantization…", but just "Bibliography" or "Introduction". */
-function partLabel(p) {
-  return /^(Chapter|Appendix)\b/.test(p.kicker)
-    ? `${p.kicker}: ${p.name}`
-    : p.name;
-}
+const partLabel = seriesPartLabel;
 
 function pdfAction(resume) {
   const r = (resume || "").trim();

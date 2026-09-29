@@ -128,6 +128,13 @@ export default class Main extends Component {
             />
             <Route
               exact
+              path="/projects/:slug/:part"
+              render={(props) => (
+                <ProjectDetail {...props} theme={this.props.theme} />
+              )}
+            />
+            <Route
+              exact
               path="/projects/:slug"
               render={(props) => (
                 <ProjectDetail {...props} theme={this.props.theme} />

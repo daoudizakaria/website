@@ -8,7 +8,13 @@
  * through the Decap CMS admin).
  */
 
-const projectModules = require.context("./", false, /\.md$/);
+// Project pages, plus the pages of long texts split into chapters
+// (`<slug>/NN-<part>.md`, one folder level).
+const projectModules = require.context(
+  "./",
+  true,
+  /^\.\/(?:[^/]+\/)?[^/]+\.md$/
+);
 
 export const PROJECT_CATEGORIES = ["ml", "physics", "math"];
 
@@ -90,6 +96,12 @@ function parseProject(parsed, label) {
       ? data.aliases.map((a) => String(a))
       : [],
     readingMinutes: meta ? meta.readingMinutes : 1,
+    // A page of a long text names its `series` (the project slug), its URL
+    // segment `part`, its `order` and a `kicker` ("Section 3").
+    series: data.series != null ? String(data.series) : "",
+    part: data.part != null ? String(data.part) : "",
+    order: Number.isFinite(Number(data.order)) ? Number(data.order) : 0,
+    kicker: data.kicker != null ? String(data.kicker) : "",
   };
 }
 
@@ -99,12 +111,15 @@ function byRankThenDate(a, b) {
   return a.createdAt < b.createdAt ? 1 : -1;
 }
 
-const projects = projectModules
+const allEntries = projectModules
   .keys()
   .filter((key) => !/projectsContent|projectsRoutes/.test(key))
   .map((key) => parseProject(projectModules(key), key))
-  .filter(Boolean)
-  .sort(byRankThenDate);
+  .filter(Boolean);
+
+// Chapters are reached from their project page, never listed as projects.
+const projects = allEntries.filter((p) => !p.series).sort(byRankThenDate);
+const projectParts = allEntries.filter((p) => p.series);
 
 const projectBySlug = new Map(projects.map((p) => [p.id, p]));
 
@@ -140,4 +155,16 @@ export function getProjectRedirect(slug) {
     return { path: REMOVED_PROJECT_REDIRECTS[slug] };
   }
   return null;
+}
+
+/** The pages of a project's text, in reading order. */
+export function getProjectParts(slug) {
+  return projectParts
+    .filter((p) => p.series === slug)
+    .sort((a, b) => a.order - b.order);
+}
+
+/** One page of a project's text, by its URL segment. */
+export function getProjectPart(slug, part) {
+  return getProjectParts(slug).find((p) => p.part === part);
 }

@@ -6,3 +6,8 @@ export const PROJECTS_BASE_PATH = "/projects";
 export function projectUrl(slug) {
   return `${PROJECTS_BASE_PATH}/${encodeURIComponent(slug)}`;
 }
+
+/** URL of one page (chapter) of a project whose text is split into pages. */
+export function projectPartUrl(slug, part) {
+  return `${projectUrl(slug)}/${encodeURIComponent(part)}`;
+}
