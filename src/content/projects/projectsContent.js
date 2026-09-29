@@ -64,6 +64,23 @@ function parseGlance(glance) {
   return Object.values(g).some(Boolean) ? g : null;
 }
 
+/** Keep "1,544 ± 10" on one line. */
+const keepTogether = (t) => t.replace(/ ± /g, "\u00a0±\u00a0");
+
+/** Headline numbers: [{ value, unit?, label, note? }], at most four. */
+function parseMetrics(metrics) {
+  if (!Array.isArray(metrics)) return [];
+  return metrics
+    .filter((m) => m && m.value != null && m.label != null)
+    .slice(0, 4)
+    .map((m) => ({
+      value: keepTogether(String(m.value)),
+      unit: m.unit != null ? String(m.unit) : "",
+      label: String(m.label),
+      note: m.note != null ? keepTogether(String(m.note)) : "",
+    }));
+}
+
 function parseProject(parsed, label) {
   const { data, meta } = parsed;
   const slug = data.slug;
@@ -92,6 +109,7 @@ function parseProject(parsed, label) {
     rank: Number.isFinite(rank) ? rank : Infinity,
     image: data.image != null ? String(data.image) : "",
     glance: parseGlance(data.glance),
+    metrics: parseMetrics(data.metrics),
     aliases: Array.isArray(data.aliases)
       ? data.aliases.map((a) => String(a))
       : [],

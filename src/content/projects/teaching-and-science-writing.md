@@ -17,7 +17,7 @@ tags:
   - astronomy
 year: "2023–2025"
 type: teaching
-rank: 9
+rank: 10
 aliases:
   - domi-institute-lecture-notes
   - gre-math-worksheets

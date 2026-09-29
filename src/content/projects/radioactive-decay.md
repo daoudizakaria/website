@@ -20,7 +20,7 @@ tags:
   - python
 year: "2023–2026"
 type: notes
-rank: 5
+rank: 6
 image: "/uploads/projects/thumbs/radioactive-decay.webp"
 glance:
   problem: "Help high-school and first-year university students see radioactivity happen, and understand the physics of the nucleus."

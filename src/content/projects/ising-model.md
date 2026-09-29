@@ -20,7 +20,7 @@ tags:
   - python
 year: "2025–2026"
 type: notes
-rank: 3
+rank: 4
 image: "/uploads/projects/thumbs/ising-model.webp"
 glance:
   problem: "Understand the phase transition of the Ising model in one and two dimensions, and simulate it reliably."

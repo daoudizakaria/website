@@ -109,6 +109,16 @@ collections:
           - { label: Approach, name: approach, widget: text, required: false }
           - { label: Result, name: result, widget: text, required: false }
           - { label: Tools, name: tools, widget: string, required: false }
+      - label: Headline numbers (up to four, shown in "At a glance")
+        name: metrics
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { label: Value, name: value, widget: string }
+          - { label: Unit, name: unit, widget: string, required: false }
+          - { label: What it measures, name: label, widget: string }
+          - { label: Comparison or note, name: note, widget: string, required: false }
       - label: Old URLs that should open this project
         name: aliases
         widget: list

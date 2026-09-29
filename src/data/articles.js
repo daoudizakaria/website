@@ -58,6 +58,11 @@ const researchInterests = {
           slug: "wdbc-breast-cancer",
           label: "Breast cancer model",
         },
+        {
+          kind: "project",
+          slug: "ligo-black-hole-search",
+          label: "Black-hole search in LIGO data",
+        },
       ],
     },
     {

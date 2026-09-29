@@ -23,7 +23,7 @@ const projectsnewHeader = {
   description:
     "Research, client work, open-source tools and teaching material in physics, machine learning and mathematics, each written up in full on its own page. Filter by area, or start with the selected work.",
   selectedBlurb:
-    "Four projects that show the range of the work: engineering design for a client, a clinical prediction model, and two physics simulations.",
+    "Four projects that show the range of the work: engineering design for a client, a gravitational-wave search in real detector data, a clinical prediction model, and a physics simulation study.",
 };
 
 /** One line under the heading when the list is filtered to an area. */

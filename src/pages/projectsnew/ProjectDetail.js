@@ -38,13 +38,29 @@ const GLANCE_ROWS = [
 ];
 
 /** Short summary block for readers who decide in a few seconds. */
-function AtAGlance({ glance, actions }) {
+function AtAGlance({ glance, metrics, actions }) {
   if (!glance) return null;
   return (
     <section className="project-glance" aria-labelledby="project-glance-title">
       <h2 id="project-glance-title" className="project-glance-title">
         At a glance
       </h2>
+      {metrics && metrics.length > 0 && (
+        <ul className="project-metrics">
+          {metrics.map((m) => (
+            <li key={m.label} className="project-metric">
+              <span className="project-metric-value">
+                {m.value}
+                {m.unit && (
+                  <span className="project-metric-unit"> {m.unit}</span>
+                )}
+              </span>
+              <span className="project-metric-label">{m.label}</span>
+              {m.note && <span className="project-metric-note">{m.note}</span>}
+            </li>
+          ))}
+        </ul>
+      )}
       <dl className="project-glance-list">
         {GLANCE_ROWS.filter(([k]) => glance[k]).map(([k, label]) => (
           <div key={k} className={`project-glance-row project-glance-${k}`}>
@@ -159,8 +175,10 @@ function ProjectDetail(props) {
       href: paper.startsWith("/")
         ? `${process.env.PUBLIC_URL || ""}${paper}`
         : paper,
-      label: "📄 Read the companion paper (PDF)",
-      shortLabel: "PDF",
+      label: /report/i.test(paper)
+        ? "📄 Read the technical report (PDF)"
+        : "📄 Read the companion paper (PDF)",
+      shortLabel: /report/i.test(paper) ? "Technical report (PDF)" : "PDF",
     });
   }
 
@@ -213,7 +231,11 @@ function ProjectDetail(props) {
       badge={CATEGORY_LABELS[project.category]}
       lead={
         <>
-          <AtAGlance glance={project.glance} actions={actions} />
+          <AtAGlance
+            glance={project.glance}
+            metrics={project.metrics}
+            actions={actions}
+          />
           <SeriesGuide
             parts={parts}
             urlFor={(p) => projectPartUrl(slug, p.part)}

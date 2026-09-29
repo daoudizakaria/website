@@ -17,7 +17,7 @@ tags:
   - python
 year: "2023"
 type: tool
-rank: 8
+rank: 9
 glance:
   problem: "Map the creators working in a YouTube category, such as gaming."
   approach: "A two-stage pipeline: headless Chrome driven by Selenium discovers channels through infinite scroll, then visits each channel's About page."

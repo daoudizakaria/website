@@ -11,7 +11,7 @@ summary: >-
 category: physics
 repo: "https://github.com/daoudizakaria/BFSS_model"
 paper: "/uploads/projects/bfss-model-notes.pdf"
-featured: true
+featured: false
 tags:
   - matrix-models
   - lattice-monte-carlo
@@ -20,7 +20,7 @@ tags:
   - fortran
 year: "2025–2026"
 type: notes
-rank: 4
+rank: 5
 image: "/uploads/projects/thumbs/bfss-model.webp"
 glance:
   problem: "Simulate the bosonic BFSS matrix model at finite temperature, the first step towards a candidate non-perturbative description of M-theory."

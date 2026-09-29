@@ -19,7 +19,7 @@ tags:
   - python
 year: "2025"
 type: tool
-rank: 6
+rank: 7
 image: "/uploads/projects/thumbs/erlangc-calculator.webp"
 glance:
   problem: "How many agents does a contact centre need to answer 80% of calls within 20 seconds?"

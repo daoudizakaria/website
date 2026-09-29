@@ -19,7 +19,7 @@ tags:
   - python
 year: "2026"
 type: case-study
-rank: 2
+rank: 3
 image: "/uploads/projects/thumbs/wdbc-breast-cancer.webp"
 glance:
   problem: "What can honestly be claimed about a malignancy model built on the 569-case Wisconsin breast cancer dataset?"
