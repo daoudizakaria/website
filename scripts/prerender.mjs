@@ -234,6 +234,14 @@ const CAPTURE = `(() => {
   root.querySelectorAll(".katex-html").forEach((e) => e.remove());
   root.querySelectorAll(".katex-mathml").forEach((e) => (e.className = "katex-static"));
   root.querySelectorAll("canvas").forEach((e) => e.remove());
+  // Images are described by their alt text: <img> tags in the hidden copy
+  // make the browser fetch the app's lazy images eagerly.
+  root.querySelectorAll("img").forEach((e) => {
+    const alt = document.createElement("span");
+    alt.className = "static-image";
+    alt.textContent = e.alt ? "[Image: " + e.alt + "]" : "";
+    e.replaceWith(alt);
+  });
   return {
     title: document.title,
     head: [...document.head.querySelectorAll("[data-rh]")].map((e) => e.outerHTML).join("\\n    "),
