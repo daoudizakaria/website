@@ -17,7 +17,15 @@
  */
 import { spawn, execFileSync } from "node:child_process";
 import { createServer } from "node:http";
-import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import {
+  mkdtempSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -26,11 +34,24 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BUILD = join(ROOT, "build");
 const CONTENT = join(ROOT, "src", "content");
 const SITE_URL = "https://zakariadaoudi.com";
-const STATIC_ROUTES = ["/home", "/education", "/experience", "/projects", "/research", "/field-notes", "/contact"];
+const STATIC_ROUTES = [
+  "/home",
+  "/education",
+  "/experience",
+  "/projects",
+  "/research",
+  "/field-notes",
+  "/contact",
+];
 
 function findChrome() {
   if (process.env.CHROME_PATH) return process.env.CHROME_PATH;
-  for (const name of ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser"]) {
+  for (const name of [
+    "google-chrome",
+    "google-chrome-stable",
+    "chromium",
+    "chromium-browser",
+  ]) {
     try {
       return execFileSync("which", [name], { encoding: "utf8" }).trim();
     } catch {
@@ -48,7 +69,9 @@ function slugs(dir) {
       const p = join(d, name);
       if (statSync(p).isDirectory()) walk(p);
       else if (name.endsWith(".md")) {
-        const m = readFileSync(p, "utf8").match(/^---\n[\s\S]*?^slug:\s*["']?([^"'\n]+?)["']?\s*$/m);
+        const m = readFileSync(p, "utf8").match(
+          /^---\n[\s\S]*?^slug:\s*["']?([^"'\n]+?)["']?\s*$/m
+        );
         if (m) out.push(m[1]);
       }
     }
@@ -61,24 +84,41 @@ function routes() {
   return [
     ...STATIC_ROUTES,
     ...slugs(join(CONTENT, "projects")).map((s) => `/projects/${s}`),
-    ...slugs(join(CONTENT, "research", "articles")).map((s) => `/research/${s}`),
+    ...slugs(join(CONTENT, "research", "articles")).map(
+      (s) => `/research/${s}`
+    ),
   ];
 }
 
 const TYPES = {
-  ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
-  ".png": "image/png", ".webp": "image/webp", ".jpg": "image/jpeg", ".svg": "image/svg+xml",
-  ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf", ".ico": "image/x-icon", ".pdf": "application/pdf",
+  ".html": "text/html",
+  ".js": "text/javascript",
+  ".css": "text/css",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".jpg": "image/jpeg",
+  ".svg": "image/svg+xml",
+  ".woff2": "font/woff2",
+  ".woff": "font/woff",
+  ".ttf": "font/ttf",
+  ".ico": "image/x-icon",
+  ".pdf": "application/pdf",
 };
 
 /** Static server for build/, answering every unknown path with the app shell. */
 function serve(shell) {
   const server = createServer((req, res) => {
-    const path = normalize(decodeURIComponent(req.url.split("?")[0])).replace(/^(\.\.[/\\])+/, "");
+    const path = normalize(decodeURIComponent(req.url.split("?")[0])).replace(
+      /^(\.\.[/\\])+/,
+      ""
+    );
     const file = join(BUILD, path);
     try {
       if (statSync(file).isFile()) {
-        res.writeHead(200, { "content-type": TYPES[extname(file)] || "application/octet-stream" });
+        res.writeHead(200, {
+          "content-type": TYPES[extname(file)] || "application/octet-stream",
+        });
         res.end(readFileSync(file));
         return;
       }
@@ -88,7 +128,9 @@ function serve(shell) {
     res.writeHead(200, { "content-type": "text/html" });
     res.end(shell);
   });
-  return new Promise((resolve) => server.listen(0, "127.0.0.1", () => resolve(server)));
+  return new Promise((resolve) =>
+    server.listen(0, "127.0.0.1", () => resolve(server))
+  );
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -96,14 +138,26 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function openBrowser(chromePath) {
   const port = 9300 + Math.floor(Math.random() * 600);
   const profile = mkdtempSync(join(tmpdir(), "prerender-"));
-  const chrome = spawn(chromePath, [
-    "--headless=new", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
-    `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, "--window-size=1280,900", "about:blank",
-  ], { stdio: "ignore" });
+  const chrome = spawn(
+    chromePath,
+    [
+      "--headless=new",
+      "--no-sandbox",
+      "--disable-gpu",
+      "--hide-scrollbars",
+      `--remote-debugging-port=${port}`,
+      `--user-data-dir=${profile}`,
+      "--window-size=1280,900",
+      "about:blank",
+    ],
+    { stdio: "ignore" }
+  );
   let ws;
   for (let i = 0; i < 100 && !ws; i++) {
     try {
-      const list = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
+      const list = await (
+        await fetch(`http://127.0.0.1:${port}/json/list`)
+      ).json();
       const page = list.find((t) => t.type === "page");
       if (page) ws = new WebSocket(page.webSocketDebuggerUrl);
     } catch {
@@ -132,14 +186,23 @@ async function openBrowser(chromePath) {
       ws.send(JSON.stringify({ id: i, method, params }));
     });
   const evaluate = async (expression) =>
-    (await send("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true })).result?.result?.value;
+    (
+      await send("Runtime.evaluate", {
+        expression,
+        awaitPromise: true,
+        returnByValue: true,
+      })
+    ).result?.result?.value;
   await send("Page.enable");
   await send("Runtime.enable");
   // No splash, no entrance animations: capture the content as it settles.
   await send("Page.addScriptToEvaluateOnNewDocument", {
-    source: "try{sessionStorage.setItem('splashShown','1');localStorage.setItem('splashShown','1')}catch(e){}",
+    source:
+      "try{sessionStorage.setItem('splashShown','1');localStorage.setItem('splashShown','1')}catch(e){}",
   });
-  await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
+  await send("Emulation.setEmulatedMedia", {
+    features: [{ name: "prefers-reduced-motion", value: "reduce" }],
+  });
   return {
     errors,
     send,
@@ -195,14 +258,24 @@ async function render(browser, base, route) {
   return page;
 }
 
-const escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const escapeHtml = (s) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 /** The app shell with the page's head tags and content filled in. */
 function fill(shell, page) {
   return shell
-    .replace(/\s*<meta (?:name="description"|property="og:(?:title|description|url|type)")[^>]*>/g, "")
-    .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(page.title)}</title>\n    ${page.head}`)
-    .replace('<div id="root"></div>', `<div id="root"><div data-prerendered>${page.html}</div></div>`);
+    .replace(
+      /\s*<meta (?:name="description"|property="og:(?:title|description|url|type)")[^>]*>/g,
+      ""
+    )
+    .replace(
+      /<title>[^<]*<\/title>/,
+      `<title>${escapeHtml(page.title)}</title>\n    ${page.head}`
+    )
+    .replace(
+      '<div id="root"></div>',
+      `<div id="root"><div data-prerendered>${page.html}</div></div>`
+    );
 }
 
 function write(route, html) {
@@ -216,15 +289,21 @@ function write(route, html) {
 async function main() {
   const chromePath = findChrome();
   if (!chromePath) {
-    console.warn("prerender: no Chrome or Chromium found; skipping (set CHROME_PATH to enable).");
+    console.warn(
+      "prerender: no Chrome or Chromium found; skipping (set CHROME_PATH to enable)."
+    );
     return;
   }
   if (typeof WebSocket === "undefined") {
-    throw new Error("prerender needs Node 22, or Node 20 with --experimental-websocket");
+    throw new Error(
+      "prerender needs Node 22, or Node 20 with --experimental-websocket"
+    );
   }
   const shell = readFileSync(join(BUILD, "index.html"), "utf8");
   if (!shell.includes('<div id="root"></div>')) {
-    throw new Error("build/index.html is already prerendered; run `npm run build` again");
+    throw new Error(
+      "build/index.html is already prerendered; run `npm run build` again"
+    );
   }
   const server = await serve(shell);
   const base = `http://127.0.0.1:${server.address().port}`;
@@ -252,14 +331,21 @@ async function main() {
     browser.close();
     server.close();
   }
-  const urls = [SITE_URL + "/", ...list.filter((r) => r !== "/home").map((r) => SITE_URL + r)];
+  const urls = [
+    SITE_URL + "/",
+    ...list.filter((r) => r !== "/home").map((r) => SITE_URL + r),
+  ];
   writeFileSync(
     join(BUILD, "sitemap.xml"),
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
       urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n") +
       "\n</urlset>\n"
   );
-  console.log(`prerender: ${list.length - failed.length}/${list.length} pages, ${(bytes / 1e6).toFixed(1)} MB of HTML, sitemap with ${urls.length} URLs`);
+  console.log(
+    `prerender: ${list.length - failed.length}/${list.length} pages, ${(
+      bytes / 1e6
+    ).toFixed(1)} MB of HTML, sitemap with ${urls.length} URLs`
+  );
   if (failed.length) {
     console.error("prerender: failed pages:\n  " + failed.join("\n  "));
     process.exitCode = 1;
