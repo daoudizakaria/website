@@ -124,6 +124,7 @@ function ReadingProgress({ active }) {
  * @param {object} props
  * @param {object} props.theme
  * @param {string} props.pageTitle - browser-tab title (via Header/SeoHeader)
+ * @param {string} [props.description] - page summary for search results and link previews
  * @param {string} props.title - page heading
  * @param {string} [props.subtitle] - line under the title (date etc.)
  * @param {string} [props.badge] - small label chip next to the subtitle
@@ -137,6 +138,7 @@ function ReadingProgress({ active }) {
 export default function ContentDetail({
   theme,
   pageTitle,
+  description,
   title,
   subtitle,
   badge,
@@ -178,7 +180,7 @@ export default function ContentDetail({
 
   return (
     <div className="article-detail-main">
-      <Header theme={theme} pageTitle={pageTitle} />
+      <Header theme={theme} pageTitle={pageTitle} description={description} />
       <ReadingProgress active={longText} />
       <div
         className={`article-detail-content ${

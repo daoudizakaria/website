@@ -9,6 +9,11 @@ import * as serviceWorker from "./serviceWorker";
 import "./assets/font-awesome/css/fontawesome.css";
 import "./assets/font-awesome/css/brands.css";
 
+// Pages are prerendered at build time (scripts/prerender.mjs) for readers
+// that do not run JavaScript; the app replaces that copy.
+const prerendered = document.querySelector("[data-prerendered]");
+if (prerendered) prerendered.remove();
+
 const root = createRoot(document.getElementById("root"));
 root.render(
   <HelmetProvider>
@@ -16,7 +21,4 @@ root.render(
   </HelmetProvider>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

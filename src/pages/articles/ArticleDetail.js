@@ -119,6 +119,7 @@ function ArticleDetail(props) {
       <ContentDetail
         theme={theme}
         pageTitle={`${partLabel(article)} · ${parent.name}`}
+        description={article.description}
         title={article.name}
         lead={
           <SeriesBreadcrumb
@@ -153,6 +154,7 @@ function ArticleDetail(props) {
     <ContentDetail
       theme={theme}
       pageTitle={article.name}
+      description={article.description}
       title={article.name}
       subtitle={`Published on ${article.createdAt.split("T")[0]}${
         parts.length === 0 ? ` · ${article.readingMinutes} min read` : ""

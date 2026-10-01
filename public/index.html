@@ -2,13 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- The prerendered copy of the page is for readers without JavaScript;
+         with JavaScript the app renders the page itself. -->
+    <script>document.documentElement.classList.add("js");</script>
+    <style>.js [data-prerendered] { display: none; }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Zakaria Daoudi, physicist by training and machine-learning engineer. Projects, technical reports and research notes in physics and machine learning." />
     <meta property="og:title" content="Zakaria Daoudi" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.zakariadaoudi.com/" />
+    <meta property="og:url" content="https://zakariadaoudi.com/" />
     <meta property="og:description" content="Zakaria Daoudi, physicist by training and machine-learning engineer. Projects, technical reports and research notes in physics and machine learning." />
-    <meta property="og:image" content="https://www.zakariadaoudi.com/icons/favicon-96x96.png" />
+    <meta property="og:image" content="https://zakariadaoudi.com/icons/favicon-96x96.png" />
     <meta name="keywords" content="Zakaria Daoudi, physicist, machine learning, theoretical physics, gravitational waves, Monte Carlo" />
     <meta name="author" content="Zakaria Daoudi" />
     <meta name="application-name" content="Zakaria Daoudi" />
@@ -66,7 +70,6 @@
     </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
 </html>

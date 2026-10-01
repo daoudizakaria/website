@@ -191,6 +191,7 @@ function ProjectDetail(props) {
       <ContentDetail
         theme={theme}
         pageTitle={`${seriesPartLabel(page)} · ${project.name}`}
+        description={page.description}
         title={page.name}
         badge={CATEGORY_LABELS[project.category]}
         lead={
@@ -225,6 +226,7 @@ function ProjectDetail(props) {
     <ContentDetail
       theme={theme}
       pageTitle={project.name}
+      description={project.description}
       title={project.name}
       subtitle={subtitle || `Last updated ${project.createdAt.split("T")[0]}`}
       badge={CATEGORY_LABELS[project.category]}

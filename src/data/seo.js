@@ -8,7 +8,7 @@ const seo = {
   og: {
     title: "Zakaria Daoudi",
     type: "website",
-    url: "https://www.zakariadaoudi.com/",
+    url: "https://zakariadaoudi.com/",
   },
 };
 

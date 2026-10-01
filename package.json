@@ -5,6 +5,7 @@
   "homepage": "https://zakariadaoudi.com",
   "scripts": {
     "build": "craco build",
+    "postbuild": "node --experimental-websocket scripts/prerender.mjs",
     "cms:dev": "decap-server",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build --repo https://github.com/daoudizakaria/website.git --nojekyll --cname www.zakariadaoudi.com",
