@@ -37,7 +37,7 @@ $$
 \tag{7.1}
 $$
 
-which lies within half a unit of its maximum value $\ln m$.[^2] For ten qubits inside a typical pure state of 110 qubits, $m = 2^{10}$ and $n = 2^{100}$, and the entropy falls short of $10\ln 2$ by $2^{-91}$. A small subsystem of a typical pure state is very nearly maximally mixed and carries almost no information about the whole. Problem 1 derives a weaker bound of the same type.
+which lies within half a unit of its maximum value $\ln m$.[^2] For ten qubits inside a typical pure state of 110 qubits, $m = 2^{10}$ and $n = 2^{100}$, and the entropy falls short of $10\ln 2$ by $2^{-91}$. A small subsystem of a typical pure state is very nearly maximally mixed and carries almost no information about the whole. A cruder bound, $\langle S_{A}\rangle \geq \ln m - m/n$, follows in a few lines from the average purity $\langle\mathrm{tr}\,\rho_{A}^{2}\rangle = (m+n)/(mn+1)$ and the inequality $S(\rho) \geq -\ln\mathrm{tr}\,\rho^{2}$.
 
 Page (1993b) then applied the theorem to evaporation. Suppose that evaporation is unitary and that the joint state of black hole and radiation behaves like a typical pure state. Early on, the radiation is the smaller subsystem and its entropy grows, as in Hawking's calculation. Once more than half of the degrees of freedom have been emitted, the black hole is the smaller subsystem, and the entropy of the radiation must equal that of the black hole, which is decreasing. The entropy of the radiation therefore rises and then falls back to zero. This is the Page curve; its maximum is at the Page time. The information problem can now be put sharply: a unitary theory must reproduce the Page curve, and the semiclassical calculation does not.
 
@@ -67,7 +67,7 @@ t_{*} \sim \frac{1}{2\pi{T_{\mathrm{H}}}}\ln{S_{\mathrm{BH}}} = 4M\ln{S_{\mathrm
 \tag{7.3}
 $$
 
-which is of order $M\ln M$. The old black hole behaves as an information mirror. The scrambling time is short: for a solar-mass black hole it is a few milliseconds (Problem 4).
+which is of order $M\ln M$. The old black hole behaves as an information mirror. The scrambling time is short: for a solar-mass black hole it is a few milliseconds.
 
 ## 7.5 Why small corrections do not help
 
@@ -156,16 +156,6 @@ These results are widely regarded as the most significant advance on the problem
 Several things are not established. The calculations rely on low-dimensional models or on a bath, and Geng and Karch (2020) have argued that in higher-dimensional versions the graviton acquires a mass, which makes the extension to ordinary gravity less direct. Island computations for four-dimensional asymptotically flat black holes exist but rest on further assumptions. The calculation yields an entropy, not the mechanism by which information reaches the Hawking quanta. Nor does it settle what an infalling observer meets at the horizon of an old black hole: many read entanglement wedge reconstruction as support for a smooth horizon, others as a precise form of complementarity that leaves the firewall question open. Spacetime wormholes also raise the question of whether the gravitational path integral describes a single quantum system or an ensemble, a question tied to the duality between Jackiw–Teitelboim gravity and a random matrix ensemble (Saad et al., 2019). Raju (2022) reviews these issues critically and argues that, because of the gravitational Gauss law, information in gravity is always available at infinity.
 
 In the terms of Section [7.2](#72-hawkings-argument), the recent work keeps (ii) and, on the most common reading, modifies (iii) through a calculable, non-local identification of the interior with part of the radiation. Whether that is the whole story remains open.
-
-## Problems
-
-1. _A bound on Page's average._ Let ${\lvert \psi \rangle}$ be a random unit vector in $\mathbb{C}^{m}\otimes\mathbb{C}^{n}$, $N = mn$, distributed with the unitarily invariant measure, whose components satisfy $\langle\psi_{i}\psi_{j}^{*}\psi_{k}\psi_{l}^{*}\rangle = (\delta_{ij}\delta_{kl} + \delta_{il}\delta_{kj})/[N(N+1)]$. Show that the reduced density matrix $\rho_{A}$ of the $m$-dimensional factor obeys $\langle\mathrm{tr}\,\rho_{A}^{2}\rangle = (m+n)/(mn+1)$. Using $S(\rho) \geq -\ln\mathrm{tr}\,\rho^{2}$ and the convexity of $-\ln x$, deduce that $\langle S_{A}\rangle \geq \ln m - m/n$ for all $m$ and $n$, and compare with Eq. (7.1).
-
-2. _The Page time._ From Eq. (7.2) show that the Page time is $t_{\mathrm{Page}}/\tau = 1 - [\beta/(1+\beta)]^{3/2}$. Evaluate it, together with $M/M_{0}$ and the maximum entropy of the radiation in units of $S_{0}$, for $\beta = 1.48$. Repeat for $\beta = 1$, and explain why $\beta = 1$ would correspond to reversible emission.
-
-3. _Monogamy and young black holes._ (a) Show that if $S(B\tilde{B}) = 0$ then $\rho_{RB\tilde{B}} = \rho_{R}\otimes{\lvert \psi \rangle}{\langle \psi \rvert}_{B\tilde{B}}$, and hence that $S(RB) = S(R) + S(B)$, so that the strong subadditivity inequality used in Section [7.6](#76-complementarity-and-the-firewall-paradox) is saturated. (Purify $\rho_{RB\tilde{B}}$ and use the Schmidt decomposition across $B\tilde{B}$ and its complement.) (b) Explain why the same argument produces no contradiction for a black hole before its Page time.
-
-4. _Scrambling a solar-mass black hole._ Using Eq. (7.3), $GM_{\odot}/c^{3} \approx 4.93\,\mu\mathrm{s}$, $GM_{\odot}/c^{2} \approx 1.48\,\mathrm{km}$ and ${\ell_{\mathrm{P}}} \approx 1.62\times 10^{-35}\,\mathrm{m}$, compute ${S_{\mathrm{BH}}} = 4\pi(GM/c^{2})^{2}/{\ell_{\mathrm{P}}}^{2}$ and the scrambling time of a solar-mass black hole in seconds. Compare it with the Page time, taking $\tau \sim 10^{67}$ years.
 
 ## Notes and further reading
 

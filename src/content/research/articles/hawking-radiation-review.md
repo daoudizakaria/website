@@ -6,8 +6,8 @@ summary: >-
   Ten lectures on Hawking radiation for graduate students: the semiclassical
   calculation and the other routes to the same temperature, evaporation, the
   trans-Planckian and information problems, analogue experiments and the
-  observational searches. Each lecture ends with problems and annotated
-  suggestions for further reading.
+  observational searches. Each lecture ends with annotated suggestions for
+  further reading.
 tags:
   - black-holes
   - quantum-field-theory
@@ -33,4 +33,4 @@ overview:
 
 ## Abstract
 
-Hawking radiation is sometimes described as an effect of quantum gravity. It is better understood as a consequence of quantum field theory on a fixed background, and ultimately of a single geometrical fact: outgoing rays near a forming horizon are redshifted exponentially. These lectures are organised around that observation. After the classical laws of black hole mechanics and a short treatment of the Unruh effect, we derive the Hawking temperature step by step, then compare the Euclidean, anomaly and tunnelling derivations to see which ingredients each of them actually requires. The numbers matter as much as the formalism. A black hole of one solar mass radiates at about $6\times10^{-8}$ K and would need some $10^{67}$ years to evaporate, whereas a primordial black hole of $5\times10^{14}$ g would be completing its evaporation today. The longest lecture concerns the information problem, from Hawking's 1976 argument to the Page curve and the island calculations that reproduce it. The course closes with what can be tested: analogue horizons in Bose–Einstein condensates, and the searches for evaporating black holes in astrophysical data and at colliders. Each lecture ends with problems and with annotated suggestions for further reading.
+Hawking radiation is sometimes described as an effect of quantum gravity. It is better understood as a consequence of quantum field theory on a fixed background, and ultimately of a single geometrical fact: outgoing rays near a forming horizon are redshifted exponentially. These lectures are organised around that observation. After the classical laws of black hole mechanics and a short treatment of the Unruh effect, we derive the Hawking temperature step by step, then compare the Euclidean, anomaly and tunnelling derivations to see which ingredients each of them actually requires. The numbers matter as much as the formalism. A black hole of one solar mass radiates at about $6\times10^{-8}$ K and would need some $10^{67}$ years to evaporate, whereas a primordial black hole of $5\times10^{14}$ g would be completing its evaporation today. The longest lecture concerns the information problem, from Hawking's 1976 argument to the Page curve and the island calculations that reproduce it. The course closes with what can be tested: analogue horizons in Bose–Einstein condensates, and the searches for evaporating black holes in astrophysical data and at colliders. Each lecture ends with annotated suggestions for further reading.

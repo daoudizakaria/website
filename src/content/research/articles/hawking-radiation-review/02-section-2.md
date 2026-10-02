@@ -94,7 +94,7 @@ $$
 
 The vacuum associated with this choice is the state ${\lvert 0_{f} \rangle}$ annihilated by all the $a_{i}$, and the $a_{i}^{\dagger}$ create particles. In Minkowski spacetime there is a preferred choice: the modes that are positive frequency with respect to inertial time, $f \propto e^{-i\omega t}$ with $\omega > 0$, and this choice is the same for all inertial observers. A general curved spacetime has no preferred time coordinate, and different choices of positive-frequency modes lead to inequivalent notions of particle and of vacuum (Fulling, 1973). This ambiguity is not a technical nuisance. It is the central feature of the subject.
 
-The tool for comparing two choices is the Bogoliubov transformation. The reader who has not met it before should work Problem 2 at the end of this lecture before going on; it is the single-mode version of everything that follows. Suppose that a second complete set of positive-norm modes $\{p_{j}\}$ is given. Since both sets span the space of solutions, the new modes can be expanded in terms of the old ones,
+The tool for comparing two choices is the Bogoliubov transformation. The single-mode case already contains everything that follows: if $b = a\cosh r + a^{\dagger}\sinh r$, then $\alpha = \cosh r$, $\beta = \sinh r$, and the vacuum of $a$ contains on average $\sinh^{2}r$ quanta of $b$. Suppose that a second complete set of positive-norm modes $\{p_{j}\}$ is given. Since both sets span the space of solutions, the new modes can be expanded in terms of the old ones,
 
 $$
 p_{j} = \sum_{i}\left(\alpha_{ji}f_{i} + \beta_{ji}f_{i}^{*}\right),
@@ -181,7 +181,7 @@ $$
 
 An accelerated observer in the Minkowski vacuum perceives a thermal bath. For accelerations of everyday magnitude the effect is absurdly small: $a = 9.8\,\mathrm{m\,s^{-2}}$ gives $T_{\mathrm{U}} \approx 4\times 10^{-20}\,\mathrm{K}$, and a temperature of $1\,\mathrm{K}$ requires $a \approx 2.5\times 10^{20}\,\mathrm{m\,s^{-2}}$.
 
-The Minkowski vacuum can be written explicitly in terms of Rindler states. One verifies directly (Problem 4) that the state
+The Minkowski vacuum can be written explicitly in terms of Rindler states. One verifies directly that the state
 
 $$
 {\lvert 0_{\mathrm{M}} \rangle} = \prod_{\omega}\sqrt{1 - e^{-2\pi\omega/a}}\;\sum_{n=0}^{\infty} e^{-\pi n\omega/a}\,{\lvert n_{\omega} \rangle}_{\mathrm{L}}\otimes{\lvert n_{\omega} \rangle}_{\mathrm{R}}
@@ -201,21 +201,9 @@ $$
 \tag{2.18}
 $$
 
-where $\Omega$ is the angular velocity of the body. The origin of the effect is simple. In the frame co-rotating with the body the wave has frequency $\omega - m\Omega$, which is negative when Eq. (2.18) holds, so absorption in the co-rotating frame is emission in the frame of the observer. Zel'dovich argued that in quantum theory the same body should also emit spontaneously in these “superradiant” modes. Starobinsky (1973) computed the corresponding amplification for a Kerr black hole, for which $\Omega$ is replaced by the angular velocity of the horizon $\Omega_{\mathrm{H}}$; Teukolsky and Press (1974) extended the analysis to electromagnetic and gravitational waves, and Unruh (1974) confirmed, by quantising the field on the Kerr background, that a rotating black hole emits spontaneously in the superradiant modes. For a black hole the condition (2.18) also follows from the first and second laws alone (Problem 5).
+where $\Omega$ is the angular velocity of the body. The origin of the effect is simple. In the frame co-rotating with the body the wave has frequency $\omega - m\Omega$, which is negative when Eq. (2.18) holds, so absorption in the co-rotating frame is emission in the frame of the observer. Zel'dovich argued that in quantum theory the same body should also emit spontaneously in these “superradiant” modes. Starobinsky (1973) computed the corresponding amplification for a Kerr black hole, for which $\Omega$ is replaced by the angular velocity of the horizon $\Omega_{\mathrm{H}}$; Teukolsky and Press (1974) extended the analysis to electromagnetic and gravitational waves, and Unruh (1974) confirmed, by quantising the field on the Kerr background, that a rotating black hole emits spontaneously in the superradiant modes. For a black hole the condition (2.18) also follows from the first and second laws alone.
 
 The reasoning of Zel'dovich and Starobinsky was an important motivation for Hawking's investigation. What it did not prepare anyone for was the answer: emission in all modes, persisting when the black hole does not rotate at all. Its later applications, from black hole instabilities to searches for ultralight bosons, are reviewed by Brito et al. (2020).
-
-## Problems
-
-1. The Reissner–Nordström metric has the form (2.1) with $f(r) = 1 - 2M/r + Q^{2}/r^{2}$, $|Q| < M$. Show that $f(r) = (r - r_{+})(r - r_{-})/r^{2}$ with $r_{\pm} = M \pm \sqrt{M^{2} - Q^{2}}$, and that the surface gravity of the outer horizon is $\kappa = (r_{+} - r_{-})/2r_{+}^{2}$. Show that $\kappa \to 0$ in the extremal limit $|Q| \to M$, and that $\kappa = 1/4M$ when $Q = 0$.
-
-2. Let $a$ be the annihilation operator of a single oscillator with vacuum ${\lvert 0_{a} \rangle}$, and define $b = a\cosh r + a^{\dagger}\sinh r$ with $r$ real. Show that $[b, b^{\dagger}] = 1$, that ${\langle 0_{a} \rvert}b^{\dagger}b{\lvert 0_{a} \rangle} = \sinh^{2}r$, and that the state annihilated by $b$ is proportional to $\exp\!\big(-\tfrac{1}{2}\tanh r\,(a^{\dagger})^{2}\big){\lvert 0_{a} \rangle}$. Identify $\alpha$ and $\beta$ by comparison with Eq. (2.8), and check the normalisation condition $|\alpha|^{2} - |\beta|^{2} = 1$. (Hint: $a$ acts on a function of $a^{\dagger}$ as $\partial/\partial a^{\dagger}$.)
-
-3. Using Eq. (2.16), evaluate $T_{\mathrm{U}}$ for $a = 9.8\,\mathrm{m\,s^{-2}}$ and find the acceleration for which $T_{\mathrm{U}} = 1\,\mathrm{K}$. Then evaluate the surface gravity $c^{4}/4GM$ of a solar-mass black hole in $\mathrm{m\,s^{-2}}$, and show that inserting it in place of $a$ in Eq. (2.16) reproduces the temperature $6.2\times 10^{-8}\,\mathrm{K}$ of Eq. (1.1).
-
-4. Show that the state (2.17) is normalised and satisfies both conditions (2.14). For a single mode of frequency $\omega$, show that the entanglement entropy of the right wedge, $-\mathrm{tr}\,\rho_{\mathrm{R}}\ln\rho_{\mathrm{R}}$, equals $-\ln(1 - e^{-\omega/T_{\mathrm{U}}}) + (\omega/T_{\mathrm{U}})/(e^{\omega/T_{\mathrm{U}}} - 1)$, the thermal entropy of an oscillator. Show that it tends to zero for $\omega \gg T_{\mathrm{U}}$ and diverges logarithmically as $\omega/T_{\mathrm{U}} \to 0$.
-
-5. A wave of frequency $\omega > 0$ and azimuthal number $m$ carries angular momentum and energy in the ratio ${\mathrm{d}} J/{\mathrm{d}} M = m/\omega$. Apply the first law (2.4) with ${\mathrm{d}} Q = 0$ to the absorption of such a wave by a Kerr black hole, and use the area theorem ${\mathrm{d}} A \geq 0$ to show that the black hole can lose mass to the wave, that is, the wave can be amplified, only if $\omega < m\,\Omega_{\mathrm{H}}$.
 
 ## Notes and further reading
 

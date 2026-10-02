@@ -40,7 +40,7 @@ with $C = (c\kappa)^{-1}$. This is the exponential relation promised in Section 
 
 A common error at this point is to look for the exponential inside the star. It is not there. The interior supplies the linear map (3.1) and fixes only the constant $c$; the exponential comes from the exterior relation between $U$ and $u$, at a rate set by the surface gravity alone.
 
-The numbers are worth seeing once. For a solar-mass black hole, $\kappa^{-1} = 4GM/c^{3} \approx 20\,\mu\mathrm{s}$. A millisecond of retarded time therefore multiplies the redshift by about $e^{50} \approx 5\times 10^{21}$. A Hawking quantum detected a couple of milliseconds after the horizon forms must be traced back to a wave on ${\mathscr{I}}^{-}$ with a frequency above the Planck scale (Problem 3). This is the trans-Planckian problem of Lecture [6](/research/hawking-radiation-review/section-6).
+The numbers are worth seeing once. For a solar-mass black hole, $\kappa^{-1} = 4GM/c^{3} \approx 20\,\mu\mathrm{s}$. A millisecond of retarded time therefore multiplies the redshift by about $e^{50} \approx 5\times 10^{21}$. A Hawking quantum detected a couple of milliseconds after the horizon forms must be traced back to a wave on ${\mathscr{I}}^{-}$ with a frequency above the Planck scale. This is the trans-Planckian problem of Lecture [6](/research/hawking-radiation-review/section-6).
 
 > **Remark 3.1.**
 >
@@ -68,7 +68,7 @@ $$
 \tag{3.4}
 $$
 
-for the transmitted part of the mode.[^2] Hawking (1975) obtained the same relation by evaluating the integrals explicitly. Both are proportional to the same Gamma function, and their ratio comes entirely from the phase of $\pm i\omega'$ raised to a complex power (Problem 2).
+for the transmitted part of the mode.[^2] Hawking (1975) obtained the same relation by evaluating the integrals explicitly. Both are proportional to the same Gamma function, and their ratio comes entirely from the phase of $\pm i\omega'$ raised to a complex power.
 
 The rest is algebra. The normalisation condition of Section [2.3](/research/hawking-radiation-review/section-2#23-quantum-fields-in-curved-spacetime), applied to the transmitted part of the mode, reads $\sum_{\omega'}(|\alpha_{\omega\omega'}|^{2} - |\beta_{\omega\omega'}|^{2}) = \Gamma_{\omega\ell}$. With Eq. (3.4) it becomes $(e^{2\pi\omega/\kappa} - 1)\sum_{\omega'}|\beta_{\omega\omega'}|^{2} = \Gamma_{\omega\ell}$, so that
 
@@ -150,18 +150,6 @@ Two conclusions follow at once. Astrophysical black holes are far colder than th
 | $10^{9}\,\mathrm{g}$ | | $1.5\times 10^{-21}\,\mathrm{m}$ | $\approx 10\,\mathrm{TeV}$ | $\sim 0.4\,\mathrm{s}$ |
 
 _Table 2: Characteristic scales of Schwarzschild black holes. The lifetimes are order-of-magnitude estimates that depend on the particle species emitted (Section [5.2](/research/hawking-radiation-review/section-5#52-luminosity-mass-loss-and-lifetime)); they neglect accretion, including the absorption of the cosmic microwave background._
-
-## Problems
-
-1. _Surface gravity of a static horizon._ For the metric ${\mathrm{d}} s^{2} = -f(r)\,{\mathrm{d}} t^{2} + {\mathrm{d}} r^{2}/f(r) + r^{2}{\mathrm{d}}\Omega^{2}$ with a simple zero of $f$ at $r_{\mathrm{h}}$, show that near the horizon the tortoise coordinate behaves as $r_{*} \simeq (2\kappa)^{-1}\ln|r - r_{\mathrm{h}}|$ with $\kappa = f'(r_{\mathrm{h}})/2$, and that the radial metric $-f\,{\mathrm{d}} u\,{\mathrm{d}} v$ is regular at $r = r_{\mathrm{h}}$ when written in terms of $U = -\kappa^{-1}e^{-\kappa u}$ and $V = \kappa^{-1}e^{\kappa v}$, so that Eq. (3.2) holds with this $\kappa$. Apply the result to the Reissner–Nordström metric, $f = (1 - r_{+}/r)(1 - r_{-}/r)$, and show that ${T_{\mathrm{H}}} = (r_{+} - r_{-})/(4\pi r_{+}^{2})$, in agreement with the Kerr–Newman formula at $a = 0$.
-
-2. _The ratio from the Fourier integrals._ Up to a common factor, $\alpha_{\omega\omega'}$ and $\beta_{\omega\omega'}$ for the transmitted mode (3.3) are given by $I_{\pm} = \int_{0}^{\infty}{\mathrm{d}} x\,x^{i\omega/\kappa}\,e^{\mp i\omega' x - \epsilon x}$ with $x = v_{0} - v$ and $\epsilon \to 0^{+}$ (the upper sign for $\alpha$). Using $\int_{0}^{\infty}{\mathrm{d}} x\,x^{s-1}e^{-px} = \Gamma(s)\,p^{-s}$ for $\operatorname{Re}p > 0$, with the principal branch of $p^{-s}$, show that $|I_{+}/I_{-}| = e^{\pi\omega/\kappa}$, and hence recover Eq. (3.4).
-
-3. _How soon does the trans-Planckian problem appear?_ Working to logarithmic accuracy, show that a quantum of frequency $\omega \sim {T_{\mathrm{H}}}$ that reaches ${\mathscr{I}}^{+}$ at retarded time $u$ (measured from the formation of the horizon) left ${\mathscr{I}}^{-}$ with a frequency above the Planck mass once $u \gtrsim 4M\ln(8\pi M/{m_{\mathrm{P}}})$. Evaluate this time in seconds for $M = {M_{\odot}}$ and for $M = 5\times 10^{14}\,\mathrm{g}$. (Answers: about $2\,\mathrm{ms}$ and about $2\times 10^{-22}\,\mathrm{s}$.)
-
-4. _The local temperature near the horizon._ Write $r = 2M + \rho^{2}/8M$, so that $\rho$ is the proper distance from the horizon for $\rho \ll M$. Show that the local temperature ${T_{\mathrm{H}}}/\sqrt{f}$ seen by a static observer is $1/(2\pi\rho)$ to leading order, independent of $M$, and that this is the Unruh temperature for the proper acceleration of that observer. Explain why this local thermal bath is consistent with an infalling observer seeing no particles.
-
-5. _Negative heat capacity._ Show that for a Schwarzschild black hole $C = -2{S_{\mathrm{BH}}}$, and evaluate $C$ in $\mathrm{J\,K^{-1}}$ for $M = {M_{\odot}}$ (answer: about $-3\times 10^{54}\,\mathrm{J\,K^{-1}}$). A black hole whose mass is slightly larger than the value in Table 2 for which ${T_{\mathrm{H}}} = T_{\mathrm{CMB}}$ sits in the cosmic microwave background. Ignoring the expansion of the universe and all accretion other than of the background radiation, state whether it grows or shrinks, and whether it moves towards or away from the equilibrium mass.
 
 ## Notes and further reading
 

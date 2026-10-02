@@ -72,16 +72,6 @@ We assume general relativity at the level of a first graduate course, including 
 
 We use the metric signature $(-,+,+,+)$ and, except in numerical estimates, units in which $\hbar = c = G = k_{\mathrm{B}} = 1$. In these units the Planck mass and the Planck length are both equal to unity, the Schwarzschild radius is $r_{\mathrm{s}} = 2M$, and Eqs. (1.1) and (1.2) become ${T_{\mathrm{H}}} = \kappa/2\pi = 1/8\pi M$ and ${S_{\mathrm{BH}}} = A/4$.
 
-## Problems
-
-1. Restore units in the Schwarzschild surface gravity $\kappa = 1/4M$ to show that $\kappa = c^{4}/4GM$, and check that ${T_{\mathrm{H}}} = \hbar\kappa/2\pi c k_{\mathrm{B}}$ reproduces the second and third forms of Eq. (1.1). Evaluate ${T_{\mathrm{H}}}$, in kelvin and as $k_{\mathrm{B}}{T_{\mathrm{H}}}$ in MeV, for a black hole of mass $10^{12}\,\mathrm{kg}$.
-
-2. Find the mass of a Schwarzschild black hole whose Hawking temperature equals the present temperature of the cosmic microwave background, $2.725\,\mathrm{K}$, and compare it with the mass of the Moon, $7.3\times 10^{22}\,\mathrm{kg}$. Is a black hole formed by the collapse of a star currently gaining or losing mass through its exchange of radiation with the background?
-
-3. Assuming that a Schwarzschild black hole obeys ${\mathrm{d}} M = {T_{\mathrm{H}}}\,{\mathrm{d}} S$ (in units $\hbar = c = G = k_{\mathrm{B}} = 1$), integrate this relation with ${T_{\mathrm{H}}} = 1/8\pi M$ to show that $S = 4\pi M^{2} = A/4$, taking $S = 0$ at $M = 0$. Evaluate ${S_{\mathrm{BH}}}/k_{\mathrm{B}}$ for one solar mass, and show that the heat capacity ${\mathrm{d}} M/{\mathrm{d}}{T_{\mathrm{H}}}$ is negative.
-
-4. Derive the relation $\lambda = 8\pi^{2} r_{\mathrm{s}}/x$ of Section [1.3](#13-a-heuristic-picture-and-its-limitations) between the wavelength of a quantum of energy $x\,k_{\mathrm{B}}{T_{\mathrm{H}}}$ and the Schwarzschild radius. The energy flux of a black body per unit frequency peaks at $x \approx 2.82$. Explain in a few sentences why the resulting wavelength is incompatible with the idea that the emitted particles originate in a layer much thinner than $r_{\mathrm{s}}$ outside the horizon.
-
 ## Notes and further reading
 
 The reader who wants a single companion to the first half of this course should take the lecture notes of Jacobson (2005), which develop quantum field theory in curved spacetime from the beginning and reach the Hawking effect by a route close to ours. Wald (2001) is the standard review of black hole thermodynamics, and the place to see which of the four laws have been proved and under what assumptions; the short review of Carlip (2014) covers similar ground with more attention to microscopic proposals for the entropy. Page (2005) is strongest on the numbers: emission rates, lifetimes, and the entropy of the radiation.
