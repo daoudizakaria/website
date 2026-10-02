@@ -2,82 +2,82 @@
 slug: hawking-radiation-review/section-3
 title: "Hawking's calculation"
 date: 2024-12-01
-summary: "Hawking's argument step by step: the exponential redshift near a forming horizon, the Bogoliubov coefficients, the state of the radiation, and the entropy that it implies."
+summary: "The calculation itself: exponential peeling of outgoing rays, the thermal ratio of the Bogoliubov coefficients, and the state of the radiation and its partners."
 series: hawking-radiation-review
 part: section-3
 order: 3
-kicker: "Section 3"
+kicker: "Lecture 3"
 ---
-We are now in a position to follow the argument of Hawking (1974, 1975). We present it in a simplified form that isolates the essential steps; a careful treatment may be found in Hawking (1975), Birrell and Davies (1982), and Jacobson (2005).
+In 1973 Hawking set out to put the argument of Zel'dovich and Starobinsky (Section [2.5](/research/hawking-radiation-review/section-2#25-superradiance)) on a firm footing. He expected to confirm that a rotating black hole emits in its superradiant modes, and that the emission stops when the rotation does. It does not stop. A Schwarzschild black hole formed by collapse and then left alone emits a steady flux of particles with a thermal spectrum at the temperature $\kappa/2\pi$ (Hawking, 1974, 1975).[^1] We follow his argument in a stripped-down form that keeps only the steps that matter.
 
 ## 3.1 Set-up
 
-We consider a star that undergoes spherically symmetric gravitational collapse to form a Schwarzschild black hole, and a free massless scalar field propagating on the resulting spacetime, whose Penrose diagram is shown in Fig. 1. We make the following assumptions.
+We take a spherical star that collapses to form a Schwarzschild black hole, and on the resulting spacetime (Fig. 1) we place a free massless scalar field. We assume that before the collapse the field is in the vacuum defined by the natural time coordinate at past null infinity ${\mathscr{I}}^{-}$: nothing comes in from infinity. We assume that the collapsing matter is transparent to the field, so that an ingoing wave passes through the centre and comes out again; this is a convenience, and nothing essential depends on it. And we neglect the backreaction of the field on the geometry. The last assumption is the one that eventually fails, and we return to it in Section [5.6](/research/hawking-radiation-review/section-5#56-backreaction-and-the-end-point).
 
-(i) Before the collapse, the field is in its vacuum state with respect to the natural time coordinate at past null infinity ${\mathscr{I}}^{-}$; there is no incoming radiation.
+The question is what an observer at future null infinity ${\mathscr{I}}^{+}$ detects at late times. In the language of Section [2.3](/research/hawking-radiation-review/section-2#23-quantum-fields-in-curved-spacetime), the in-modes are positive frequency with respect to the advanced time $v$ on ${\mathscr{I}}^{-}$, the out-modes with respect to the retarded time $u$ on ${\mathscr{I}}^{+}$, and the number of out-quanta in the in-vacuum is $\sum|\beta|^{2}$ by Eq. (2.9). A single property of the geometry turns out to fix the $\beta$ coefficients.
 
-(ii) The field propagates freely through the collapsing matter, which is taken to be transparent; nothing essential depends on this assumption.
-
-(iii) The backreaction of the field on the geometry is neglected.
-
-The question is what an observer at future null infinity ${\mathscr{I}}^{+}$ detects at late times. In the language of Section [2.3](/research/hawking-radiation-review/section-2#23-quantum-fields-in-curved-spacetime), the in-modes are the modes that are positive frequency with respect to the advanced time $v$ on ${\mathscr{I}}^{-}$, the out-modes are those that are positive frequency with respect to the retarded time $u$ on ${\mathscr{I}}^{+}$, and the task is to compute the Bogoliubov coefficients relating the two.
-
-![Penrose diagram of a black hole formed by the collapse of a star (shaded). Ingoing rays from ℐ⁻ pass through the centre r = 0 and emerge as outgoing rays. The ray that leaves ℐ⁻ at the advanced time v₀ generates the event horizon (dashed). A ray that leaves ℐ⁻ slightly before v₀ (thick) remains close to the horizon for a long time and reaches ℐ⁺ at a late retarded time u; an earlier ray (grey) escapes promptly.](/uploads/research/hawking-penrose-collapse.png "Figure 1: Penrose diagram of a black hole formed by the collapse of a star (shaded). Ingoing rays from ℐ⁻ pass through the centre r = 0 and emerge as outgoing rays. The ray that leaves ℐ⁻ at the advanced time v₀ generates the event horizon (dashed). A ray that leaves ℐ⁻ slightly before v₀ (thick) remains close to the horizon for a long time and reaches ℐ⁺ at a late retarded time u; an earlier ray (grey) escapes promptly.")
+![Penrose diagram of a black hole formed by the collapse of a star (shaded). Ingoing rays from ℐ⁻ pass through the centre r = 0 and emerge as outgoing rays. The ray that leaves ℐ⁻ at the advanced time v₀ generates the event horizon (dashed). A ray that leaves ℐ⁻ slightly before v₀ (thick) stays close to the horizon for a long time and reaches ℐ⁺ at a late retarded time u; an earlier ray (grey) escapes promptly.](/uploads/research/hawking-penrose-collapse.png "Figure 1: Penrose diagram of a black hole formed by the collapse of a star (shaded). Ingoing rays from ℐ⁻ pass through the centre r = 0 and emerge as outgoing rays. The ray that leaves ℐ⁻ at the advanced time v₀ generates the event horizon (dashed). A ray that leaves ℐ⁻ slightly before v₀ (thick) stays close to the horizon for a long time and reaches ℐ⁺ at a late retarded time u; an earlier ray (grey) escapes promptly.")
 
 ## 3.2 The exponential redshift
 
-The whole calculation rests on a single geometrical fact, which we now derive. Consider an ingoing radial light ray that leaves ${\mathscr{I}}^{-}$ at advanced time $v$. It travels inwards, passes through the centre of the star, and emerges as an outgoing ray. Let $v_{0}$ denote the last ray that escapes to infinity; this ray generates the event horizon. A ray with $v$ slightly less than $v_{0}$ emerges just outside the horizon, lingers near it for a long time, and eventually reaches ${\mathscr{I}}^{+}$ at a late retarded time $u$ (Fig. 1).
+Consider an ingoing radial light ray that leaves ${\mathscr{I}}^{-}$ at advanced time $v$. It falls inwards, passes through the centre of the star and emerges as an outgoing ray. There is a last ray that escapes to infinity; we call its advanced time $v_{0}$. This ray generates the event horizon. A ray that leaves slightly before $v_{0}$ lingers just outside the horizon and reaches ${\mathscr{I}}^{+}$ at a late retarded time $u$ (the thick ray in Fig. 1). We want $u(v)$ as $v \to v_{0}$.
 
-To find the relation between $v$ and $u$, it is convenient to label the outgoing rays near the horizon by the Kruskal coordinate $U$ of Eq. (2.2), which is regular across the horizon, with $U = 0$ on the horizon itself. The map $v \mapsto U(v)$ is determined by the propagation of the ray through the smooth interior of the star. It is therefore a smooth, monotonic function, with $U(v_{0}) = 0$, and near $v_{0}$ it may be approximated by the first term of its Taylor expansion,
+The trick is to label the outgoing rays near the horizon not by $u$, which is infinite on the horizon, but by the Kruskal coordinate $U$ of Eq. (2.2), which is regular there and vanishes on the horizon itself. The map $v \mapsto U(v)$ is fixed by the passage of the ray through the star. Whatever the star is made of, this passage is smooth, so $U(v)$ is smooth and monotonic with $U(v_{0}) = 0$, and near $v_{0}$ the first term of its Taylor series is enough:
 
 $$
 U \simeq -c\,(v_{0} - v), \qquad c > 0 .
 \tag{3.1}
 $$
 
-Outside the star, on the other hand, the relation between $U$ and $u$ is fixed by the Schwarzschild geometry, $U = -\kappa^{-1}e^{-\kappa u}$. Combining the two relations gives
+Outside the star, the relation between $U$ and $u$ is pure Schwarzschild geometry, $U = -\kappa^{-1}e^{-\kappa u}$. Eliminating $U$ gives
 
 $$
 v_{0} - v \simeq C\,e^{-\kappa u}, \qquad u \to \infty,
 \tag{3.2}
 $$
 
-with $C = (c\kappa)^{-1}$. This is the exponential relation announced in Section [2.1](/research/hawking-radiation-review/section-2#21-the-schwarzschild-geometry-and-surface-gravity): equal intervals of retarded time at late times correspond to exponentially shrinking intervals of advanced time. Equivalently, a wave that reaches ${\mathscr{I}}^{+}$ with frequency $\omega$ at retarded time $u$ left ${\mathscr{I}}^{-}$ with frequency of order $\omega\,e^{\kappa u}$; the gravitational redshift between ${\mathscr{I}}^{-}$ and ${\mathscr{I}}^{+}$ grows exponentially with time.
+with $C = (c\kappa)^{-1}$. This is the exponential relation promised in Section [2.1](/research/hawking-radiation-review/section-2#21-the-schwarzschild-geometry-and-surface-gravity): a wave that reaches ${\mathscr{I}}^{+}$ with frequency $\omega$ at retarded time $u$ left ${\mathscr{I}}^{-}$ with a frequency of order $\omega\,e^{\kappa u}$, a redshift that grows exponentially with time.
+
+A common error at this point is to look for the exponential inside the star. It is not there. The interior supplies the linear map (3.1) and fixes only the constant $c$; the exponential comes from the exterior relation between $U$ and $u$, at a rate set by the surface gravity alone.
+
+The numbers are worth seeing once. For a solar-mass black hole, $\kappa^{-1} = 4GM/c^{3} \approx 20\,\mu\mathrm{s}$. A millisecond of retarded time therefore multiplies the redshift by about $e^{50} \approx 5\times 10^{21}$. A Hawking quantum detected a couple of milliseconds after the horizon forms must be traced back to a wave on ${\mathscr{I}}^{-}$ with a frequency above the Planck scale (Problem 3). This is the trans-Planckian problem of Lecture [6](/research/hawking-radiation-review/section-6).
 
 > **Remark 3.1.**
 >
-> The details of the collapse enter Eq. (3.2) only through the constant $C$, whereas the exponent is fixed by the surface gravity of the final black hole. We should therefore expect the late-time radiation to be independent of how the black hole was formed, in accordance with the no-hair property. We should also expect the argument to apply to any horizon, gravitational or not, across which the relation between the natural coordinates of the two sides is exponential. Both expectations are borne out (Sections [4.5](/research/hawking-radiation-review/section-4#45-rigorous-results-and-universality) and [8](/research/hawking-radiation-review/section-8)).
+> The details of the collapse enter Eq. (3.2) only through the constant $C$, while the exponent is fixed by the surface gravity of the final black hole. We should therefore expect the late-time radiation not to depend on how the black hole was formed, and the argument to apply to any horizon, gravitational or not, across which the natural coordinates of the two sides are related exponentially. Both expectations are borne out (Section [4.5](/research/hawking-radiation-review/section-4#45-rigorous-results-and-universality) and Lecture [8](/research/hawking-radiation-review/section-8)).
 
 ## 3.3 The Bogoliubov coefficients
 
-Consider an out-mode with frequency $\omega$ and angular momentum quantum numbers $(\ell, m)$, which near ${\mathscr{I}}^{+}$ has the form $p_{\omega} \propto r^{-1}e^{-i\omega u}Y_{\ell m}$. We trace this mode backwards in time. Part of it is scattered by the curvature potential outside the star and reaches ${\mathscr{I}}^{-}$ at late advanced times; this part is of the form $e^{-i\omega v}$, is positive frequency with respect to $v$, and contributes nothing to the $\beta$ coefficients. The remaining part, with a probability that we denote by $\Gamma_{\omega\ell}$, passes through the collapsing star and reaches ${\mathscr{I}}^{-}$ just before $v_{0}$. Using Eq. (3.2), this part has the form
+Take an out-mode of frequency $\omega$ and angular quantum numbers $(\ell, m)$, which near ${\mathscr{I}}^{+}$ has the form $p_{\omega} \propto r^{-1}e^{-i\omega u}Y_{\ell m}$, and run it backwards in time. Part of it scatters off the curvature potential outside the star and reaches ${\mathscr{I}}^{-}$ at late advanced times as $e^{-i\omega v}$, which is positive frequency and contributes nothing to $\beta$. The rest, a fraction $\Gamma_{\omega\ell}$ in probability, enters the star, passes through the centre and reaches ${\mathscr{I}}^{-}$ just before $v_{0}$. Substituting $u(v)$ from Eq. (3.2) into $e^{-i\omega u}$, we find
 
 $$
 p_{\omega}\big|_{{\mathscr{I}}^{-}} \propto
 \begin{cases}
 \exp\!\left[\dfrac{i\omega}{\kappa}\ln\dfrac{v_{0} - v}{C}\right], & v < v_{0},\\[1ex]
-0, & v > v_{0},
+0, & v > v_{0}.
 \end{cases}
 \tag{3.3}
 $$
 
-which oscillates infinitely rapidly as $v \to v_{0}$. This function is clearly not positive frequency with respect to $v$. To extract its negative-frequency content we can repeat, almost word for word, the analyticity argument of Section [2.4](/research/hawking-radiation-review/section-2#24-a-warm-up-the-unruh-effect). The in-modes $e^{-i\omega' v}$ with $\omega' > 0$ are analytic and bounded in the lower half of the complex $v$-plane. Continuing $(v_{0} - v)^{i\omega/\kappa}$ from $v < v_{0}$ to $v > v_{0}$ through the lower half-plane produces the factor $e^{-\pi\omega/\kappa}$, exactly as in Eq. (2.13). The upshot is that the Bogoliubov coefficients of the transmitted part satisfy
+This function oscillates infinitely often as $v \to v_{0}$ and vanishes beyond it. It is not positive frequency with respect to $v$, and we need to know by how much it fails to be.
+
+Rather than compute Fourier integrals, we repeat the analyticity argument of Section [2.4](/research/hawking-radiation-review/section-2#24-a-warm-up-the-unruh-effect) with $v_{0} - v$ in place of $-U$ and $\kappa$ in place of $a$. A function of $v$ is a superposition of in-modes $e^{-i\omega' v}$, $\omega' > 0$, if and only if it is analytic and bounded in the lower half $v$-plane. Continuing $(v_{0} - v)^{i\omega/\kappa}$ to $v > v_{0}$ through that half-plane rotates $v_{0} - v$ by $e^{i\pi}$ and produces the factor $e^{-\pi\omega/\kappa}$, as in Eq. (2.13). Hence (3.3) plus $e^{-\pi\omega/\kappa}$ times its mirror image, the function $[(v - v_{0})/C]^{i\omega/\kappa}$ supported on $v > v_{0}$, is purely positive frequency. Its negative-frequency content vanishes, so the negative-frequency content of the traced mode equals $-e^{-\pi\omega/\kappa}$ times that of the mirror image; and the reflection $v - v_{0} \to v_{0} - v$ shows that the negative-frequency content of the mirror image has the modulus of the positive-frequency content of the traced mode. Together these give
 
 $$
-|\beta_{\omega\omega'}|^{2} = e^{-2\pi\omega/\kappa}\,|\alpha_{\omega\omega'}|^{2}.
+|\beta_{\omega\omega'}|^{2} = e^{-2\pi\omega/\kappa}\,|\alpha_{\omega\omega'}|^{2}
 \tag{3.4}
 $$
 
-Hawking (1975) obtained the same relation by evaluating the Fourier integrals explicitly, which yields expressions involving $\Gamma(1 - i\omega/\kappa)$ whose ratio is precisely the factor in Eq. (3.4).
+for the transmitted part of the mode.[^2] Hawking (1975) obtained the same relation by evaluating the integrals explicitly. Both are proportional to the same Gamma function, and their ratio comes entirely from the phase of $\pm i\omega'$ raised to a complex power (Problem 2).
 
-The normalisation condition of Section [2.3](/research/hawking-radiation-review/section-2#23-quantum-fields-in-curved-spacetime), applied to the transmitted part of the mode, gives $\sum_{\omega'}(|\alpha_{\omega\omega'}|^{2} - |\beta_{\omega\omega'}|^{2}) = \Gamma_{\omega\ell}$. Combining this with Eq. (3.4) yields
+The rest is algebra. The normalisation condition of Section [2.3](/research/hawking-radiation-review/section-2#23-quantum-fields-in-curved-spacetime), applied to the transmitted part of the mode, reads $\sum_{\omega'}(|\alpha_{\omega\omega'}|^{2} - |\beta_{\omega\omega'}|^{2}) = \Gamma_{\omega\ell}$. With Eq. (3.4) it becomes $(e^{2\pi\omega/\kappa} - 1)\sum_{\omega'}|\beta_{\omega\omega'}|^{2} = \Gamma_{\omega\ell}$, so that
 
 $$
 \langle N_{\omega\ell m}\rangle = \sum_{\omega'}|\beta_{\omega\omega'}|^{2} = \frac{\Gamma_{\omega\ell}}{e^{2\pi\omega/\kappa} - 1}.
 \tag{3.5}
 $$
 
-For modes of definite frequency this expression contains a divergent factor, which reflects the fact that the emission continues for an infinite time. When the calculation is done with normalised wave packets, the divergence is replaced by the duration of the emission, and one obtains a steady emission rate. For a Kerr–Newman black hole the general result reads
+For modes of sharp frequency this number carries a divergent factor, because such a mode lasts forever and so does the emission. With normalised wave packets the divergence becomes the duration of the emission, and one obtains a steady rate; the factor $1/2\pi$ below counts wave packets per unit time and per unit frequency. For a Kerr–Newman black hole the general result is
 
 $$
 \frac{{\mathrm{d}} N}{{\mathrm{d}} t\,{\mathrm{d}}\omega} = \frac{1}{2\pi}\sum_{\ell, m}
@@ -87,48 +87,58 @@ $$
 \tag{3.6}
 $$
 
-where $q$ is the charge of the emitted particle, the upper sign applies to bosons, and the lower sign to fermions. For a Kerr–Newman black hole with outer and inner horizons $r_{\pm}$ and $a = J/M$, the surface gravity and the angular velocity of the horizon are $\kappa = (r_{+} - r_{-})/[2(r_{+}^{2} + a^{2})]$ and $\Omega_{\mathrm{H}} = a/(r_{+}^{2} + a^{2})$. Note that the superradiant condition (2.18) appears naturally in Eq. (3.6): the Planck factor changes sign when $\omega < m\Omega_{\mathrm{H}}$.
+where $q$ is the charge of the emitted particle, the upper sign applies to bosons and the lower sign to fermions. With outer and inner horizons at $r_{\pm}$ and $a = J/M$, the surface gravity and the angular velocity of the horizon are $\kappa = (r_{+} - r_{-})/[2(r_{+}^{2} + a^{2})]$ and $\Omega_{\mathrm{H}} = a/(r_{+}^{2} + a^{2})$; for $r_{-} = a = 0$ the first reduces to $1/4M$, as it should. Superradiance (2.18) is built in: for bosons with $\omega < m\Omega_{\mathrm{H}} + q\Phi_{\mathrm{H}}$ the Planck factor is negative, and so is the greybody factor, since such waves are amplified rather than absorbed. The positive product is the spontaneous emission that Zel'dovich and Starobinsky anticipated.
 
-Equation (3.6) is the central result. It states that a black hole emits particles of all species as a black body at the temperature ${T_{\mathrm{H}}}$, except that the Planck spectrum is multiplied by the greybody factor $\Gamma_{\omega\ell m}$. The latter is the probability that a wave emerging from the vicinity of the horizon traverses the curvature potential and reaches infinity; by time-reversal symmetry, it equals the probability that a wave sent in from infinity is absorbed by the black hole. It is discussed further in Section [5.1](/research/hawking-radiation-review/section-5#51-greybody-factors).
+Equation (3.6) is the central result of the course. A black hole emits particles of every species as a black body at temperature ${T_{\mathrm{H}}}$, except that the Planck spectrum is multiplied by the greybody factor $\Gamma_{\omega\ell m}$. This is the probability that a wave leaving the vicinity of the horizon crosses the curvature potential and reaches infinity. By time-reversal symmetry it equals the probability that a wave sent in from infinity is absorbed, and it is computed in Section [5.1](/research/hawking-radiation-review/section-5#51-greybody-factors).
 
 ## 3.4 A heuristic derivation from the Unruh effect
 
-The close similarity between Section [2.4](/research/hawking-radiation-review/section-2#24-a-warm-up-the-unruh-effect) and Section [3.3](#33-the-bogoliubov-coefficients) suggests a shortcut, which is worth presenting because it makes the physical origin of the temperature transparent. Close to the horizon, and over distances small compared with $M$, the Schwarzschild geometry is indistinguishable from flat spacetime in Rindler coordinates: a static observer at radius $r$ is simply an accelerated observer with proper acceleration $a(r) = M/(r^{2}\sqrt{f})$. If the state of the field near the horizon looks like the vacuum to freely falling observers, as it should if nothing singular happens at the horizon, then the static observer detects a thermal bath at the local Unruh temperature $a(r)/2\pi$. Thermal radiation climbing out of a gravitational potential is redshifted, and its temperature measured at infinity is reduced by the factor $\sqrt{f}$ (the Tolman relation; see Wald, 1994). The temperature measured at infinity is therefore
+The similarity with the Unruh effect of Section [2.4](/research/hawking-radiation-review/section-2#24-a-warm-up-the-unruh-effect) is no accident, and it yields the temperature in a few lines. Close to the horizon, over distances small compared with $M$, the Schwarzschild geometry is indistinguishable from flat spacetime in Rindler coordinates. A static observer at radius $r$ is then simply an accelerated observer, with proper acceleration $a(r) = M/(r^{2}\sqrt{f})$. Suppose that the field near the horizon looks like the vacuum to freely falling observers, as it must if nothing singular happens there. The static observer then sees a thermal bath at the local Unruh temperature $a(r)/2\pi$. Thermal radiation that climbs out of a gravitational potential is redshifted, and the temperature measured at infinity is lower by the factor $\sqrt{f}$ (the Tolman relation; see Wald, 1994).[^3] Hence
 
 $$
 T_{\infty} = \sqrt{f(r)}\,\frac{a(r)}{2\pi} = \frac{M}{2\pi r^{2}} \;\xrightarrow{\;r\,\to\,2M\;}\; \frac{1}{8\pi M} = \frac{\kappa}{2\pi},
 \tag{3.7}
 $$
 
-in agreement with Eq. (3.6). The argument makes clear that the Hawking temperature is the Unruh temperature associated with the surface gravity, and it isolates the key assumption: the state must be regular, in the sense of looking locally like the vacuum, across the horizon. The virtue of Hawking's calculation is that it derives this regularity from the collapse, rather than assuming it.
+in agreement with Eq. (3.6). The limit $r \to 2M$ is essential: only there is the local state close to the Rindler vacuum, so only there is the local temperature the Unruh temperature.
+
+For quick reasoning about horizons this is the most useful form of the result. It shows that the Hawking temperature is the Unruh temperature of the surface gravity, and it isolates the assumption on which everything rests: the state must look locally like the vacuum to an infalling observer at the horizon. Its limitations are as instructive. It gives no greybody factors, and it cannot tell an outgoing flux from equilibrium with an incoming bath, since both are regular on the future horizon (Section [4.1](/research/hawking-radiation-review/section-4#41-the-choice-of-state)). Hawking's calculation derives the regularity from the collapse instead of assuming it, and selects the outgoing flux.
 
 ## 3.5 The state of the radiation
 
-What is the quantum state of the field at late times? The analyticity argument of Section [3.3](#33-the-bogoliubov-coefficients) shows that the relevant positive-frequency combinations mix out-modes with modes that propagate into the black hole, which we shall call partner modes. Exactly as in Eq. (2.17), the in-vacuum can then be written, for each late-time mode, as
+We now ask for the late-time state itself, not only for the number of quanta. The analyticity argument of Section [3.3](#33-the-bogoliubov-coefficients) combined each out-mode with its mirror image on $v > v_{0}$. Followed forwards in time, the mirror image is a mode that travels into the black hole; we call it the partner mode. Exactly as in Eq. (2.17), the in-vacuum can be written, for each late-time mode, as
 
 $$
 {\lvert 0_{\mathrm{in}} \rangle} \propto \sum_{n=0}^{\infty} e^{-\pi n\omega/\kappa}\,{\lvert n_{\omega} \rangle}_{\mathrm{out}}\otimes{\lvert n_{\omega} \rangle}_{\mathrm{partner}}.
 \tag{3.8}
 $$
 
-The state is pure, but each outgoing quantum is entangled with a partner quantum behind the horizon. An observer outside the black hole has no access to the partners, and must describe the radiation by the reduced density matrix obtained by tracing them out, which is exactly thermal. This was shown rigorously by Wald (1975) and, independently, by Parker (1975), who established that the emitted radiation is described by a thermal density matrix with no correlations between different out-modes. Equation (3.8) is the precise version of the pair picture of Section [1.3](/research/hawking-radiation-review/section-1#13-a-heuristic-picture-and-its-limitations), and it contains the seed of the information problem: if the black hole eventually disappears, the partners disappear with it, and the radiation left behind is in a mixed state (Section [7](/research/hawking-radiation-review/section-7)).
+The state is pure. Each outgoing quantum, however, is entangled with a partner quantum behind the horizon. An observer outside has no access to the partners and must describe the radiation by the reduced density matrix obtained by tracing them out, $\rho_{\omega} = (1 - e^{-\omega/{T_{\mathrm{H}}}})\sum_{n}e^{-n\omega/{T_{\mathrm{H}}}}{\lvert n_{\omega} \rangle}{\langle n_{\omega} \rvert}$, which is exactly thermal. Wald (1975) and, independently, Parker (1975) proved that the radiation is described by a thermal density matrix with no correlations between different out-modes.
+
+Equation (3.8) is the precise version of the pair picture of Section [1.3](/research/hawking-radiation-review/section-1#13-a-heuristic-picture-and-its-limitations). It also contains the seed of the information problem. If the black hole eventually disappears, the partners disappear with it, and the radiation left behind is in a mixed state (Lecture [7](/research/hawking-radiation-review/section-7)).
+
+> **Remark 3.2.**
+>
+> The pair picture invites the misreading that each quantum is created at the horizon, close to its partner. The modes in Eq. (3.8) are not localised in this way: a typical Hawking quantum, with a frequency of a few ${T_{\mathrm{H}}}$, has a wavelength of some tens of Schwarzschild radii (Remark 5.1).
 
 ## 3.6 Energy, area, and entropy
 
-The emission of positive energy to infinity must be balanced by a loss of mass. At the level of the renormalised stress-energy tensor, the outgoing flux at infinity is accompanied by a flux of negative energy across the horizon (Section [4.3](/research/hawking-radiation-review/section-4#43-the-stress-energy-tensor-and-the-trace-anomaly)), and the area of the horizon decreases. This does not contradict the area theorem of Hawking (1971a), since the renormalised stress-energy tensor of the quantum field violates the null energy condition near the horizon. It does, however, imply that the area theorem cannot be the fundamental statement; its role is taken over by the generalised second law, which remains valid because the entropy of the emitted radiation more than compensates the decrease of the black hole entropy (Bekenstein, 1974; Wald, 2001).
+Positive energy carried to infinity must be paid for by a loss of mass. The outgoing flux at infinity is accompanied by a flux of negative energy across the horizon (Section [4.3](/research/hawking-radiation-review/section-4#43-the-stress-energy-tensor-and-the-trace-anomaly)), and the area decreases. This does not contradict the area theorem of Hawking (1971a), because the renormalised stress-energy tensor violates the null energy condition near the horizon. It does mean that the area theorem is not fundamental. Its place is taken by the generalised second law, which survives because the entropy of the radiation more than compensates the loss of black hole entropy (Bekenstein, 1974; Wald, 2001).
 
-With the temperature identified, the first law (2.4) fixes the entropy. For a Schwarzschild black hole, ${\mathrm{d}} S = {\mathrm{d}} M/{T_{\mathrm{H}}} = 8\pi M\,{\mathrm{d}} M$, which integrates to $S = 4\pi M^{2} = A/4$, the Bekenstein–Hawking entropy (1.2). The resulting thermodynamics has a peculiar feature. Since ${T_{\mathrm{H}}} \propto 1/M$, the heat capacity
+Once the temperature is known, the first law (2.4) fixes the entropy. For a Schwarzschild black hole ${\mathrm{d}} S = {\mathrm{d}} M/{T_{\mathrm{H}}} = 8\pi M\,{\mathrm{d}} M$, which integrates to $S = 4\pi M^{2} = A/4$, the Bekenstein–Hawking entropy (1.2). The constant of integration is set to zero by requiring $S \to 0$ as $M \to 0$, an assumption that the semiclassical calculation cannot check. The resulting thermodynamics is peculiar. Since ${T_{\mathrm{H}}} \propto 1/M$, the heat capacity
 
 $$
 C = \frac{{\mathrm{d}} M}{{\mathrm{d}}{T_{\mathrm{H}}}} = -8\pi M^{2}
 \tag{3.9}
 $$
 
-is negative. A black hole that loses energy by radiation becomes hotter and radiates faster, and a black hole in contact with an infinite heat bath cannot be in stable equilibrium: if it is slightly hotter than the bath it evaporates, and if it is slightly colder it grows. This instability will reappear in the Euclidean approach (Section [4.2](/research/hawking-radiation-review/section-4#42-euclidean-methods)).
+is negative. A black hole that radiates becomes hotter and radiates faster, and one in contact with an infinite heat bath cannot be in stable equilibrium: slightly hotter than the bath, it evaporates; slightly colder, it grows. The same instability reappears in the Euclidean approach (Section [4.2](/research/hawking-radiation-review/section-4#42-euclidean-methods)).
 
 ## 3.7 Orders of magnitude
 
-It is useful to restore physical units and put in numbers. The Hawking temperature may be written either as ${T_{\mathrm{H}}} \simeq 6.17\times 10^{-8}\,\mathrm{K}\,({M_{\odot}}/M)$ or, in energy units, as $k_{\mathrm{B}}{T_{\mathrm{H}}} \simeq 1.06\,\mathrm{GeV}\,(10^{13}\,\mathrm{g}/M)$. Table 2 lists the temperature, Schwarzschild radius, and approximate lifetime for a range of masses; the lifetimes are derived in Section [5](/research/hawking-radiation-review/section-5). Two conclusions are immediate. First, astrophysical black holes are far colder than the cosmic microwave background, whose temperature is $2.725\,\mathrm{K}$: a black hole is hotter than the background only if its mass is below approximately $4.5\times 10^{22}\,\mathrm{kg}$, somewhat less than the mass of the Moon. Black holes formed by stellar collapse therefore currently absorb more radiation than they emit. Second, black holes with masses below approximately $10^{16}\,\mathrm{g}$ radiate at energies relevant to nuclear and particle physics, and those with masses near $5\times 10^{14}\,\mathrm{g}$ would be completing their evaporation today. Only black holes formed in the early universe could have such masses, which is why the observational search for Hawking radiation is a search for primordial black holes (Section [9](/research/hawking-radiation-review/section-9)).
+Restoring units, the Hawking temperature reads ${T_{\mathrm{H}}} \simeq 6.17\times 10^{-8}\,\mathrm{K}\,({M_{\odot}}/M)$, or, in energy units, $k_{\mathrm{B}}{T_{\mathrm{H}}} \simeq 1.06\,\mathrm{GeV}\,(10^{13}\,\mathrm{g}/M)$. Table 2 gives representative values; the lifetimes are derived in Lecture [5](/research/hawking-radiation-review/section-5).
+
+Two conclusions follow at once. Astrophysical black holes are far colder than the cosmic microwave background, whose temperature is $2.725\,\mathrm{K}$: setting ${T_{\mathrm{H}}} = 2.725\,\mathrm{K}$ in the first formula gives $M \simeq 2.3\times 10^{-8}\,{M_{\odot}} \simeq 4.5\times 10^{22}\,\mathrm{kg}$, somewhat less than the mass of the Moon. Every black hole formed by stellar collapse therefore absorbs more radiation today than it emits. At the other end, black holes lighter than about $10^{16}\,\mathrm{g}$ radiate at nuclear and particle-physics energies, and those near $5\times 10^{14}\,\mathrm{g}$ would be completing their evaporation today. Only the early universe could have made black holes this light, which is why the search for Hawking radiation is a search for primordial black holes (Lecture [9](/research/hawking-radiation-review/section-9)).
 
 | Mass | Example | $r_{\mathrm{s}} = 2GM/c^{2}$ | ${T_{\mathrm{H}}}$ | Lifetime |
 | --- | --- | --- | --- | --- |
@@ -141,14 +151,26 @@ It is useful to restore physical units and put in numbers. The Hawking temperatu
 
 _Table 2: Characteristic scales of Schwarzschild black holes. The lifetimes are order-of-magnitude estimates that depend on the particle species emitted (Section [5.2](/research/hawking-radiation-review/section-5#52-luminosity-mass-loss-and-lifetime)); they neglect accretion, including the absorption of the cosmic microwave background._
 
-> **Summary of the section**
->
-> - The Hawking effect follows from the exponential relation $v_{0} - v \simeq C\,e^{-\kappa u}$ between the advanced time at which a ray leaves ${\mathscr{I}}^{-}$ and the retarded time at which it reaches ${\mathscr{I}}^{+}$.
->
-> - Analyticity then implies $|\beta|^{2} = e^{-2\pi\omega/\kappa}|\alpha|^{2}$, and hence a Planck spectrum at ${T_{\mathrm{H}}} = \kappa/2\pi$, multiplied by greybody factors.
->
-> - The same temperature follows from the Unruh effect near the horizon combined with the Tolman redshift, provided the state is regular across the horizon.
->
-> - The outgoing radiation is entangled with partner modes inside the black hole; its reduced state is exactly thermal.
->
-> - The first law then fixes ${S_{\mathrm{BH}}} = A/4$. The heat capacity of a Schwarzschild black hole is negative, and astrophysical black holes are far colder than the cosmic microwave background.
+## Problems
+
+1. _Surface gravity of a static horizon._ For the metric ${\mathrm{d}} s^{2} = -f(r)\,{\mathrm{d}} t^{2} + {\mathrm{d}} r^{2}/f(r) + r^{2}{\mathrm{d}}\Omega^{2}$ with a simple zero of $f$ at $r_{\mathrm{h}}$, show that near the horizon the tortoise coordinate behaves as $r_{*} \simeq (2\kappa)^{-1}\ln|r - r_{\mathrm{h}}|$ with $\kappa = f'(r_{\mathrm{h}})/2$, and that the radial metric $-f\,{\mathrm{d}} u\,{\mathrm{d}} v$ is regular at $r = r_{\mathrm{h}}$ when written in terms of $U = -\kappa^{-1}e^{-\kappa u}$ and $V = \kappa^{-1}e^{\kappa v}$, so that Eq. (3.2) holds with this $\kappa$. Apply the result to the Reissner–Nordström metric, $f = (1 - r_{+}/r)(1 - r_{-}/r)$, and show that ${T_{\mathrm{H}}} = (r_{+} - r_{-})/(4\pi r_{+}^{2})$, in agreement with the Kerr–Newman formula at $a = 0$.
+
+2. _The ratio from the Fourier integrals._ Up to a common factor, $\alpha_{\omega\omega'}$ and $\beta_{\omega\omega'}$ for the transmitted mode (3.3) are given by $I_{\pm} = \int_{0}^{\infty}{\mathrm{d}} x\,x^{i\omega/\kappa}\,e^{\mp i\omega' x - \epsilon x}$ with $x = v_{0} - v$ and $\epsilon \to 0^{+}$ (the upper sign for $\alpha$). Using $\int_{0}^{\infty}{\mathrm{d}} x\,x^{s-1}e^{-px} = \Gamma(s)\,p^{-s}$ for $\operatorname{Re}p > 0$, with the principal branch of $p^{-s}$, show that $|I_{+}/I_{-}| = e^{\pi\omega/\kappa}$, and hence recover Eq. (3.4).
+
+3. _How soon does the trans-Planckian problem appear?_ Working to logarithmic accuracy, show that a quantum of frequency $\omega \sim {T_{\mathrm{H}}}$ that reaches ${\mathscr{I}}^{+}$ at retarded time $u$ (measured from the formation of the horizon) left ${\mathscr{I}}^{-}$ with a frequency above the Planck mass once $u \gtrsim 4M\ln(8\pi M/{m_{\mathrm{P}}})$. Evaluate this time in seconds for $M = {M_{\odot}}$ and for $M = 5\times 10^{14}\,\mathrm{g}$. (Answers: about $2\,\mathrm{ms}$ and about $2\times 10^{-22}\,\mathrm{s}$.)
+
+4. _The local temperature near the horizon._ Write $r = 2M + \rho^{2}/8M$, so that $\rho$ is the proper distance from the horizon for $\rho \ll M$. Show that the local temperature ${T_{\mathrm{H}}}/\sqrt{f}$ seen by a static observer is $1/(2\pi\rho)$ to leading order, independent of $M$, and that this is the Unruh temperature for the proper acceleration of that observer. Explain why this local thermal bath is consistent with an infalling observer seeing no particles.
+
+5. _Negative heat capacity._ Show that for a Schwarzschild black hole $C = -2{S_{\mathrm{BH}}}$, and evaluate $C$ in $\mathrm{J\,K^{-1}}$ for $M = {M_{\odot}}$ (answer: about $-3\times 10^{54}\,\mathrm{J\,K^{-1}}$). A black hole whose mass is slightly larger than the value in Table 2 for which ${T_{\mathrm{H}}} = T_{\mathrm{CMB}}$ sits in the cosmic microwave background. Ignoring the expansion of the universe and all accretion other than of the background radiation, state whether it grows or shrinks, and whether it moves towards or away from the equilibrium mass.
+
+## Notes and further reading
+
+The original paper, Hawking (1975), is still worth reading in full once the argument of this lecture is familiar; its treatment of wave packets and of the scattering outside the star is more careful than ours, and the short announcement Hawking (1974) shows how quickly the main points were in place. For a first reading we recommend Jacobson (2005), which follows the same route as this lecture with more attention to the near-horizon geometry and to the trans-Planckian question. Birrell and Davies (1982) give the standard textbook account of particle creation by a collapsing body, and Wald (1994) gives the mathematically careful version, including the construction of the state that underlies Eq. (3.8).
+
+On the thermal character of the state, the papers of Wald (1975) and Parker (1975) remain the references; both are short. Brout et al. (1995) is a long but readable primer that is especially good on the partner modes and on the physical interpretation of the pair picture.
+
+[^1]: The announcement was a two-page letter to _Nature_ in March 1974. The detailed paper, submitted the same year, appeared in 1975.
+
+[^2]: References differ in whether $\alpha$ and $\beta$ carry complex conjugates and in the order of their indices. Only moduli enter here, so these conventions do not affect any result of this lecture.
+
+[^3]: Tolman's result is that $T\sqrt{-g_{tt}}$ is constant in a static spacetime in thermal equilibrium.

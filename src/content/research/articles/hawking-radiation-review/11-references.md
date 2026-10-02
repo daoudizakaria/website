@@ -2,7 +2,7 @@
 slug: hawking-radiation-review/references
 title: "References"
 date: 2024-12-01
-summary: "The works cited in the review, with links to their published versions."
+summary: "The works cited in the lectures, with links to their published versions."
 series: hawking-radiation-review
 part: references
 order: 11

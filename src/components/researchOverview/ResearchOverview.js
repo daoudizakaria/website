@@ -56,7 +56,7 @@ export function Overview({ overview, children }) {
 
 /** "Chapter 3: Quantization…", "Section 2: Preliminaries", but "References". */
 export function seriesPartLabel(p) {
-  return /^(Chapter|Appendix|Sections?)\b/.test(p.kicker)
+  return /^(Chapter|Appendix|Sections?|Lectures?)\b/.test(p.kicker)
     ? `${p.kicker}: ${p.name}`
     : p.name;
 }
@@ -64,7 +64,12 @@ export function seriesPartLabel(p) {
 /** Contents of a text split into pages (e.g. the chapters of a thesis). */
 export function SeriesGuide({ parts, urlFor }) {
   if (!parts || parts.length === 0) return null;
-  const unit = /^Section/.test(parts[0].kicker) ? "section" : "chapter";
+  const kicker = parts[0].kicker;
+  const unit = /^Section/.test(kicker)
+    ? "section"
+    : /^Lecture/.test(kicker)
+    ? "lecture"
+    : "chapter";
   return (
     <nav className="series-guide" aria-labelledby="series-guide-title">
       <h2 id="series-guide-title" className="series-guide-title">

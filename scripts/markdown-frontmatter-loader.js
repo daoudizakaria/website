@@ -151,6 +151,9 @@ function getRenderer() {
       const { default: rehypeSanitize, defaultSchema } = sanitize;
       const schema = {
         ...defaultSchema,
+        // remark-rehype already prefixes footnote ids and their links with
+        // "user-content-"; a second prefix here would break the links.
+        clobberPrefix: "",
         attributes: {
           ...defaultSchema.attributes,
           div: [
