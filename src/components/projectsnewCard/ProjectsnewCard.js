@@ -29,6 +29,7 @@ export default function ProjectsnewCard({ pub, theme, size = "regular" }) {
   const tags = (pub.tags || []).slice(0, MAX_TAGS);
   const hasCode = /github\.com/i.test(pub.repo || "");
   const hasPdf = Boolean(pub.paper);
+  const hasDashboard = Boolean(pub.dashboard);
 
   return (
     <div
@@ -98,6 +99,9 @@ export default function ProjectsnewCard({ pub, theme, size = "regular" }) {
                 {pub.hasCaseStudy && <span>{pub.readingMinutes} min read</span>}
                 {hasCode && <span className="projectsnew-fact-chip">Code</span>}
                 {hasPdf && <span className="projectsnew-fact-chip">PDF</span>}
+                {hasDashboard && (
+                  <span className="projectsnew-fact-chip">Dashboard</span>
+                )}
               </span>
               <span className="projectsnew-link-hint">
                 Read more

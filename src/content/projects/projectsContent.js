@@ -99,6 +99,7 @@ function parseProject(parsed, label) {
       : "physics",
     repo: data.repo != null ? String(data.repo) : "",
     paper: data.paper != null ? String(data.paper) : "",
+    dashboard: data.dashboard != null ? String(data.dashboard) : "",
     featured: data.featured === true,
     tags: Array.isArray(data.tags) ? data.tags.map((t) => String(t)) : [],
     year: data.year != null ? String(data.year) : "",

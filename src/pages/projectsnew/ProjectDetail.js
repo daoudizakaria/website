@@ -161,7 +161,17 @@ function ProjectDetail(props) {
 
   const repo = (project.repo || "").trim();
   const paper = (project.paper || "").trim();
+  const dashboard = (project.dashboard || "").trim();
   const actions = [];
+  if (dashboard) {
+    actions.push({
+      href: dashboard.startsWith("/")
+        ? `${process.env.PUBLIC_URL || ""}${dashboard}`
+        : dashboard,
+      label: "Open the interactive dashboard →",
+      shortLabel: "Dashboard",
+    });
+  }
   if (repo) {
     actions.push({
       href: repo,

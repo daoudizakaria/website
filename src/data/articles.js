@@ -82,7 +82,13 @@ const researchInterests = {
       title: "Earth observation and geospatial AI",
       text:
         "Remote sensing and geospatial machine learning: land-cover and urban-growth mapping, monitoring of crops, water and ecosystems, and assessment of map accuracy.",
-      links: [],
+      links: [
+        {
+          kind: "project",
+          slug: "mitidja-farmland-watch",
+          label: "Farmland loss in the Mitidja",
+        },
+      ],
     },
   ],
 };
