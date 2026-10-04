@@ -179,34 +179,83 @@ input[type=number]{width:7em}
   a{color:inherit;text-decoration:none}
 }
 select{max-width:100%}
+
+/* ---------- hero map (layout v2) ---------- */
+.wrap.top{padding-block:28px 22px}
+.wrap.rest{padding-top:36px}
+.hero{background:var(--sunk);border-block:1px solid var(--line)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 380px;height:clamp(540px,calc((100vw - 380px) / 2 + 24px),840px)}
+.leaflet-container .basemap{filter:grayscale(1) contrast(.82) brightness(1.08);opacity:.85}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .leaflet-container .basemap{filter:grayscale(1) invert(1) brightness(.9) contrast(.85)}}
+:root[data-theme="dark"] .leaflet-container .basemap{filter:grayscale(1) invert(1) brightness(.9) contrast(.85)}
+.hero .mapbox{border:0;border-radius:0;height:auto;min-height:0}
+.hero .panel{border:0;border-radius:0;border-inline-start:1px solid var(--line);overflow-y:auto;max-height:100%;padding:22px 22px 26px;gap:16px}
+.hero-card{position:absolute;z-index:600;top:18px;inset-inline-start:18px;width:min(370px,calc(100% - 36px));background:color-mix(in srgb,var(--surface) 95%,transparent);border:1px solid var(--line);border-radius:14px;padding:16px 18px 14px;box-shadow:0 8px 28px rgba(23,32,27,.16);display:grid;gap:7px}
+.hero-card .big{font:850 clamp(2.7rem,4.6vw,3.7rem)/.95 var(--display);font-stretch:82%;color:var(--loss);letter-spacing:-.02em}
+.hero-card .big small{font:650 1.05rem var(--body);color:var(--ink-2);margin-inline-start:6px;letter-spacing:0}
+.hero-card .sub{font-size:.93rem;color:var(--ink-2);max-width:none}
+.hero-card details.more>p{font-size:.86rem}
+.hero-card .go{font:650 .88rem var(--body);text-decoration:none;justify-self:start}
+.hero-card .go:hover{text-decoration:underline}
+.map-ctl{position:absolute;z-index:600;top:18px;inset-inline-end:18px;width:min(440px,calc(100% - 36px));background:color-mix(in srgb,var(--surface) 95%,transparent);border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:0 6px 22px rgba(23,32,27,.13)}
+.map-ctl>summary{cursor:pointer;list-style:none;font:600 .74rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;gap:8px}
+.map-ctl>summary::-webkit-details-marker{display:none}
+.map-ctl>summary::before{content:"";width:14px;height:10px;border-block:2px solid currentColor;box-shadow:inset 0 -4px 0 -2px currentColor;opacity:.8}
+.map-ctl>summary::after{content:"▾";margin-inline-start:auto;font-size:.9rem}
+.map-ctl:not([open])>summary::after{content:"▸"}
+.map-ctl .controls{margin-top:10px;display:grid;gap:9px}
+.map-ctl .controls>div{display:grid;gap:5px}
+.map-ctl .seg{flex-wrap:wrap;display:flex}
+.map-ctl .seg button{flex:1 1 auto;border-bottom:1px solid var(--line);margin-bottom:-1px;padding:6px 10px;font-size:.82rem}
+.map-ctl select{width:100%}
+.cmp-btn{position:absolute;z-index:600;bottom:22px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;font:650 .9rem var(--body);color:#fff;background:rgba(23,32,27,.82);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:9px 18px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28);white-space:nowrap}
+.cmp-btn span{font-family:var(--mono)}
+.cmp-btn:hover{background:rgba(23,32,27,.92)}
+.cmp-btn[aria-pressed="true"]{background:var(--accent);border-color:transparent}
+.hero .maplegend{max-width:min(420px,40%);box-shadow:0 4px 16px rgba(23,32,27,.12)}
+.hero-note{max-width:1240px;margin:0 auto;padding:10px clamp(16px,3vw,32px) 12px;font-size:.84rem;color:var(--muted)}
+.pfig{display:grid;gap:4px;padding:12px 14px;border-radius:10px;background:color-mix(in srgb,var(--loss) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--loss) 22%,var(--line))}
+.pfig .big{font:850 2.5rem/.95 var(--display);font-stretch:82%;color:var(--loss);letter-spacing:-.02em}
+.pfig .big small{font:650 .95rem var(--body);color:var(--ink-2);margin-inline-start:5px;letter-spacing:0}
+.pfig .cap{font-size:.86rem;color:var(--ink-2)}
+.pcmp{display:grid;gap:6px}
+.cmprow{display:grid;grid-template-columns:minmax(0,7.5em) minmax(0,1fr) auto;align-items:center;gap:8px;font-size:.84rem;color:var(--ink-2)}
+.cmprow .track{height:9px;border-radius:5px;background:var(--sunk);overflow:hidden}
+.cmprow .track i{display:block;height:100%;border-radius:5px}
+.cmprow b{font-weight:600;color:var(--ink);white-space:nowrap}
+.hero .panel .dl{grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;font-size:.88rem}
+.hero .panel .dl dd{white-space:nowrap}
+.hero .panel .name{font-size:1.75rem}
+.kpis details.more{padding-top:6px}
+.kpis details.more>p,.kpis details.more>span{display:block;margin-top:6px;font-size:.88rem;color:var(--ink-2)}
+@media (max-width:900px){
+  .hero-in{grid-template-columns:minmax(0,1fr);height:auto;min-height:0}
+  .hero-card{position:static;width:auto;margin:14px clamp(16px,3vw,32px) 12px;box-shadow:var(--shadow)}
+  .hero .mapbox{height:clamp(390px,100vw,560px)}
+  .hero .panel{border-inline-start:0;border-top:1px solid var(--line);max-height:none;overflow:visible}
+  .hero .maplegend{max-width:calc(100% - 20px);bottom:84px;font-size:.74rem;padding:6px 8px}
+  .hero .maplegend .muted{display:none}
+  .hero .leaflet-control-zoom{display:none}
+  .cmp-btn{bottom:36px;font-size:.84rem;padding:8px 14px}
+}
+@media print{.map-ctl,.cmp-btn{display:none!important}.hero-in{height:auto;grid-template-columns:1fr}.hero-card{position:static;box-shadow:none}.hero .mapbox{height:420px}}
 </style>
 
 </head>
 <body>
-<div class="wrap">
+<div class="wrap top">
 <header>
   <div class="toprow"><div class="eyebrow">Mitidja plain · wilayas of Blida, Algiers, Tipaza, Boumerdès · Sentinel-2, 2018–2026</div>
   <span class="langs"><a class="lang" href="mitidja_farmland_watch_fr.html" hreflang="fr" lang="fr">Français</a><a class="lang" href="mitidja_farmland_watch_ar.html" hreflang="ar" lang="ar" dir="rtl">العربية</a></span></div>
   <h1>Mitidja Farmland Watch</h1>
   <p class="lede">Algeria's most fertile plain is being built over. This dashboard answers two questions a planner or an agricultural office has to act on: <strong>where is farmland turning into built-up land, and how fast</strong>, and <strong>where are this season's crops doing worse than their own normal</strong>.</p>
-  <div class="chips" id="chips"></div>
 </header>
-
-<div class="kpis" id="kpis"></div>
-
-<section aria-labelledby="sum-h" id="sum-sec" hidden>
-  <div class="sechead"><h2 id="sum-h">What the evidence shows</h2>
-  <p class="ink2">The main findings, each marked with how far the evidence supports it, with a link to the section that shows the evidence.<span id="sum-date"></span></p></div>
-  <div class="trust-key" id="trust-key"></div>
-  <div class="findings" id="findings"></div>
-</section>
-
-<section aria-labelledby="map-h">
-  <div class="sechead">
-    <h2 id="map-h">The map</h2>
-    <p class="ink2">Click a commune for its figures. Background: our own cloud-free Sentinel-2 composites (10 m, shown at 20 m).</p>
-  </div>
-  <div class="controls">
+</div>
+<div class="hero" id="hero">
+ <h2 id="map-h" class="sr-only">The map</h2>
+ <div class="hero-in">
+  <div class="hero-card" id="hero-card"></div>
+  <div class="mapbox"><div id="map" role="region" aria-label="Map of the Mitidja plain"></div><div class="swipe" id="swipe" hidden><div class="swipe-line" id="swipe-line"></div><button type="button" class="swipe-handle" id="swipe-handle" aria-label="Drag, or use the arrow keys, to compare spring 2018 (left) with spring 2026 (right)">⇔</button><span class="swipe-lab l">2018</span><span class="swipe-lab r">2026</span></div><div class="maplegend" id="maplegend"></div><details class="map-ctl" id="map-ctl"><summary>Map layers</summary><div class="controls">
     <div><span class="ctl-label">Imagery</span><span class="seg" id="seg-base" role="group" aria-label="Background imagery"><button type="button" data-v="rgb2018" aria-pressed="false">Spring 2018</button><button type="button" data-v="rgb2026" aria-pressed="true">Spring 2026</button><button type="button" data-v="swipe" aria-pressed="false">Compare 2018 | 2026</button></span></div>
     <div><span class="ctl-label">Layer</span><span class="seg" id="seg-layer" role="group" aria-label="Map layer"><button type="button" data-v="change" aria-pressed="true">Farmland lost</button><button type="button" data-v="lc2018" aria-pressed="false">Land cover 2018</button><button type="button" data-v="lc2026" aria-pressed="false">Land cover 2026</button><button type="button" data-v="stress_spring" aria-pressed="false">Stress · spring</button><button type="button" data-v="stress_summer" aria-pressed="false">Stress · summer</button><button type="button" data-v="agree" aria-pressed="false" id="btn-agree" hidden>Model agreement</button><button type="button" data-v="year" aria-pressed="false" data-need="year" hidden>Year of loss</button><button type="button" data-v="typology" aria-pressed="false" data-need="typology" hidden>Loss types</button><button type="button" data-v="watch" aria-pressed="false" data-need="watch" hidden>Watchlist</button><button type="button" data-v="risk" aria-pressed="false" data-need="risk" hidden>Risk 2026–31</button><button type="button" data-v="none" aria-pressed="false">None</button></span></div>
     <div><label class="ctl-label" for="choro">Communes</label><select id="choro">
@@ -218,12 +267,22 @@ select{max-width:100%}
       <option value="summer_stressed_pct">Stressed farmland, summer (%)</option>
       <option value="spring_stressed_pct">Stressed farmland, spring (%)</option>
     </select></div>
-  </div>
-  <div class="mapgrid">
-    <div class="mapbox"><div id="map" role="region" aria-label="Map of the Mitidja plain"></div><div class="swipe" id="swipe" hidden><div class="swipe-line" id="swipe-line"></div><button type="button" class="swipe-handle" id="swipe-handle" aria-label="Drag, or use the arrow keys, to compare spring 2018 (left) with spring 2026 (right)">⇔</button><span class="swipe-lab l">2018</span><span class="swipe-lab r">2026</span></div><div class="maplegend" id="maplegend"></div></div>
-    <aside class="panel" id="panel" aria-live="polite"></aside>
-  </div>
+  </div></details><button type="button" class="cmp-btn" id="cmp-btn" aria-pressed="false"></button></div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+ </div>
+ <p class="hero-note">Click a commune for its figures. Background: our own cloud-free Sentinel-2 composites (10 m, shown at 20 m).</p>
+</div>
+<div class="wrap rest">
+
+<div class="kpis" id="kpis"></div>
+
+<section aria-labelledby="sum-h" id="sum-sec" hidden>
+  <div class="sechead"><h2 id="sum-h">What the evidence shows</h2>
+  <p class="ink2">The main findings, each marked with how far the evidence supports it, with a link to the section that shows the evidence.<span id="sum-date"></span></p></div>
+  <div class="trust-key" id="trust-key"></div>
+  <div class="findings" id="findings"></div>
 </section>
+
 
 <section aria-labelledby="loss-h">
   <div class="sechead">
@@ -301,6 +360,7 @@ select{max-width:100%}
 </section>
 
 <section aria-labelledby="meth-h">
+  <div class="chips" id="chips"></div>
   <div class="sechead"><h2 id="meth-h">How it was built, and its limits</h2></div>
   <div class="method" id="method"></div>
 </section>
@@ -383,13 +443,70 @@ $("#kpis").innerHTML = `
    <span class="v num">${fmt(farmStress, 0)}<small>% summer</small></span>
    <span class="s">${fmt(farmStressSp, 0)}% in spring · share of cropland and orchards more than 1 SD below its own 2019–25 normal${HZT ? ` (summer ${HZT})` : ""}${SB ? `. In an ordinary year about ${fmt(SB.spring.typical_year_pct)}% (spring) and ${fmt(SB.summer.typical_year_pct)}% (summer) are, so 2026 is a good year` : ""}</span></div>`;
 
+
+/* ---------- layout v2: hero card, compact KPI tiles, commune card ---------- */
+function heroAndKpis() {
+  const lead = $("#kpis .kpi.lead"), card = $("#hero-card"); if (!lead || !card) return;
+  const eb = lead.querySelector(".eyebrow"), v = lead.querySelector(".v"), s = lead.querySelector(".s");
+  const segs = s ? s.textContent.split(" · ") : [];
+  const short = segs.length > 1 ? `${segs[0].split(" (")[0]} · ${segs[1]}` : (segs[0] || "");
+  card.innerHTML = `${eb ? eb.outerHTML : ""}<div class="big num">${v ? v.innerHTML : ""}</div><p class="sub">${esc(short)}</p>`
+    + (s ? `<details class="more"><summary>Details</summary><p class="sub">${s.innerHTML}</p></details>` : "")
+    + `<a class="go" href="#sum-h">${esc($("#sum-h").textContent)} ↓</a>`;
+  lead.remove();
+  document.querySelectorAll("#kpis .kpi").forEach(k => {
+    const s = k.querySelector(".s"); if (!s) return;
+    const t = s.textContent, i = t.indexOf(" · "), sh = i > 0 && i <= 40 ? t.slice(0, i) : "";
+    const d = document.createElement("details"); d.className = "more"; d.innerHTML = "<summary>Details</summary>";
+    s.replaceWith(d); d.appendChild(s);
+    if (sh) d.insertAdjacentHTML("beforebegin", `<span class="s">${esc(sh)}</span>`);
+  });
+}
+heroAndKpis();
+requestAnimationFrame(() => { const go = document.querySelector("#hero-card .go"); if (go && $("#sum-sec").hidden) go.remove(); });
+function enhancePanel(p) {
+  const P = $("#panel"), dl = P.querySelector(".dl"); if (!dl) return;
+  const adj = p.adj_loss_ha != null;
+  const lossDd = [...dl.querySelectorAll("dd")].find(d => (d.getAttribute("style") || "").includes("--loss"));
+  const share = adj ? p.adj_share_pct : p.agri_loss_pct;
+  const plainShare = V && V.share_of_2018_farmland_lost != null ? 100 * V.share_of_2018_farmland_lost : pctLost;
+  let h = "", shareLabel = "";
+  if (lossDd) {
+    const dt = lossDd.previousElementSibling, sdt = lossDd.nextElementSibling;
+    shareLabel = sdt ? sdt.textContent : "";
+    h += `<div class="pfig"><div class="big num">${fmt(adj ? p.adj_loss_ha : p.agri_to_built_ha)}<small>ha</small></div>`
+      + `<div class="cap">${dt.innerHTML}${adj ? ` <span class="muted">(${fmt(p.adj_lo)}–${fmt(p.adj_hi)})</span>` : ""}</div></div>`;
+    dt.remove(); lossDd.remove();
+  }
+  if (share != null && plainShare) {
+    const mx = Math.max(share, plainShare) * 1.12;
+    h += `<div class="pcmp"><div class="eyebrow">${esc(shareLabel)}</div>`
+      + [["This commune", share, "var(--loss)"], ["Whole plain", plainShare, "var(--built)"]].map(([n, x, c]) =>
+        `<div class="cmprow"><span>${n}</span><span class="track"><i style="width:${(100 * x / mx).toFixed(1)}%;background:${c}"></i></span><b class="num">${fmt(x, 1)}%</b></div>`).join("") + `</div>`;
+  }
+  const tdt = [...dl.querySelectorAll("dt")].find(d => /\d{4}\s*[–-]\s*\d{2,4}[^→]*→/.test(d.textContent));
+  if (tdt && p.early_ha_per_yr != null) {
+    const yrs = tdt.textContent.match(/\d{4}\s*[–-]\s*\d{2,4}/g) || ["", ""];
+    const mx = Math.max(p.early_ha_per_yr, p.late_ha_per_yr) * 1.12 || 1;
+    h += `<div class="pcmp"><div class="eyebrow">${esc(tdt.textContent.replace(/^\s*·\s*/, ""))}</div>`
+      + [[yrs[0], p.early_ha_per_yr, "var(--built)"], [yrs[1], p.late_ha_per_yr, "var(--loss)"]].map(([n, x, c]) =>
+        `<div class="cmprow"><span class="num">${n}</span><span class="track"><i style="width:${(100 * x / mx).toFixed(1)}%;background:${c}"></i></span><b class="num">${fmt(x, 1)} ha/yr</b></div>`).join("") + `</div>`;
+  }
+  dl.insertAdjacentHTML("beforebegin", h);
+  const note = [...P.children].filter(e => e.tagName === "P").pop();
+  if (note) { const d = document.createElement("details"); d.className = "more"; d.innerHTML = "<summary>How these figures are made</summary>"; note.replaceWith(d); d.appendChild(note); }
+}
+
 /* ---------- map ---------- */
 if (window.__noLeaflet) $("#map").innerHTML = '<p style="padding:16px;color:var(--muted)">The interactive map needs an internet connection (it loads the Leaflet library). The rest of the page works offline.</p>';
 const map = L.map("map", {zoomSnap: 0.25, minZoom: 9, maxZoom: 16, attributionControl: true, preferCanvas: false});
 map.attributionControl.setPrefix(false).addAttribution("Contains modified Copernicus Sentinel-2 data 2018–2026 · ESA WorldCover · geoBoundaries (OSM)");
+
+map.zoomControl.setPosition("bottomright");
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, className: "basemap", attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 const B = L.latLngBounds(D.bounds);
 map.fitBounds(B); map.setMaxBounds(B.pad(0.15));
-requestAnimationFrame(() => { map.invalidateSize(); map.fitBounds(B, {padding: [2, 2]}); });
+requestAnimationFrame(() => { map.invalidateSize(); map.fitBounds(B, {padding: [2, 2]}); if (matchMedia("(max-width: 900px)").matches) map.setView(B.getCenter(), map.getBoundsZoom(B, true)); });
 if (window.ResizeObserver) new ResizeObserver(() => map.invalidateSize()).observe($("#map"));
 const base = {}, over = {};
 ["rgb2018", "rgb2026"].forEach(k => base[k] = L.imageOverlay(D.layers[k], B, {interactive: false}));
@@ -420,6 +537,13 @@ seg("#seg-base", v => {
   else { curBase = v; base[v].addTo(map).bringToBack(); }
   clipSwipe();
 });
+{
+  const sb = document.querySelector('#seg-base button[data-v="swipe"]'), cb = $("#cmp-btn");
+  cb.innerHTML = `<span aria-hidden="true">⇔</span>${esc(sb.textContent)}`;
+  const sync = () => cb.setAttribute("aria-pressed", String(swipeOn));
+  cb.addEventListener("click", () => { (swipeOn ? document.querySelector(`#seg-base button[data-v="${curBase}"]`) : sb).click(); sync(); });
+  $("#seg-base").addEventListener("click", () => setTimeout(sync));
+}
 map.on("move zoom zoomend viewreset resize", () => { if (swipeOn) requestAnimationFrame(clipSwipe); });
 {
   const h = $("#swipe-handle"), box = document.querySelector(".mapbox");
@@ -444,6 +568,7 @@ function styleF(f) { const p = f.properties, sel = selected && p.cid === selecte
   return {color: sel ? css("--accent") : "#ffffff", weight: sel ? 3 : 1, opacity: sel ? 1 : 0.75, fillColor: fill, fillOpacity: choro === "outline" ? 0 : 0.72}; }
 const comLayer = L.geoJSON(D.communes, {style: styleF, onEachFeature: (f, l) => {
   l.on("click", () => select(f.properties));
+  l.on("mouseover", () => l.setStyle({weight: 2.5, color: css("--accent"), opacity: 1})); l.on("mouseout", () => l.setStyle(styleF(f)));
   l.on("mouseover", e => showTip(`<b>${esc(f.properties.shapeName)}</b><br>${esc(f.properties.wilaya || "")}<br>Farmland lost: ${f.properties.adj_loss_ha != null ? `${fmt(f.properties.adj_loss_ha)} ha (${fmt(f.properties.adj_lo)}–${fmt(f.properties.adj_hi)}), error-adjusted` : `${fmt(f.properties.agri_to_built_ha)} ha (${fmt(f.properties.agri_loss_pct, 1)}%)`}`, e.originalEvent));
   l.on("mousemove", e => moveTip(e.originalEvent)); l.on("mouseout", hideTip); }}).addTo(map);
 $("#choro").addEventListener("change", e => { choro = e.target.value; breaks = choro === "outline" ? [] : quantiles(feats.map(p => p[choro]), 5); comLayer.setStyle(styleF); legend(); });
@@ -489,6 +614,7 @@ function select(p) {
    <dt class="muted">· summer, field crops</dt><dd class="muted">${fmt(p.summer_cropland_stressed_pct, 0)}%</dd>
   </dl>
   <p class="muted" style="font-size:.82rem">Areas are counted inside the study area only. ${p.adj_loss_ha != null ? `The error-adjusted loss corrects the map with the error rates measured by the reference sample, cell by cell (sampling stratum × what the map shows); the first interval covers sampling error only, the second adds a commune-level model error; both assume the map errs at the same rate in every commune, which can be checked for wilayas and groups of communes but not for one commune. The other loss figures (by former use, pace) are map counts` : "Loss figures are map counts"}${V ? `: ${countWord(RATIO)}${PARTS}, so multiply by about ${RATIO.toFixed(2)} for an indicative real area. The plain as a whole lost ${fmt(100 * S.agri_to_built_2018_2026 / S.plain_agri_2018, 1)}% of its farmland on the same map basis` : " until the validation sample is labelled"}. Stress shares cover cropland and orchards only.</p>`;
+  enhancePanel(p);
 }
 
 /* ---------- ranking bars ---------- */
